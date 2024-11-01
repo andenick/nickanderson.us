@@ -1,0 +1,16 @@
+name: "Nick Anderson"
+navbar:
+  title: "Nick Anderson"
+  left:
+    - text: "Home & General"
+      href: index.html
+    - text: "Economic History"
+      href: economichistory.html
+    - text: "Data"
+      href: data.html
+    - text: "About"
+      href: about.html
+    - text: "Contact"
+      href: contact.html
+      
+output_dir: "docs"

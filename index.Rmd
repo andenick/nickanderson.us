@@ -1,0 +1,92 @@
+---
+title: "Nick Anderson"
+output: html_document
+theme: null
+---
+
+# **Welcome, here are some projects of mine**
+
+This site is relatively new. The only pages that are populated as of the writing of this message are Economic History and Data. My only papers are on the Economic History page. 
+
+[Economic History](https://www.nickanderson.us/economichistory.html)
+
+Here are some other projects of mine:
+[Economics at the New School - 2024.08.26 Draft](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing)
+
+[HMDA Data Processing Code (with Data)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing)
+
+Fair warning on the HMDA Data Processing - this is not a perfect replication package, so you will need to do some adjustment with your own filepaths if you run the code. Also, these files are large, so a laptop may not have the RAM necessary to run the code to process the data. 
+
+The outputs of the data are in the Shiny folder below. The Shiny Application uses the "here" package in R, which automatically handles the working directories and data loads, so it is more likely to function when you download the file and run it in RStudio.  
+
+[HMDA Explore Shiny Application](https://andenick.shinyapps.io/HMDAExplore/)
+
+[HMDA Explore Shiny Code](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
+
+Thank you and let me know if you have any questions!
+
+Nick
+
+
+
+
+Last compiled: `r Sys.Date()`
+
+
+
+
+<!-- </div> -->
+<!-- <div class="col-sm-6"> -->
+
+
+
+<!-- </a> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.title {
+  display: none;
+}
+
+.navbar-default {
+    background-color: #640000 !important;
+    
+}
+
+<!-- .navbar-nav { -->
+<!--   color:white !important; -->
+
+<!-- } -->
+
+.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+    font-weight: 150;
+}
+
+.navbar-nav > .active > a { 
+    background-color: #006400 !important;
+    font-weight: 175;
+}
+
+#getting-started img {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">

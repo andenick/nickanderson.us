@@ -1,0 +1,55 @@
+---
+title: "Data"
+output: html_document
+---
+
+Every economist is responsible for their own data. 
+
+Here is mine:
+
+[Duration and Public Finance](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
+
+[Tax Revenue Cyclicality](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
+
+
+
+
+<style type="text/css">
+.title {
+  display: none;
+}
+
+.navbar-default {
+    background-color: #640000 !important;
+    
+}
+
+<!-- .navbar-nav { -->
+<!--   color:white !important; -->
+
+<!-- } -->
+
+.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+    font-weight: 150;
+}
+
+.navbar-nav > .active > a { 
+    background-color: #006400 !important;
+    font-weight: 175;
+}
+
+#getting-started img {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
