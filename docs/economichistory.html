@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Economic History</title>
+
+<script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nick Anderson</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="economichistory.html">Economic History</a>
+</li>
+<li>
+  <a href="investing.html">Investing</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Economic History</h1>
+
+</div>
+
+
+<div id="duration-and-public-finance" class="section level1">
+<h1>Duration and Public Finance</h1>
+<div id="duration-and-public-finance-in-the-united-states-2001-2023"
+class="section level2">
+<h2><strong>Duration and Public Finance in the United States,
+2001-2023</strong></h2>
+<div id="by-nick-anderson" class="section level4">
+<h4>By Nick Anderson</h4>
+</div>
+<div id="dated-2023.05.19" class="section level4">
+<h4>Dated 2023.05.19</h4>
+</div>
+<div id="introduction" class="section level3">
+<h3>1. Introduction</h3>
+<p>The United States Treasury Market is a vital funding mechanism for
+federal government expenditures and has evolved considerably and
+unpredictably over the last century. This paper focuses on two aspects:
+the debt issuance of the U.S. Federal Government and the duration of
+those securities.</p>
+<p>This story is told by the Monthly Statements of the Public Debt. The
+United States Treasury has published this on the last day of every month
+since January of 2001. The novel analysis involved in the writing of
+this paper involved calculating the bond value and duration for each
+unique CUSIP (security identification code) of federal government
+security that has been outstanding since 2001. Because the focus of this
+paper is on the impact of duration on the Treasury Market, this paper
+focuses on the only marketable fixed rate treasuries. Floating rate
+treasuries have durations that are less stable over time and in some
+cases less sensitive to interest rate changes.</p>
+<p>The paper then zooms in on three time periods with interesting debt
+dynamics: the Great Financial Crisis, the 2010’s, and the Coronavirus
+Pandemic. This is followed by the author’s conclusions.</p>
+</div>
+<div id="the-treasury-market-and-the-deficit" class="section level3">
+<h3>2. The Treasury Market and the Deficit</h3>
+<p>For the period 2019-2022, the government has borrowed an additional
+$983B to $3.1 Trillion a year in order to finance the spending
+activities of the U.S. Federal Government. Over the same period, these
+deficit amounts have amounted to between 13% and 34% of total Government
+spending. This is at a time where government spending is between 20% and
+30% of Gross Domestic Product. The deficit spending in these years was
+between 5% and 15% of Gross Domestic Product. To restate, new government
+borrowing has recently accounted for at least 5% of Gross Domestic
+Product for the past four years.</p>
+<p>This new debt has contributed for over forty years to the massive
+accumulation of the stock of Treasury debt since 1980. This existing
+debt comes with an additional obligation. In addition to the new debt
+necessary to fund the U.S. Federal Government, the United States is
+required to refinance over $1 Trillion of treasuries a month, resulting
+in a significant continuous amount of additional borrowing in the market
+for Treasuries. The United States has no choice but to refinance or
+default, implying the vital importance of the Treasury market in the
+continued functioning of the economy of the United States.</p>
+<p>Below, <strong>Figure 1</strong> depicts the stocks outstanding of
+U.S. Treasuries by Years to Maturity with data from the Treasury and
+<strong>Figure 2</strong> depicting aggregate treasury issuance from
+April 2022 to April 2023.</p>
+<div id="figure-1" class="section level4">
+<h4><strong>Figure 1</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="figure-2" class="section level4">
+<h4><strong>Figure 2</strong></h4>
+<p><img src="DaPF-F2.jpg" /></p>
+<p><strong>Figure 3</strong> depicts the percentage of Treasury
+securities by their maturities.</p>
+</div>
+<div id="figure-3" class="section level4">
+<h4><strong>Figure 3</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>A few notes on the figures above: 1. <strong>Figure 1</strong>
+displays the meteoric rise in the stock of treasury debt
+outstanding.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>Figure 1</strong> also resembles a dataset with multiple
+structural breaks. There are differences in the growth of the stock of
+debt demarcated by the years 2008 and 2020, reflecting the economic
+turmoil and stimulus surrounding the Great Financial Crisis and
+Coronavirus Pandemics respectively.</p></li>
+<li><p><strong>Figure 2</strong> evidences that because Treasury Bills
+have the shortest maturities, they require the lions share of the
+refinancing. This is expected.</p></li>
+<li><p>If we sum the columns of <strong>Figure 2</strong> we would find
+that the government’s gross issuance of treasuries last year was $18.325
+Trillion.</p></li>
+<li><p><strong>Figure 3</strong> reflects the crisis story in note 2
+above. There are spikes in the issuance of shorter duration securities
+and securities in general, implying that the U.S. Federal Government
+relies on the market for short duration Treasuries in times of
+crisis.</p></li>
+<li><p>We will review the implications of the above figures in more
+detail in later sections.</p></li>
+</ol>
+<p>With several exceptions , the U.S. Federal Government has not had a
+problem issuing this debt to the public and foreign investors. However,
+despite constant discussion of the size and sustainability of the
+deficit, both the size of the budget deficit and the stock of debt have
+continued to increase. There are many theories of public finance which
+hold both that the government can never default on its debt and
+alternatively that the government is like a household and can default on
+its debt. The purpose of this paper is not to discuss the feasibility or
+correctness of any theories of public finance, but rather to examine the
+composition and evolution of the outstanding stock of treasury
+securities. The government, like all other actors in a financialized
+economy, has the prerogative to make decisions about the composition of
+its balance sheet, and these financing decisions have implications for
+both the public and private sectors.</p>
+</div>
+</div>
+<div id="duration" class="section level3">
+<h3>3. Duration</h3>
+<p>85 years ago, Frederick R. Macaulay published his 1938 study of
+railroad bond prices entitled <em>Some Theoretical Problems Suggested by
+the Movements of Interest Rates, Bond Yields, and Stock Prices in the
+United States since 1856</em>, in which he proposed the measure of
+duration to represent the average maturity of a series of cash flows
+(Weil, 1973). This contribution to the theory and practice of finance
+has since become a dominant concept in professional money management
+taught in business schools across the country.</p>
+<p>The duration of a bond is an easily calculable mathematical concept,
+calculated as the weighted average of the sum of the Present Values of
+the remaining cash flows for a particular security. Duration is
+expressed in years and, because bonds whose cash flows are further into
+the future are more uncertain and thus discounted more heavily by an
+increase in interest rates. In <strong>Figure 4</strong> below, the
+duration of two different types of fixed income securities is calculated
+as an example. This is also called the Macaulay Duration of a
+security.</p>
+<div id="figure-4" class="section level4">
+<h4><strong>Figure 4</strong></h4>
+<p><strong>Figure 4: Example Duration Calculation for a 5% Coupon Bond
+versus an Annuity</strong> <img src="DaPF-F4.jpg" /></p>
+<p>This figure reflects the payment schedule for two bonds paying out
+over five years. The 5% Coupon bond pays the calculated coupon payment
+for five years and returns its principal at the end of that period. The
+annuity pays an equal payment for all five years. As the annuity pays
+out more evenly over the five-year period, unlike the heavily back-end
+concentrated coupon bond, the duration of the annuity is 2.903 years and
+the duration of the coupon bond is 4.546 years.</p>
+<p>Because of the relationship between the duration of securities and
+the growing magnitude of their discounts over time, duration is often
+used as a measure of interest rate risk. Using a formula entitled a
+“duration approximation” because it is not an exact measure of interest
+rate sensitivity, investors can estimate the change in the value of
+their fixed income securities using the duration of those
+securities.</p>
+<p>The duration approximation equation in <strong>Figure 5</strong>
+estimates the change in the price of the security given the duration of
+the security, the change in the market yield of the security, and the
+current yield to maturity of the security. <strong>Figure 6</strong>
+below applies the duration approximation equation to the two securities
+above and compares them to actual changes in market value.</p>
+<p><strong>Figure 5: The Duration Approximation Equation</strong></p>
+<p>Change in $ Price = -(Macaulay Duration) * Change in Market Yield /
+(1 + Yield to Maturity)</p>
+</div>
+<div id="figure-6" class="section level4">
+<h4><strong>Figure 6</strong></h4>
+<p><img src="DaPF-F6.jpg" /></p>
+<p>As demonstrated by the Duration Approximation and Actual Change
+columns above, the Approximation is a close estimator of the actual
+change in market value.</p>
+<p>In practice, contemporary fixed income money managers keep dashboards
+that record and display the duration of their portfolios. At both money
+managers and market making firms, investors regularly have “duration
+limits” to their position sizes and feverishly keep track of the
+duration of all the securities they own, along with the duration of
+their aggregate portfolio. The impetus of this paper is to apply the
+investment management concept of duration to the field of public finance
+and, more specifically, the government’s issuance of massive amounts of
+securities, and thus massive amounts of duration.</p>
+</div>
+</div>
+<div id="aggregate-duration-in-the-treasury-market"
+class="section level3">
+<h3>4. Aggregate Duration in the Treasury Market</h3>
+<p>The inspiration for this paper lies in the author’s thirst for
+measures of the aggregate duration in the treasury market and the
+evolution of this statistic over time. As discussed in section 2 above,
+the treasury market is a vital funding mechanism for the U.S. Federal
+Government, and all of those trillions of dollars of securities hold
+some measure of interest rate risk that affects the willingness of
+investors to hold those securities. Figure 7 displays the aggregate
+duration approximation of the treasury market, colored by years to
+maturity.</p>
+<div id="figure-7" class="section level4">
+<h4><strong>Figure 7</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><strong>Figure 7</strong> stands in complement to <strong>Figure
+1</strong>, as <strong>Figure 7</strong> represents the aggregate
+duration outstanding of the stock of debt reflected in <strong>Figure
+1</strong>.</p>
+<p>Given what we established above regarding the increased interest rate
+sensitivity of securities with longer durations, the outsized
+contribution of securities with 20+ years (and more recently, 12-20
+years) to the aggregate duration of the outstanding marketable, fixed
+rate treasuries is expected, but still jarring in magnitude.</p>
+<p>Another interesting aspect of the historical development of the
+aggregate duration in the treasury market relates to timing: beginning
+around the Great Financial Crisis, the Obama and Trump administrations
+elected to issue significantly more 20+ year duration treasuries which,
+although they never reached more than 15% of the notional debt
+outstanding, the aggregate duration of 20+ year securities exceeded 50%
+of aggregate duration in 2017. This is a demonstration of the outsized
+duration contribution of the longest duration securities we would expect
+intuitively.</p>
+<p><strong>Figure 7</strong> reveals the same story when graphed as
+percentages of the total Duration in the market, as in <strong>Figure
+8</strong> below.</p>
+</div>
+<div id="figure-8" class="section level4">
+<h4><strong>Figure 8</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Now that we have surveyed the entire dataset available for the
+outstanding debt of the U.S. Federal Government, we will inspect a few
+time periods more closely below.</p>
+</div>
+</div>
+<div id="study-1-the-treasury-stock-during-the-great-financial-crisis"
+class="section level3">
+<h3>5. Study 1 – the Treasury Stock during the Great Financial
+Crisis</h3>
+<div id="figure-9" class="section level4">
+<h4><strong>Figure 9</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>The above <strong>Figure 9</strong> displays the debt stock during
+the most volatile years of the Great Financial Crisis. As the government
+decided to borrow to stimulate the economy in the second half of 2009,
+they relied heavily on the issuance of short-duration treasuries,
+evidenced by the growing proportion of the total debt stock in
+securities that expire in less than 1 year in <strong>Figure 10</strong>
+below.</p>
+<p>Over time, however, the government rebalanced back towards longer
+duration securities. As we will note below, this begins a period in
+which the government issued an outsized amount of longer duration
+securities during the Obama and Trump administrations.</p>
+</div>
+<div id="figure-10" class="section level4">
+<h4><strong>Figure 10</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><strong>6. Study 2 – Duration during the Obama and Trump
+Administrations</strong></p>
+<p>Following the Great Financial Crisis and the passage of Obamacare,
+the national debt rose considerably faster than before, over doubling
+between 2010 and 2020. At the same time, the U.S. Federal Government
+also increased its issuance of 20+ year securities to finance this
+additional deficit spending. The stocks of these debts are in
+<strong>Figure 11</strong> below.</p>
+</div>
+<div id="figure-11" class="section level4">
+<h4><strong>Figure 11</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><strong>Figure 12</strong> demonstrates that rapid rise in duration
+outstanding with the issuance of those longer duration securities.
+<strong>Figure 13</strong> displays these as a percentage of total
+aggregate duration.</p>
+</div>
+<div id="figure-12" class="section level4">
+<h4><strong>Figure 12</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="figure-13" class="section level4">
+<h4><strong>Figure 13</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><strong>7. Study 3 – the Treasury Stock during the Coronavirus
+Pandemic</strong></p>
+<p>During the Coronavirus Pandemic, the stock of the national debt
+fluctuated in the same manner as during the Great Financial Crisis.
+<strong>Figures 14 and 15</strong> describe that stock of debt.</p>
+</div>
+<div id="figure-14" class="section level4">
+<h4><strong>Figure 14</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="figure-15" class="section level4">
+<h4><strong>Figure 15</strong></h4>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><strong>9. Conclusions</strong></p>
+<p>The outstanding stock of the national debt has grown exponentially
+over the past four decades and is not displaying signs of slowing down.
+With the increased stock of debt comes massive amounts of interest rate
+risk that can be measured in duration.</p>
+<p>In addition to displaying the development of that national debt
+stock, this paper describes the fluctuations and composition of the
+total amounts of duration risk outstanding in the U.S. Treasury Market.
+This topic merits considerable further research and this author looks
+forward to pursuing this additional research.</p>
+<p><strong>Bibliography</strong></p>
+<p>FRED Deficit Dataset. Federal Reserve Bank of St. Louis, March 8,
+2023. <a href="https://fred.stlouisfed.org/series/FYFSD"
+class="uri">https://fred.stlouisfed.org/series/FYFSD</a>.</p>
+<p>FRED Expenditures Dataset. Federal Reserve Bank of St. Louis, March
+8, 2023. <a href="https://fred.stlouisfed.org/series/W068RC1A027NBEA"
+class="uri">https://fred.stlouisfed.org/series/W068RC1A027NBEA</a>.</p>
+<p>FRED GDP Dataset. Federal Reserve Bank of St. Louis, March 8, 2023.
+<a href="https://fred.stlouisfed.org/series/GDPA"
+class="uri">https://fred.stlouisfed.org/series/GDPA</a>.</p>
+<p>Securities Industry and Financial Markets Association (SIFMA). “US
+Treasury Securities Statistics.” SIFMA website, <a
+href="https://www.sifma.org/resources/research/us-treasury-securities-statistics/"
+class="uri">https://www.sifma.org/resources/research/us-treasury-securities-statistics/</a>.
+Accessed May 20, 2023.</p>
+<p>U.S. Treasury Fiscal Data. Monthly Statement of the Public Debt
+(MSPD). FiscalData.Treasury.gov, n.d. Web. 20 May 2023. <a
+href="https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/summary-of-treasury-securities-outstanding"
+class="uri">https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/summary-of-treasury-securities-outstanding</a>.</p>
+<p>Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of
+Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, <a
+href="http://www.jstor.org/stable/2351923"
+class="uri">http://www.jstor.org/stable/2351923</a>. Accessed 21 May
+2023.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tax-revenue-cyclicality" class="section level1">
+<h1>Tax Revenue Cyclicality</h1>
+<div id="tax-revenue-cyclicality-the-u.s.-example-1800-2020"
+class="section level2">
+<h2><strong>Tax Revenue Cyclicality: The U.S. Example
+1800-2020</strong></h2>
+<div id="by-nick-anderson-1" class="section level4">
+<h4>By Nick Anderson</h4>
+</div>
+<div id="dated-2022.01.07" class="section level4">
+<h4>Dated 2022.01.07</h4>
+</div>
+<div id="abstract" class="section level3">
+<h3>Abstract</h3>
+<p>This paper investigates the correlation between cyclicality and
+federal tax revenue in the United States. From the Funding Act of 1790,
+the United States has evolved alongside its tax system. After relying
+heavily on Customs Duties and Excise Taxes from 1790 to 1913, the United
+States turned to the Income Tax as its primary funding mechanism. Are
+these funding mechanisms procyclical or countercyclical? Can procyclical
+funding mechanisms reliably fund countercyclical fiscal policy?</p>
+</div>
+<div id="introduction-1" class="section level3">
+<h3>Introduction</h3>
+<p>Countercyclical fiscal policy was a cornerstone of the Keynesian
+revolution in economics. Keynes emphasized that, in economic downturns,
+governments who imposed austerity and cut spending only worsened their
+recessions by decreasing the level of aggregate demand. Thus,
+governments should respond to downturns with stimulus, spending against
+the cycle. To fund (or pay down the debt from) this stimulus,
+governments would run a surplus in upturns. The complication in the
+above policy prescription lies in the nature of the income tax. By the
+publication of Keynes’ General Theory in 1936, the income tax was a
+vital funding mechanism for the United States and United Kingdom, among
+many other countries. Because income taxes are earned by the government
+only when taxable incomes are earned, income taxes are inherently
+procyclical. This paper grew out of the author’s attempt to test the
+strength of the income tax’s cyclicality in U.S. history. The starkest
+example of the income tax’s cyclicality occurred in the Great
+Depression. As unemployment increased to as high as 24% in 1933, U.S.
+income tax revenues fell over 60% (Figure 1). In the years of greatest
+revenue need, income tax revenues almost disappeared.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Sources: Tax Data: FILL Unemployment Data: Lebergott 1957 (he was
+with the NBER) and the BLS <a
+href="https://www.nickanderson.us/data.html">Data</a></p>
+<p>The Great Depression remains the severest example of economic
+depression available for examination. The author emphasizes this example
+not as conclusive proof, but as a demonstration of income tax revenue
+procyclicality.</p>
+<p>The ‘business cycle’ is not easy to define, so this paper examines
+two aspects of cyclicality: Gross Domestic Product (as a measure of
+incomes) and the Unemployment Rate (as a measure of employment). The
+graph above replicated with Nominal GDP instead of the unemployment rate
+tell the similar stories from different perspectives (Figure 2). When
+aggregate demand contracts, the income tax contracts as well.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Source: FILL <a
+href="https://www.nickanderson.us/data.html">Data</a></p>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>Data collection and cleaning proved the most difficult portion of
+this paper. FRED timeseries data for GDP, unemployment, and the federal
+budget all cut out between 1929 and 1999, requiring alternative data
+sources for further historical investigation.</p>
+<p>Each data set is described below:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Tax Revenue (1792-2020)</strong>: Hungerford (2006)
+provides a great foundation for comprehensive datasets of US Federal
+Government Revenues. In a Congressional Research Service report, he
+compiles a dataset of Federal Revenues from 1820-2005 from three
+sources. Though one of these sources is unavailable to the public, the
+included Office of Management and Budget’s Historical Tables’ 2020
+update has detailed revenue data from 1934 to 2020. There is some
+included data going back to 1789, but without component totals (income,
+excise, customs, etc.) and in some cases not annual data. For earlier
+data, Hungerford (2006) reached back to Lillian Doris’ The American Way
+in Taxation: Internal Revenue 1862-1963, which included specific data on
+income taxes and excise taxes from 1820-1962 but lacked other sources of
+revenue and left our dataset incomplete. Fortunately, the 1949
+Historical Statistics of the United States 1789-1945 includes detailed
+annual totals from 1792 to 1945, which bridges the gap in this dataset.
+This paper’s final tax revenue dataset is 1792-1944 from Historical
+Statistics of the United States 1789-1945 and 1945-2020 from Office of
+Management and Budget (2022).</p></li>
+<li><p><strong>Gross Domestic Product (1792-2020)</strong> : This
+paper’s first proxy for cyclicality is Gross Domestic Product. The
+collaborative work of Johnston and Williamson (2022) on
+measuringworth.com aggregated data from Kuznets et. al up to 1929 and
+uses the Bureau of Economic Analysis’ current estimates from 1929 to
+2020. This paper utilizes the Johnston and Williamson (2022) dataset for
+the years 1792-2020.</p></li>
+<li><p><strong>Unemployment (1900-2020)</strong>: The second proxy for
+cyclicality is the unemployment rate. FRED unemployment data is monthly
+and only reaches back to January 1948, so for any pre-war data another
+source is needed. Lebergott (1957) combines estimates from 1900-1928,
+Monthly Labor Review data for 1929-1939, and data through 1954 from the
+Bureau of the Census. This paper’s final unemployment dataset includes
+1900-1948 from Lebergott (1957) and FRED’s estimates from 1948-2020
+(UNRATENSA).</p></li>
+</ol>
+</div>
+<div id="tax-history" class="section level3">
+<h3>Tax History</h3>
+<p>The history of taxation in the United States can be split into four
+eras:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Customs Duties Era (1790-1862)</strong>: The era before
+1862 is the era of Customs Duties. Another feature of this era is the
+sporadic use of Sale of Public Land to raise revenue.</p></li>
+<li><p><strong>Excise Tax Era (1862-1913)</strong>: The establishment of
+the IRS in 1862 allowed for Excise and Income taxation, though the
+Income Tax was repealed in 1872. This marks the second era between 1862
+and 1913, where the Excise Tax and Customs Duties combined for more than
+90% of Federal Government Revenues.</p></li>
+<li><p><strong>Income Tax Era (1913-1945)</strong>: After being deemed
+unconstitutional in 1892, the Income Tax was reestablished in 1913 when
+Wilson’s administration signed the 16th Amendment into law. The Income
+Tax does not remain above 50% of federal revenues until World War II.
+These dates distinguish the third era, in which two wars and a Great
+Depression occur.</p></li>
+<li><p><strong>Decline of Income Tax Era (1945-Present)</strong>: The
+undercurrent of the Income Tax Era is the onset and growth of Social
+Insurance and Retirement Taxes, or Payroll Taxes. After reaching over
+80% of federal government revenue in 1945, the Income Tax enters a slow
+decline as Payroll Taxes grew from 8% of revenues in 1945 to over 40%
+revenues in 2004. This paper was written in the fourth era. The data for
+Figure 3 below uses the methodology and data from Hungerford (2006). His
+CRS report summarized US Tax History into three phases instead of four,
+combining this paper’s two eras of Income Tax dominance into a single
+Income Tax Era.</p></li>
+</ol>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>Source: FILL <a
+href="https://www.nickanderson.us/data.html">Data</a></p>
+</div>
+<div id="analysis" class="section level3">
+<h3>Analysis</h3>
+<p>This paper’s method relies on a simple decade by decade calculation
+of correlation between the measure of cyclicality (GDP or Unemployment
+Rate) and Tax Revenue by Source.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>This first Figure 4 provides a two-century overview of the U.S.
+Federal Government’s Total Receipts’ 10-Year Correlation with Nominal
+GDP. In the initial 1800-1820, Total Receipts had a negligibly or
+negatively correlated relationship with Nominal GDP. For the remainder
+of U.S. history, Total Receipts remains positively correlated with
+Nominal GDP.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Compare Figure 4 to Figure 5. The annual growth of the Unemployment
+Rate is negatively correlated with Total Receipts over the sample period
+1910-2020. Because the Unemployment Rate would increase in a downturn,
+this again is evidence that U.S. tax revenue is procyclical. Let’s
+compare these two indicators to the specific types of taxes
+observed.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>First, is the income tax correlated with GDP or changes in the
+Unemployment Rate? Figure 6 displays the negative of the Income Tax vs
+Unemployment Rate, which means that the positive displayed values are
+the result of a negative correlation with Unemployment Rate. This graph
+confirms the author’s hypothesis. The Income Tax maintains a procyclical
+orientation towards Nominal GDP and Unemployment Rate. To be specific,
+the Income Tax is positively correlated with Nominal GDP and negatively
+correlated with the Unemployment Rate.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>The correlation of Social Insurance and Retirement Taxes with Nominal
+GDP and the Unemployment Rate tell a different story. When initially
+created, these Payroll taxes grew in a cyclical manner. However, since
+the correlation disappeared in the 1960’s and 1970’s, Social Insurance
+and Retirement Taxes have not been entirely procyclical or
+countercyclical.</p>
+<p>The correlation of Social Insurance and Retirement Taxes with Nominal
+GDP and the Unemployment Rate tell a different story. When initially
+created, these Payroll taxes grew in a cyclical manner. However, since
+the correlation disappeared in the 1960’s and 1970’s, Social Insurance
+and Retirement Taxes have not been entirely procyclical or
+countercyclical.</p>
+<p><img src="economichistory_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p>Finally, Customs Duties. Customs Duties are only compared to Nominal
+GDP because our Unemployment dataset does not reach before 1900. Though
+the picture is mixed before 1860, after 1880 Customs Duties remain
+positively correlated with GDP, thus displaying procyclical tendencies,
+though not as strong as the income tax.</p>
+</div>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<p>Centuries of evidence from the United States supports the conclusion
+that tax revenue displays procyclical tendencies. Specifically, the
+income tax has remained consistently procyclical when compared to both
+Gross Domestic Product and Unemployment Rates. However, this author
+understands their data and method could be refined to draw more nuanced
+conclusions. The evolving political landscape and tax system provide no
+shortage of ‘factors’ that could be adjusted for when examining
+centuries long timeseries from different sources.</p>
+</div>
+<div id="references" class="section level3">
+<h3>References</h3>
+<p>“Government (Series P 1-277).” Historical Statistics of the United
+States: 1789-1945; a Supplement to the Statistical Abstract of the
+United States, United States Dept. of Commerce, Washington, DC, 1949,
+pp. 283–319.</p>
+<p>“Historical Tables.” The White House Historical Tables, U.S. Office
+of Management and Budget, 28 May 2021, <a
+href="https://www.whitehouse.gov/omb/historical-tables/"
+class="uri">https://www.whitehouse.gov/omb/historical-tables/</a></p>
+<p>Hungerford, Thomas L. “U.S. Federal Government Revenues: 1790 to the
+Present.” Everycrsreport.com, 5 Sept. 2006, <a
+href="https://www.everycrsreport.com/reports/RL33665.html"
+class="uri">https://www.everycrsreport.com/reports/RL33665.html</a>.</p>
+<p>Johnston, Louis, and Samuel H Williamson. “What Was the U.S. GDP
+Then?” Measuring Worth - GDP Result., Measuringworth, <a
+href="https://www.measuringworth.com/datasets/usgdp/result.php"
+class="uri">https://www.measuringworth.com/datasets/usgdp/result.php</a>.</p>
+<p>Lebergott, Stanley. “Annual Estimates of Unemployment in the United
+States, 1900-1954.” Unemployment: Pamphlets, NBER, 1957,
+pp. 211–242.</p>
+<p>Office of Management and Budget. Historical Tables. Table 1.1,
+“Summary of Receipts, Outlays, and Surpluses or Deficits (-):
+1789–2026;” Table 1.4, “Receipts, Outlays, and Surpluses or Deficits (-)
+by Fund Group: 1934–2026;” Table 2.1, “Receipts by Source: 1934–2026;”
+and Table 2.3, “Receipts by Source as Percentages of GDP: 1934–2026.”
+U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA],
+retrieved from FRED, Federal Reserve Bank of St. Louis; <a
+href="https://fred.stlouisfed.org/series/UNRATENSA"
+class="uri">https://fred.stlouisfed.org/series/UNRATENSA</a></p>
+<p>Last compiled: 2023-08-26</p>
+<style type="text/css">
+.title {
+  display: none;
+}
+
+.navbar-default {
+    background-color: #640000 !important;
+    
+}
+
+<!-- .navbar-nav { -->
+<!--   color:white !important; -->
+
+<!-- } -->
+
+.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+    font-weight: 150;
+}
+
+.navbar-nav > .active > a { 
+    background-color: #006400 !important;
+    font-weight: 175;
+}
+
+#getting-started img {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+
+</style>
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
+
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
