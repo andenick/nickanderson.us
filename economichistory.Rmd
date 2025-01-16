@@ -37,11 +37,14 @@ remove(list = ls())
 
 #### Dated 2023.05.19
 
+Sources: [Data](https://www.nickanderson.us/data.html)
+
+
 ```{r, include = F, echo = F}
 #nothing here yet 
 ```
 
-### 1. Introduction
+### Introduction
 
   The United States Treasury Market is a vital funding mechanism for federal government expenditures and has evolved considerably and unpredictably over the last century. This paper focuses on two aspects: the debt issuance of the U.S. Federal Government and the duration of those securities. 
 
@@ -49,7 +52,7 @@ remove(list = ls())
 
   The paper then zooms in on three time periods with interesting debt dynamics: the Great Financial Crisis, the 2010’s, and the Coronavirus Pandemic. This is followed by the author’s conclusions.
 
-### 2. The Treasury Market and the Deficit
+### The Treasury Market and the Deficit
 
   For the period 2019-2022, the government has borrowed an additional $983B to $3.1 Trillion a year in order to finance the spending activities of the U.S. Federal Government. Over the same period, these deficit amounts have amounted to between 13% and 34% of total Government spending. This is at a time where government spending is between 20% and 30% of Gross Domestic Product. The deficit spending in these years was between 5% and 15% of Gross Domestic Product. To restate, new government borrowing has recently accounted for at least 5% of Gross Domestic Product for the past four years. 
 
@@ -208,7 +211,7 @@ legend.position = "right")
 ggOutstandingEnd2 <- ggplot(looptest_graph) +
                     geom_bar(aes(x = recDate, y = outsAmtMln/1000000, fill =  factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))), 
                     position = "stack", stat = "identity") +
-                    ggtitle("Outstanding Treasuries in Trillions of $
+                    ggtitle("Figure 1: Outstanding Treasuries in Trillions of $
                             (Only Marketable, Fixed Rate)") +
                     ylab("Trillions of Dollars") +
                     xlab("Record Date") +
@@ -255,8 +258,6 @@ legend.position = "right")
 
 
 ```
-
-
 
 ```{r, echo = F}
 #now all the same graphs but only for the gfc time period
@@ -609,8 +610,6 @@ legend.position = "right") +
 ggOutstandingEnd2
 ```
 
-
-
 #### **Figure 2**
 
 ```{r, echo = F}
@@ -644,7 +643,7 @@ A few notes on the figures above:
 
 With several exceptions , the U.S. Federal Government has not had a problem issuing this debt to the public and foreign investors. However, despite constant discussion of the size and sustainability of the deficit, both the size of the budget deficit and the stock of debt have continued to increase. There are many theories of public finance which hold both that the government can never default on its debt and alternatively that the government is like a household and can default on its debt. The purpose of this paper is not to discuss the feasibility or correctness of any theories of public finance, but rather to examine the composition and evolution of the outstanding stock of treasury securities. The government, like all other actors in a financialized economy, has the prerogative to make decisions about the composition of its balance sheet, and these financing decisions have implications for both the public and private sectors. 
 
-### 3. Duration
+### Understanding Duration
 
 85 years ago, Frederick R. Macaulay  published his 1938 study of railroad bond prices entitled *Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields, and Stock Prices in the United States since 1856*, in which he proposed the measure of duration to represent the average maturity of a series of cash flows (Weil, 1973). This contribution to the theory and practice of finance has since become a dominant concept in professional money management taught in business schools across the country. 
 
@@ -673,7 +672,7 @@ As demonstrated by the Duration Approximation and Actual Change columns above, t
 
 In practice, contemporary fixed income money managers keep dashboards that record and display the duration of their portfolios. At both money managers and market making firms, investors regularly have “duration limits” to their position sizes and feverishly keep track of the duration of all the securities they own, along with the duration of their aggregate portfolio. The impetus of this paper is to apply the investment management concept of duration to the field of public finance and, more specifically, the government’s issuance of massive amounts of securities, and thus massive amounts of duration.
 
-### 4. Aggregate Duration in the Treasury Market
+### Aggregate Duration in the Treasury Market
 
 The inspiration for this paper lies in the author’s thirst for measures of the aggregate duration in the treasury market and the evolution of this statistic over time. As discussed in section 2 above, the treasury market is a vital funding mechanism for the U.S. Federal Government, and all of those trillions of dollars of securities hold some measure of interest rate risk that affects the willingness of investors to hold those securities. Figure 7 displays the aggregate duration approximation of the treasury market, colored by years to maturity. 
 
@@ -700,7 +699,7 @@ ggDurApproxUSD5
 
 Now that we have surveyed the entire dataset available for the outstanding debt of the U.S. Federal Government, we will inspect a few time periods more closely below.
 
-**5. Study 1 – the Treasury Stock during the Great Financial Crisis**
+### Study 1 – the Treasury Stock during the Great Financial Crisis
 
 #### **Figure 9**
 
@@ -717,7 +716,7 @@ Over time, however, the government rebalanced back towards longer duration secur
 ggOutstandingEnd3_gfc
 ```
 
-**6. Study 2 – Duration during the Obama and Trump Administrations**
+### Study 2 – Duration during the Obama and Trump Administrations
 
 Following the Great Financial Crisis and the passage of Obamacare, the national debt rose considerably faster than before, over doubling between 2010 and 2020. At the same time, the U.S. Federal Government also increased its issuance of 20+ year securities to finance this additional deficit spending. The stocks of these debts are in **Figure 11** below.
 
@@ -738,7 +737,7 @@ ggDurApproxUSD4_obamatrump
 ggDurApproxUSD5_obamatrump
 ```
 
-**7. Study 3 – the Treasury Stock during the Coronavirus Pandemic**
+### Study 3 – the Treasury Stock during the Coronavirus Pandemic
 
 During the Coronavirus Pandemic, the stock of the national debt fluctuated in the same manner as during the Great Financial Crisis. **Figures 14 and 15** describe that stock of debt. 
 
@@ -752,14 +751,14 @@ ggOutstandingEnd2_covid
 ggOutstandingEnd3_covid
 ```
 
-**9. Conclusions**
+### Conclusions
 
 The outstanding stock of the national debt has grown exponentially over the past four decades and is not displaying signs of slowing down. With the increased stock of debt comes massive amounts of interest rate risk that can be measured in duration. 
 
 In addition to displaying the development of that national debt stock, this paper describes the fluctuations and composition of the total amounts of duration risk outstanding in the U.S. Treasury Market. This topic merits considerable further research and this author looks forward to pursuing this additional research. 
 
 
-**Bibliography**
+### **Bibliography**
 
 FRED Deficit Dataset. Federal Reserve Bank of St. Louis, March 8, 2023. https://fred.stlouisfed.org/series/FYFSD.
 
@@ -793,6 +792,79 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 
 ```
 
+# Balance of Payments History 
+
+## **Historical Balance of Payments Data: Comparing the United States and Germany**
+
+#### By Nick Anderson
+
+#### Dated 2024.12.05
+
+Sources: [Data](https://www.nickanderson.us/data.html)
+
+```{r, include = F, echo = F}
+
+GERdata_annual_pct <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.xlsx")
+
+USdata_annual_pct <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\USdata_annual_pct.xlsx")
+
+```
+
+```{r, include = F, echo = F}
+
+library(ggplot2)
+library(tidyr)
+library(scales)
+library(stringr)
+
+# Select the relevant columns and convert to long format
+df_long <- GERdata_annual_pct %>%
+  select(Year, 
+         `Trade Balance_pct`, 
+         `Income Balance_pct`, 
+         `Current Account Balance_pct`, 
+         `Capital Account Balance_pct`, 
+         `Financial Account Balance_pct`) %>%
+  pivot_longer(cols = -Year, 
+               names_to = "Balance", 
+               values_to = "Percentage") %>%
+  mutate(Balance = str_remove(Balance, "_pct")) 
+
+# Create the line graph
+ggplot(df_long, aes(x = Year, y = Percentage * 100, color = Balance)) +
+  geom_line(size = 1) +
+  labs(title = "German Balance of Payments (% of GDP)",
+       x = "Year",
+       y = "Percentage of GDP",
+       color = "Balance as % of GDP") + 
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal() +
+  theme(legend.position = "bottom", 
+        axis.line = element_line(color = "black"), 
+        panel.grid.minor = element_blank()) + 
+  guides(color = guide_legend(nrow = 2))  # Arrange legend items in 2 rows
+
+```
+
+
+### Introduction
+
+The purpose of this research paper is to examine the longest-term Balance of Payments datasets provided by the United States and Germany. These records of asset and capital transactions between my two subject countries and the rest of the world serve as a useful basis to describe the evolution of global imbalances in an interconnected national economy. The current analysis is focused only on description and placing the Balance of Payments in historical perspective; this analysis could serve as the basis for future econometric testing of hypotheses surrounding fluctuations both in and outside of the domestic economies of the subject countries.
+
+### The Balance of Payments: Concepts and Datasets
+
+The Balance of Payments for a given country is a “systematic record of all economic transactions between the residents of the reporting country and the residents of the rest of the world over a specified period of time” (Chacholiades 1990, 281). This record of transactions is the primary dataset by which international economists understand flows of value between countries in the form of goods, services, money, and other assets. Every transaction results in a debit and a credit, recorded in the same manner as a traditional double-entry accounting system. For this reason, the Balance of Payments must always “balance.”
+
+The Balance of Payments traditionally contains two sections, the Current Account and the Capital Account (Chacholiades 1990, 292). In this taxonomy, the Capital Account is a register of all international asset transactions, while the current account registers the rest, which includes trade in goods and services and the profits earned or paid on the assets partially described by the Capital Account.
+
+In recent history, the Capital Account has been separated out into the Capital & Financial Accounts, though this three-account taxonomy has not been adopted by all international economists. This standard, adopted by the United States in 1999, has the purpose of separating transfers in income-producing assets from current transfers, which only reduce the amount of income earned by a country in a given period but would not affect the balance sheet of the reporting country going forward (Krugman and Obstfeld, 2003, 308).
+
+For the purposes of this paper, I am going to combine the Capital and Financial Accounts for convenience. In the cases of both Germany and the United States, the Newly segregated Capital Account is of negligible size when compared to the Financial and Current Accounts and is almost always near 0% of Gross Domestic Product. This relationship is evident in Figure 1 below.
+
+
+
+
+
 # Tax Revenue Cyclicality
 
 ## **Tax Revenue Cyclicality: The U.S. Example 1800-2020**
@@ -800,6 +872,9 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 #### By Nick Anderson
 
 #### Dated 2022.01.07
+
+Sources: [Data](https://www.nickanderson.us/data.html)
+
 
 ```{r, include = F, echo = F}
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
@@ -915,11 +990,6 @@ ggIncomeTaxData
 
 ```
 
-Sources: 
-Tax Data: FILL
-Unemployment Data: Lebergott 1957 (he was with the NBER) and the BLS 
-[Data](https://www.nickanderson.us/data.html)
-
 The Great Depression remains the severest example of economic depression available for examination. The author emphasizes this example not as conclusive proof, but as a demonstration of income tax revenue procyclicality.
 
 The ‘business cycle’ is not easy to define, so this paper examines two aspects of cyclicality: Gross Domestic Product (as a measure of incomes) and the Unemployment Rate (as a measure of employment). The graph above replicated with Nominal GDP instead of the unemployment rate tell the similar stories from different perspectives (Figure 2). When aggregate demand contracts, the income tax contracts as well.
@@ -992,9 +1062,6 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
 ggIncomeTaxData2
 
 ```
-
-Source: FILL
-[Data](https://www.nickanderson.us/data.html)
 
 ### Data
 
@@ -1070,11 +1137,6 @@ ggTaxData1
 #breaks=c('Customs Duties','Sales of Public Lands','Payroll Taxes','Income Tax','Excise Tax
 
 ```
-
-Source: FILL
-[Data](https://www.nickanderson.us/data.html)
-
-
 
 ### Analysis
 
@@ -1229,7 +1291,6 @@ ggCorrelation5
   
 
 ### Conclusion
-
 
 Centuries of evidence from the United States supports the conclusion that tax revenue displays procyclical tendencies. Specifically, the income tax has remained consistently procyclical when compared to both Gross Domestic Product and Unemployment Rates. However, this author understands their data and method could be refined to draw more nuanced conclusions. The evolving political landscape and tax system provide no shortage of ‘factors’ that could be adjusted for when examining centuries long timeseries from different sources. 
 
