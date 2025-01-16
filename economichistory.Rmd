@@ -60,8 +60,6 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 
   Below, **Figure 1** depicts the stocks outstanding of U.S. Treasuries by Years to Maturity with data from the Treasury and **Figure 2** depicting aggregate treasury issuance from April 2022 to April 2023.
 
-#### **Figure 1**
-
 ```{r, echo = F}
 
 #write_xlsx(looptest_graph,"E:\\Storage\\Cloud Drive\\Vide\\DataScience\\DaPF\\looptest-graph1.xlsx")
@@ -166,7 +164,7 @@ looptest_graph$yearsCat <- relevel(looptest_graph$yearsCat,c("less than a year")
 ggDurApproxUSD4 <- ggplot(looptest_graph) +
 geom_bar(aes(x = recDate, y = -durApproxInUSD/1000, fill = factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("$B change in Market Value of all Outstanding Treasuries
+ggtitle("Figure 7: $B change in Market Value of all Outstanding Treasuries
         for a .01% Decrease in Interest Rates
         (Macaulay Duration Approximation)
         (Only Marketable, Fixed Rate)") +
@@ -231,7 +229,7 @@ legend.position = "right")
 ggOutstandingEnd3 <- ggplot(looptest_graph) +
 geom_bar(aes(x = recDate, y = outsAmtMln/sumOuts, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("Outstanding Treasuries as a % of Total Outstanding Treasuries
+ggtitle("Figure 3: Outstanding Treasuries as a % of Total Outstanding Treasuries
 (Only Marketable, Fixed Rate)") +
 ylab("Percentage") +
 xlab("Record Date") +
@@ -610,7 +608,7 @@ legend.position = "right") +
 ggOutstandingEnd2
 ```
 
-#### **Figure 2**
+#### **Figure 2: U.S. Treasury Monthly Issuance**
 
 ```{r, echo = F}
 #?knitr
@@ -621,8 +619,6 @@ ggOutstandingEnd2
 ![](DaPF-F2.jpg)
 
 **Figure 3** depicts the percentage of Treasury securities by their maturities. 
-
-#### **Figure 3**
 
 ```{r, echo = F}
 ggOutstandingEnd3
@@ -649,8 +645,6 @@ With several exceptions , the U.S. Federal Government has not had a problem issu
 
 The duration of a bond is an easily calculable mathematical concept, calculated as the weighted average of the sum of the Present Values of the remaining cash flows for a particular security. Duration is expressed in years and, because bonds whose cash flows are further into the future are more uncertain and thus discounted more heavily by an increase in interest rates. In **Figure 4** below, the duration of two different types of fixed income securities is calculated as an example. This is also called the Macaulay Duration of a security.
 
-#### **Figure 4**
-
 **Figure 4: Example Duration Calculation for a 5% Coupon Bond versus an Annuity**
 ![](DaPF-F4.jpg)
 
@@ -665,7 +659,7 @@ The duration approximation equation in **Figure 5** estimates the change in the 
 Change in $ Price = -(Macaulay Duration) * Change in Market Yield / (1 + Yield to Maturity)
 
 
-#### **Figure 6**
+#### **Figure 6: Comparison of Duration Approximation and Actual Changes in Market Value**
 ![](DaPF-F6.jpg)
 
 As demonstrated by the Duration Approximation and Actual Change columns above, the Approximation is a close estimator of the actual change in market value.
@@ -675,8 +669,6 @@ In practice, contemporary fixed income money managers keep dashboards that recor
 ### Aggregate Duration in the Treasury Market
 
 The inspiration for this paper lies in the author’s thirst for measures of the aggregate duration in the treasury market and the evolution of this statistic over time. As discussed in section 2 above, the treasury market is a vital funding mechanism for the U.S. Federal Government, and all of those trillions of dollars of securities hold some measure of interest rate risk that affects the willingness of investors to hold those securities. Figure 7 displays the aggregate duration approximation of the treasury market, colored by years to maturity. 
-
-#### **Figure 7**
 
 ```{r, echo = F}
 ggDurApproxUSD4
@@ -804,9 +796,102 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 
 ```{r, include = F, echo = F}
 
-GERdata_annual_pct <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.xlsx")
+GERdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.csv", check.names = FALSE)
 
-USdata_annual_pct <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\USdata_annual_pct.xlsx")
+USdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\USdata_annual_pct.csv", check.names = FALSE)
+
+USdata_annual_pct$Country <- "US"
+GERdata_annual_pct$Country <- "GER"
+
+################################################
+
+USdata_annual_pct <- USdata_annual_pct %>%
+  rename(
+    "Trade Balance_pct" = "Goods and Services Balance_pct",
+    "Income Balance_pct" = "Total Income Balance_pct",
+    "Statistical Discrepancy_pct" = "Statistical discrepancy 3_pct",
+    "Financial Derivatives_pct" = "Financial derivatives other than reserves, net transactions 2_pct",
+    "Net Errors and Omissions_pct" = "Asset/Liability Balance_pct"  # Assuming this is the closest equivalent
+  ) %>%
+  select(
+    Country, 
+    Year, 
+    "Merchandise Exports_pct", 
+    "Merchandise Imports_pct", 
+    "Merchandise Trade Balance_pct",
+    "Service Exports_pct", 
+    "Service Imports_pct", 
+    "Service Trade Balance_pct", 
+    "Trade Balance_pct", 
+    "Primary Income Receipts_pct",
+    "Primary Income Payments_pct", 
+    "Primary Income Balance_pct", 
+    "Secondary Income Receipts_pct",
+    "Secondary Income Payments_pct", 
+    "Secondary Income Balance_pct", 
+    "Income Balance_pct",
+    "Current Account Balance_pct", 
+    "Capital transfer receipts and other credits_pct",
+    "Capital transfer payments and other debits_pct", 
+    "Capital Account Balance_pct",
+    "Direct investment assets_pct", 
+    "Portfolio Investment Assets_pct", 
+    "Other investment assets_pct",
+    "Reserve Assets_pct", 
+    "Net U.S. acquisition of financial assets excluding financial derivatives (net increase in assets / financial outflow (+))_pct",
+    "Direct investment liabilities_pct", 
+    "Portfolio investment liabilities_pct", 
+    "Other investment liabilities_pct",
+    "Net U.S. incurrence of liabilities excluding financial derivatives (net increase in liabilities / financial inflow (+))_pct",
+    "Financial Derivatives_pct", 
+    "Financial Account Balance_pct", 
+    "Statistical Discrepancy_pct",
+    "Net Errors and Omissions_pct", 
+    GDP_Wbank
+  )
+
+
+# Rename columns in GERdata_annual_pct
+GERdata_annual_pct <- GERdata_annual_pct %>%
+  rename(
+    "Trade Balance_pct" = "Total Trade Balance_pct",
+    "Income Balance_pct" = "Total Income Balance_pct",
+    "Statistical Discrepancy_pct" = "Net Errors and Omissions_pct",
+    "Financial Derivatives_pct" = "Net Financial Derivatives and employee stock options_pct"
+  ) %>%
+  select(
+    Country, 
+    Year, 
+    "Merchandise Exports_pct", 
+    "Merchandise Imports_pct", 
+    "Merchandise Trade Balance_pct",
+    "Service Exports_pct", 
+    "Service Imports_pct", 
+    "Service Trade Balance_pct",
+    "Trade Balance_pct", 
+    "Primary Income Receipts_pct",
+    "Primary Income Payments_pct", 
+    "Primary Income Balance_pct", 
+    "Secondary Income Receipts_pct",
+    "Secondary Income Payments_pct", 
+    "Secondary Income Balance_pct", 
+    "Income Balance_pct",
+    "Current Account Balance_pct", 
+    "Capital Account Balance_pct",                                                      
+    "Net Domestic Investment / Enterprises and households_pct",                          
+    "Net Domestic Investment / Monetary financial institutions (excl. central bank)_pct",
+    "Net Domestic Investment / General government_pct",                                  
+    "Net Domestic Investment / Central bank_pct",                                        
+    "Net Other investment_pct",                                                          
+    "Net Domestic Investment Abroad_pct",                                                
+    "Net Direct Investment_pct",                                                         
+    "Net Portfolio Investment_pct",                                                      
+    "Financial Derivatives_pct",
+    "Financial Account Balance_pct",                                                     
+    "Statistical Discrepancy_pct",                                                                                                             
+    GDP_Wbank
+  )
+
 
 ```
 
