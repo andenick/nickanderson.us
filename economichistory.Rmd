@@ -14,7 +14,7 @@ output:
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
 
-```{r, include = F, echo = F}
+```{r, include = F, echo = F, "1. Packages"}
 require('readxl')
 require('tidyverse')
 require('formattable')
@@ -39,11 +39,6 @@ remove(list = ls())
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
-
-```{r, include = F, echo = F}
-#nothing here yet 
-```
-
 ### Introduction
 
   The United States Treasury Market is a vital funding mechanism for federal government expenditures and has evolved considerably and unpredictably over the last century. This paper focuses on two aspects: the debt issuance of the U.S. Federal Government and the duration of those securities. 
@@ -60,7 +55,7 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 
   Below, **Figure 1** depicts the stocks outstanding of U.S. Treasuries by Years to Maturity with data from the Treasury and **Figure 2** depicting aggregate treasury issuance from April 2022 to April 2023.
 
-```{r, echo = F}
+```{r, echo = F, "2. Begin Treasury"}
 
 #write_xlsx(looptest_graph,"E:\\Storage\\Cloud Drive\\Vide\\DataScience\\DaPF\\looptest-graph1.xlsx")
 looptest_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\looptest-graph1.xlsx")
@@ -153,7 +148,7 @@ legend.position = "bottom"
 
 ```
 
-```{r, echo = F}
+```{r, echo = F, "3. Treasury"}
 #i'm going to change categories now we will use YearsCat so that we can get a more precise picture of the debt load of the united states
 
 
@@ -186,7 +181,7 @@ legend.position = "right")
 ggDurApproxUSD5 <- ggplot(looptest_graph) +
 geom_bar(aes(x = recDate, y = durApproxInUSD/sumDur, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("% of Total Change in Market Value of all Outstanding Treasuries
+ggtitle("Figure 8: % of Total Change in Market Value of all Outstanding Treasuries
         for a .01% Decrease in Interest Rates
         (Only Marketable, Fixed Rate)") +
 ylab("Percentage") +
@@ -257,7 +252,7 @@ legend.position = "right")
 
 ```
 
-```{r, echo = F}
+```{r, echo = F, "4. Treasury"}
 #now all the same graphs but only for the gfc time period
 
 det_data_mkt_fix_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\det_data_mkt_fix_graph1.xlsx")
@@ -322,7 +317,7 @@ ggOutstandingEnd2_gfc <- ggplot(det_data_mkt_fix_graph_gfc) +
                                  fill =  factor(
                                 yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))), 
                     position = "stack", stat = "identity") +
-                    ggtitle("Outstanding Treasuries in Trillions of $
+                    ggtitle("Figure 9: Outstanding Treasuries in Trillions of $
                             (Only Marketable, Fixed Rate, Financial Crisis Years)") +
                     ylab("Trillions of Dollars") +
                     xlab("Record Date") +
@@ -343,7 +338,7 @@ ggOutstandingEnd2_gfc <- ggplot(det_data_mkt_fix_graph_gfc) +
 ggOutstandingEnd3_gfc <- ggplot(det_data_mkt_fix_graph_gfc) +
 geom_bar(aes(x = recDate, y = outsAmtMln/sumOuts, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("Outstanding Treasuries as a % of Total Outstanding Treasuries
+ggtitle("Figure 10: Outstanding Treasuries as a % of Total Outstanding Treasuries
 (Only Marketable, Fixed Rate, Financial Crisis Years)") +
 ylab("Percentage") +
 xlab("Record Date") +
@@ -374,7 +369,7 @@ legend.position = "right") +
 
 ```
 
-```{r, echo = F}
+```{r, echo = F, "5. Treasury"}
 #now all the same graphs but only for the covid time period
 
 det_data_mkt_fix_graph_covid <- det_data_mkt_fix_graph %>%
@@ -438,7 +433,7 @@ ggOutstandingEnd2_covid <- ggplot(det_data_mkt_fix_graph_covid) +
                                 yearsCat,c("less than a year", "1-2 years", "2-4 years", 
                                            "4-8 years", "8-12 years", "12-20 years", "20+ years"))), 
                     position = "stack", stat = "identity") +
-                    ggtitle("Outstanding Treasuries in Trillions of $
+                    ggtitle("Figure 14: Outstanding Treasuries in Trillions of $
                             (Only Marketable, Fixed Rate, Covid Years)") +
                     ylab("Trillions of Dollars") +
                     xlab("Record Date") +
@@ -459,7 +454,7 @@ ggOutstandingEnd2_covid <- ggplot(det_data_mkt_fix_graph_covid) +
 ggOutstandingEnd3_covid <- ggplot(det_data_mkt_fix_graph_covid) +
 geom_bar(aes(x = recDate, y = outsAmtMln/sumOuts, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("Outstanding Treasuries as a % of Total Outstanding Treasuries
+ggtitle("Figure 15: Outstanding Treasuries as a % of Total Outstanding Treasuries
 (Only Marketable, Fixed Rate, Covid Years)") +
 ylab("Percentage") +
 xlab("Record Date") +
@@ -482,16 +477,13 @@ legend.position = "right") +
 # scale_x_continuous(breaks = seq(min(det_data_mkt_fix_graph$recDate), max(det_data_mkt_fix_graph$recDate), by = 6))
 
 
-
-
-
 #ggDurApproxUSD4_covid
 #ggDurApproxUSD5_covid
 
 
 ```
 
-```{r, echo = F}
+```{r, echo = F, "6. Treasury"}
 #now all the same graphs but only for the obamatrump time period
 
 det_data_mkt_fix_graph_obamatrump <- det_data_mkt_fix_graph %>%
@@ -500,7 +492,7 @@ det_data_mkt_fix_graph_obamatrump <- det_data_mkt_fix_graph %>%
 ggDurApproxUSD4_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
 geom_bar(aes(x = recDate, y = -durApproxInUSD/1000, fill = factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("$B change in Market Value of all Outstanding Treasuries
+ggtitle("Figure 12: $B change in Market Value of all Outstanding Treasuries
         for a .01% Decrease in Interest Rates - Obama-Trump Years
         (Macaulay Duration Approximation)
         (Only Marketable, Fixed Rate, obamatrump Years)") +
@@ -519,12 +511,14 @@ panel.grid.major = element_line(color = "lightgray"),
 panel.grid.minor = element_blank(),
 legend.position = "right")  + 
   scale_y_continuous(labels=scales::dollar_format())
+```
 
 
+```{r, echo = F, "6. Treasury2"}
 ggDurApproxUSD5_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
 geom_bar(aes(x = recDate, y = durApproxInUSD/sumDur, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
 position = "stack", stat = "identity") +
-ggtitle("% of Total Change in Market Value of all Outstanding Treasuries
+ggtitle("Figure 13: % of Total Change in Market Value of all Outstanding Treasuries
         for a .01% Decrease in Interest Rates
         (Only Marketable, Fixed Rate, Obama-Trump Years)") +
 ylab("Percentage") +
@@ -541,11 +535,11 @@ legend.text = element_text(size = 12),
 panel.grid.major = element_line(color = "lightgray"),
 panel.grid.minor = element_blank(),
 legend.position = "right")+ 
-               scale_y_continuous(labels = scales::percent) 
+               scale_y_continuous(labels = scales::percent)
+```
 
 
-
-
+```{r, echo = F, "6. Treasury3"}
 #now let's revisit the outstanding graphs
 
 ggOutstandingEnd2_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
@@ -554,7 +548,7 @@ ggOutstandingEnd2_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
                                  fill =  factor(
                                 yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))), 
                     position = "stack", stat = "identity") +
-                    ggtitle("Outstanding Treasuries in Trillions of $
+                    ggtitle("Figure 11: Outstanding Treasuries in Trillions of $
                             (Only Marketable, Fixed Rate, Obama-Trump Years)") +
                     ylab("Trillions of Dollars") +
                     xlab("Record Date") +
@@ -571,6 +565,10 @@ ggOutstandingEnd2_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
                     panel.grid.minor = element_blank(),
                     legend.position = "right") + 
   scale_y_continuous(labels=scales::dollar_format())
+```
+
+
+```{r, echo = F, "6. Treasury4"}
 
 ggOutstandingEnd3_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
 geom_bar(aes(x = recDate, y = outsAmtMln/sumOuts, fill = factor(yearsCat, c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
@@ -594,23 +592,15 @@ legend.position = "right") +
                scale_y_continuous(labels = scales::percent) 
 
 
-# +
-# scale_x_continuous(breaks = seq(min(det_data_mkt_fix_graph$recDate), max(det_data_mkt_fix_graph$recDate), by = 6))
-
-
-
-
-
-
 ```
 
-```{r, echo = F}
+```{r, echo = F, "7. Treasury"}
 ggOutstandingEnd2
 ```
 
 #### **Figure 2: U.S. Treasury Monthly Issuance**
 
-```{r, echo = F}
+```{r, echo = F, "8. Treasury"}
 #?knitr
 
 #knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
@@ -620,7 +610,7 @@ ggOutstandingEnd2
 
 **Figure 3** depicts the percentage of Treasury securities by their maturities. 
 
-```{r, echo = F}
+```{r, echo = F, "9. Treasury"}
 ggOutstandingEnd3
 ```
 
@@ -670,7 +660,7 @@ In practice, contemporary fixed income money managers keep dashboards that recor
 
 The inspiration for this paper lies in the author’s thirst for measures of the aggregate duration in the treasury market and the evolution of this statistic over time. As discussed in section 2 above, the treasury market is a vital funding mechanism for the U.S. Federal Government, and all of those trillions of dollars of securities hold some measure of interest rate risk that affects the willingness of investors to hold those securities. Figure 7 displays the aggregate duration approximation of the treasury market, colored by years to maturity. 
 
-```{r, echo = F}
+```{r, echo = F, "10. Treasury"}
 ggDurApproxUSD4
 ```
 
@@ -683,9 +673,7 @@ Another interesting aspect of the historical development of the aggregate durati
 **Figure 7** reveals the same story when graphed as percentages of the total Duration in the market, as in **Figure 8** below. 
 
 
-#### **Figure 8**
-
-```{r, echo = F}
+```{r, echo = F, "11. Treasury"}
 ggDurApproxUSD5
 ```
 
@@ -693,9 +681,7 @@ Now that we have surveyed the entire dataset available for the outstanding debt 
 
 ### Study 1 – the Treasury Stock during the Great Financial Crisis
 
-#### **Figure 9**
-
-```{r, echo = F}
+```{r, echo = F, "12. Treasury"}
 ggOutstandingEnd2_gfc
 ```
 
@@ -703,8 +689,7 @@ The above **Figure 9** displays the debt stock during the most volatile years of
 
 Over time, however, the government rebalanced back towards longer duration securities. As we will note below, this begins a period in which the government issued an outsized amount of longer duration securities during the Obama and Trump administrations. 
 
-#### **Figure 10**
-```{r, echo = F}
+```{r, echo = F, "13. Treasury"}
 ggOutstandingEnd3_gfc
 ```
 
@@ -712,20 +697,21 @@ ggOutstandingEnd3_gfc
 
 Following the Great Financial Crisis and the passage of Obamacare, the national debt rose considerably faster than before, over doubling between 2010 and 2020. At the same time, the U.S. Federal Government also increased its issuance of 20+ year securities to finance this additional deficit spending. The stocks of these debts are in **Figure 11** below.
 
-#### **Figure 11**
-```{r, echo = F}
+
+```{r, echo = F, "14. Treasury"}
 ggOutstandingEnd2_obamatrump
 ```
 
 **Figure 12** demonstrates that rapid rise in duration outstanding with the issuance of those longer duration securities. **Figure 13** displays these as a percentage of total aggregate duration.
 
-#### **Figure 12**
-```{r, echo = F}
+
+
+```{r, echo = F, "15. Treasury"}
 ggDurApproxUSD4_obamatrump
 ```
 
-#### **Figure 13**
-```{r, echo = F}
+
+```{r, echo = F, "16. Treasury"}
 ggDurApproxUSD5_obamatrump
 ```
 
@@ -733,13 +719,12 @@ ggDurApproxUSD5_obamatrump
 
 During the Coronavirus Pandemic, the stock of the national debt fluctuated in the same manner as during the Great Financial Crisis. **Figures 14 and 15** describe that stock of debt. 
 
-#### **Figure 14**
-```{r, echo = F}
+
+```{r, echo = F, "17. Treasury"}
 ggOutstandingEnd2_covid
 ```
 
-#### **Figure 15**
-```{r, echo = F}
+```{r, echo = F, "18. Treasury"}
 ggOutstandingEnd3_covid
 ```
 
@@ -750,7 +735,7 @@ The outstanding stock of the national debt has grown exponentially over the past
 In addition to displaying the development of that national debt stock, this paper describes the fluctuations and composition of the total amounts of duration risk outstanding in the U.S. Treasury Market. This topic merits considerable further research and this author looks forward to pursuing this additional research. 
 
 
-### **Bibliography**
+### Bibliography
 
 FRED Deficit Dataset. Federal Reserve Bank of St. Louis, March 8, 2023. https://fred.stlouisfed.org/series/FYFSD.
 
@@ -766,7 +751,7 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 
 
 
-```{r, echo = F}
+```{r, echo = F, "19. Emptied"}
 #setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
 #knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
 #knitr::include_graphics('Figure 1.png')
@@ -794,7 +779,7 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
-```{r, include = F, echo = F}
+```{r, include = F, echo = F, "20. BoP"}
 
 GERdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.csv", check.names = FALSE)
 
