@@ -148,6 +148,11 @@ legend.position = "bottom"
 
 ```
 
+```{r, echo = F, "2b. Data"}
+det_data_mkt_fix_graph_obamatrump <- det_data_mkt_fix_graph %>%
+                              filter(recDate >= "2008-01-31" & recDate <= "2020-01-31")
+```
+
 ```{r, echo = F, "3. Treasury"}
 #i'm going to change categories now we will use YearsCat so that we can get a more precise picture of the debt load of the united states
 
@@ -485,9 +490,6 @@ legend.position = "right") +
 
 ```{r, echo = F, "6. Treasury"}
 #now all the same graphs but only for the obamatrump time period
-
-det_data_mkt_fix_graph_obamatrump <- det_data_mkt_fix_graph %>%
-                              filter(recDate >= "2008-01-31" & recDate <= "2020-01-31")
 
 ggDurApproxUSD4_obamatrump <- ggplot(det_data_mkt_fix_graph_obamatrump) +
 geom_bar(aes(x = recDate, y = -durApproxInUSD/1000, fill = factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
