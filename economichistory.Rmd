@@ -148,9 +148,19 @@ legend.position = "bottom"
 
 ```
 
-```{r, echo = F, "2b. Data"}
+```{r, echo = F, "4b. Data"}
+
+det_data_mkt_fix_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\det_data_mkt_fix_graph1.xlsx")
+
+det_data_mkt_fix_graph_gfc <- det_data_mkt_fix_graph %>%
+                              filter(recDate >= "2007-01-31" & recDate <= "2010-12-31")
+
 det_data_mkt_fix_graph_obamatrump <- det_data_mkt_fix_graph %>%
                               filter(recDate >= "2008-01-31" & recDate <= "2020-01-31")
+
+det_data_mkt_fix_graph_covid <- det_data_mkt_fix_graph %>%
+                              filter(recDate >= "2019-01-31" & recDate <= "2023-01-31")
+
 ```
 
 ```{r, echo = F, "3. Treasury"}
@@ -260,10 +270,7 @@ legend.position = "right")
 ```{r, echo = F, "4. Treasury"}
 #now all the same graphs but only for the gfc time period
 
-det_data_mkt_fix_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\det_data_mkt_fix_graph1.xlsx")
 
-det_data_mkt_fix_graph_gfc <- det_data_mkt_fix_graph %>%
-                              filter(recDate >= "2007-01-31" & recDate <= "2010-12-31")
 
 ggDurApproxUSD4_gfc <- ggplot(det_data_mkt_fix_graph_gfc) +
 geom_bar(aes(x = recDate, y = -durApproxInUSD/1000, fill = factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
@@ -362,23 +369,12 @@ legend.position = "right") +
                scale_y_continuous(labels = scales::percent) 
 
 
-# +
-# scale_x_continuous(breaks = seq(min(det_data_mkt_fix_graph$recDate), max(det_data_mkt_fix_graph$recDate), by = 6))
-
-
-
-
-#ggDurApproxUSD4_gfc
-#ggDurApproxUSD5_gfc
-
 
 ```
 
 ```{r, echo = F, "5. Treasury"}
 #now all the same graphs but only for the covid time period
 
-det_data_mkt_fix_graph_covid <- det_data_mkt_fix_graph %>%
-                              filter(recDate >= "2019-01-31" & recDate <= "2023-01-31")
 
 ggDurApproxUSD4_covid <- ggplot(det_data_mkt_fix_graph_covid) +
 geom_bar(aes(x = recDate, y = -durApproxInUSD/1000, fill = factor(yearsCat,c("less than a year", "1-2 years", "2-4 years", "4-8 years", "8-12 years", "12-20 years", "20+ years"))),
