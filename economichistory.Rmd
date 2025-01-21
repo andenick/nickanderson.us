@@ -767,168 +767,6 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 
 ```
 
-# Balance of Payments History 
-
-## **Historical Balance of Payments Data: Comparing the United States and Germany**
-
-#### By Nick Anderson
-
-#### Dated 2024.12.05
-
-Sources: [Data](https://www.nickanderson.us/data.html)
-
-```{r, include = F, echo = F, "20. BoP"}
-
-GERdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.csv", check.names = FALSE)
-
-USdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\USdata_annual_pct.csv", check.names = FALSE)
-
-USdata_annual_pct$Country <- "US"
-GERdata_annual_pct$Country <- "GER"
-
-################################################
-
-USdata_annual_pct <- USdata_annual_pct %>%
-  rename(
-    "Trade Balance_pct" = "Goods and Services Balance_pct",
-    "Income Balance_pct" = "Total Income Balance_pct",
-    "Statistical Discrepancy_pct" = "Statistical discrepancy 3_pct",
-    "Financial Derivatives_pct" = "Financial derivatives other than reserves, net transactions 2_pct",
-    "Net Errors and Omissions_pct" = "Asset/Liability Balance_pct"  # Assuming this is the closest equivalent
-  ) %>%
-  select(
-    Country, 
-    Year, 
-    "Merchandise Exports_pct", 
-    "Merchandise Imports_pct", 
-    "Merchandise Trade Balance_pct",
-    "Service Exports_pct", 
-    "Service Imports_pct", 
-    "Service Trade Balance_pct", 
-    "Trade Balance_pct", 
-    "Primary Income Receipts_pct",
-    "Primary Income Payments_pct", 
-    "Primary Income Balance_pct", 
-    "Secondary Income Receipts_pct",
-    "Secondary Income Payments_pct", 
-    "Secondary Income Balance_pct", 
-    "Income Balance_pct",
-    "Current Account Balance_pct", 
-    "Capital transfer receipts and other credits_pct",
-    "Capital transfer payments and other debits_pct", 
-    "Capital Account Balance_pct",
-    "Direct investment assets_pct", 
-    "Portfolio Investment Assets_pct", 
-    "Other investment assets_pct",
-    "Reserve Assets_pct", 
-    "Net U.S. acquisition of financial assets excluding financial derivatives (net increase in assets / financial outflow (+))_pct",
-    "Direct investment liabilities_pct", 
-    "Portfolio investment liabilities_pct", 
-    "Other investment liabilities_pct",
-    "Net U.S. incurrence of liabilities excluding financial derivatives (net increase in liabilities / financial inflow (+))_pct",
-    "Financial Derivatives_pct", 
-    "Financial Account Balance_pct", 
-    "Statistical Discrepancy_pct",
-    "Net Errors and Omissions_pct", 
-    GDP_Wbank
-  )
-
-
-# Rename columns in GERdata_annual_pct
-GERdata_annual_pct <- GERdata_annual_pct %>%
-  rename(
-    "Trade Balance_pct" = "Total Trade Balance_pct",
-    "Income Balance_pct" = "Total Income Balance_pct",
-    "Statistical Discrepancy_pct" = "Net Errors and Omissions_pct",
-    "Financial Derivatives_pct" = "Net Financial Derivatives and employee stock options_pct"
-  ) %>%
-  select(
-    Country, 
-    Year, 
-    "Merchandise Exports_pct", 
-    "Merchandise Imports_pct", 
-    "Merchandise Trade Balance_pct",
-    "Service Exports_pct", 
-    "Service Imports_pct", 
-    "Service Trade Balance_pct",
-    "Trade Balance_pct", 
-    "Primary Income Receipts_pct",
-    "Primary Income Payments_pct", 
-    "Primary Income Balance_pct", 
-    "Secondary Income Receipts_pct",
-    "Secondary Income Payments_pct", 
-    "Secondary Income Balance_pct", 
-    "Income Balance_pct",
-    "Current Account Balance_pct", 
-    "Capital Account Balance_pct",                                                      
-    "Net Domestic Investment / Enterprises and households_pct",                          
-    "Net Domestic Investment / Monetary financial institutions (excl. central bank)_pct",
-    "Net Domestic Investment / General government_pct",                                  
-    "Net Domestic Investment / Central bank_pct",                                        
-    "Net Other investment_pct",                                                          
-    "Net Domestic Investment Abroad_pct",                                                
-    "Net Direct Investment_pct",                                                         
-    "Net Portfolio Investment_pct",                                                      
-    "Financial Derivatives_pct",
-    "Financial Account Balance_pct",                                                     
-    "Statistical Discrepancy_pct",                                                                                                             
-    GDP_Wbank
-  )
-
-
-```
-
-```{r, include = F, echo = F}
-
-library(ggplot2)
-library(tidyr)
-library(scales)
-library(stringr)
-
-# Select the relevant columns and convert to long format
-df_long <- GERdata_annual_pct %>%
-  select(Year, 
-         `Trade Balance_pct`, 
-         `Income Balance_pct`, 
-         `Current Account Balance_pct`, 
-         `Capital Account Balance_pct`, 
-         `Financial Account Balance_pct`) %>%
-  pivot_longer(cols = -Year, 
-               names_to = "Balance", 
-               values_to = "Percentage") %>%
-  mutate(Balance = str_remove(Balance, "_pct")) 
-
-# Create the line graph
-ggplot(df_long, aes(x = Year, y = Percentage * 100, color = Balance)) +
-  geom_line(size = 1) +
-  labs(title = "German Balance of Payments (% of GDP)",
-       x = "Year",
-       y = "Percentage of GDP",
-       color = "Balance as % of GDP") + 
-  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
-  theme_minimal() +
-  theme(legend.position = "bottom", 
-        axis.line = element_line(color = "black"), 
-        panel.grid.minor = element_blank()) + 
-  guides(color = guide_legend(nrow = 2))  # Arrange legend items in 2 rows
-
-```
-
-
-### Introduction
-
-The purpose of this research paper is to examine the longest-term Balance of Payments datasets provided by the United States and Germany. These records of asset and capital transactions between my two subject countries and the rest of the world serve as a useful basis to describe the evolution of global imbalances in an interconnected national economy. The current analysis is focused only on description and placing the Balance of Payments in historical perspective; this analysis could serve as the basis for future econometric testing of hypotheses surrounding fluctuations both in and outside of the domestic economies of the subject countries.
-
-### The Balance of Payments: Concepts and Datasets
-
-The Balance of Payments for a given country is a “systematic record of all economic transactions between the residents of the reporting country and the residents of the rest of the world over a specified period of time” (Chacholiades 1990, 281). This record of transactions is the primary dataset by which international economists understand flows of value between countries in the form of goods, services, money, and other assets. Every transaction results in a debit and a credit, recorded in the same manner as a traditional double-entry accounting system. For this reason, the Balance of Payments must always “balance.”
-
-The Balance of Payments traditionally contains two sections, the Current Account and the Capital Account (Chacholiades 1990, 292). In this taxonomy, the Capital Account is a register of all international asset transactions, while the current account registers the rest, which includes trade in goods and services and the profits earned or paid on the assets partially described by the Capital Account.
-
-In recent history, the Capital Account has been separated out into the Capital & Financial Accounts, though this three-account taxonomy has not been adopted by all international economists. This standard, adopted by the United States in 1999, has the purpose of separating transfers in income-producing assets from current transfers, which only reduce the amount of income earned by a country in a given period but would not affect the balance sheet of the reporting country going forward (Krugman and Obstfeld, 2003, 308).
-
-For the purposes of this paper, I am going to combine the Capital and Financial Accounts for convenience. In the cases of both Germany and the United States, the Newly segregated Capital Account is of negligible size when compared to the Financial and Current Accounts and is almost always near 0% of Gross Domestic Product. This relationship is evident in Figure 1 below.
-
 
 
 
@@ -1381,6 +1219,173 @@ Lebergott, Stanley. “Annual Estimates of Unemployment in the United States, 19
 
 Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Receipts, Outlays, and Surpluses or Deficits (-):          1789–2026;” Table 1.4, “Receipts, Outlays, and Surpluses or Deficits (-) by Fund Group: 1934–2026;” Table 2.1, “Receipts by         Source: 1934–2026;” and Table 2.3, “Receipts by Source as Percentages of GDP: 1934–2026.”
   U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA], retrieved from FRED, Federal Reserve Bank of St. Louis;             https://fred.stlouisfed.org/series/UNRATENSA
+  
+
+# Balance of Payments History (NOT FULLY WRITTEN TO WEBSITE)
+
+## **Historical Balance of Payments Data: Comparing the United States and Germany (NOT FULLY WRITTEN TO WEBSITE)**
+
+#### By Nick Anderson
+
+#### Dated 2024.12.05
+
+Sources: [Data](https://www.nickanderson.us/data.html)
+
+```{r, include = F, echo = F, "20. BoP"}
+
+GERdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.csv", check.names = FALSE)
+
+USdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\USdata_annual_pct.csv", check.names = FALSE)
+
+USdata_annual_pct$Country <- "US"
+GERdata_annual_pct$Country <- "GER"
+
+################################################
+
+USdata_annual_pct <- USdata_annual_pct %>%
+  rename(
+    "Trade Balance_pct" = "Goods and Services Balance_pct",
+    "Income Balance_pct" = "Total Income Balance_pct",
+    "Statistical Discrepancy_pct" = "Statistical discrepancy 3_pct",
+    "Financial Derivatives_pct" = "Financial derivatives other than reserves, net transactions 2_pct",
+    "Net Errors and Omissions_pct" = "Asset/Liability Balance_pct"  # Assuming this is the closest equivalent
+  ) %>%
+  select(
+    Country, 
+    Year, 
+    "Merchandise Exports_pct", 
+    "Merchandise Imports_pct", 
+    "Merchandise Trade Balance_pct",
+    "Service Exports_pct", 
+    "Service Imports_pct", 
+    "Service Trade Balance_pct", 
+    "Trade Balance_pct", 
+    "Primary Income Receipts_pct",
+    "Primary Income Payments_pct", 
+    "Primary Income Balance_pct", 
+    "Secondary Income Receipts_pct",
+    "Secondary Income Payments_pct", 
+    "Secondary Income Balance_pct", 
+    "Income Balance_pct",
+    "Current Account Balance_pct", 
+    "Capital transfer receipts and other credits_pct",
+    "Capital transfer payments and other debits_pct", 
+    "Capital Account Balance_pct",
+    "Direct investment assets_pct", 
+    "Portfolio Investment Assets_pct", 
+    "Other investment assets_pct",
+    "Reserve Assets_pct", 
+    "Net U.S. acquisition of financial assets excluding financial derivatives (net increase in assets / financial outflow (+))_pct",
+    "Direct investment liabilities_pct", 
+    "Portfolio investment liabilities_pct", 
+    "Other investment liabilities_pct",
+    "Net U.S. incurrence of liabilities excluding financial derivatives (net increase in liabilities / financial inflow (+))_pct",
+    "Financial Derivatives_pct", 
+    "Financial Account Balance_pct", 
+    "Statistical Discrepancy_pct",
+    "Net Errors and Omissions_pct", 
+    GDP_Wbank
+  )
+
+
+# Rename columns in GERdata_annual_pct
+GERdata_annual_pct <- GERdata_annual_pct %>%
+  rename(
+    "Trade Balance_pct" = "Total Trade Balance_pct",
+    "Income Balance_pct" = "Total Income Balance_pct",
+    "Statistical Discrepancy_pct" = "Net Errors and Omissions_pct",
+    "Financial Derivatives_pct" = "Net Financial Derivatives and employee stock options_pct"
+  ) %>%
+  select(
+    Country, 
+    Year, 
+    "Merchandise Exports_pct", 
+    "Merchandise Imports_pct", 
+    "Merchandise Trade Balance_pct",
+    "Service Exports_pct", 
+    "Service Imports_pct", 
+    "Service Trade Balance_pct",
+    "Trade Balance_pct", 
+    "Primary Income Receipts_pct",
+    "Primary Income Payments_pct", 
+    "Primary Income Balance_pct", 
+    "Secondary Income Receipts_pct",
+    "Secondary Income Payments_pct", 
+    "Secondary Income Balance_pct", 
+    "Income Balance_pct",
+    "Current Account Balance_pct", 
+    "Capital Account Balance_pct",                                                      
+    "Net Domestic Investment / Enterprises and households_pct",                          
+    "Net Domestic Investment / Monetary financial institutions (excl. central bank)_pct",
+    "Net Domestic Investment / General government_pct",                                  
+    "Net Domestic Investment / Central bank_pct",                                        
+    "Net Other investment_pct",                                                          
+    "Net Domestic Investment Abroad_pct",                                                
+    "Net Direct Investment_pct",                                                         
+    "Net Portfolio Investment_pct",                                                      
+    "Financial Derivatives_pct",
+    "Financial Account Balance_pct",                                                     
+    "Statistical Discrepancy_pct",                                                                                                             
+    GDP_Wbank
+  )
+
+
+```
+
+```{r, include = F, echo = F}
+
+library(ggplot2)
+library(tidyr)
+library(scales)
+library(stringr)
+
+# Select the relevant columns and convert to long format
+df_long <- GERdata_annual_pct %>%
+  select(Year, 
+         `Trade Balance_pct`, 
+         `Income Balance_pct`, 
+         `Current Account Balance_pct`, 
+         `Capital Account Balance_pct`, 
+         `Financial Account Balance_pct`) %>%
+  pivot_longer(cols = -Year, 
+               names_to = "Balance", 
+               values_to = "Percentage") %>%
+  mutate(Balance = str_remove(Balance, "_pct")) 
+
+# Create the line graph
+ggplot(df_long, aes(x = Year, y = Percentage * 100, color = Balance)) +
+  geom_line(size = 1) +
+  labs(title = "German Balance of Payments (% of GDP)",
+       x = "Year",
+       y = "Percentage of GDP",
+       color = "Balance as % of GDP") + 
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) +
+  theme_minimal() +
+  theme(legend.position = "bottom", 
+        axis.line = element_line(color = "black"), 
+        panel.grid.minor = element_blank()) + 
+  guides(color = guide_legend(nrow = 2))  # Arrange legend items in 2 rows
+
+```
+
+
+### Introduction
+
+The purpose of this research paper is to examine the longest-term Balance of Payments datasets provided by the United States and Germany. These records of asset and capital transactions between my two subject countries and the rest of the world serve as a useful basis to describe the evolution of global imbalances in an interconnected national economy. The current analysis is focused only on description and placing the Balance of Payments in historical perspective; this analysis could serve as the basis for future econometric testing of hypotheses surrounding fluctuations both in and outside of the domestic economies of the subject countries.
+
+### The Balance of Payments: Concepts and Datasets
+
+The Balance of Payments for a given country is a “systematic record of all economic transactions between the residents of the reporting country and the residents of the rest of the world over a specified period of time” (Chacholiades 1990, 281). This record of transactions is the primary dataset by which international economists understand flows of value between countries in the form of goods, services, money, and other assets. Every transaction results in a debit and a credit, recorded in the same manner as a traditional double-entry accounting system. For this reason, the Balance of Payments must always “balance.”
+
+The Balance of Payments traditionally contains two sections, the Current Account and the Capital Account (Chacholiades 1990, 292). In this taxonomy, the Capital Account is a register of all international asset transactions, while the current account registers the rest, which includes trade in goods and services and the profits earned or paid on the assets partially described by the Capital Account.
+
+In recent history, the Capital Account has been separated out into the Capital & Financial Accounts, though this three-account taxonomy has not been adopted by all international economists. This standard, adopted by the United States in 1999, has the purpose of separating transfers in income-producing assets from current transfers, which only reduce the amount of income earned by a country in a given period but would not affect the balance sheet of the reporting country going forward (Krugman and Obstfeld, 2003, 308).
+
+For the purposes of this paper, I am going to combine the Capital and Financial Accounts for convenience. In the cases of both Germany and the United States, the Newly segregated Capital Account is of negligible size when compared to the Financial and Current Accounts and is almost always near 0% of Gross Domestic Product. This relationship is evident in Figure 1 below.
+
+
+  
+  
 
 Last compiled: `r Sys.Date()`
 
