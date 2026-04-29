@@ -1,0 +1,55 @@
+---
+title: "AI Tools"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+---
+
+# AI Tools
+
+Open-source research infrastructure for AI-assisted empirical economics. The substance lives in [`arcanum-workspace`](https://github.com/andenick/arcanum-workspace) on GitHub. The descriptions below are high-level overviews; click through to the repository for the working code.
+
+# A PDF Processing Protocol for Archival Sources
+
+A pipeline for extracting structured data from scanned PDFs at archival quality, combining direct agent vision for tables, equations, and figures with a multi-engine consensus engine for body text. Designed for the Anwar Shaikh archival project — see [TNSE](tnse.html) — and reused for scholarly books, regulatory filings, and historical scanned material across the workspace.
+
+[Source on GitHub →](https://github.com/andenick/arcanum-workspace)
+
+# A Framework for Reproducible Economic Data Construction
+
+A set of templates for agent-driven empirical data construction projects, designed so that the final pipeline is reproducible by anyone — without an AI agent in the loop. A researcher clones the package, sets API keys, runs the master script, and gets the same data with the same hashes. Used at scale on the [Capitalism Data Replication](research.html) project and on the Shaikh-Tonak national-accounts extension.
+
+[Source on GitHub →](https://github.com/andenick/arcanum-workspace)
+
+# A Pipeline Architecture for Empirical Research
+
+A language-agnostic eight-phase architecture for empirical research projects. Script-name prefixes encode the phase (setup, load, process, validate, manual adjust, analyze, output, explore), so anyone reading the file system can reconstruct the dependency graph. Phase-gated execution prevents skipping validation; a single registry file is the source of truth; manual adjustments are explicit and justified rather than silent.
+
+[Source on GitHub →](https://github.com/andenick/arcanum-workspace)
+
+# Why Open-Source
+
+Empirical economics done with AI assistance can produce work that other researchers cannot reproduce, audit, or extend. The tools above are an attempt to do AI-augmented research without sacrificing the standards the discipline expects. They are open-source because the underlying research questions are, and the infrastructure required to ask them properly should be too.
+
+[Full source on GitHub →](https://github.com/andenick/arcanum-workspace)
+
+<style type="text/css">
+.navbar-default {
+    background-color: #640000 !important;
+}
+.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
+  color: white;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+    font-weight: 150;
+}
+.navbar-nav > .active > a {
+    background-color: #006400 !important;
+    font-weight: 175;
+}
+</style>

@@ -1,0 +1,107 @@
+---
+title: "Projects"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+---
+
+# Projects
+
+Public code repositories and data tools. For source material on related research, see the [Research](research.html) and [TNSE](tnse.html) pages.
+
+# FreeNIC
+
+*Open Banking Regulatory Data*
+
+[github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC)
+
+A public Python and R package plus a server providing programmatic access to **1.5 billion rows of US banking regulatory data spanning 1863–2026**. Coverage: 217,210 institutions, 34 Parquet tables, 20 source datasets, 15 query tools.
+
+This is the public infrastructure I most often want when doing empirical banking research, and it had not previously existed in this form. Any researcher (or AI agent) can query the consolidated data directly without writing custom adapters.
+
+# arcanum-workspace
+
+*AI-First Research Workspace*
+
+[github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace)
+
+The home of the [AI tools](aitools.html) used across all of my research projects. Skill templates, workspace standards, and supporting infrastructure for AI-assisted empirical research.
+
+# HMDA Explore
+
+*Home Mortgage Disclosure Act Shiny App*
+
+[andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/)
+
+An interactive R Shiny application for exploring **33 years of Home Mortgage Disclosure Act data** across four data-definition eras. Six tabs: select areas, demographics (HUD CHAS data), home financing, financial institution view, top 10 lenders, and a PDF report generator. Built during my research assistantship at The New School's Schwartz Center for Economic Policy Analysis.
+
+Please allow the app a moment to spin up on first load — once running, it is fast.
+
+# Foodberg
+
+*Historical Food Price Explorer*
+
+[github.com/andenick/Foodberg](https://github.com/andenick/Foodberg)
+
+A full-stack web application (React + FastAPI) for exploring historical food commodity prices across FAO, USDA WASDE, BLS, FRED, and World Bank data. 169,000+ records from 5 sources.
+
+# ShaikhTonak
+
+*National Accounts Replication*
+
+[github.com/andenick/ShaikhTonak](https://github.com/andenick/ShaikhTonak)
+
+Replication and extension of the Shaikh & Tonak *Measuring the Wealth of Nations* (1994) framework — productive labor, net social wage, exploitation rate. Phase 1 covers Net Social Wage 1952–2025; Phase 2 covers productive labor 2010–2023.
+
+# MyRFailingBanks
+
+*Bank Failure Prediction Replication*
+
+[github.com/andenick/MyRFailingBanks](https://github.com/andenick/MyRFailingBanks)
+
+R package replicating the Correia, Luck, and Verner (2025) "Failing Banks" QJE paper. 158K observations, 489 failures, 0.965 AUC. Eleven R scripts and three LaTeX reports.
+
+# westchester
+
+*Westchester County Data Platform*
+
+[github.com/andenick/westchester](https://github.com/andenick/westchester)
+
+A React + FastAPI + PostgreSQL/PostGIS data platform for Westchester County, including a sidewalk analysis component for Metro-North accessibility. Property tax, budget, transit, and demographics datasets are integrated.
+
+# Anwar Shaikh Archive
+
+*Archive at Levy Economics Institute*
+
+[digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/)
+
+35 boxes and 70,000+ scanned pages of Anwar Shaikh's working papers, correspondence, lecture notes, manuscripts, and unpublished research material, housed at the Levy Economics Institute of Bard College. I am Lead Archivist; target completion June 2026. See [TNSE](tnse.html) for context.
+
+# realecon.org
+
+*Companion site to Anwar Shaikh's work in economics*
+
+[realecon.org](https://realecon.org)
+
+A public website hosting author bibliographies, forum discussions, and resources for heterodox and classical political economy related to Anwar Shaikh's empirical contributions.
+
+<style type="text/css">
+.navbar-default {
+    background-color: #640000 !important;
+}
+.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
+  color: white;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+    font-weight: 150;
+}
+.navbar-nav > .active > a {
+    background-color: #006400 !important;
+    font-weight: 175;
+}
+</style>

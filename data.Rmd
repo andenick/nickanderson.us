@@ -3,53 +3,62 @@ title: "Data"
 output: html_document
 ---
 
-Every economist is responsible for their own data. 
+# Datasets
 
-Here is mine:
+Every economist is responsible for their own data. Here is mine.
 
-[Duration and Public Finance](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
+---
 
-[Tax Revenue Cyclicality](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
+## Underlying Data for Published Work on This Site
 
+### *Duration and Public Finance in the United States, 2001–2023*
+- [Source data and processing scripts](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
+- [Read the paper →](economichistory.html)
 
+### Tax Revenue Cyclicality
+- [Source data](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
 
+---
+
+## HMDA — Home Mortgage Disclosure Act
+
+The HMDA Explore Shiny app at [andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/) is the public-facing version of this work.
+
+- [HMDA processing code (with data)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing) — fair warning: this is not a perfect replication package; you will need to adjust file paths if you run the code, and the underlying files are large enough that a laptop may not have the RAM to process them in full.
+- [HMDA Shiny app source](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
+
+---
+
+## Public Banking Data Infrastructure
+
+For programmatic access to bank regulatory data spanning 1863 to the present:
+
+- **FreeNIC** — [github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC) — 1.5 billion rows, 217,210 institutions, 20 source datasets, 15 MCP tools.
+
+---
+
+## Anwar Shaikh Archive
+
+35 boxes / 70,000+ scanned pages at the Levy Economics Institute of Bard College. Public archive:
+
+- [digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/)
+- Companion site: [realecon.org](https://realecon.org)
+
+---
 
 <style type="text/css">
-.title {
-  display: none;
-}
-
 .navbar-default {
     background-color: #640000 !important;
-    
 }
-
-<!-- .navbar-nav { -->
-<!--   color:white !important; -->
-
-<!-- } -->
-
 .navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
   color: white;
 }
-
 .navbar-default .navbar-nav>li>a {
     color: white !important;
     font-weight: 150;
 }
-
-.navbar-nav > .active > a { 
+.navbar-nav > .active > a {
     background-color: #006400 !important;
     font-weight: 175;
 }
-
-#getting-started img {
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-
 </style>
-
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">

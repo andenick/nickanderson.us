@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>Projects</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -219,6 +222,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -226,6 +292,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -272,20 +348,110 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Projects</h1>
 
 </div>
 
 
-<p>Hi everyone.</p>
-<p>I am Nick Anderson, a PhD candidate in Economics at The New School
-for Social Research. This is a website where I host my projects and
-anything else I want to share publicly.</p>
-<p>Best wishes,</p>
-<p>Nick</p>
-<hr />
-<p><a href="mailto:nickawebbox@gmail.com">nickawebbox@gmail.com</a> · <a
-href="https://github.com/andenick">github.com/andenick</a></p>
+<div id="projects" class="section level1">
+<h1>Projects</h1>
+<p>Public code repositories and data tools. For source material on
+related research, see the <a href="research.html">Research</a> and <a
+href="tnse.html">TNSE</a> pages.</p>
+</div>
+<div id="freenic" class="section level1">
+<h1>FreeNIC</h1>
+<p><em>Open Banking Regulatory Data</em></p>
+<p><a
+href="https://github.com/andenick/FreeNIC">github.com/andenick/FreeNIC</a></p>
+<p>A public Python and R package plus a server providing programmatic
+access to <strong>1.5 billion rows of US banking regulatory data
+spanning 1863–2026</strong>. Coverage: 217,210 institutions, 34 Parquet
+tables, 20 source datasets, 15 query tools.</p>
+<p>This is the public infrastructure I most often want when doing
+empirical banking research, and it had not previously existed in this
+form. Any researcher (or AI agent) can query the consolidated data
+directly without writing custom adapters.</p>
+</div>
+<div id="arcanum-workspace" class="section level1">
+<h1>arcanum-workspace</h1>
+<p><em>AI-First Research Workspace</em></p>
+<p><a
+href="https://github.com/andenick/arcanum-workspace">github.com/andenick/arcanum-workspace</a></p>
+<p>The home of the <a href="aitools.html">AI tools</a> used across all
+of my research projects. Skill templates, workspace standards, and
+supporting infrastructure for AI-assisted empirical research.</p>
+</div>
+<div id="hmda-explore" class="section level1">
+<h1>HMDA Explore</h1>
+<p><em>Home Mortgage Disclosure Act Shiny App</em></p>
+<p><a
+href="https://andenick.shinyapps.io/HMDAExplore/">andenick.shinyapps.io/HMDAExplore</a></p>
+<p>An interactive R Shiny application for exploring <strong>33 years of
+Home Mortgage Disclosure Act data</strong> across four data-definition
+eras. Six tabs: select areas, demographics (HUD CHAS data), home
+financing, financial institution view, top 10 lenders, and a PDF report
+generator. Built during my research assistantship at The New School’s
+Schwartz Center for Economic Policy Analysis.</p>
+<p>Please allow the app a moment to spin up on first load — once
+running, it is fast.</p>
+</div>
+<div id="foodberg" class="section level1">
+<h1>Foodberg</h1>
+<p><em>Historical Food Price Explorer</em></p>
+<p><a
+href="https://github.com/andenick/Foodberg">github.com/andenick/Foodberg</a></p>
+<p>A full-stack web application (React + FastAPI) for exploring
+historical food commodity prices across FAO, USDA WASDE, BLS, FRED, and
+World Bank data. 169,000+ records from 5 sources.</p>
+</div>
+<div id="shaikhtonak" class="section level1">
+<h1>ShaikhTonak</h1>
+<p><em>National Accounts Replication</em></p>
+<p><a
+href="https://github.com/andenick/ShaikhTonak">github.com/andenick/ShaikhTonak</a></p>
+<p>Replication and extension of the Shaikh &amp; Tonak <em>Measuring the
+Wealth of Nations</em> (1994) framework — productive labor, net social
+wage, exploitation rate. Phase 1 covers Net Social Wage 1952–2025; Phase
+2 covers productive labor 2010–2023.</p>
+</div>
+<div id="myrfailingbanks" class="section level1">
+<h1>MyRFailingBanks</h1>
+<p><em>Bank Failure Prediction Replication</em></p>
+<p><a
+href="https://github.com/andenick/MyRFailingBanks">github.com/andenick/MyRFailingBanks</a></p>
+<p>R package replicating the Correia, Luck, and Verner (2025) “Failing
+Banks” QJE paper. 158K observations, 489 failures, 0.965 AUC. Eleven R
+scripts and three LaTeX reports.</p>
+</div>
+<div id="westchester" class="section level1">
+<h1>westchester</h1>
+<p><em>Westchester County Data Platform</em></p>
+<p><a
+href="https://github.com/andenick/westchester">github.com/andenick/westchester</a></p>
+<p>A React + FastAPI + PostgreSQL/PostGIS data platform for Westchester
+County, including a sidewalk analysis component for Metro-North
+accessibility. Property tax, budget, transit, and demographics datasets
+are integrated.</p>
+</div>
+<div id="anwar-shaikh-archive" class="section level1">
+<h1>Anwar Shaikh Archive</h1>
+<p><em>Archive at Levy Economics Institute</em></p>
+<p><a
+href="https://digitalcommons.bard.edu/as_archive/">digitalcommons.bard.edu/as_archive</a></p>
+<p>35 boxes and 70,000+ scanned pages of Anwar Shaikh’s working papers,
+correspondence, lecture notes, manuscripts, and unpublished research
+material, housed at the Levy Economics Institute of Bard College. I am
+Lead Archivist; target completion June 2026. See <a
+href="tnse.html">TNSE</a> for context.</p>
+</div>
+<div id="realecon.org" class="section level1">
+<h1>realecon.org</h1>
+<p><em>Companion site to Anwar Shaikh’s work in economics</em></p>
+<p><a href="https://realecon.org">realecon.org</a></p>
+<p>A public website hosting author bibliographies, forum discussions,
+and resources for heterodox and classical political economy related to
+Anwar Shaikh’s empirical contributions.</p>
 <style type="text/css">
 .navbar-default {
     background-color: #640000 !important;
@@ -302,9 +468,12 @@ href="https://github.com/andenick">github.com/andenick</a></p>
     font-weight: 175;
 }
 </style>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -337,6 +506,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -6,57 +6,41 @@ theme: null
 
 # **Welcome, here are some projects of mine**
 
-This site is relatively new. The only pages that are populated as of the writing of this message are Economic History and Data. My only papers are on the Economic History page. 
+My main project is a three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available here:
 
-[Economic History](https://www.nickanderson.us/economichistory.html)
+[**Economics at The New School — 2024 draft (Google Drive)**](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing)
 
-Here are some other projects of mine:
+---
 
-1. [Economics at the New School - 2024.08.26 Draft](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing)
+Here are some other projects and pages on this site:
 
-This first project is a manuscript of narrative non-fiction focused on the development of economic theory and practice in the United States and Germany. The manuscript is far from complete, but as it stands is 121 good pages about the history of economic thought told through the lives and times of the economists who founded the New School for Social Research in New York City and its Graduate Faculty. 
+1. [**TNSE — Economics at The New School**](tnse.html)
+A three-part institutional and intellectual history of The New School's economics department from its 1919 founding to the present. Part 1 (121 pages drafted) covers 1919–1933. Parts 2 and 3 extend the history to 1960 and include an oral history component with 84 structured interviews.
 
-2. [HMDA Explore Shiny Application](https://andenick.shinyapps.io/HMDAExplore/)
+2. [**Research**](research.html)
+Empirical work on public finance, tax revenue cyclicality, historical balance-of-payments data, and a replication and extension of the empirical data in Anwar Shaikh's *Capitalism* (2016). Includes original figures built from U.S. Treasury and BEA data.
 
-Note: Please allow the Shiny Application a minute to load up. Once the application is launched, it runs quite quickly.
+3. [**realecon.org**](https://realecon.org)
+A public website built as a companion to Anwar Shaikh's work in economics. Hosts author bibliographies, forum discussions, and resources for heterodox and classical political economy.
 
-[HMDA Explore Shiny Code](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
+4. [**HMDA Explore**](https://andenick.shinyapps.io/HMDAExplore/)
+An interactive 33-year Home Mortgage Disclosure Act explorer built during my Schwartz Center research assistantship at The New School. Please allow the application a moment to spin up.
 
-This Shiny application is aimed at making accessible the insights in the loan data published as a result of the Home Mortgage Disclosure Act. The data is aggregated by Financial Institution and County. The idea is that local stakeholders and municipal officials could use real-time information about bank lending activities in their localities. 
+5. [**AI Tools**](aitools.html)
+Open-source research infrastructure for AI-assisted empirical economics. Protocols for PDF processing, reproducible economic data construction, and pipeline architecture for empirical research.
 
-The data used in the above Shiny application are processed using the code at the link below: 
+6. [**Projects**](projects.html)
+Public code repositories and data tools, including FreeNIC (banking regulatory data 1863–2026), Foodberg (historical food prices), and a Westchester County sidewalk-accessibility analysis.
 
-[HMDA Data Processing Code (with Data)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing)
-
-Fair warning on the HMDA Data Processing - this is not a perfect replication package, so you will need to do some adjustment with your own filepaths if you run the code. Also, these files are large, so a laptop may not have the RAM necessary to run the code to process the data. 
+---
 
 Thank you and let me know if you have any questions!
 
 Nick
 
-
-
+---
 
 Last compiled: `r Sys.Date()`
-
-
-
-
-<!-- </div> -->
-<!-- <div class="col-sm-6"> -->
-
-
-
-<!-- </a> -->
-<!-- </div> -->
-
-
-
-
-
-
-
-
 
 <style type="text/css">
 .title {
@@ -65,13 +49,7 @@ Last compiled: `r Sys.Date()`
 
 .navbar-default {
     background-color: #640000 !important;
-    
 }
-
-<!-- .navbar-nav { -->
-<!--   color:white !important; -->
-
-<!-- } -->
 
 .navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
   color: white;
@@ -82,18 +60,8 @@ Last compiled: `r Sys.Date()`
     font-weight: 150;
 }
 
-.navbar-nav > .active > a { 
+.navbar-nav > .active > a {
     background-color: #006400 !important;
     font-weight: 175;
 }
-
-#getting-started img {
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-
 </style>
-
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">

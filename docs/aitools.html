@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>AI Tools</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -219,6 +222,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -226,6 +292,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -272,20 +348,67 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">AI Tools</h1>
 
 </div>
 
 
-<p>Hi everyone.</p>
-<p>I am Nick Anderson, a PhD candidate in Economics at The New School
-for Social Research. This is a website where I host my projects and
-anything else I want to share publicly.</p>
-<p>Best wishes,</p>
-<p>Nick</p>
-<hr />
-<p><a href="mailto:nickawebbox@gmail.com">nickawebbox@gmail.com</a> · <a
-href="https://github.com/andenick">github.com/andenick</a></p>
+<div id="ai-tools" class="section level1">
+<h1>AI Tools</h1>
+<p>Open-source research infrastructure for AI-assisted empirical
+economics. The substance lives in <a
+href="https://github.com/andenick/arcanum-workspace"><code>arcanum-workspace</code></a>
+on GitHub. The descriptions below are high-level overviews; click
+through to the repository for the working code.</p>
+</div>
+<div id="a-pdf-processing-protocol-for-archival-sources"
+class="section level1">
+<h1>A PDF Processing Protocol for Archival Sources</h1>
+<p>A pipeline for extracting structured data from scanned PDFs at
+archival quality, combining direct agent vision for tables, equations,
+and figures with a multi-engine consensus engine for body text. Designed
+for the Anwar Shaikh archival project — see <a href="tnse.html">TNSE</a>
+— and reused for scholarly books, regulatory filings, and historical
+scanned material across the workspace.</p>
+<p><a href="https://github.com/andenick/arcanum-workspace">Source on
+GitHub →</a></p>
+</div>
+<div id="a-framework-for-reproducible-economic-data-construction"
+class="section level1">
+<h1>A Framework for Reproducible Economic Data Construction</h1>
+<p>A set of templates for agent-driven empirical data construction
+projects, designed so that the final pipeline is reproducible by anyone
+— without an AI agent in the loop. A researcher clones the package, sets
+API keys, runs the master script, and gets the same data with the same
+hashes. Used at scale on the <a href="research.html">Capitalism Data
+Replication</a> project and on the Shaikh-Tonak national-accounts
+extension.</p>
+<p><a href="https://github.com/andenick/arcanum-workspace">Source on
+GitHub →</a></p>
+</div>
+<div id="a-pipeline-architecture-for-empirical-research"
+class="section level1">
+<h1>A Pipeline Architecture for Empirical Research</h1>
+<p>A language-agnostic eight-phase architecture for empirical research
+projects. Script-name prefixes encode the phase (setup, load, process,
+validate, manual adjust, analyze, output, explore), so anyone reading
+the file system can reconstruct the dependency graph. Phase-gated
+execution prevents skipping validation; a single registry file is the
+source of truth; manual adjustments are explicit and justified rather
+than silent.</p>
+<p><a href="https://github.com/andenick/arcanum-workspace">Source on
+GitHub →</a></p>
+</div>
+<div id="why-open-source" class="section level1">
+<h1>Why Open-Source</h1>
+<p>Empirical economics done with AI assistance can produce work that
+other researchers cannot reproduce, audit, or extend. The tools above
+are an attempt to do AI-augmented research without sacrificing the
+standards the discipline expects. They are open-source because the
+underlying research questions are, and the infrastructure required to
+ask them properly should be too.</p>
+<p><a href="https://github.com/andenick/arcanum-workspace">Full source
+on GitHub →</a></p>
 <style type="text/css">
 .navbar-default {
     background-color: #640000 !important;
@@ -302,9 +425,12 @@ href="https://github.com/andenick">github.com/andenick</a></p>
     font-weight: 175;
 }
 </style>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -337,6 +463,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>TNSE</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -219,6 +222,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -226,6 +292,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -272,20 +348,89 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">TNSE</h1>
 
 </div>
 
 
-<p>Hi everyone.</p>
-<p>I am Nick Anderson, a PhD candidate in Economics at The New School
-for Social Research. This is a website where I host my projects and
-anything else I want to share publicly.</p>
-<p>Best wishes,</p>
-<p>Nick</p>
-<hr />
-<p><a href="mailto:nickawebbox@gmail.com">nickawebbox@gmail.com</a> · <a
-href="https://github.com/andenick">github.com/andenick</a></p>
+<div id="economics-at-the-new-school" class="section level1">
+<h1>Economics at The New School</h1>
+<p>A long-running personal project covering the institutional and
+intellectual history of economics at The New School for Social Research,
+from its 1919 founding through the present. The work has three
+components: a manuscript in progress, a digital archive, and the Anwar
+Shaikh archival project at the Levy Economics Institute of Bard
+College.</p>
+</div>
+<div id="the-manuscript" class="section level1">
+<h1>The Manuscript</h1>
+<p><em>Economics at The New School</em> is the manuscript at the center
+of this project. It is a three-part work.</p>
+<p><strong>Part 1</strong> is drafted at 121 pages. It is an
+intellectual history of the founding period and the émigré generation,
+drawing on the published work, archival records, and existing
+scholarship on the economists who built the Graduate Faculty during and
+after the University in Exile (1933 onward). Central figures include
+James Harvey Robinson, Charles Beard, Herbert Croly, Thorstein Veblen,
+Wesley Clair Mitchell, Emil Lederer, Hans Neisser, Adolph Lowe, Gerhard
+Colm, Hans Staudinger, and Frieda Wunderlich.</p>
+<p><strong>Part 2</strong> carries the institutional history forward to
+1960. (In progress.)</p>
+<p><strong>Part 3</strong> is an oral history of the modern department,
+drawing on <strong>84 structured interviews with previous faculty
+members and students of The New School’s economics program</strong>. (In
+progress.)</p>
+<p>A working draft of Part 1 (August 2024) is available <a
+href="https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing">on
+Google Drive</a>.</p>
+<p>The companion site <a href="https://realecon.org">realecon.org</a>
+hosts related research infrastructure.</p>
+</div>
+<div id="the-anwar-shaikh-archive-at-levy" class="section level1">
+<h1>The Anwar Shaikh Archive at Levy</h1>
+<p>I am Lead Archivist of the <strong>Archives of Anwar Shaikh</strong>
+at the Levy Economics Institute of Bard College.</p>
+<p>35 boxes and 70,000+ scanned pages have been cataloged and digitized.
+Target completion: June 2026.</p>
+<p><strong>Public archive:</strong> <a
+href="https://digitalcommons.bard.edu/as_archive/">digitalcommons.bard.edu/as_archive</a></p>
+<p><strong>Companion site:</strong> <a
+href="https://realecon.org">realecon.org</a></p>
+<p>The archive holds Anwar Shaikh’s working papers, correspondence,
+lecture notes, manuscripts, and unpublished research material spanning
+his career at The New School and beyond. The collection has unusual
+format diversity — paper records, cassette tapes, and VHS tapes
+alongside conventional manuscripts — and required a custom digitization
+workflow.</p>
+<p>The archive is a primary source for the post-1980 sections of the
+manuscript, and a public-good infrastructure for any researcher working
+on the heterodox empirical tradition more broadly.</p>
+</div>
+<div id="the-digital-archive" class="section level1">
+<h1>The Digital Archive</h1>
+<p>The TNSE project also maintains a structured digital archive of
+materials related to The New School’s economics department: scholar
+profiles, recorded interviews, course catalogs, published
+bibliographies, and institutional records. A web-facing version of the
+digital archive is in development. Until then, materials are made
+available on request to researchers working on TNSE-related topics.</p>
+</div>
+<div id="why-this-project" class="section level1">
+<h1>Why This Project</h1>
+<p>The New School’s economics department has been a distinctive node in
+the heterodox tradition for more than a century. It was founded in 1933
+specifically to work on the problem of technological unemployment — an
+invitation Lederer had accepted from the International Labour Office.
+That question has continued, in different forms and through different
+generations, to be a defining concern of the department.</p>
+<p>Documenting that lineage is worth doing in its own right. It is also
+worth doing because the question itself — what does technological change
+do to the structure of work and to the people who do that work — is now
+one of the most important questions in economics, and the New School
+tradition has tools for asking it that other parts of the discipline
+have not retained.</p>
+<p>The book is the public-facing product. The archive is the underlying
+infrastructure. They are two parts of one project.</p>
 <style type="text/css">
 .navbar-default {
     background-color: #640000 !important;
@@ -302,9 +447,12 @@ href="https://github.com/andenick">github.com/andenick</a></p>
     font-weight: 175;
 }
 </style>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -337,6 +485,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -1,0 +1,71 @@
+---
+title: "TNSE"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+---
+
+# Economics at The New School
+
+A long-running personal project covering the institutional and intellectual history of economics at The New School for Social Research, from its 1919 founding through the present. The work has three components: a manuscript in progress, a digital archive, and the Anwar Shaikh archival project at the Levy Economics Institute of Bard College.
+
+# The Manuscript
+
+*Economics at The New School* is the manuscript at the center of this project. It is a three-part work.
+
+**Part 1** is drafted at 121 pages. It is an intellectual history of the founding period and the émigré generation, drawing on the published work, archival records, and existing scholarship on the economists who built the Graduate Faculty during and after the University in Exile (1933 onward). Central figures include James Harvey Robinson, Charles Beard, Herbert Croly, Thorstein Veblen, Wesley Clair Mitchell, Emil Lederer, Hans Neisser, Adolph Lowe, Gerhard Colm, Hans Staudinger, and Frieda Wunderlich.
+
+**Part 2** carries the institutional history forward to 1960. (In progress.)
+
+**Part 3** is an oral history of the modern department, drawing on **84 structured interviews with previous faculty members and students of The New School's economics program**. (In progress.)
+
+A working draft of Part 1 (August 2024) is available [on Google Drive](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing).
+
+The companion site [realecon.org](https://realecon.org) hosts related research infrastructure.
+
+# The Anwar Shaikh Archive at Levy
+
+I am Lead Archivist of the **Archives of Anwar Shaikh** at the Levy Economics Institute of Bard College.
+
+35 boxes and 70,000+ scanned pages have been cataloged and digitized. Target completion: June 2026.
+
+**Public archive:** [digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/)
+
+**Companion site:** [realecon.org](https://realecon.org)
+
+The archive holds Anwar Shaikh's working papers, correspondence, lecture notes, manuscripts, and unpublished research material spanning his career at The New School and beyond. The collection has unusual format diversity — paper records, cassette tapes, and VHS tapes alongside conventional manuscripts — and required a custom digitization workflow.
+
+The archive is a primary source for the post-1980 sections of the manuscript, and a public-good infrastructure for any researcher working on the heterodox empirical tradition more broadly.
+
+# The Digital Archive
+
+The TNSE project also maintains a structured digital archive of materials related to The New School's economics department: scholar profiles, recorded interviews, course catalogs, published bibliographies, and institutional records. A web-facing version of the digital archive is in development. Until then, materials are made available on request to researchers working on TNSE-related topics.
+
+# Why This Project
+
+The New School's economics department has been a distinctive node in the heterodox tradition for more than a century. It was founded in 1933 specifically to work on the problem of technological unemployment — an invitation Lederer had accepted from the International Labour Office. That question has continued, in different forms and through different generations, to be a defining concern of the department.
+
+Documenting that lineage is worth doing in its own right. It is also worth doing because the question itself — what does technological change do to the structure of work and to the people who do that work — is now one of the most important questions in economics, and the New School tradition has tools for asking it that other parts of the discipline have not retained.
+
+The book is the public-facing product. The archive is the underlying infrastructure. They are two parts of one project.
+
+<style type="text/css">
+.navbar-default {
+    background-color: #640000 !important;
+}
+.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
+  color: white;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white !important;
+    font-weight: 150;
+}
+.navbar-nav > .active > a {
+    background-color: #006400 !important;
+    font-weight: 175;
+}
+</style>

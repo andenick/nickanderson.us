@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+research_cache/
+*_cache/
+*_files/
+docs/superpowers/

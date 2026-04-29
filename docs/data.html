@@ -13,7 +13,7 @@
 
 <title>Data</title>
 
-<script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -243,19 +243,22 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home &amp; General</a>
+  <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="economichistory.html">Economic History</a>
+  <a href="research.html">Research</a>
 </li>
 <li>
-  <a href="data.html">Data</a>
+  <a href="tnse.html">TNSE</a>
+</li>
+<li>
+  <a href="aitools.html">AI Tools</a>
+</li>
+<li>
+  <a href="projects.html">Projects</a>
 </li>
 <li>
   <a href="about.html">About</a>
-</li>
-<li>
-  <a href="contact.html">Contact</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -274,53 +277,90 @@ $(document).ready(function () {
 </div>
 
 
-<p>Every economist is responsible for their own data.</p>
-<p>Here is mine:</p>
-<p><a
-href="https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing">Duration
-and Public Finance</a></p>
-<p><a
-href="https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing">Tax
-Revenue Cyclicality</a></p>
+<div id="datasets" class="section level1">
+<h1>Datasets</h1>
+<p>Every economist is responsible for their own data. Here is mine.</p>
+<hr />
+<div id="underlying-data-for-published-work-on-this-site"
+class="section level2">
+<h2>Underlying Data for Published Work on This Site</h2>
+<div id="duration-and-public-finance-in-the-united-states-20012023"
+class="section level3">
+<h3><em>Duration and Public Finance in the United States,
+2001–2023</em></h3>
+<ul>
+<li><a
+href="https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing">Source
+data and processing scripts</a></li>
+<li><a href="economichistory.html">Read the paper →</a></li>
+</ul>
+</div>
+<div id="tax-revenue-cyclicality" class="section level3">
+<h3>Tax Revenue Cyclicality</h3>
+<ul>
+<li><a
+href="https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing">Source
+data</a></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="hmda-home-mortgage-disclosure-act" class="section level2">
+<h2>HMDA — Home Mortgage Disclosure Act</h2>
+<p>The HMDA Explore Shiny app at <a
+href="https://andenick.shinyapps.io/HMDAExplore/">andenick.shinyapps.io/HMDAExplore</a>
+is the public-facing version of this work.</p>
+<ul>
+<li><a
+href="https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing">HMDA
+processing code (with data)</a> — fair warning: this is not a perfect
+replication package; you will need to adjust file paths if you run the
+code, and the underlying files are large enough that a laptop may not
+have the RAM to process them in full.</li>
+<li><a
+href="https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing">HMDA
+Shiny app source</a></li>
+</ul>
+<hr />
+</div>
+<div id="public-banking-data-infrastructure" class="section level2">
+<h2>Public Banking Data Infrastructure</h2>
+<p>For programmatic access to bank regulatory data spanning 1863 to the
+present:</p>
+<ul>
+<li><strong>FreeNIC</strong> — <a
+href="https://github.com/andenick/FreeNIC">github.com/andenick/FreeNIC</a>
+— 1.5 billion rows, 217,210 institutions, 20 source datasets, 15 MCP
+tools.</li>
+</ul>
+<hr />
+</div>
+<div id="anwar-shaikh-archive" class="section level2">
+<h2>Anwar Shaikh Archive</h2>
+<p>35 boxes / 70,000+ scanned pages at the Levy Economics Institute of
+Bard College. Public archive:</p>
+<ul>
+<li><a
+href="https://digitalcommons.bard.edu/as_archive/">digitalcommons.bard.edu/as_archive</a></li>
+<li>Companion site: <a href="https://realecon.org">realecon.org</a></li>
+</ul>
+<hr />
 <style type="text/css">
-.title {
-  display: none;
-}
-
 .navbar-default {
     background-color: #640000 !important;
-    
 }
-
-<!-- .navbar-nav { -->
-<!--   color:white !important; -->
-
-<!-- } -->
-
 .navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
   color: white;
 }
-
 .navbar-default .navbar-nav>li>a {
     color: white !important;
     font-weight: 150;
 }
-
-.navbar-nav > .active > a { 
+.navbar-nav > .active > a {
     background-color: #006400 !important;
     font-weight: 175;
 }
-
-#getting-started img {
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-
 </style>
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">
-
 </div>
 </div>
 
