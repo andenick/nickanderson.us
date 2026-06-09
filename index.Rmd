@@ -23,14 +23,16 @@ Empirical work on public finance, tax revenue cyclicality, historical balance-of
 3. [**realecon.org**](https://realecon.org)
 A public website built as a companion to Anwar Shaikh's work in economics. Hosts author bibliographies, forum discussions, and resources for heterodox and classical political economy.
 
-4. [**HMDA Explore**](https://andenick.shinyapps.io/HMDAExplore/)
-An interactive 33-year Home Mortgage Disclosure Act explorer built during my Schwartz Center research assistantship at The New School. Please allow the application a moment to spin up.
+4. [**HMDA Explore**](https://hmdaexplore.com)
+An interactive Streamlit dashboard over Home Mortgage Disclosure Act data, 2019–2023 — slice U.S. mortgage lending by geography, borrower demographics, and lending institution. Built during my Schwartz Center research assistantship at The New School. Please allow the application a moment to spin up.
 
 5. [**AI Tools**](aitools.html)
 Open-source research infrastructure for AI-assisted empirical economics. Protocols for PDF processing, reproducible economic data construction, and pipeline architecture for empirical research.
 
 6. [**Projects**](projects.html)
-Public code repositories and data tools, including FreeNIC (banking regulatory data 1863–2026), Foodberg (historical food prices), and a Westchester County sidewalk-accessibility analysis.
+Public code repositories and interactive data tools — FreeNIC (banking regulatory data, 1863–2026), Foodberg (historical food prices), and a Westchester County sidewalk-accessibility map, alongside interactive explorers for public finance ([pubfin.org](https://pubfin.org)), bank failures ([volcker.org](https://volcker.org)), input–output accounts ([leontief.io](https://leontief.io)), the *Capitalism* replication ([mdata.fyi](https://mdata.fyi)), and the history of economic statistics ([methodex.fyi](https://methodex.fyi)).
+
+Many of these tools are collected at my research hub, [heterodata.org](https://heterodata.org).
 
 ---
 
@@ -41,27 +43,3 @@ Nick
 ---
 
 Last compiled: `r Sys.Date()`
-
-<style type="text/css">
-.title {
-  display: none;
-}
-
-.navbar-default {
-    background-color: #640000 !important;
-}
-
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>

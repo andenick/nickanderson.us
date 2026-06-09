@@ -12,7 +12,21 @@ navbar:
       href: aitools.html
     - text: "Projects"
       href: projects.html
+    - text: "Data"
+      href: data.html
     - text: "About"
       href: about.html
 
 output_dir: "docs"
+
+# Shared chrome for every page (de-duplicated from the old per-page inline
+# <style> blocks). styles.css carries the light/dark CSS variables; _head.html
+# applies the saved theme before paint (no FOUC); _after_body.html loads the
+# vendored theme toggle + usage beacon. Per-page YAML (toc settings, etc.) is
+# merged on top of this by render_site().
+output:
+  html_document:
+    css: styles.css
+    includes:
+      in_header: _head.html
+      after_body: _after_body.html

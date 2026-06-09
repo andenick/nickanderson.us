@@ -1162,10 +1162,7 @@ ggCorrelation4
 
 
 
-The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
-
-
-The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
+The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical.
 
 
 	
@@ -1223,7 +1220,7 @@ Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Rec
 
 # Balance of Payments History
 
-## **Historical Balance of Payments Data: Comparing the United States and Germany (NOT FULLY WRITTEN TO WEBSITE)**
+## **Historical Balance of Payments Data: Comparing the United States and Germany**
 
 #### By Nick Anderson
 

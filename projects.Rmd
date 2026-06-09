@@ -11,7 +11,7 @@ output:
 
 # Projects
 
-Public code repositories and data tools. For source material on related research, see the [Research](research.html) and [TNSE](tnse.html) pages.
+Public code repositories and data tools. Most of the interactive tools below are also gathered at my research hub, [heterodata.org](https://heterodata.org). For source material on related research, see the [Research](research.html) and [TNSE](tnse.html) pages.
 
 # FreeNIC
 
@@ -23,6 +23,8 @@ A public Python and R package plus a server providing programmatic access to **1
 
 This is the public infrastructure I most often want when doing empirical banking research, and it had not previously existed in this form. Any researcher (or AI agent) can query the consolidated data directly without writing custom adapters.
 
+A draft public explorer over a curated slice: [freenic.org](https://freenic.org) (DRAFT).
+
 # arcanum-workspace
 
 *AI-First Research Workspace*
@@ -33,11 +35,11 @@ The home of the [AI tools](aitools.html) used across all of my research projects
 
 # HMDA Explore
 
-*Home Mortgage Disclosure Act Shiny App*
+*Home Mortgage Disclosure Act Dashboard*
 
-[andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/)
+[hmdaexplore.com](https://hmdaexplore.com)
 
-An interactive R Shiny application for exploring **33 years of Home Mortgage Disclosure Act data** across four data-definition eras. Six tabs: select areas, demographics (HUD CHAS data), home financing, financial institution view, top 10 lenders, and a PDF report generator. Built during my research assistantship at The New School's Schwartz Center for Economic Policy Analysis.
+An interactive Streamlit dashboard for exploring **Home Mortgage Disclosure Act data, 2019–2023**. Roughly seven sections — State, County, Metro, Demographics (HUD CHAS data), Lenders, and an About page — let you slice mortgage applications and originations by geography, borrower demographics, and lending institution. Built during my research assistantship at The New School's Schwartz Center for Economic Policy Analysis.
 
 Please allow the app a moment to spin up on first load — once running, it is fast.
 
@@ -49,6 +51,8 @@ Please allow the app a moment to spin up on first load — once running, it is f
 
 A full-stack web application (React + FastAPI) for exploring historical food commodity prices across FAO, USDA WASDE, BLS, FRED, and World Bank data. 169,000+ records from 5 sources.
 
+Live explorer: [foodberg.org](https://foodberg.org).
+
 # ShaikhTonak
 
 *National Accounts Replication*
@@ -56,6 +60,8 @@ A full-stack web application (React + FastAPI) for exploring historical food com
 [github.com/andenick/ShaikhTonak](https://github.com/andenick/ShaikhTonak)
 
 Replication and extension of the Shaikh & Tonak *Measuring the Wealth of Nations* (1994) framework — productive labor, net social wage, exploitation rate. Phase 1 covers Net Social Wage 1952–2025; Phase 2 covers productive labor 2010–2023.
+
+Extended national-accounts series published at [mdata.fyi](https://mdata.fyi) (RMWND).
 
 # MyRFailingBanks
 
@@ -65,6 +71,8 @@ Replication and extension of the Shaikh & Tonak *Measuring the Wealth of Nations
 
 R package replicating the Correia, Luck, and Verner (2025) "Failing Banks" QJE paper. 158K observations, 489 failures, 0.965 AUC. Eleven R scripts and three LaTeX reports.
 
+Collected with my broader banking and financial-history work at [volcker.org](https://volcker.org), which also hosts a ten-dimension taxonomy of roughly 7,000 U.S. bank failures (1865–2026) and the bank-panel datasets behind it.
+
 # westchester
 
 *Westchester County Data Platform*
@@ -72,6 +80,48 @@ R package replicating the Correia, Luck, and Verner (2025) "Failing Banks" QJE p
 [github.com/andenick/westchester](https://github.com/andenick/westchester)
 
 A React + FastAPI + PostgreSQL/PostGIS data platform for Westchester County, including a sidewalk analysis component for Metro-North accessibility. Property tax, budget, transit, and demographics datasets are integrated.
+
+Live sidewalk-coverage web-map: [jjmuni.com](https://jjmuni.com).
+
+# Wassily
+
+*U.S. Input-Output Explorer*
+
+[leontief.io](https://leontief.io)
+
+An interactive explorer over the U.S. Bureau of Economic Analysis Input-Output accounts. Compute the Leontief inverse across 71 sectors and trace how demand in one industry ripples through the rest of the economy, 1997–2024.
+
+# Public Finance
+
+*U.S. Taxation, Spending, Debt, and the Treasury Market*
+
+[pubfin.org](https://pubfin.org)
+
+An interactive treatment of American public finance — federal taxation, spending, deficits, debt, and the Treasury market over time. It is the interactive companion to my written work on [duration and public finance, and tax-revenue cyclicality](research.html).
+
+# Lewis
+
+*International Economics and the Balance of Payments*
+
+[lewis.heterodata.org](https://lewis.heterodata.org)
+
+An international-economics platform covering the balance of payments, flow of funds, and cross-border value transfer across 258 countries. It is the interactive companion to my [historical balance-of-payments work](research.html#balance-of-payments-history).
+
+# Methodex
+
+*A History of Economic Statistics*
+
+[methodex.fyi](https://methodex.fyi)
+
+The construction-and-revision history of economic statistics — for any series, at any date, see how it was built and which governing manual was in force, with citations back to that manual. There is also an MCP API at [mcp.methodex.fyi](https://mcp.methodex.fyi) so that AI agents can query the same methodological record directly.
+
+# USSR
+
+*Soviet and Imperial-Russian Official Statistics*
+
+[ussr.heterodata.org](https://ussr.heterodata.org)
+
+A corpus overview and construction roadmap for the official statistics of the Soviet Union and Imperial Russia — what the sources are, how they fit together, and how the series will be built. This is an overview and roadmap; the underlying series are not yet constructed.
 
 # Anwar Shaikh Archive
 
@@ -88,20 +138,3 @@ A React + FastAPI + PostgreSQL/PostGIS data platform for Westchester County, inc
 [realecon.org](https://realecon.org)
 
 A public website hosting author bibliographies, forum discussions, and resources for heterodox and classical political economy related to Anwar Shaikh's empirical contributions.
-
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>

@@ -1,0 +1,14 @@
+<!-- nickanderson.us — in_header include (referenced from _site.yml).
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ark-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* ignore; system preference applies via CSS @media */ }
+  })();
+</script>

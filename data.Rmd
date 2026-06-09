@@ -13,19 +13,21 @@ Every economist is responsible for their own data. Here is mine.
 
 ### *Duration and Public Finance in the United States, 2001–2023*
 - [Source data and processing scripts](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
-- [Read the paper →](economichistory.html)
+- [Read the paper →](research.html#duration-and-public-finance)
+- Interactive tool: [pubfin.org](https://pubfin.org)
 
 ### Tax Revenue Cyclicality
 - [Source data](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
+- Interactive tool: [pubfin.org](https://pubfin.org)
 
 ---
 
 ## HMDA — Home Mortgage Disclosure Act
 
-The HMDA Explore Shiny app at [andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/) is the public-facing version of this work.
+The HMDA Explore Streamlit dashboard at [hmdaexplore.com](https://hmdaexplore.com) is the public-facing version of this work.
 
 - [HMDA processing code (with data)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing) — fair warning: this is not a perfect replication package; you will need to adjust file paths if you run the code, and the underlying files are large enough that a laptop may not have the RAM to process them in full.
-- [HMDA Shiny app source](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
+- [HMDA dashboard source code](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
 
 ---
 
@@ -33,7 +35,39 @@ The HMDA Explore Shiny app at [andenick.shinyapps.io/HMDAExplore](https://andeni
 
 For programmatic access to bank regulatory data spanning 1863 to the present:
 
-- **FreeNIC** — [github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC) — 1.5 billion rows, 217,210 institutions, 20 source datasets, 15 MCP tools.
+- **FreeNIC** — [github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC) — 1.5 billion rows, 217,210 institutions, 20 source datasets, 15 query tools. Draft public explorer: [freenic.org](https://freenic.org).
+
+---
+
+## Capitalism Replication and National Accounts
+
+The replicated and extended data series behind the Anwar Shaikh *Capitalism* (2016) replication and the Shaikh & Tonak national-accounts work are published, with per-series provenance and downloads, at:
+
+- [mdata.fyi](https://mdata.fyi) — the RSCD (*Capitalism* replication) and RMWND (extended national accounts) datasets.
+
+---
+
+## Balance of Payments
+
+International-accounts data — balance of payments, flow of funds, and cross-border value transfers across 258 countries — is explorable at:
+
+- [lewis.heterodata.org](https://lewis.heterodata.org)
+
+---
+
+## Bank Failures and Balance Sheets
+
+Bank-panel data on U.S. bank failures and balance sheets, 1865–2026, is explorable at:
+
+- [volcker.org](https://volcker.org)
+
+---
+
+## Input–Output Accounts
+
+The U.S. BEA Input-Output accounts and the Leontief inverse across sectors, 1997–2024:
+
+- [leontief.io](https://leontief.io)
 
 ---
 
@@ -45,20 +79,3 @@ For programmatic access to bank regulatory data spanning 1863 to the present:
 - Companion site: [realecon.org](https://realecon.org)
 
 ---
-
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>

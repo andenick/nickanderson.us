@@ -1,0 +1,178 @@
+/* =============================================================================
+   nickanderson.us — styles.css
+   Single source for site chrome, de-duplicated from the 7 inline <style> blocks
+   that previously repeated the navbar (#640000) / active (#006400) CSS.
+
+   Themeable via CSS variables: a light :root default, a dark
+   :root[data-theme="dark"] manual override, and an automatic
+   @media (prefers-color-scheme: dark) fallback for visitors with no saved
+   preference. Token naming/approach follows the Arcanum Site Kit
+   (deploy/_shared/arcanum-site-kit/v1/arcanum.css). The site keeps its own
+   maroon/green brand identity rather than the kit accent.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. TOKENS — light default
+   --------------------------------------------------------------------------- */
+:root {
+  color-scheme: light dark;
+
+  /* Brand identity — stable across themes */
+  --nav-bg:        #640000;   /* maroon navbar */
+  --nav-fg:        #ffffff;
+  --nav-active-bg: #006400;   /* green active tab */
+  --nav-active-fg: #ffffff;
+
+  /* Neutrals — light */
+  --bg:        #ffffff;
+  --bg-soft:   #f7f9fc;
+  --fg:        #1a1d21;
+  --fg-dim:    #5a6673;
+  --line:      #dde3ea;
+  --link:      #8a0000;       /* maroon link in light mode */
+  --link-hover:#640000;
+
+  --card-bg:   #ffffff;
+  --code-bg:   #f3f4f6;
+
+  /* Figure card — ALWAYS light: the static research JPGs are light artwork. */
+  --fig-card-bg: #ffffff;
+
+  --shadow: 0 1px 4px rgba(0, 0, 0, .10);
+}
+
+/* -----------------------------------------------------------------------------
+   2. DARK — manual override (toggle / saved preference) + system fallback
+   --------------------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #0e1116;
+  --bg-soft:   #161b22;
+  --fg:        #e7edf3;
+  --fg-dim:    #9aa7b4;
+  --line:      #2a313b;
+  --link:      #e6a8a8;       /* lightened maroon for contrast on dark */
+  --link-hover:#f3cccc;
+  --card-bg:   #161b22;
+  --code-bg:   #1b2027;
+  --shadow:    0 6px 22px -12px rgba(0, 0, 0, .55);
+  /* navbar stays maroon; --fig-card-bg stays white on purpose */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg:        #0e1116;
+    --bg-soft:   #161b22;
+    --fg:        #e7edf3;
+    --fg-dim:    #9aa7b4;
+    --line:      #2a313b;
+    --link:      #e6a8a8;
+    --link-hover:#f3cccc;
+    --card-bg:   #161b22;
+    --code-bg:   #1b2027;
+    --shadow:    0 6px 22px -12px rgba(0, 0, 0, .55);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   3. PAGE
+   --------------------------------------------------------------------------- */
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+.main-container { background-color: var(--bg); }
+
+a { color: var(--link); }
+a:hover, a:focus { color: var(--link-hover); }
+
+hr { border-top-color: var(--line); }
+
+/* RMarkdown hides the page H1 title via the old `.title{display:none}` rule. */
+.title { display: none; }
+
+/* -----------------------------------------------------------------------------
+   4. NAVBAR  (Bootstrap .navbar-default produced by rmarkdown html_document)
+   --------------------------------------------------------------------------- */
+.navbar-default {
+  background-color: var(--nav-bg) !important;
+  border-color: var(--nav-bg) !important;
+}
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-links { color: var(--nav-fg); }
+.navbar-default .navbar-brand { color: var(--nav-fg) !important; }
+.navbar-default .navbar-nav > li > a {
+  color: var(--nav-fg) !important;
+  font-weight: 150;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: var(--nav-active-bg) !important;
+  color: var(--nav-active-fg) !important;
+  font-weight: 175;
+}
+
+/* -----------------------------------------------------------------------------
+   5. CODE / TOC / TABLES — keep readable in both themes
+   --------------------------------------------------------------------------- */
+pre, code {
+  background-color: var(--code-bg);
+  color: var(--fg);
+}
+pre { border: 1px solid var(--line); }
+
+#TOC, .tocify { color: var(--fg); }
+.tocify .tocify-item a, .list-group-item { color: var(--fg); background-color: transparent; }
+.tocify .tocify-item.active > a, .list-group-item.active,
+.list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: var(--nav-active-bg);
+  border-color: var(--nav-active-bg);
+  color: #fff;
+}
+
+table, .table { color: var(--fg); }
+.table > thead > tr > th, .table > tbody > tr > td { border-color: var(--line); }
+
+/* -----------------------------------------------------------------------------
+   6. FIGURE CARD — neutral white mat so light JPGs read on a dark page
+   --------------------------------------------------------------------------- */
+.fig-card {
+  display: inline-block;
+  background: var(--fig-card-bg);
+  padding: 12px;
+  margin: 0.4rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.fig-card img { display: block; margin: 0 auto; }
+
+/* Per-figure provenance link */
+.fig-src {
+  display: block;
+  margin: 0.25rem 0 1rem;
+  font-size: 0.82rem;
+}
+
+/* -----------------------------------------------------------------------------
+   7. THEME TOGGLE  (injected into the navbar by toggle.js)
+   --------------------------------------------------------------------------- */
+.ark-theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2rem; height: 2rem; margin: 7px 4px; padding: 0;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .55);
+  color: #fff; cursor: pointer; font-size: 1rem; line-height: 1;
+  transition: border-color .15s ease, background .15s ease;
+}
+.ark-theme-toggle:hover,
+.ark-theme-toggle:focus { border-color: #fff; background: rgba(255, 255, 255, .12); }
+.navbar-nav > li.ark-theme-toggle-li { display: flex; align-items: center; }
+
+/* -----------------------------------------------------------------------------
+   8. MISC — preserved from the old research.Rmd inline block
+   --------------------------------------------------------------------------- */
+#getting-started img { margin-right: 10px; margin-left: 5px; }

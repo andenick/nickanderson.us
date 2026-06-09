@@ -1,0 +1,16 @@
+<!-- nickanderson.us — after_body include (referenced from _site.yml).
+     Underscore-prefixed so render_site() does not copy it into docs/.
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
+
+<!-- Usage beacon config.
+     P4 wired: `endpoint` points at the consolidated first-party carson-telemetry
+     collector at https://heterodata.org/__track (proxied by the hub's Caddy to
+     the tailnet-only carson-telemetry-dash). GitHub Pages is pure-static (no
+     backend), so cross-origin sendBeacon is required; the collector returns a
+     wildcard CORS header + handles the OPTIONS preflight. Still first-party (our
+     own box), no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>

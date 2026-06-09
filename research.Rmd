@@ -595,6 +595,7 @@ legend.position = "right") +
 ```{r, echo = F, "7. Treasury"}
 ggOutstandingEnd2
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 #### **Figure 2: U.S. Treasury Monthly Issuance**
 
@@ -604,13 +605,17 @@ ggOutstandingEnd2
 #knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
 ```
 
+::: {.fig-card}
 ![](DaPF-F2.jpg)
+:::
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 **Figure 3** depicts the percentage of Treasury securities by their maturities. 
 
 ```{r, echo = F, "9. Treasury"}
 ggOutstandingEnd3
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 A few notes on the figures above:
 1.	**Figure 1** displays the meteoric rise in the stock of treasury debt outstanding. 
@@ -634,7 +639,11 @@ With several exceptions , the U.S. Federal Government has not had a problem issu
 The duration of a bond is an easily calculable mathematical concept, calculated as the weighted average of the sum of the Present Values of the remaining cash flows for a particular security. Duration is expressed in years and, because bonds whose cash flows are further into the future are more uncertain and thus discounted more heavily by an increase in interest rates. In **Figure 4** below, the duration of two different types of fixed income securities is calculated as an example. This is also called the Macaulay Duration of a security.
 
 **Figure 4: Example Duration Calculation for a 5% Coupon Bond versus an Annuity**
+
+::: {.fig-card}
 ![](DaPF-F4.jpg)
+:::
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 This figure reflects the payment schedule for two bonds paying out over five years. The 5% Coupon bond pays the calculated coupon payment for five years and returns its principal at the end of that period. The annuity pays an equal payment for all five years. As the annuity pays out more evenly over the five-year period, unlike the heavily back-end concentrated coupon bond, the duration of the annuity is 2.903 years and the duration of the coupon bond is 4.546 years. 
 
@@ -648,7 +657,11 @@ Change in $ Price = -(Macaulay Duration) * Change in Market Yield / (1 + Yield t
 
 
 #### **Figure 6: Comparison of Duration Approximation and Actual Changes in Market Value**
+
+::: {.fig-card}
 ![](DaPF-F6.jpg)
+:::
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 As demonstrated by the Duration Approximation and Actual Change columns above, the Approximation is a close estimator of the actual change in market value.
 
@@ -661,6 +674,7 @@ The inspiration for this paper lies in the author’s thirst for measures of the
 ```{r, echo = F, "10. Treasury"}
 ggDurApproxUSD4
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 **Figure 7** stands in complement to **Figure 1**, as **Figure 7** represents the aggregate duration outstanding of the stock of debt reflected in **Figure 1**.
 
@@ -674,6 +688,7 @@ Another interesting aspect of the historical development of the aggregate durati
 ```{r, echo = F, "11. Treasury"}
 ggDurApproxUSD5
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 Now that we have surveyed the entire dataset available for the outstanding debt of the U.S. Federal Government, we will inspect a few time periods more closely below.
 
@@ -682,6 +697,7 @@ Now that we have surveyed the entire dataset available for the outstanding debt 
 ```{r, echo = F, "12. Treasury"}
 ggOutstandingEnd2_gfc
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 The above **Figure 9** displays the debt stock during the most volatile years of the Great Financial Crisis. As the government decided to borrow to stimulate the economy in the second half of 2009, they relied heavily on the issuance of short-duration treasuries, evidenced by the growing proportion of the total debt stock in securities that expire in less than 1 year in **Figure 10** below. 
 
@@ -690,6 +706,7 @@ Over time, however, the government rebalanced back towards longer duration secur
 ```{r, echo = F, "13. Treasury"}
 ggOutstandingEnd3_gfc
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 ### Study 2 – Duration during the Obama and Trump Administrations
 
@@ -699,6 +716,7 @@ Following the Great Financial Crisis and the passage of Obamacare, the national 
 ```{r, echo = F, "14. Treasury"}
 ggOutstandingEnd2_obamatrump
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 **Figure 12** demonstrates that rapid rise in duration outstanding with the issuance of those longer duration securities. **Figure 13** displays these as a percentage of total aggregate duration.
 
@@ -707,11 +725,13 @@ ggOutstandingEnd2_obamatrump
 ```{r, echo = F, "15. Treasury"}
 ggDurApproxUSD4_obamatrump
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 
 ```{r, echo = F, "16. Treasury"}
 ggDurApproxUSD5_obamatrump
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 ### Study 3 – the Treasury Stock during the Coronavirus Pandemic
 
@@ -721,10 +741,12 @@ During the Coronavirus Pandemic, the stock of the national debt fluctuated in th
 ```{r, echo = F, "17. Treasury"}
 ggOutstandingEnd2_covid
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 ```{r, echo = F, "18. Treasury"}
 ggOutstandingEnd3_covid
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 ### Conclusions
 
@@ -748,6 +770,10 @@ U.S. Treasury Fiscal Data. Monthly Statement of the Public Debt (MSPD). FiscalDa
 Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, http://www.jstor.org/stable/2351923. Accessed 21 May 2023.
 
 
+
+### Interactive companion
+
+A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [pubfin.org](https://pubfin.org).
 
 ```{r, echo = F, "19. Emptied"}
 #setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
@@ -895,6 +921,7 @@ ggIncomeTaxData
 
 
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 The Great Depression remains the severest example of economic depression available for examination. The author emphasizes this example not as conclusive proof, but as a demonstration of income tax revenue procyclicality.
 
@@ -968,6 +995,7 @@ ggIncomeTaxData2 <- ggplot(ITvsCol2a,aes(x=date,y=value,fill=type)) +
 ggIncomeTaxData2
 
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 ### Data
 
@@ -1043,6 +1071,7 @@ ggTaxData1
 #breaks=c('Customs Duties','Sales of Public Lands','Payroll Taxes','Income Tax','Excise Tax
 
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 ### Analysis
 
@@ -1076,6 +1105,7 @@ ggCorrelation1 <- ggplot(IncomeTaxData4,aes(x=date,y=value)) +
 ggCorrelation1
 
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
   This first Figure 4 provides a two-century overview of the U.S. Federal Government’s Total Receipts’ 10-Year Correlation with Nominal GDP. In the initial 1800-1820, Total Receipts had a negligibly or negatively correlated relationship with Nominal GDP. For the remainder of U.S. history, Total Receipts remains positively correlated with Nominal GDP. 
   
@@ -1104,6 +1134,7 @@ ggCorrelation2 <- ggplot(IncomeTaxData5,aes(x=date,y=value)) +
 
 ggCorrelation2
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
   
   Compare Figure 4 to Figure 5. The annual growth of the Unemployment Rate is negatively correlated with Total Receipts over the sample period 1910-2020. Because the Unemployment Rate would increase in a downturn, this again is evidence that U.S. tax revenue is procyclical. Let’s compare these two indicators to the specific types of taxes observed.
   
@@ -1131,6 +1162,7 @@ ggCorrelation3 <- ggplot(IncomeTaxData6,aes(x=date,y=value,colour=type)) +
 
 ggCorrelation3
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
   
   First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
   
@@ -1159,13 +1191,11 @@ ggCorrelation4 <- ggplot(IncomeTaxData7,aes(x=date,y=value,colour=type)) +
 
 ggCorrelation4
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 
 
-The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
-
-
-The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical. 
+The correlation of Social Insurance and Retirement Taxes with Nominal GDP and the Unemployment Rate tell a different story. When initially created, these Payroll taxes grew in a cyclical manner. However, since the correlation disappeared in the 1960’s and 1970’s, Social Insurance and Retirement Taxes have not been entirely procyclical or countercyclical.
 
 
 	
@@ -1191,6 +1221,7 @@ ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
 
 ggCorrelation5
 ```
+[Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 	
   Finally, Customs Duties. Customs Duties are only compared to Nominal GDP because our Unemployment dataset does not reach before 1900. Though the picture is mixed before 1860, after 1880 Customs Duties remain positively correlated with GDP, thus displaying procyclical tendencies, though not as strong as the income tax.
@@ -1219,17 +1250,23 @@ Lebergott, Stanley. “Annual Estimates of Unemployment in the United States, 19
 
 Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Receipts, Outlays, and Surpluses or Deficits (-):          1789–2026;” Table 1.4, “Receipts, Outlays, and Surpluses or Deficits (-) by Fund Group: 1934–2026;” Table 2.1, “Receipts by         Source: 1934–2026;” and Table 2.3, “Receipts by Source as Percentages of GDP: 1934–2026.”
   U.S. Bureau of Labor Statistics, Unemployment Rate [UNRATENSA], retrieved from FRED, Federal Reserve Bank of St. Louis;             https://fred.stlouisfed.org/series/UNRATENSA
-  
+
+
+### Interactive companions
+
+A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [pubfin.org](https://pubfin.org). My related empirical work on bank balance sheets and bank failure is collected at [volcker.org](https://volcker.org).
 
 # Balance of Payments History
 
-## **Historical Balance of Payments Data: Comparing the United States and Germany (NOT FULLY WRITTEN TO WEBSITE)**
+## **Historical Balance of Payments Data: Comparing the United States and Germany**
 
 #### By Nick Anderson
 
 #### Dated 2024.12.05
 
 Sources: [Data](https://www.nickanderson.us/data.html)
+
+This work now has a fuller interactive home at [Lewis](https://lewis.heterodata.org), an international-accounts explorer (balance of payments, flow of funds, cross-border value transfers, 258 countries).
 
 ```{r, include = F, echo = F, "20. BoP"}
 
@@ -1381,7 +1418,11 @@ The Balance of Payments traditionally contains two sections, the Current Account
 
 In recent history, the Capital Account has been separated out into the Capital & Financial Accounts, though this three-account taxonomy has not been adopted by all international economists. This standard, adopted by the United States in 1999, has the purpose of separating transfers in income-producing assets from current transfers, which only reduce the amount of income earned by a country in a given period but would not affect the balance sheet of the reporting country going forward (Krugman and Obstfeld, 2003, 308).
 
-For the purposes of this paper, I am going to combine the Capital and Financial Accounts for convenience. In the cases of both Germany and the United States, the Newly segregated Capital Account is of negligible size when compared to the Financial and Current Accounts and is almost always near 0% of Gross Domestic Product. This relationship is evident in Figure 1 below.
+For the purposes of this paper, I combine the Capital and Financial Accounts for convenience: in both Germany and the United States the newly segregated Capital Account is of negligible size relative to the Financial and Current Accounts, almost always near 0% of Gross Domestic Product.
+
+#### Ongoing
+
+This written treatment is still in progress. The full long-run balance-of-payments data — for the United States, Germany, and 256 other countries — is explorable now at [Lewis](https://lewis.heterodata.org).
 
 
 
@@ -1399,50 +1440,13 @@ A long-running project to replicate and extend every empirical data series in An
 
 The replication is a bigger job than it sounds. The book draws on roughly twenty primary data sources spanning two centuries and many methodological revisions; properly extending a series often means working backwards through several generations of statistical-agency redefinitions before forward-projection makes any sense. The output is a machine-reproducible pipeline plus an interactive visualization tool, both designed so that another researcher can clone the package, set API keys, and reproduce every figure in the book on the current data.
 
-As of April 2026, 13 of 17 empirical chapters are complete. Source code, data, and visualizations are forthcoming on a dedicated public site.
+As of April 2026, 13 of 17 empirical chapters are complete. The source code, data, and visualizations are now published as an interactive data hub at [mdata.fyi](https://mdata.fyi) (the RSCD dataset), with per-series provenance and downloads.
 
 The Anwar Shaikh archive at the [Levy Economics Institute](https://digitalcommons.bard.edu/as_archive/) and the companion site [realecon.org](https://realecon.org) are part of the same broader project of making Shaikh's empirical work durable and re-usable.
 
 
 
 Last compiled: `r Sys.Date()`
-
-<style type="text/css">
-.title {
-  display: none;
-}
-
-.navbar-default {
-    background-color: #640000 !important;
-    
-}
-
-<!-- .navbar-nav { -->
-<!--   color:white !important; -->
-
-<!-- } -->
-
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-
-.navbar-nav > .active > a { 
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-
-#getting-started img {
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-
-</style>
 
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">

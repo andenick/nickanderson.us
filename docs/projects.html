@@ -35,6 +35,20 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- nickanderson.us — in_header include (referenced from _site.yml).
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ark-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* ignore; system preference applies via CSS @media */ }
+  })();
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -61,6 +75,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -334,6 +349,9 @@ div.tocify {
   <a href="projects.html">Projects</a>
 </li>
 <li>
+  <a href="data.html">Data</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
       </ul>
@@ -355,7 +373,9 @@ div.tocify {
 
 <div id="projects" class="section level1">
 <h1>Projects</h1>
-<p>Public code repositories and data tools. For source material on
+<p>Public code repositories and data tools. Most of the interactive
+tools below are also gathered at my research hub, <a
+href="https://heterodata.org">heterodata.org</a>. For source material on
 related research, see the <a href="research.html">Research</a> and <a
 href="tnse.html">TNSE</a> pages.</p>
 </div>
@@ -372,6 +392,8 @@ tables, 20 source datasets, 15 query tools.</p>
 empirical banking research, and it had not previously existed in this
 form. Any researcher (or AI agent) can query the consolidated data
 directly without writing custom adapters.</p>
+<p>A draft public explorer over a curated slice: <a
+href="https://freenic.org">freenic.org</a> (DRAFT).</p>
 </div>
 <div id="arcanum-workspace" class="section level1">
 <h1>arcanum-workspace</h1>
@@ -384,15 +406,15 @@ supporting infrastructure for AI-assisted empirical research.</p>
 </div>
 <div id="hmda-explore" class="section level1">
 <h1>HMDA Explore</h1>
-<p><em>Home Mortgage Disclosure Act Shiny App</em></p>
-<p><a
-href="https://andenick.shinyapps.io/HMDAExplore/">andenick.shinyapps.io/HMDAExplore</a></p>
-<p>An interactive R Shiny application for exploring <strong>33 years of
-Home Mortgage Disclosure Act data</strong> across four data-definition
-eras. Six tabs: select areas, demographics (HUD CHAS data), home
-financing, financial institution view, top 10 lenders, and a PDF report
-generator. Built during my research assistantship at The New School’s
-Schwartz Center for Economic Policy Analysis.</p>
+<p><em>Home Mortgage Disclosure Act Dashboard</em></p>
+<p><a href="https://hmdaexplore.com">hmdaexplore.com</a></p>
+<p>An interactive Streamlit dashboard for exploring <strong>Home
+Mortgage Disclosure Act data, 2019–2023</strong>. Roughly seven sections
+— State, County, Metro, Demographics (HUD CHAS data), Lenders, and an
+About page — let you slice mortgage applications and originations by
+geography, borrower demographics, and lending institution. Built during
+my research assistantship at The New School’s Schwartz Center for
+Economic Policy Analysis.</p>
 <p>Please allow the app a moment to spin up on first load — once
 running, it is fast.</p>
 </div>
@@ -404,6 +426,7 @@ href="https://github.com/andenick/Foodberg">github.com/andenick/Foodberg</a></p>
 <p>A full-stack web application (React + FastAPI) for exploring
 historical food commodity prices across FAO, USDA WASDE, BLS, FRED, and
 World Bank data. 169,000+ records from 5 sources.</p>
+<p>Live explorer: <a href="https://foodberg.org">foodberg.org</a>.</p>
 </div>
 <div id="shaikhtonak" class="section level1">
 <h1>ShaikhTonak</h1>
@@ -414,6 +437,8 @@ href="https://github.com/andenick/ShaikhTonak">github.com/andenick/ShaikhTonak</
 Wealth of Nations</em> (1994) framework — productive labor, net social
 wage, exploitation rate. Phase 1 covers Net Social Wage 1952–2025; Phase
 2 covers productive labor 2010–2023.</p>
+<p>Extended national-accounts series published at <a
+href="https://mdata.fyi">mdata.fyi</a> (RMWND).</p>
 </div>
 <div id="myrfailingbanks" class="section level1">
 <h1>MyRFailingBanks</h1>
@@ -423,6 +448,10 @@ href="https://github.com/andenick/MyRFailingBanks">github.com/andenick/MyRFailin
 <p>R package replicating the Correia, Luck, and Verner (2025) “Failing
 Banks” QJE paper. 158K observations, 489 failures, 0.965 AUC. Eleven R
 scripts and three LaTeX reports.</p>
+<p>Collected with my broader banking and financial-history work at <a
+href="https://volcker.org">volcker.org</a>, which also hosts a
+ten-dimension taxonomy of roughly 7,000 U.S. bank failures (1865–2026)
+and the bank-panel datasets behind it.</p>
 </div>
 <div id="westchester" class="section level1">
 <h1>westchester</h1>
@@ -433,6 +462,56 @@ href="https://github.com/andenick/westchester">github.com/andenick/westchester</
 County, including a sidewalk analysis component for Metro-North
 accessibility. Property tax, budget, transit, and demographics datasets
 are integrated.</p>
+<p>Live sidewalk-coverage web-map: <a
+href="https://jjmuni.com">jjmuni.com</a>.</p>
+</div>
+<div id="wassily" class="section level1">
+<h1>Wassily</h1>
+<p><em>U.S. Input-Output Explorer</em></p>
+<p><a href="https://leontief.io">leontief.io</a></p>
+<p>An interactive explorer over the U.S. Bureau of Economic Analysis
+Input-Output accounts. Compute the Leontief inverse across 71 sectors
+and trace how demand in one industry ripples through the rest of the
+economy, 1997–2024.</p>
+</div>
+<div id="public-finance" class="section level1">
+<h1>Public Finance</h1>
+<p><em>U.S. Taxation, Spending, Debt, and the Treasury Market</em></p>
+<p><a href="https://pubfin.org">pubfin.org</a></p>
+<p>An interactive treatment of American public finance — federal
+taxation, spending, deficits, debt, and the Treasury market over time.
+It is the interactive companion to my written work on <a
+href="research.html">duration and public finance, and tax-revenue
+cyclicality</a>.</p>
+</div>
+<div id="lewis" class="section level1">
+<h1>Lewis</h1>
+<p><em>International Economics and the Balance of Payments</em></p>
+<p><a href="https://lewis.heterodata.org">lewis.heterodata.org</a></p>
+<p>An international-economics platform covering the balance of payments,
+flow of funds, and cross-border value transfer across 258 countries. It
+is the interactive companion to my <a
+href="research.html#balance-of-payments-history">historical
+balance-of-payments work</a>.</p>
+</div>
+<div id="methodex" class="section level1">
+<h1>Methodex</h1>
+<p><em>A History of Economic Statistics</em></p>
+<p><a href="https://methodex.fyi">methodex.fyi</a></p>
+<p>The construction-and-revision history of economic statistics — for
+any series, at any date, see how it was built and which governing manual
+was in force, with citations back to that manual. There is also an MCP
+API at <a href="https://mcp.methodex.fyi">mcp.methodex.fyi</a> so that
+AI agents can query the same methodological record directly.</p>
+</div>
+<div id="ussr" class="section level1">
+<h1>USSR</h1>
+<p><em>Soviet and Imperial-Russian Official Statistics</em></p>
+<p><a href="https://ussr.heterodata.org">ussr.heterodata.org</a></p>
+<p>A corpus overview and construction roadmap for the official
+statistics of the Soviet Union and Imperial Russia — what the sources
+are, how they fit together, and how the series will be built. This is an
+overview and roadmap; the underlying series are not yet constructed.</p>
 </div>
 <div id="anwar-shaikh-archive" class="section level1">
 <h1>Anwar Shaikh Archive</h1>
@@ -452,24 +531,24 @@ href="tnse.html">TNSE</a> for context.</p>
 <p>A public website hosting author bibliographies, forum discussions,
 and resources for heterodox and classical political economy related to
 Anwar Shaikh’s empirical contributions.</p>
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>
 </div>
 
+<!-- nickanderson.us — after_body include (referenced from _site.yml).
+     Underscore-prefixed so render_site() does not copy it into docs/.
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
+
+<!-- Usage beacon config.
+     P4 wired: `endpoint` points at the consolidated first-party carson-telemetry
+     collector at https://heterodata.org/__track (proxied by the hub's Caddy to
+     the tailnet-only carson-telemetry-dash). GitHub Pages is pure-static (no
+     backend), so cross-origin sendBeacon is required; the collector returns a
+     wildcard CORS header + handles the OPTIONS preflight. Still first-party (our
+     own box), no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 
 </div>

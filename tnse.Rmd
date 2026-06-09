@@ -47,25 +47,8 @@ The TNSE project also maintains a structured digital archive of materials relate
 
 # Why This Project
 
-The New School's economics department has been a distinctive node in the heterodox tradition for more than a century. It was founded in 1933 specifically to work on the problem of technological unemployment — an invitation Lederer had accepted from the International Labour Office. That question has continued, in different forms and through different generations, to be a defining concern of the department.
+The New School's economics department has been a distinctive node in the heterodox tradition for more than a century. The graduate economics faculty — founded as part of the University in Exile in 1933 — was created specifically to work on the problem of technological unemployment, an invitation Lederer had accepted from the International Labour Office. That question has continued, in different forms and through different generations, to be a defining concern of the department.
 
 Documenting that lineage is worth doing in its own right. It is also worth doing because the question itself — what does technological change do to the structure of work and to the people who do that work — is now one of the most important questions in economics, and the New School tradition has tools for asking it that other parts of the discipline have not retained.
 
 The book is the public-facing product. The archive is the underlying infrastructure. They are two parts of one project.
-
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>

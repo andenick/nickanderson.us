@@ -35,6 +35,20 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- nickanderson.us — in_header include (referenced from _site.yml).
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ark-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* ignore; system preference applies via CSS @media */ }
+  })();
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -61,6 +75,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -334,6 +349,9 @@ div.tocify {
   <a href="projects.html">Projects</a>
 </li>
 <li>
+  <a href="data.html">Data</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
       </ul>
@@ -409,24 +427,24 @@ underlying research questions are, and the infrastructure required to
 ask them properly should be too.</p>
 <p><a href="https://github.com/andenick/arcanum-workspace">Full source
 on GitHub →</a></p>
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>
 </div>
 
+<!-- nickanderson.us — after_body include (referenced from _site.yml).
+     Underscore-prefixed so render_site() does not copy it into docs/.
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
+
+<!-- Usage beacon config.
+     P4 wired: `endpoint` points at the consolidated first-party carson-telemetry
+     collector at https://heterodata.org/__track (proxied by the hub's Caddy to
+     the tailnet-only carson-telemetry-dash). GitHub Pages is pure-static (no
+     backend), so cross-origin sendBeacon is required; the collector returns a
+     wildcard CORS header + handles the OPTIONS preflight. Still first-party (our
+     own box), no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 
 </div>

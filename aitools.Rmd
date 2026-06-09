@@ -36,20 +36,3 @@ A language-agnostic eight-phase architecture for empirical research projects. Sc
 Empirical economics done with AI assistance can produce work that other researchers cannot reproduce, audit, or extend. The tools above are an attempt to do AI-augmented research without sacrificing the standards the discipline expects. They are open-source because the underlying research questions are, and the infrastructure required to ask them properly should be too.
 
 [Full source on GitHub →](https://github.com/andenick/arcanum-workspace)
-
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>

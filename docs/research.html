@@ -35,6 +35,20 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- nickanderson.us — in_header include (referenced from _site.yml).
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ark-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* ignore; system preference applies via CSS @media */ }
+  })();
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -61,6 +75,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -334,6 +349,9 @@ div.tocify {
   <a href="projects.html">Projects</a>
 </li>
 <li>
+  <a href="data.html">Data</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
       </ul>
@@ -411,14 +429,22 @@ continued functioning of the economy of the United States.</p>
 U.S. Treasuries by Years to Maturity with data from the Treasury and
 <strong>Figure 2</strong> depicting aggregate treasury issuance from
 April 2022 to April 2023.</p>
-<p><img src="research_files/figure-html/7.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/7.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <div id="figure-2-u.s.-treasury-monthly-issuance"
 class="section level4">
 <h4><strong>Figure 2: U.S. Treasury Monthly Issuance</strong></h4>
+<div class="fig-card">
 <p><img src="DaPF-F2.jpg" /></p>
+</div>
+<p><a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p><strong>Figure 3</strong> depicts the percentage of Treasury
 securities by their maturities.</p>
-<p><img src="research_files/figure-html/9.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/9.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>A few notes on the figures above: 1. <strong>Figure 1</strong>
 displays the meteoric rise in the stock of treasury debt
 outstanding.</p>
@@ -478,7 +504,12 @@ duration of two different types of fixed income securities is calculated
 as an example. This is also called the Macaulay Duration of a
 security.</p>
 <p><strong>Figure 4: Example Duration Calculation for a 5% Coupon Bond
-versus an Annuity</strong> <img src="DaPF-F4.jpg" /></p>
+versus an Annuity</strong></p>
+<div class="fig-card">
+<p><img src="DaPF-F4.jpg" /></p>
+</div>
+<p><a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>This figure reflects the payment schedule for two bonds paying out
 over five years. The 5% Coupon bond pays the calculated coupon payment
 for five years and returns its principal at the end of that period. The
@@ -507,7 +538,11 @@ id="figure-6-comparison-of-duration-approximation-and-actual-changes-in-market-v
 class="section level4">
 <h4><strong>Figure 6: Comparison of Duration Approximation and Actual
 Changes in Market Value</strong></h4>
+<div class="fig-card">
 <p><img src="DaPF-F6.jpg" /></p>
+</div>
+<p><a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>As demonstrated by the Duration Approximation and Actual Change
 columns above, the Approximation is a close estimator of the actual
 change in market value.</p>
@@ -534,7 +569,9 @@ some measure of interest rate risk that affects the willingness of
 investors to hold those securities. Figure 7 displays the aggregate
 duration approximation of the treasury market, colored by years to
 maturity.</p>
-<p><img src="research_files/figure-html/10.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/10.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p><strong>Figure 7</strong> stands in complement to <strong>Figure
 1</strong>, as <strong>Figure 7</strong> represents the aggregate
 duration outstanding of the stock of debt reflected in <strong>Figure
@@ -556,7 +593,9 @@ intuitively.</p>
 <p><strong>Figure 7</strong> reveals the same story when graphed as
 percentages of the total Duration in the market, as in <strong>Figure
 8</strong> below.</p>
-<p><img src="research_files/figure-html/11.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/11.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>Now that we have surveyed the entire dataset available for the
 outstanding debt of the U.S. Federal Government, we will inspect a few
 time periods more closely below.</p>
@@ -564,7 +603,9 @@ time periods more closely below.</p>
 <div id="study-1-the-treasury-stock-during-the-great-financial-crisis"
 class="section level3">
 <h3>Study 1 – the Treasury Stock during the Great Financial Crisis</h3>
-<p><img src="research_files/figure-html/12.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/12.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>The above <strong>Figure 9</strong> displays the debt stock during
 the most volatile years of the Great Financial Crisis. As the government
 decided to borrow to stimulate the economy in the second half of 2009,
@@ -576,7 +617,9 @@ below.</p>
 duration securities. As we will note below, this begins a period in
 which the government issued an outsized amount of longer duration
 securities during the Obama and Trump administrations.</p>
-<p><img src="research_files/figure-html/13.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/13.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 </div>
 <div id="study-2-duration-during-the-obama-and-trump-administrations"
 class="section level3">
@@ -587,13 +630,19 @@ between 2010 and 2020. At the same time, the U.S. Federal Government
 also increased its issuance of 20+ year securities to finance this
 additional deficit spending. The stocks of these debts are in
 <strong>Figure 11</strong> below.</p>
-<p><img src="research_files/figure-html/14.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/14.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p><strong>Figure 12</strong> demonstrates that rapid rise in duration
 outstanding with the issuance of those longer duration securities.
 <strong>Figure 13</strong> displays these as a percentage of total
 aggregate duration.</p>
-<p><img src="research_files/figure-html/15.%20Treasury-1.png" width="672" /></p>
-<p><img src="research_files/figure-html/16.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/15.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
+<p><img src="research_files/figure-html/16.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 </div>
 <div id="study-3-the-treasury-stock-during-the-coronavirus-pandemic"
 class="section level3">
@@ -601,8 +650,12 @@ class="section level3">
 <p>During the Coronavirus Pandemic, the stock of the national debt
 fluctuated in the same manner as during the Great Financial Crisis.
 <strong>Figures 14 and 15</strong> describe that stock of debt.</p>
-<p><img src="research_files/figure-html/17.%20Treasury-1.png" width="672" /></p>
-<p><img src="research_files/figure-html/18.%20Treasury-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/17.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
+<p><img src="research_files/figure-html/18.%20Treasury-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 </div>
 <div id="conclusions" class="section level3">
 <h3>Conclusions</h3>
@@ -641,6 +694,12 @@ Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, <a
 href="http://www.jstor.org/stable/2351923"
 class="uri">http://www.jstor.org/stable/2351923</a>. Accessed 21 May
 2023.</p>
+</div>
+<div id="interactive-companion" class="section level3">
+<h3>Interactive companion</h3>
+<p>A broader interactive treatment of U.S. taxation, spending, deficits,
+debt, and the Treasury market is at <a
+href="https://pubfin.org">pubfin.org</a>.</p>
 </div>
 </div>
 </div>
@@ -687,7 +746,9 @@ example of the income tax’s cyclicality occurred in the Great
 Depression. As unemployment increased to as high as 24% in 1933, U.S.
 income tax revenues fell over 60% (Figure 1). In the years of greatest
 revenue need, income tax revenues almost disappeared.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>The Great Depression remains the severest example of economic
 depression available for examination. The author emphasizes this example
 not as conclusive proof, but as a demonstration of income tax revenue
@@ -698,7 +759,9 @@ incomes) and the Unemployment Rate (as a measure of employment). The
 graph above replicated with Nominal GDP instead of the unemployment rate
 tell the similar stories from different perspectives (Figure 2). When
 aggregate demand contracts, the income tax contracts as well.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 </div>
 <div id="data" class="section level3">
 <h3>Data</h3>
@@ -773,28 +836,36 @@ CRS report summarized US Tax History into three phases instead of four,
 combining this paper’s two eras of Income Tax dominance into a single
 Income Tax Era.</p></li>
 </ol>
-<p><img src="research_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 </div>
 <div id="analysis" class="section level3">
 <h3>Analysis</h3>
 <p>This paper’s method relies on a simple decade by decade calculation
 of correlation between the measure of cyclicality (GDP or Unemployment
 Rate) and Tax Revenue by Source.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>This first Figure 4 provides a two-century overview of the U.S.
 Federal Government’s Total Receipts’ 10-Year Correlation with Nominal
 GDP. In the initial 1800-1820, Total Receipts had a negligibly or
 negatively correlated relationship with Nominal GDP. For the remainder
 of U.S. history, Total Receipts remains positively correlated with
 Nominal GDP.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>Compare Figure 4 to Figure 5. The annual growth of the Unemployment
 Rate is negatively correlated with Total Receipts over the sample period
 1910-2020. Because the Unemployment Rate would increase in a downturn,
 this again is evidence that U.S. tax revenue is procyclical. Let’s
 compare these two indicators to the specific types of taxes
 observed.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>First, is the income tax correlated with GDP or changes in the
 Unemployment Rate? Figure 6 displays the negative of the Income Tax vs
 Unemployment Rate, which means that the positive displayed values are
@@ -803,20 +874,18 @@ confirms the author’s hypothesis. The Income Tax maintains a procyclical
 orientation towards Nominal GDP and Unemployment Rate. To be specific,
 the Income Tax is positively correlated with Nominal GDP and negatively
 correlated with the Unemployment Rate.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>The correlation of Social Insurance and Retirement Taxes with Nominal
 GDP and the Unemployment Rate tell a different story. When initially
 created, these Payroll taxes grew in a cyclical manner. However, since
 the correlation disappeared in the 1960’s and 1970’s, Social Insurance
 and Retirement Taxes have not been entirely procyclical or
 countercyclical.</p>
-<p>The correlation of Social Insurance and Retirement Taxes with Nominal
-GDP and the Unemployment Rate tell a different story. When initially
-created, these Payroll taxes grew in a cyclical manner. However, since
-the correlation disappeared in the 1960’s and 1970’s, Social Insurance
-and Retirement Taxes have not been entirely procyclical or
-countercyclical.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="research_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<a href="https://www.nickanderson.us/data.html" class="fig-src">Data
+&amp; code for this figure →</a></p>
 <p>Finally, Customs Duties. Customs Duties are only compared to Nominal
 GDP because our Unemployment dataset does not reach before 1900. Though
 the picture is mixed before 1860, after 1880 Customs Duties remain
@@ -865,21 +934,33 @@ retrieved from FRED, Federal Reserve Bank of St. Louis; <a
 href="https://fred.stlouisfed.org/series/UNRATENSA"
 class="uri">https://fred.stlouisfed.org/series/UNRATENSA</a></p>
 </div>
+<div id="interactive-companions" class="section level3">
+<h3>Interactive companions</h3>
+<p>A broader interactive treatment of U.S. taxation, spending, deficits,
+debt, and the Treasury market is at <a
+href="https://pubfin.org">pubfin.org</a>. My related empirical work on
+bank balance sheets and bank failure is collected at <a
+href="https://volcker.org">volcker.org</a>.</p>
+</div>
 </div>
 </div>
 <div id="balance-of-payments-history" class="section level1">
 <h1>Balance of Payments History</h1>
 <div
-id="historical-balance-of-payments-data-comparing-the-united-states-and-germany-not-fully-written-to-website"
+id="historical-balance-of-payments-data-comparing-the-united-states-and-germany"
 class="section level2">
 <h2><strong>Historical Balance of Payments Data: Comparing the United
-States and Germany (NOT FULLY WRITTEN TO WEBSITE)</strong></h2>
+States and Germany</strong></h2>
 <div id="by-nick-anderson-2" class="section level4">
 <h4>By Nick Anderson</h4>
 </div>
 <div id="dated-2024.12.05" class="section level4">
 <h4>Dated 2024.12.05</h4>
 <p>Sources: <a href="https://www.nickanderson.us/data.html">Data</a></p>
+<p>This work now has a fuller interactive home at <a
+href="https://lewis.heterodata.org">Lewis</a>, an international-accounts
+explorer (balance of payments, flow of funds, cross-border value
+transfers, 258 countries).</p>
 </div>
 <div id="introduction-2" class="section level3">
 <h3>Introduction</h3>
@@ -921,12 +1002,18 @@ transfers in income-producing assets from current transfers, which only
 reduce the amount of income earned by a country in a given period but
 would not affect the balance sheet of the reporting country going
 forward (Krugman and Obstfeld, 2003, 308).</p>
-<p>For the purposes of this paper, I am going to combine the Capital and
-Financial Accounts for convenience. In the cases of both Germany and the
-United States, the Newly segregated Capital Account is of negligible
-size when compared to the Financial and Current Accounts and is almost
-always near 0% of Gross Domestic Product. This relationship is evident
-in Figure 1 below.</p>
+<p>For the purposes of this paper, I combine the Capital and Financial
+Accounts for convenience: in both Germany and the United States the
+newly segregated Capital Account is of negligible size relative to the
+Financial and Current Accounts, almost always near 0% of Gross Domestic
+Product.</p>
+<div id="ongoing" class="section level4">
+<h4>Ongoing</h4>
+<p>This written treatment is still in progress. The full long-run
+balance-of-payments data — for the United States, Germany, and 256 other
+countries — is explorable now at <a
+href="https://lewis.heterodata.org">Lewis</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -959,52 +1046,17 @@ redefinitions before forward-projection makes any sense. The output is a
 machine-reproducible pipeline plus an interactive visualization tool,
 both designed so that another researcher can clone the package, set API
 keys, and reproduce every figure in the book on the current data.</p>
-<p>As of April 2026, 13 of 17 empirical chapters are complete. Source
-code, data, and visualizations are forthcoming on a dedicated public
-site.</p>
+<p>As of April 2026, 13 of 17 empirical chapters are complete. The
+source code, data, and visualizations are now published as an
+interactive data hub at <a href="https://mdata.fyi">mdata.fyi</a> (the
+RSCD dataset), with per-series provenance and downloads.</p>
 <p>The Anwar Shaikh archive at the <a
 href="https://digitalcommons.bard.edu/as_archive/">Levy Economics
 Institute</a> and the companion site <a
 href="https://realecon.org">realecon.org</a> are part of the same
 broader project of making Shaikh’s empirical work durable and
 re-usable.</p>
-<p>Last compiled: 2026-04-28</p>
-<style type="text/css">
-.title {
-  display: none;
-}
-
-.navbar-default {
-    background-color: #640000 !important;
-    
-}
-
-<!-- .navbar-nav { -->
-<!--   color:white !important; -->
-
-<!-- } -->
-
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-
-.navbar-nav > .active > a { 
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-
-#getting-started img {
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-
-</style>
+<p>Last compiled: 2026-06-09</p>
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
@@ -1014,6 +1066,22 @@ re-usable.</p>
 </div>
 </div>
 
+<!-- nickanderson.us — after_body include (referenced from _site.yml).
+     Underscore-prefixed so render_site() does not copy it into docs/.
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
+
+<!-- Usage beacon config.
+     P4 wired: `endpoint` points at the consolidated first-party carson-telemetry
+     collector at https://heterodata.org/__track (proxied by the hub's Caddy to
+     the tailnet-only carson-telemetry-dash). GitHub Pages is pure-static (no
+     backend), so cross-origin sendBeacon is required; the collector returns a
+     wildcard CORS header + handles the OPTIONS preflight. Still first-party (our
+     own box), no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 
 </div>

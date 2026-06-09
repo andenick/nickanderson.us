@@ -32,6 +32,20 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<!-- nickanderson.us — in_header include (referenced from _site.yml).
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ark-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) { /* ignore; system preference applies via CSS @media */ }
+  })();
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -58,6 +72,7 @@ if (window.hljs) {
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
 
 
@@ -258,6 +273,9 @@ $(document).ready(function () {
   <a href="projects.html">Projects</a>
 </li>
 <li>
+  <a href="data.html">Data</a>
+</li>
+<li>
   <a href="about.html">About</a>
 </li>
       </ul>
@@ -292,7 +310,9 @@ class="section level3">
 <li><a
 href="https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing">Source
 data and processing scripts</a></li>
-<li><a href="economichistory.html">Read the paper →</a></li>
+<li><a href="research.html#duration-and-public-finance">Read the paper
+→</a></li>
+<li>Interactive tool: <a href="https://pubfin.org">pubfin.org</a></li>
 </ul>
 </div>
 <div id="tax-revenue-cyclicality" class="section level3">
@@ -301,15 +321,16 @@ data and processing scripts</a></li>
 <li><a
 href="https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing">Source
 data</a></li>
+<li>Interactive tool: <a href="https://pubfin.org">pubfin.org</a></li>
 </ul>
 <hr />
 </div>
 </div>
 <div id="hmda-home-mortgage-disclosure-act" class="section level2">
 <h2>HMDA — Home Mortgage Disclosure Act</h2>
-<p>The HMDA Explore Shiny app at <a
-href="https://andenick.shinyapps.io/HMDAExplore/">andenick.shinyapps.io/HMDAExplore</a>
-is the public-facing version of this work.</p>
+<p>The HMDA Explore Streamlit dashboard at <a
+href="https://hmdaexplore.com">hmdaexplore.com</a> is the public-facing
+version of this work.</p>
 <ul>
 <li><a
 href="https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing">HMDA
@@ -319,7 +340,7 @@ code, and the underlying files are large enough that a laptop may not
 have the RAM to process them in full.</li>
 <li><a
 href="https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing">HMDA
-Shiny app source</a></li>
+dashboard source code</a></li>
 </ul>
 <hr />
 </div>
@@ -330,8 +351,51 @@ present:</p>
 <ul>
 <li><strong>FreeNIC</strong> — <a
 href="https://github.com/andenick/FreeNIC">github.com/andenick/FreeNIC</a>
-— 1.5 billion rows, 217,210 institutions, 20 source datasets, 15 MCP
-tools.</li>
+— 1.5 billion rows, 217,210 institutions, 20 source datasets, 15 query
+tools. Draft public explorer: <a
+href="https://freenic.org">freenic.org</a>.</li>
+</ul>
+<hr />
+</div>
+<div id="capitalism-replication-and-national-accounts"
+class="section level2">
+<h2>Capitalism Replication and National Accounts</h2>
+<p>The replicated and extended data series behind the Anwar Shaikh
+<em>Capitalism</em> (2016) replication and the Shaikh &amp; Tonak
+national-accounts work are published, with per-series provenance and
+downloads, at:</p>
+<ul>
+<li><a href="https://mdata.fyi">mdata.fyi</a> — the RSCD
+(<em>Capitalism</em> replication) and RMWND (extended national accounts)
+datasets.</li>
+</ul>
+<hr />
+</div>
+<div id="balance-of-payments" class="section level2">
+<h2>Balance of Payments</h2>
+<p>International-accounts data — balance of payments, flow of funds, and
+cross-border value transfers across 258 countries — is explorable
+at:</p>
+<ul>
+<li><a href="https://lewis.heterodata.org">lewis.heterodata.org</a></li>
+</ul>
+<hr />
+</div>
+<div id="bank-failures-and-balance-sheets" class="section level2">
+<h2>Bank Failures and Balance Sheets</h2>
+<p>Bank-panel data on U.S. bank failures and balance sheets, 1865–2026,
+is explorable at:</p>
+<ul>
+<li><a href="https://volcker.org">volcker.org</a></li>
+</ul>
+<hr />
+</div>
+<div id="inputoutput-accounts" class="section level2">
+<h2>Input–Output Accounts</h2>
+<p>The U.S. BEA Input-Output accounts and the Leontief inverse across
+sectors, 1997–2024:</p>
+<ul>
+<li><a href="https://leontief.io">leontief.io</a></li>
 </ul>
 <hr />
 </div>
@@ -345,25 +409,25 @@ href="https://digitalcommons.bard.edu/as_archive/">digitalcommons.bard.edu/as_ar
 <li>Companion site: <a href="https://realecon.org">realecon.org</a></li>
 </ul>
 <hr />
-<style type="text/css">
-.navbar-default {
-    background-color: #640000 !important;
-}
-.navbar .navbar-brand, .navbar .navbar-nav .nav-links  {
-  color: white;
-}
-.navbar-default .navbar-nav>li>a {
-    color: white !important;
-    font-weight: 150;
-}
-.navbar-nav > .active > a {
-    background-color: #006400 !important;
-    font-weight: 175;
-}
-</style>
 </div>
 </div>
 
+<!-- nickanderson.us — after_body include (referenced from _site.yml).
+     Underscore-prefixed so render_site() does not copy it into docs/.
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
+
+<!-- Usage beacon config.
+     P4 wired: `endpoint` points at the consolidated first-party carson-telemetry
+     collector at https://heterodata.org/__track (proxied by the hub's Caddy to
+     the tailnet-only carson-telemetry-dash). GitHub Pages is pure-static (no
+     backend), so cross-origin sendBeacon is required; the collector returns a
+     wildcard CORS header + handles the OPTIONS preflight. Still first-party (our
+     own box), no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 
 
