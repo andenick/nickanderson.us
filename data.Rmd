@@ -7,27 +7,33 @@ output: html_document
 
 Every economist is responsible for their own data. Here is mine.
 
+I am moving data hosting off Google Drive and onto self-hosted mirrors at **files.heterodata.org**. Each dataset below lists the self-hosted mirror as the primary location, with the existing Google Drive link preserved as a legacy fallback. Datasets under 1 GB are hosted whole; larger ones ship final outputs plus exact instructions for pulling the raw data from the original source. Programmatic access via the Robin API is planned for a future release.
+
 ---
 
 ## Underlying Data for Published Work on This Site
 
 ### *Duration and Public Finance in the United States, 2001–2023*
-- [Source data and processing scripts](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
+- **Self-hosted mirror:** [files.heterodata.org/duration-public-finance/](https://files.heterodata.org/duration-public-finance/) (coming online)
+- [Google Drive (legacy)](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
 - [Read the paper →](research.html#duration-and-public-finance)
-- Interactive tool: [pubfin.org](https://pubfin.org)
+- Interactive tool: [gerhard.heterodata.org](https://gerhard.heterodata.org)
 
 ### Tax Revenue Cyclicality
-- [Source data](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
-- Interactive tool: [pubfin.org](https://pubfin.org)
+- **Self-hosted mirror:** [files.heterodata.org/tax-revenue-cyclicality/](https://files.heterodata.org/tax-revenue-cyclicality/) (coming online)
+- [Google Drive (legacy)](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
+- Interactive tool: [gerhard.heterodata.org](https://gerhard.heterodata.org)
 
 ---
 
 ## HMDA — Home Mortgage Disclosure Act
 
-The HMDA Explore Streamlit dashboard at [hmdaexplore.com](https://hmdaexplore.com) is the public-facing version of this work.
+The HMDA Explore dashboard at [hmdaexplore.com](https://hmdaexplore.com) is the public-facing version of this work. For HMDA, only the final aggregates are mirrored — the raw Loan/Application Register (LAR) is too large to host whole and must be pulled directly from the [CFPB](https://ffiec.cfpb.gov/data-browser/).
 
-- [HMDA processing code (with data)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing) — fair warning: this is not a perfect replication package; you will need to adjust file paths if you run the code, and the underlying files are large enough that a laptop may not have the RAM to process them in full.
-- [HMDA dashboard source code](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
+- **HMDA processing code (with data) — self-hosted mirror:** [files.heterodata.org/hmda-processing-code/](https://files.heterodata.org/hmda-processing-code/) (coming online). Fair warning: this is not a perfect replication package; you will need to adjust file paths if you run the code, and the underlying files are large enough that a laptop may not have the RAM to process them in full.
+  - [Google Drive (legacy)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing)
+- **HMDA dashboard source code — self-hosted mirror:** [files.heterodata.org/hmda-dashboard-source/](https://files.heterodata.org/hmda-dashboard-source/) (coming online)
+  - [Google Drive (legacy)](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
 
 ---
 
@@ -43,7 +49,7 @@ For programmatic access to bank regulatory data spanning 1863 to the present:
 
 The replicated and extended data series behind the Anwar Shaikh *Capitalism* (2016) replication and the Shaikh & Tonak national-accounts work are published, with per-series provenance and downloads, at:
 
-- [mdata.fyi](https://mdata.fyi) — the RSCD (*Capitalism* replication) and RMWND (extended national accounts) datasets.
+- [shaikh.heterodata.org](https://shaikh.heterodata.org) — the *Capitalism* replication and extended national-accounts datasets.
 
 ---
 
@@ -67,15 +73,15 @@ Bank-panel data on U.S. bank failures and balance sheets, 1865–2026, is explor
 
 The U.S. BEA Input-Output accounts and the Leontief inverse across sectors, 1997–2024:
 
-- [leontief.io](https://leontief.io)
+- [leontief.heterodata.org](https://leontief.heterodata.org)
 
 ---
 
-## Anwar Shaikh Archive
+## Anwar Shaikh Papers
 
-35 boxes / 70,000+ scanned pages at the Levy Economics Institute of Bard College. Public archive:
+35 boxes / 77,452 pages / 532 GB of digital content at the Levy Economics Institute of Bard College. Public archive:
 
 - [digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/)
-- Companion site: [realecon.org](https://realecon.org)
+- Dedicated site: [realecon.org](https://realecon.org)
 
 ---

@@ -13,97 +13,78 @@ output:
 
 Public code repositories and data tools. Most of the interactive tools below are also gathered at my research hub, [heterodata.org](https://heterodata.org). For source material on related research, see the [Research](research.html) and [TNSE](tnse.html) pages.
 
+Each project lists its **website** and its **GitHub repository** side by side — the site is the interactive explorer; the repo holds the code and data.
+
 # FreeNIC
 
 *Open Banking Regulatory Data*
 
-[github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC)
+- **Site:** [freenic.org](https://freenic.org) — interactive explorer over a curated slice (DRAFT).
+- **Repo:** [github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC) — code and data.
 
-A public Python and R package plus a server providing programmatic access to **1.5 billion rows of US banking regulatory data spanning 1863–2026**. Coverage: 217,210 institutions, 34 Parquet tables, 20 source datasets, 15 query tools.
-
-This is the public infrastructure I most often want when doing empirical banking research, and it had not previously existed in this form. Any researcher (or AI agent) can query the consolidated data directly without writing custom adapters.
-
-A draft public explorer over a curated slice: [freenic.org](https://freenic.org) (DRAFT).
-
-# arcanum-workspace
-
-*AI-First Research Workspace*
-
-[github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace)
-
-The home of the [AI tools](aitools.html) used across all of my research projects. Skill templates, workspace standards, and supporting infrastructure for AI-assisted empirical research.
-
-# HMDA Explore
-
-*Home Mortgage Disclosure Act Dashboard*
-
-[hmdaexplore.com](https://hmdaexplore.com)
-
-An interactive Streamlit dashboard for exploring **Home Mortgage Disclosure Act data, 2019–2023**. Roughly seven sections — State, County, Metro, Demographics (HUD CHAS data), Lenders, and an About page — let you slice mortgage applications and originations by geography, borrower demographics, and lending institution. Built during my research assistantship at The New School's Schwartz Center for Economic Policy Analysis.
-
-Please allow the app a moment to spin up on first load — once running, it is fast.
+A public Python and R package plus a server providing programmatic access to **1.5 billion rows of US banking regulatory data spanning 1863–2026**. Coverage: 217,210 institutions, 34 Parquet tables, 20 source datasets, 15 query tools. Any researcher (or AI agent) can query the consolidated data directly without writing custom adapters.
 
 # Foodberg
 
 *Historical Food Price Explorer*
 
-[github.com/andenick/Foodberg](https://github.com/andenick/Foodberg)
+- **Site:** [foodberg.org](https://foodberg.org) — interactive explorer.
+- **Repo:** [github.com/andenick/Foodberg](https://github.com/andenick/Foodberg) — code and data.
 
 A full-stack web application (React + FastAPI) for exploring historical food commodity prices across FAO, USDA WASDE, BLS, FRED, and World Bank data. 169,000+ records from 5 sources.
 
-Live explorer: [foodberg.org](https://foodberg.org).
+# Gerhard
 
-# ShaikhTonak
+*U.S. Public Finance*
 
-*National Accounts Replication*
-
-[github.com/andenick/ShaikhTonak](https://github.com/andenick/ShaikhTonak)
-
-Replication and extension of the Shaikh & Tonak *Measuring the Wealth of Nations* (1994) framework — productive labor, net social wage, exploitation rate. Phase 1 covers Net Social Wage 1952–2025; Phase 2 covers productive labor 2010–2023.
-
-Extended national-accounts series published at [mdata.fyi](https://mdata.fyi) (RMWND).
-
-# MyRFailingBanks
-
-*Bank Failure Prediction Replication*
-
-[github.com/andenick/MyRFailingBanks](https://github.com/andenick/MyRFailingBanks)
-
-R package replicating the Correia, Luck, and Verner (2025) "Failing Banks" QJE paper. 158K observations, 489 failures, 0.965 AUC. Eleven R scripts and three LaTeX reports.
-
-Collected with my broader banking and financial-history work at [volcker.org](https://volcker.org), which also hosts a ten-dimension taxonomy of roughly 7,000 U.S. bank failures (1865–2026) and the bank-panel datasets behind it.
-
-# westchester
-
-*Westchester County Data Platform*
-
-[github.com/andenick/westchester](https://github.com/andenick/westchester)
-
-A React + FastAPI + PostgreSQL/PostGIS data platform for Westchester County, including a sidewalk analysis component for Metro-North accessibility. Property tax, budget, transit, and demographics datasets are integrated.
-
-Live sidewalk-coverage web-map: [jjmuni.com](https://jjmuni.com).
-
-# Wassily
-
-*U.S. Input-Output Explorer*
-
-[leontief.io](https://leontief.io)
-
-An interactive explorer over the U.S. Bureau of Economic Analysis Input-Output accounts. Compute the Leontief inverse across 71 sectors and trace how demand in one industry ripples through the rest of the economy, 1997–2024.
-
-# Public Finance
-
-*U.S. Taxation, Spending, Debt, and the Treasury Market*
-
-[pubfin.org](https://pubfin.org)
+- **Site:** [gerhard.heterodata.org](https://gerhard.heterodata.org) — interactive explorer.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
 An interactive treatment of American public finance — federal taxation, spending, deficits, debt, and the Treasury market over time. It is the interactive companion to my written work on [duration and public finance, and tax-revenue cyclicality](research.html).
+
+# HMDA Explore
+
+*Home Mortgage Disclosure Act Dashboard*
+
+- **Site (web version):** [hmdaexplore.com](https://hmdaexplore.com) — the actively developed web version.
+- **Site (Shiny draft):** [andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/) — the earlier interactive draft; slower to start.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
+
+An interactive dashboard for exploring **Home Mortgage Disclosure Act data, 2019–2023** — slice U.S. mortgage applications and originations by geography, borrower demographics (HUD CHAS data), and lending institution. Built during my research assistantship at The New School's Schwartz Center for Economic Policy Analysis. Please allow the app a moment to spin up on first load.
+
+# Heterodata
+
+*Research-Data Hub*
+
+- **Site:** [heterodata.org](https://heterodata.org) — the hub linking all of the data sites.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
+
+The research-data platform that gathers the interactive data sites — Gerhard, Shaikh Data, Lewis, Leonid, and Leontief — alongside the affiliated standalone sites (volcker.org, freenic.org, foodberg.org, methodex.fyi).
+
+# Leonid
+
+*Soviet and Imperial-Russian Official Statistics*
+
+- **Site:** [leonid.heterodata.org](https://leonid.heterodata.org) — interactive explorer.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
+
+A corpus overview and construction roadmap for the official statistics of the Soviet Union and Imperial Russia — what the sources are, how they fit together, and how the series will be built.
+
+# Leontief
+
+*U.S. Input–Output Explorer*
+
+- **Site:** [leontief.heterodata.org](https://leontief.heterodata.org) — interactive explorer.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
+
+An interactive explorer over the U.S. Bureau of Economic Analysis Input-Output accounts. Compute the Leontief inverse across 71 sectors and trace how demand in one industry ripples through the rest of the economy, 1997–2024.
 
 # Lewis
 
 *International Economics and the Balance of Payments*
 
-[lewis.heterodata.org](https://lewis.heterodata.org)
+- **Site:** [lewis.heterodata.org](https://lewis.heterodata.org) — interactive explorer.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
 An international-economics platform covering the balance of payments, flow of funds, and cross-border value transfer across 258 countries. It is the interactive companion to my [historical balance-of-payments work](research.html#balance-of-payments-history).
 
@@ -111,30 +92,52 @@ An international-economics platform covering the balance of payments, flow of fu
 
 *A History of Economic Statistics*
 
-[methodex.fyi](https://methodex.fyi)
+- **Site:** [methodex.fyi](https://methodex.fyi) — interactive explorer, plus an MCP API at [mcp.methodex.fyi](https://mcp.methodex.fyi) for AI agents.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
-The construction-and-revision history of economic statistics — for any series, at any date, see how it was built and which governing manual was in force, with citations back to that manual. There is also an MCP API at [mcp.methodex.fyi](https://mcp.methodex.fyi) so that AI agents can query the same methodological record directly.
+The construction-and-revision history of economic statistics — for any series, at any date, see how it was built and which governing manual was in force, with citations back to that manual.
 
-# USSR
+# Shaikh Data
 
-*Soviet and Imperial-Russian Official Statistics*
+*National Accounts Replication (ShaikhTonak)*
 
-[ussr.heterodata.org](https://ussr.heterodata.org)
+- **Site:** [shaikh.heterodata.org](https://shaikh.heterodata.org) — interactive explorer.
+- **Repo:** [github.com/andenick/ShaikhTonak](https://github.com/andenick/ShaikhTonak) — code and data.
 
-A corpus overview and construction roadmap for the official statistics of the Soviet Union and Imperial Russia — what the sources are, how they fit together, and how the series will be built. This is an overview and roadmap; the underlying series are not yet constructed.
+Replication and extension of Anwar Shaikh's *Capitalism* (2016) empirical data and the Shaikh & Tonak *Measuring the Wealth of Nations* (1994) framework — productive labor, net social wage, exploitation rate.
 
-# Anwar Shaikh Archive
+# Volcker
 
-*Archive at Levy Economics Institute*
+*Banking and Financial-History Analysis*
 
-[digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/)
+- **Site:** [volcker.org](https://volcker.org) — interactive explorer.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
-35 boxes and 70,000+ scanned pages of Anwar Shaikh's working papers, correspondence, lecture notes, manuscripts, and unpublished research material, housed at the Levy Economics Institute of Bard College. I am Lead Archivist; target completion June 2026. See [TNSE](tnse.html) for context.
+A ten-dimension taxonomy of roughly 7,000 U.S. bank failures (1865–2026) and the bank-panel datasets behind it. It also hosts [MyRFailingBanks](https://github.com/andenick/MyRFailingBanks), an R package replicating the Correia, Luck, and Verner (2025) "Failing Banks" QJE paper (158K observations, 489 failures, 0.965 AUC).
+
+# Anwar Shaikh Papers
+
+*Archive at the Levy Economics Institute*
+
+- **Site:** [digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/) — public archive.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — processing code.
+
+35 boxes, 77,452 pages, and 532 GB of digital content of Anwar Shaikh's working papers, correspondence, lecture notes, manuscripts, course videos and audio, and digitized VHS and cassette tapes, housed at the Levy Economics Institute of Bard College. I am Lead Archivist. See [TNSE](tnse.html) for context.
 
 # realecon.org
 
-*Companion site to Anwar Shaikh's work in economics*
+*The dedicated site for Anwar Shaikh's real economics*
 
-[realecon.org](https://realecon.org)
+- **Site:** [realecon.org](https://realecon.org) — author bibliographies, forum discussions, and resources.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
-A public website hosting author bibliographies, forum discussions, and resources for heterodox and classical political economy related to Anwar Shaikh's empirical contributions.
+A public website hosting resources for heterodox and classical political economy related to Anwar Shaikh's empirical contributions.
+
+# arcanum-workspace
+
+*AI-First Research Workspace*
+
+- **Site:** [aitools.html](aitools.html) — overview of the AI tools built here.
+- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
+
+The home of the [AI tools](aitools.html) used across all of my research projects. Skill templates, workspace standards, and supporting infrastructure for AI-assisted empirical research.

@@ -6,3 +6,9 @@ research_cache/
 *_cache/
 *_files/
 docs/superpowers/
+
+# Editor/backup artifacts — never render or commit these
+*.bak-*
+*.bak-content
+docs/*.bak-*
+docs/*.bak-content

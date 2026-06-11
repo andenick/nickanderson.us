@@ -4,35 +4,34 @@ output: html_document
 theme: null
 ---
 
+Welcome to my research hosting site. I am an economics PhD candidate at The New School for Social Research.
+
 # **Welcome, here are some projects of mine**
 
-My main project is a three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available here:
+## Projects
 
-[**Economics at The New School — 2024 draft (Google Drive)**](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing)
+### [Research](research.html)
 
----
+My empirical work on public finance and data.
 
-Here are some other projects and pages on this site:
+### [Heterodata](https://heterodata.org)
 
-1. [**TNSE — Economics at The New School**](tnse.html)
-A three-part institutional and intellectual history of The New School's economics department from its 1919 founding to the present. Part 1 (121 pages drafted) covers 1919–1933. Parts 2 and 3 extend the history to 1960 and include an oral history component with 84 structured interviews.
+The research-data platform: a hub of data sites including **Gerhard** (US public finance, [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data** ([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis** (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)), **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)), and **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)), plus affiliated standalone sites: [volcker.org](https://volcker.org) (banking analysis), [freenic.org](https://freenic.org) (banking data), [foodberg.org](https://foodberg.org) (food prices), and [methodex.fyi](https://methodex.fyi) (statistical methodology).
 
-2. [**Research**](research.html)
-Empirical work on public finance, tax revenue cyclicality, historical balance-of-payments data, and a replication and extension of the empirical data in Anwar Shaikh's *Capitalism* (2016). Includes original figures built from U.S. Treasury and BEA data.
+### [Economics at the New School](tnse.html)
 
-3. [**realecon.org**](https://realecon.org)
-A public website built as a companion to Anwar Shaikh's work in economics. Hosts author bibliographies, forum discussions, and resources for heterodox and classical political economy.
+A three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available [on Google Drive](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing).
 
-4. [**HMDA Explore**](https://hmdaexplore.com)
-An interactive Streamlit dashboard over Home Mortgage Disclosure Act data, 2019–2023 — slice U.S. mortgage lending by geography, borrower demographics, and lending institution. Built during my Schwartz Center research assistantship at The New School. Please allow the application a moment to spin up.
+### [AI Tools](aitools.html)
 
-5. [**AI Tools**](aitools.html)
-Open-source research infrastructure for AI-assisted empirical economics. Protocols for PDF processing, reproducible economic data construction, and pipeline architecture for empirical research.
+The open-source research tooling I built for AI-assisted empirical economics, with links to the GitHub repositories.
 
-6. [**Projects**](projects.html)
-Public code repositories and interactive data tools — FreeNIC (banking regulatory data, 1863–2026), Foodberg (historical food prices), and a Westchester County sidewalk-accessibility map, alongside interactive explorers for public finance ([pubfin.org](https://pubfin.org)), bank failures ([volcker.org](https://volcker.org)), input–output accounts ([leontief.io](https://leontief.io)), the *Capitalism* replication ([mdata.fyi](https://mdata.fyi)), and the history of economic statistics ([methodex.fyi](https://methodex.fyi)).
+### HMDA Explore
 
-Many of these tools are collected at my research hub, [heterodata.org](https://heterodata.org).
+An interactive explorer over Home Mortgage Disclosure Act data, in two versions side by side:
+
+- [andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/) — the earlier interactive draft (R-Shiny; slower to start).
+- [hmdaexplore.com](https://hmdaexplore.com) — the actively developed web version.
 
 ---
 

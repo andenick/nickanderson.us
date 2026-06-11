@@ -39,6 +39,8 @@ remove(list = ls())
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
+**Replication:** data and processing scripts are available on the [Data](data.html) page; a self-hosted data download mirror is coming online at [files.heterodata.org](https://files.heterodata.org/duration-public-finance/) (mirror coming online).
+
 ### Introduction
 
   The United States Treasury Market is a vital funding mechanism for federal government expenditures and has evolved considerably and unpredictably over the last century. This paper focuses on two aspects: the debt issuance of the U.S. Federal Government and the duration of those securities. 
@@ -608,6 +610,9 @@ ggOutstandingEnd2
 ::: {.fig-card}
 ![](DaPF-F2.jpg)
 :::
+
+*Note: this figure is reproduced from an external source and is slated for reconstruction directly from Treasury Monthly Statement of the Public Debt (MSPD) and auction data.*
+
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 **Figure 3** depicts the percentage of Treasury securities by their maturities. 
@@ -806,6 +811,8 @@ A broader interactive treatment of U.S. taxation, spending, deficits, debt, and 
 #### Dated 2022.01.07
 
 Sources: [Data](https://www.nickanderson.us/data.html)
+
+**Replication:** source data is available on the [Data](data.html) page; a self-hosted data download mirror is coming online at [files.heterodata.org](https://files.heterodata.org/tax-revenue-cyclicality/) (mirror coming online).
 
 
 ```{r, include = F, echo = F}
@@ -1266,6 +1273,8 @@ A broader interactive treatment of U.S. taxation, spending, deficits, debt, and 
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
+**Replication:** the long-run balance-of-payments data is available on the [Data](data.html) page and explorable at [lewis.heterodata.org](https://lewis.heterodata.org); a self-hosted data download mirror is coming online at [files.heterodata.org](https://files.heterodata.org/) (mirror coming online).
+
 This work now has a fuller interactive home at [Lewis](https://lewis.heterodata.org), an international-accounts explorer (balance of payments, flow of funds, cross-border value transfers, 258 countries).
 
 ```{r, include = F, echo = F, "20. BoP"}
@@ -1428,25 +1437,4 @@ This written treatment is still in progress. The full long-run balance-of-paymen
 
 
 
-# Capitalism Data Replication
-
-## **Replication and Extension of the Empirical Data in Anwar Shaikh's *Capitalism* (2016)**
-
-#### By Nick Anderson
-
-#### Ongoing — most recent update April 2026
-
-A long-running project to replicate and extend every empirical data series in Anwar Shaikh's *Capitalism: Competition, Conflict, Crises* (2016, Oxford University Press). The book contains 113 distinct empirical data series across 17 chapters. The project reconstructs each one — the original sources, the construction methodology, the splice points between historical and modern data — and extends the series forward to the present using public APIs (FRED, BEA, BLS, Maddison, MeasuringWorth, and historical reconstructions where appropriate).
-
-The replication is a bigger job than it sounds. The book draws on roughly twenty primary data sources spanning two centuries and many methodological revisions; properly extending a series often means working backwards through several generations of statistical-agency redefinitions before forward-projection makes any sense. The output is a machine-reproducible pipeline plus an interactive visualization tool, both designed so that another researcher can clone the package, set API keys, and reproduce every figure in the book on the current data.
-
-As of April 2026, 13 of 17 empirical chapters are complete. The source code, data, and visualizations are now published as an interactive data hub at [mdata.fyi](https://mdata.fyi) (the RSCD dataset), with per-series provenance and downloads.
-
-The Anwar Shaikh archive at the [Levy Economics Institute](https://digitalcommons.bard.edu/as_archive/) and the companion site [realecon.org](https://realecon.org) are part of the same broader project of making Shaikh's empirical work durable and re-usable.
-
-
-
 Last compiled: `r Sys.Date()`
-
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">

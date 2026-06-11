@@ -11,7 +11,7 @@ output:
 
 # Economics at The New School
 
-A long-running personal project covering the institutional and intellectual history of economics at The New School for Social Research, from its 1919 founding through the present. The work has three components: a manuscript in progress, a digital archive, and the Anwar Shaikh archival project at the Levy Economics Institute of Bard College.
+A long-running personal project covering the institutional and intellectual history of economics at The New School for Social Research, from its 1919 founding through the present. The work has three components: a manuscript in progress, a digital archive, and the Anwar Shaikh papers at the Levy Economics Institute of Bard College.
 
 # The Manuscript
 
@@ -25,25 +25,25 @@ A long-running personal project covering the institutional and intellectual hist
 
 A working draft of Part 1 (August 2024) is available [on Google Drive](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing).
 
-The companion site [realecon.org](https://realecon.org) hosts related research infrastructure.
-
-# The Anwar Shaikh Archive at Levy
+# Anwar Shaikh Papers
 
 I am Lead Archivist of the **Archives of Anwar Shaikh** at the Levy Economics Institute of Bard College.
 
-35 boxes and 70,000+ scanned pages have been cataloged and digitized. Target completion: June 2026.
+The archive is complete and is now being uploaded and organized for public access. It comprises **35 boxes** and **77,452 pages**, with **532 GB of digital content** — emails, code, manuscripts, course videos and audio, and digitized VHS and cassette tapes.
 
 **Public archive:** [digitalcommons.bard.edu/as_archive](https://digitalcommons.bard.edu/as_archive/)
-
-**Companion site:** [realecon.org](https://realecon.org)
 
 The archive holds Anwar Shaikh's working papers, correspondence, lecture notes, manuscripts, and unpublished research material spanning his career at The New School and beyond. The collection has unusual format diversity — paper records, cassette tapes, and VHS tapes alongside conventional manuscripts — and required a custom digitization workflow.
 
 The archive is a primary source for the post-1980 sections of the manuscript, and a public-good infrastructure for any researcher working on the heterodox empirical tradition more broadly.
 
+# realecon.org
+
+[realecon.org](https://realecon.org) is the dedicated site for Anwar Shaikh's real economics. It hosts author bibliographies, forum discussions, and resources for heterodox and classical political economy related to Shaikh's empirical contributions.
+
 # The Digital Archive
 
-The TNSE project also maintains a structured digital archive of materials related to The New School's economics department: scholar profiles, recorded interviews, course catalogs, published bibliographies, and institutional records. A web-facing version of the digital archive is in development. Until then, materials are made available on request to researchers working on TNSE-related topics.
+The TNSE project also maintains a structured digital archive of materials related to The New School's economics department: scholar profiles, recorded interviews, course catalogs, published bibliographies, and institutional records. A web-facing version of the New School economics digital archive is in development (link forthcoming). Until then, materials are made available on request to researchers working on TNSE-related topics.
 
 # Why This Project
 

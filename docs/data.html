@@ -298,6 +298,13 @@ $(document).ready(function () {
 <div id="datasets" class="section level1">
 <h1>Datasets</h1>
 <p>Every economist is responsible for their own data. Here is mine.</p>
+<p>I am moving data hosting off Google Drive and onto self-hosted
+mirrors at <strong>files.heterodata.org</strong>. Each dataset below
+lists the self-hosted mirror as the primary location, with the existing
+Google Drive link preserved as a legacy fallback. Datasets under 1 GB
+are hosted whole; larger ones ship final outputs plus exact instructions
+for pulling the raw data from the original source. Programmatic access
+via the Robin API is planned for a future release.</p>
 <hr />
 <div id="underlying-data-for-published-work-on-this-site"
 class="section level2">
@@ -307,40 +314,62 @@ class="section level3">
 <h3><em>Duration and Public Finance in the United States,
 2001–2023</em></h3>
 <ul>
+<li><strong>Self-hosted mirror:</strong> <a
+href="https://files.heterodata.org/duration-public-finance/">files.heterodata.org/duration-public-finance/</a>
+(coming online)</li>
 <li><a
-href="https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing">Source
-data and processing scripts</a></li>
+href="https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing">Google
+Drive (legacy)</a></li>
 <li><a href="research.html#duration-and-public-finance">Read the paper
 →</a></li>
-<li>Interactive tool: <a href="https://pubfin.org">pubfin.org</a></li>
+<li>Interactive tool: <a
+href="https://gerhard.heterodata.org">gerhard.heterodata.org</a></li>
 </ul>
 </div>
 <div id="tax-revenue-cyclicality" class="section level3">
 <h3>Tax Revenue Cyclicality</h3>
 <ul>
+<li><strong>Self-hosted mirror:</strong> <a
+href="https://files.heterodata.org/tax-revenue-cyclicality/">files.heterodata.org/tax-revenue-cyclicality/</a>
+(coming online)</li>
 <li><a
-href="https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing">Source
-data</a></li>
-<li>Interactive tool: <a href="https://pubfin.org">pubfin.org</a></li>
+href="https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing">Google
+Drive (legacy)</a></li>
+<li>Interactive tool: <a
+href="https://gerhard.heterodata.org">gerhard.heterodata.org</a></li>
 </ul>
 <hr />
 </div>
 </div>
 <div id="hmda-home-mortgage-disclosure-act" class="section level2">
 <h2>HMDA — Home Mortgage Disclosure Act</h2>
-<p>The HMDA Explore Streamlit dashboard at <a
+<p>The HMDA Explore dashboard at <a
 href="https://hmdaexplore.com">hmdaexplore.com</a> is the public-facing
-version of this work.</p>
+version of this work. For HMDA, only the final aggregates are mirrored —
+the raw Loan/Application Register (LAR) is too large to host whole and
+must be pulled directly from the <a
+href="https://ffiec.cfpb.gov/data-browser/">CFPB</a>.</p>
+<ul>
+<li><strong>HMDA processing code (with data) — self-hosted
+mirror:</strong> <a
+href="https://files.heterodata.org/hmda-processing-code/">files.heterodata.org/hmda-processing-code/</a>
+(coming online). Fair warning: this is not a perfect replication
+package; you will need to adjust file paths if you run the code, and the
+underlying files are large enough that a laptop may not have the RAM to
+process them in full.
 <ul>
 <li><a
-href="https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing">HMDA
-processing code (with data)</a> — fair warning: this is not a perfect
-replication package; you will need to adjust file paths if you run the
-code, and the underlying files are large enough that a laptop may not
-have the RAM to process them in full.</li>
+href="https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing">Google
+Drive (legacy)</a></li>
+</ul></li>
+<li><strong>HMDA dashboard source code — self-hosted mirror:</strong> <a
+href="https://files.heterodata.org/hmda-dashboard-source/">files.heterodata.org/hmda-dashboard-source/</a>
+(coming online)
+<ul>
 <li><a
-href="https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing">HMDA
-dashboard source code</a></li>
+href="https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing">Google
+Drive (legacy)</a></li>
+</ul></li>
 </ul>
 <hr />
 </div>
@@ -365,8 +394,8 @@ class="section level2">
 national-accounts work are published, with per-series provenance and
 downloads, at:</p>
 <ul>
-<li><a href="https://mdata.fyi">mdata.fyi</a> — the RSCD
-(<em>Capitalism</em> replication) and RMWND (extended national accounts)
+<li><a href="https://shaikh.heterodata.org">shaikh.heterodata.org</a> —
+the <em>Capitalism</em> replication and extended national-accounts
 datasets.</li>
 </ul>
 <hr />
@@ -395,18 +424,19 @@ is explorable at:</p>
 <p>The U.S. BEA Input-Output accounts and the Leontief inverse across
 sectors, 1997–2024:</p>
 <ul>
-<li><a href="https://leontief.io">leontief.io</a></li>
+<li><a
+href="https://leontief.heterodata.org">leontief.heterodata.org</a></li>
 </ul>
 <hr />
 </div>
-<div id="anwar-shaikh-archive" class="section level2">
-<h2>Anwar Shaikh Archive</h2>
-<p>35 boxes / 70,000+ scanned pages at the Levy Economics Institute of
-Bard College. Public archive:</p>
+<div id="anwar-shaikh-papers" class="section level2">
+<h2>Anwar Shaikh Papers</h2>
+<p>35 boxes / 77,452 pages / 532 GB of digital content at the Levy
+Economics Institute of Bard College. Public archive:</p>
 <ul>
 <li><a
 href="https://digitalcommons.bard.edu/as_archive/">digitalcommons.bard.edu/as_archive</a></li>
-<li>Companion site: <a href="https://realecon.org">realecon.org</a></li>
+<li>Dedicated site: <a href="https://realecon.org">realecon.org</a></li>
 </ul>
 <hr />
 </div>

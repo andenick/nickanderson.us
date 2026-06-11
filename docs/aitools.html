@@ -379,41 +379,43 @@ href="https://github.com/andenick/arcanum-workspace"><code>arcanum-workspace</co
 on GitHub. The descriptions below are high-level overviews; click
 through to the repository for the working code.</p>
 </div>
-<div id="a-pdf-processing-protocol-for-archival-sources"
-class="section level1">
-<h1>A PDF Processing Protocol for Archival Sources</h1>
-<p>A pipeline for extracting structured data from scanned PDFs at
-archival quality, combining direct agent vision for tables, equations,
-and figures with a multi-engine consensus engine for body text. Designed
-for the Anwar Shaikh archival project — see <a href="tnse.html">TNSE</a>
-— and reused for scholarly books, regulatory filings, and historical
-scanned material across the workspace.</p>
+<div id="hybrid-direct-agent-processing-hdarp" class="section level1">
+<h1>Hybrid Direct Agent Processing (HDARP)</h1>
+<p>Accurate extraction of text, tables, equations, and figure
+descriptions from archival and scanned documents using vision-language
+(multimodal LLM) architectures. The protocol combines direct agent
+vision with a retry-and-recovery workflow so that difficult pages are
+extracted rather than skipped.</p>
 <p><a href="https://github.com/andenick/arcanum-workspace">Source on
 GitHub →</a></p>
 </div>
-<div id="a-framework-for-reproducible-economic-data-construction"
-class="section level1">
-<h1>A Framework for Reproducible Economic Data Construction</h1>
-<p>A set of templates for agent-driven empirical data construction
-projects, designed so that the final pipeline is reproducible by anyone
-— without an AI agent in the loop. A researcher clones the package, sets
-API keys, runs the master script, and gets the same data with the same
-hashes. Used at scale on the <a href="research.html">Capitalism Data
-Replication</a> project and on the Shaikh-Tonak national-accounts
-extension.</p>
-<p><a href="https://github.com/andenick/arcanum-workspace">Source on
-GitHub →</a></p>
+<div id="anu-framework-anu" class="section level1">
+<h1>Anu Framework (ANU)</h1>
+<p>Reproducible economic data construction: a staged pipeline that
+carries a data series from source research through validated replication
+packages, documentation, and publication. The framework powers the
+Heterodata data sites, where each constructed series ships with its full
+provenance trail.</p>
+<p><a href="https://github.com/andenick/anu-framework">Source on GitHub
+→</a></p>
 </div>
-<div id="a-pipeline-architecture-for-empirical-research"
-class="section level1">
-<h1>A Pipeline Architecture for Empirical Research</h1>
-<p>A language-agnostic eight-phase architecture for empirical research
-projects. Script-name prefixes encode the phase (setup, load, process,
-validate, manual adjust, analyze, output, explore), so anyone reading
-the file system can reconstruct the dependency graph. Phase-gated
-execution prevents skipping validation; a single registry file is the
-source of truth; manual adjustments are explicit and justified rather
-than silent.</p>
+<div id="anu-architecture" class="section level1">
+<h1>Anu Architecture</h1>
+<p>The standardized project and pipeline layout underlying the
+framework. Staged scripts (load, process, validate, manual adjust,
+analyze, output) encode the dependency graph in the file system;
+registries are the single source of truth; provenance records make every
+value traceable. Anyone reading the directory can reconstruct how the
+data was built.</p>
+<p><a href="https://github.com/andenick/anu-framework">Source on GitHub
+→</a></p>
+</div>
+<div id="arcanum-workspace" class="section level1">
+<h1>Arcanum Workspace</h1>
+<p>The Claude Code-based research workspace and tooling that
+orchestrates all of the above. It collects the skill templates,
+workspace standards, and supporting infrastructure used across my
+research projects.</p>
 <p><a href="https://github.com/andenick/arcanum-workspace">Source on
 GitHub →</a></p>
 </div>
