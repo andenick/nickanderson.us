@@ -11,13 +11,13 @@ output:
 
 # AI Tools
 
-Open-source research infrastructure for AI-assisted empirical economics. The substance lives in [`arcanum-workspace`](https://github.com/andenick/arcanum-workspace) on GitHub. The descriptions below are high-level overviews; click through to the repository for the working code.
+Open-source research infrastructure for AI-assisted empirical economics. Each tool below has its own repository on GitHub; the descriptions are high-level overviews — click through to a repository for the working code.
 
 # Hybrid Direct Agent Processing (HDARP)
 
 Accurate extraction of text, tables, equations, and figure descriptions from archival and scanned documents using vision-language (multimodal LLM) architectures. The protocol combines direct agent vision with a retry-and-recovery workflow so that difficult pages are extracted rather than skipped.
 
-[Source on GitHub →](https://github.com/andenick/arcanum-workspace)
+[Source on GitHub →](https://github.com/andenick/hdarp)
 
 # Anu Framework (ANU)
 
@@ -29,7 +29,7 @@ Reproducible economic data construction: a staged pipeline that carries a data s
 
 The standardized project and pipeline layout underlying the framework. Staged scripts (load, process, validate, manual adjust, analyze, output) encode the dependency graph in the file system; registries are the single source of truth; provenance records make every value traceable. Anyone reading the directory can reconstruct how the data was built.
 
-[Source on GitHub →](https://github.com/andenick/anu-framework)
+[Source on GitHub →](https://github.com/andenick/anu-architecture)
 
 # Arcanum Workspace
 

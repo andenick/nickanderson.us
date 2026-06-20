@@ -8,7 +8,7 @@ Welcome to my research hosting site. I am an economics PhD candidate at The New 
 
 # **Welcome, here are some projects of mine**
 
-## Projects
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">Projects</h2>
 
 ### [Research](research.html)
 
@@ -16,7 +16,7 @@ My empirical work on public finance and data.
 
 ### [Heterodata](https://heterodata.org)
 
-The research-data platform: a hub of data sites including **Gerhard** (US public finance, [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data** ([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis** (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)), **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)), and **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)), plus affiliated standalone sites: [volcker.org](https://volcker.org) (banking analysis), [freenic.org](https://freenic.org) (banking data), [foodberg.org](https://foodberg.org) (food prices), and [methodex.fyi](https://methodex.fyi) (statistical methodology).
+The research-data platform: a hub of data sites including **Gerhard** (US public finance, [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data** ([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis** (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)), **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)), and **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)), plus affiliated standalone sites: [freenic.org](https://freenic.org) (banking data), [foodberg.org](https://foodberg.org) (food prices), and [methodex.fyi](https://methodex.fyi) (statistical methodology).
 
 ### [Economics at the New School](tnse.html)
 
