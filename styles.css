@@ -6,9 +6,8 @@
    Themeable via CSS variables: a light :root default, a dark
    :root[data-theme="dark"] manual override, and an automatic
    @media (prefers-color-scheme: dark) fallback for visitors with no saved
-   preference. Token naming/approach follows the Arcanum Site Kit
-   (deploy/_shared/arcanum-site-kit/v1/arcanum.css). The site keeps its own
-   maroon/green brand identity rather than the kit accent.
+   preference. Token naming/approach follows the Arcanum Site Kit. The site
+   keeps its own maroon/green brand identity rather than the kit accent.
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------

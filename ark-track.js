@@ -1,16 +1,14 @@
 /* =============================================================================
    Arcanum Site Kit — ark-track.js — v1.1
-   Tiny FIRST-PARTY usage beacon for the stacks that don't run the FastAPI
-   carson-telemetry middleware (Streamlit, React/SPA, static Caddy sites).
-   Sends ONE pageview event {site, path, ref, ts} to a same-origin (or
-   configured) endpoint. No cookies, no PII, no third party. Respects DNT.
+   Tiny FIRST-PARTY usage beacon for static / SPA sites with no backend
+   middleware. Sends ONE pageview event {site, path, ref, ts} to a same-origin
+   (or configured) endpoint. No cookies, no PII, no third party. Respects DNT.
 
    Usage:
      <script>window.ARK_TRACK = { site:"heterodata", endpoint:"/__track" };</script>
      <script src="/_shared/ark-track.js" defer></script>
-   The endpoint is fronted by the site (proxied to the consolidated
-   carson-telemetry collector). If the site has no backend (pure static),
-   point `endpoint` at the shared collector hostname over the tunnel.
+   The endpoint is fronted by the site. If the site has no backend (pure
+   static), point `endpoint` at your own first-party collector hostname.
    ============================================================================= */
 (function () {
   "use strict";
