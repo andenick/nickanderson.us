@@ -1,5 +1,6 @@
 ---
 title: "AI Tools"
+pagetitle: "AI Tools — Nick Anderson"
 output:
   html_document:
     toc: true
@@ -7,6 +8,9 @@ output:
     collapsed: false
     number_sections: false
     toc_depth: 1
+    includes:
+      in_header: ["_head.html", "_meta_aitools.html"]
+      after_body: _after_body.html
 ---
 
 # AI Tools

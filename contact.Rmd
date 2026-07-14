@@ -1,6 +1,11 @@
 ---
 title: "Contact"
-output: html_document
+pagetitle: "Contact — Nick Anderson"
+output:
+  html_document:
+    includes:
+      in_header: ["_head.html", "_meta_contact.html"]
+      after_body: _after_body.html
 ---
 
 # Contact

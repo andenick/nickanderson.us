@@ -1,5 +1,6 @@
 ---
 title: "Research"
+pagetitle: "Research — Nick Anderson"
 output:
   html_document:
     toc: true
@@ -8,6 +9,9 @@ output:
     number_sections: false
     toc_depth: 1
     #code_folding: hide
+    includes:
+      in_header: ["_head.html", "_meta_research.html"]
+      after_body: _after_body.html
 ---
 
 ```{r setup, include=FALSE}
@@ -39,7 +43,7 @@ remove(list = ls())
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
-**Replication:** data and processing scripts are available on the [Data](data.html) page; a self-hosted data download mirror is coming online at [files.heterodata.org](https://files.heterodata.org/duration-public-finance/) (mirror coming online).
+**Replication:** data and processing scripts are available on the [Data](data.html) page; a self-hosted data download mirror is available at [files.heterodata.org](https://files.heterodata.org/duration-public-finance/).
 
 ### Introduction
 
@@ -778,7 +782,7 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 
 ### Interactive companion
 
-A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [pubfin.org](https://pubfin.org).
+A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [gerhard.heterodata.org](https://gerhard.heterodata.org).
 
 ```{r, echo = F, "19. Emptied"}
 #setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
@@ -812,7 +816,7 @@ A broader interactive treatment of U.S. taxation, spending, deficits, debt, and 
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
-**Replication:** source data is available on the [Data](data.html) page; a self-hosted data download mirror is coming online at [files.heterodata.org](https://files.heterodata.org/tax-revenue-cyclicality/) (mirror coming online).
+**Replication:** source data is available on the [Data](data.html) page; a self-hosted data download mirror is available at [files.heterodata.org](https://files.heterodata.org/tax-revenue-cyclicality/).
 
 
 ```{r, include = F, echo = F}
@@ -1027,7 +1031,7 @@ ggIncomeTaxData2
 
 2.	**Excise Tax Era (1862-1913)**: The establishment of the IRS in 1862 allowed for Excise and Income taxation, though the Income Tax was repealed in 1872. This marks the second era between 1862 and 1913, where the Excise Tax and Customs Duties combined for more than 90% of Federal Government Revenues. 
 
-3.	**Income Tax Era (1913-1945)**: After being deemed unconstitutional in 1892, the Income Tax was reestablished in 1913 when Wilson’s administration signed the 16th Amendment into law. The Income Tax does not remain above 50% of federal revenues until World War II. These dates distinguish the third era, in which two wars and a Great Depression occur.
+3.	**Income Tax Era (1913-1945)**: After the federal income tax enacted in 1894 was struck down by the Supreme Court in *Pollock v. Farmers’ Loan & Trust Co.* (1895), the income tax was reestablished following ratification of the Sixteenth Amendment in February 1913 (the amendment had been proposed under President Taft in 1909); later that year President Wilson signed the Revenue Act of 1913, which reintroduced the federal income tax. The Income Tax does not remain above 50% of federal revenues until World War II. These dates distinguish the third era, in which two wars and a Great Depression occur.
 
 4.	**Decline of Income Tax Era (1945-Present)**: The undercurrent of the Income Tax Era is the onset and growth of Social Insurance and Retirement Taxes, or Payroll Taxes. After reaching over 80% of federal government revenue in 1945, the Income Tax enters a slow decline as Payroll Taxes grew from 8% of revenues in 1945 to over 40% revenues in 2004. This paper was written in the fourth era.
 The data for Figure 3 below uses the methodology and data from Hungerford (2006). His CRS report summarized US Tax History into three phases instead of four, combining this paper’s two eras of Income Tax dominance into a single Income Tax Era. 
@@ -1261,7 +1265,7 @@ Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Rec
 
 ### Interactive companions
 
-A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [pubfin.org](https://pubfin.org). My related empirical work on bank balance sheets and bank failure is collected at [volcker.org](https://volcker.org).
+A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [gerhard.heterodata.org](https://gerhard.heterodata.org). My related empirical work on bank balance sheets and bank failure is collected at [volcker.org](https://volcker.org).
 
 # Balance of Payments History
 
@@ -1273,7 +1277,7 @@ A broader interactive treatment of U.S. taxation, spending, deficits, debt, and 
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
-**Replication:** the long-run balance-of-payments data is available on the [Data](data.html) page and explorable at [lewis.heterodata.org](https://lewis.heterodata.org); a self-hosted data download mirror is coming online at [files.heterodata.org](https://files.heterodata.org/) (mirror coming online).
+**Replication:** the long-run balance-of-payments data is available on the [Data](data.html) page and explorable at [lewis.heterodata.org](https://lewis.heterodata.org); a self-hosted data download mirror is available at [files.heterodata.org](https://files.heterodata.org/).
 
 This work now has a fuller interactive home at [Lewis](https://lewis.heterodata.org), an international-accounts explorer (balance of payments, flow of funds, cross-border value transfers, 258 countries).
 

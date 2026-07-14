@@ -1,10 +1,21 @@
 ---
 title: "Nick Anderson"
-output: html_document
+pagetitle: "Nick Anderson — Economics Research"
 theme: null
+output:
+  html_document:
+    includes:
+      in_header: ["_head.html", "_meta_index.html"]
+      after_body: _after_body.html
 ---
 
 Welcome to my research hosting site. I am an economics PhD candidate at The New School for Social Research.
+
+<div class="ark-triad" role="navigation" aria-label="My code, data, and outputs">
+  <a class="ark-triad-item" href="https://files.heterodata.org"><span class="ark-triad-k">My data</span><span class="ark-triad-v">files.heterodata.org</span></a>
+  <a class="ark-triad-item" href="https://github.com/andenick"><span class="ark-triad-k">My code</span><span class="ark-triad-v">github.com/andenick</span></a>
+  <a class="ark-triad-item" href="https://heterodata.org"><span class="ark-triad-k">My results</span><span class="ark-triad-v">heterodata.org</span></a>
+</div>
 
 # **Welcome, here are some projects of mine**
 
@@ -16,11 +27,11 @@ My empirical work on public finance and data.
 
 ### [Heterodata](https://heterodata.org)
 
-The research-data platform: a hub of data sites including **Gerhard** (US public finance, [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data** ([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis** (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)), **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)), and **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)), plus affiliated standalone sites: [freenic.org](https://freenic.org) (banking data), [foodberg.org](https://foodberg.org) (food prices), and [methodex.fyi](https://methodex.fyi) (statistical methodology).
+The research-data platform: a hub of interactive data sites including **Gerhard** (US public finance, [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data** ([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis** (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)), **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)), **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)), and **StarCruiser** (US employment and inflation, [starcruiser.heterodata.org](https://starcruiser.heterodata.org)), plus affiliated standalone sites: [freenic.org](https://freenic.org) (banking data), [foodberg.org](https://foodberg.org) (food prices), [hmdaexplore.com](https://hmdaexplore.com) (mortgage lending), [methodex.fyi](https://methodex.fyi) (statistical methodology), and [jjmuni.com](https://jjmuni.com) (municipal pedestrian infrastructure). Data downloads across the ecosystem are gathered at [files.heterodata.org](https://files.heterodata.org) and indexed on the hub's [data page](https://heterodata.org/data).
 
 ### [Economics at the New School](tnse.html)
 
-A three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available [on Google Drive](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing).
+A three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available on request.
 
 ### [AI Tools](aitools.html)
 

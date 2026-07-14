@@ -1,6 +1,11 @@
 ---
 title: "About"
-output: html_document
+pagetitle: "About — Nick Anderson"
+output:
+  html_document:
+    includes:
+      in_header: ["_head.html", "_meta_about.html"]
+      after_body: _after_body.html
 ---
 
 Hi everyone.

@@ -1,5 +1,6 @@
 ---
 title: "TNSE"
+pagetitle: "Economics at The New School — Nick Anderson"
 output:
   html_document:
     toc: true
@@ -7,6 +8,9 @@ output:
     collapsed: false
     number_sections: false
     toc_depth: 1
+    includes:
+      in_header: ["_head.html", "_meta_tnse.html"]
+      after_body: _after_body.html
 ---
 
 # Economics at The New School
@@ -23,7 +27,7 @@ A long-running personal project covering the institutional and intellectual hist
 
 **Part 3** is an oral history of the modern department, drawing on **84 structured interviews with previous faculty members and students of The New School's economics program**. Central figures include Robert Heilbroner, David Gordon, Anwar Shaikh, Ross Thompson, and Duncan Foley. (In progress.)
 
-A working draft of Part 1 (August 2024) is available [on Google Drive](https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing).
+A working draft of Part 1 (August 2024) is available on request.
 
 # Anwar Shaikh Papers
 

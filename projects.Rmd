@@ -1,5 +1,6 @@
 ---
 title: "Projects"
+pagetitle: "Projects — Nick Anderson"
 output:
   html_document:
     toc: true
@@ -7,6 +8,9 @@ output:
     collapsed: false
     number_sections: false
     toc_depth: 1
+    includes:
+      in_header: ["_head.html", "_meta_projects.html"]
+      after_body: _after_body.html
 ---
 
 # Projects
@@ -38,7 +42,7 @@ An interactive treatment of American public finance — federal taxation, spendi
 *National Accounts Replication (ShaikhTonak)*
 
 - **Site:** [shaikh.heterodata.org](https://shaikh.heterodata.org) — interactive explorer.
-- **Repo:** [github.com/andenick/ShaikhTonak](https://github.com/andenick/ShaikhTonak) — code and data.
+- **Repo:** [github.com/andenick/measuring-the-wealth-of-nations](https://github.com/andenick/measuring-the-wealth-of-nations) — code and data.
 
 Replication and extension of Anwar Shaikh's *Capitalism* (2016) empirical data and the Shaikh & Tonak *Measuring the Wealth of Nations* (1994) framework — productive labor, net social wage, exploitation rate.
 

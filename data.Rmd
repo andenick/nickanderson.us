@@ -1,6 +1,11 @@
 ---
 title: "Data"
-output: html_document
+pagetitle: "Data — Nick Anderson"
+output:
+  html_document:
+    includes:
+      in_header: ["_head.html", "_meta_data.html"]
+      after_body: _after_body.html
 ---
 
 # Datasets
@@ -14,14 +19,12 @@ I am moving data hosting off Google Drive and onto self-hosted mirrors at **file
 ## Underlying Data for Published Work on This Site
 
 ### *Duration and Public Finance in the United States, 2001–2023*
-- **Self-hosted mirror:** [files.heterodata.org/duration-public-finance/](https://files.heterodata.org/duration-public-finance/) (coming online)
-- [Google Drive (legacy)](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
+- **Self-hosted mirror:** [files.heterodata.org/duration-public-finance/](https://files.heterodata.org/duration-public-finance/)- [Google Drive (legacy)](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
 - [Read the paper →](research.html#duration-and-public-finance)
 - Interactive tool: [gerhard.heterodata.org](https://gerhard.heterodata.org)
 
 ### Tax Revenue Cyclicality
-- **Self-hosted mirror:** [files.heterodata.org/tax-revenue-cyclicality/](https://files.heterodata.org/tax-revenue-cyclicality/) (coming online)
-- [Google Drive (legacy)](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
+- **Self-hosted mirror:** [files.heterodata.org/tax-revenue-cyclicality/](https://files.heterodata.org/tax-revenue-cyclicality/)- [Google Drive (legacy)](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
 - Interactive tool: [gerhard.heterodata.org](https://gerhard.heterodata.org)
 
 ---
@@ -30,9 +33,9 @@ I am moving data hosting off Google Drive and onto self-hosted mirrors at **file
 
 The HMDA Explore dashboard at [hmdaexplore.com](https://hmdaexplore.com) is the public-facing version of this work. For HMDA, only the final aggregates are mirrored — the raw Loan/Application Register (LAR) is too large to host whole and must be pulled directly from the [CFPB](https://ffiec.cfpb.gov/data-browser/).
 
-- **HMDA processing code (with data) — self-hosted mirror:** [files.heterodata.org/hmda-processing-code/](https://files.heterodata.org/hmda-processing-code/) (coming online). Fair warning: this is not a perfect replication package; you will need to adjust file paths if you run the code, and the underlying files are large enough that a laptop may not have the RAM to process them in full.
+- **HMDA processing code (with data) — self-hosted mirror:** [files.heterodata.org/hmda-processing-code/](https://files.heterodata.org/hmda-processing-code/). Fair warning: this is not a perfect replication package; you will need to adjust file paths if you run the code, and the underlying files are large enough that a laptop may not have the RAM to process them in full.
   - [Google Drive (legacy)](https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing)
-- **HMDA dashboard source code — self-hosted mirror:** [files.heterodata.org/hmda-dashboard-source/](https://files.heterodata.org/hmda-dashboard-source/) (coming online)
+- **HMDA dashboard source code — self-hosted mirror:** [files.heterodata.org/hmda-dashboard-source/](https://files.heterodata.org/hmda-dashboard-source/)
   - [Google Drive (legacy)](https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing)
 
 ---
