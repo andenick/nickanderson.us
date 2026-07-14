@@ -11,7 +11,7 @@
 
 
 
-<title>Research</title>
+<title>Research — Nick Anderson</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -39,6 +39,10 @@
      No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
      rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
      at render time only). -->
+
+<!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+
 <script>
   (function () {
     try {
@@ -49,6 +53,7 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
+<meta name="description" content="Empirical research by Nick Anderson on U.S. public finance: Treasury duration, tax-revenue cyclicality, and long-run balance of payments.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -57,7 +62,8 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-    </style>
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
@@ -385,9 +391,8 @@ class="section level2">
 <p>Sources: <a href="https://www.nickanderson.us/data.html">Data</a></p>
 <p><strong>Replication:</strong> data and processing scripts are
 available on the <a href="data.html">Data</a> page; a self-hosted data
-download mirror is coming online at <a
-href="https://files.heterodata.org/duration-public-finance/">files.heterodata.org</a>
-(mirror coming online).</p>
+download mirror is available at <a
+href="https://files.heterodata.org/duration-public-finance/">files.heterodata.org</a>.</p>
 </div>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
@@ -707,7 +712,7 @@ class="uri">http://www.jstor.org/stable/2351923</a>. Accessed 21 May
 <h3>Interactive companion</h3>
 <p>A broader interactive treatment of U.S. taxation, spending, deficits,
 debt, and the Treasury market is at <a
-href="https://pubfin.org">pubfin.org</a>.</p>
+href="https://gerhard.heterodata.org">gerhard.heterodata.org</a>.</p>
 </div>
 </div>
 </div>
@@ -725,9 +730,8 @@ class="section level2">
 <p>Sources: <a href="https://www.nickanderson.us/data.html">Data</a></p>
 <p><strong>Replication:</strong> source data is available on the <a
 href="data.html">Data</a> page; a self-hosted data download mirror is
-coming online at <a
-href="https://files.heterodata.org/tax-revenue-cyclicality/">files.heterodata.org</a>
-(mirror coming online).</p>
+available at <a
+href="https://files.heterodata.org/tax-revenue-cyclicality/">files.heterodata.org</a>.</p>
 </div>
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
@@ -832,12 +836,16 @@ the IRS in 1862 allowed for Excise and Income taxation, though the
 Income Tax was repealed in 1872. This marks the second era between 1862
 and 1913, where the Excise Tax and Customs Duties combined for more than
 90% of Federal Government Revenues.</p></li>
-<li><p><strong>Income Tax Era (1913-1945)</strong>: After being deemed
-unconstitutional in 1892, the Income Tax was reestablished in 1913 when
-Wilson’s administration signed the 16th Amendment into law. The Income
-Tax does not remain above 50% of federal revenues until World War II.
-These dates distinguish the third era, in which two wars and a Great
-Depression occur.</p></li>
+<li><p><strong>Income Tax Era (1913-1945)</strong>: After the federal
+income tax enacted in 1894 was struck down by the Supreme Court in
+<em>Pollock v. Farmers’ Loan &amp; Trust Co.</em> (1895), the income tax
+was reestablished following ratification of the Sixteenth Amendment in
+February 1913 (the amendment had been proposed under President Taft in
+1909); later that year President Wilson signed the Revenue Act of 1913,
+which reintroduced the federal income tax. The Income Tax does not
+remain above 50% of federal revenues until World War II. These dates
+distinguish the third era, in which two wars and a Great Depression
+occur.</p></li>
 <li><p><strong>Decline of Income Tax Era (1945-Present)</strong>: The
 undercurrent of the Income Tax Era is the onset and growth of Social
 Insurance and Retirement Taxes, or Payroll Taxes. After reaching over
@@ -951,9 +959,9 @@ class="uri">https://fred.stlouisfed.org/series/UNRATENSA</a></p>
 <h3>Interactive companions</h3>
 <p>A broader interactive treatment of U.S. taxation, spending, deficits,
 debt, and the Treasury market is at <a
-href="https://pubfin.org">pubfin.org</a>. My related empirical work on
-bank balance sheets and bank failure is collected at <a
-href="https://volcker.org">volcker.org</a>.</p>
+href="https://gerhard.heterodata.org">gerhard.heterodata.org</a>. My
+related empirical work on bank balance sheets and bank failure is
+collected at <a href="https://volcker.org">volcker.org</a>.</p>
 </div>
 </div>
 </div>
@@ -973,9 +981,8 @@ States and Germany</strong></h2>
 <p><strong>Replication:</strong> the long-run balance-of-payments data
 is available on the <a href="data.html">Data</a> page and explorable at
 <a href="https://lewis.heterodata.org">lewis.heterodata.org</a>; a
-self-hosted data download mirror is coming online at <a
-href="https://files.heterodata.org/">files.heterodata.org</a> (mirror
-coming online).</p>
+self-hosted data download mirror is available at <a
+href="https://files.heterodata.org/">files.heterodata.org</a>.</p>
 <p>This work now has a fuller interactive home at <a
 href="https://lewis.heterodata.org">Lewis</a>, an international-accounts
 explorer (balance of payments, flow of funds, cross-border value
@@ -1032,7 +1039,7 @@ Product.</p>
 balance-of-payments data — for the United States, Germany, and 256 other
 countries — is explorable now at <a
 href="https://lewis.heterodata.org">Lewis</a>.</p>
-<p>Last compiled: 2026-06-19</p>
+<p>Last compiled: 2026-07-14</p>
 </div>
 </div>
 </div>
@@ -1053,6 +1060,18 @@ href="https://lewis.heterodata.org">Lewis</a>.</p>
 <script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
 <script src="ark-track.js" defer></script>
 <script src="toggle.js" defer></script>
+
+<!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
+     Injected via this shared after_body include so a re-render preserves it. -->
+<footer class="site-footer" role="contentinfo">
+  <span><strong>Heterodata</strong> &mdash; an Arcanum Research project.</span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Hub: <a href="https://heterodata.org">heterodata.org</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Author: <a href="https://nickanderson.us">nickanderson.us</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
+</footer>
 
 
 </div>
@@ -1119,15 +1138,6 @@ $(document).ready(function ()  {
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 </body>
 </html>

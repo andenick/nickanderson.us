@@ -11,7 +11,7 @@
 
 
 
-<title>AI Tools</title>
+<title>AI Tools — Nick Anderson</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -39,6 +39,10 @@
      No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
      rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
      at render time only). -->
+
+<!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+
 <script>
   (function () {
     try {
@@ -49,6 +53,7 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
+<meta name="description" content="Open-source research tooling by Nick Anderson for AI-assisted empirical economics: HDARP, the Anu Framework, and the Arcanum Workspace.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -57,7 +62,8 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-    </style>
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
@@ -446,6 +452,18 @@ on GitHub →</a></p>
 <script src="ark-track.js" defer></script>
 <script src="toggle.js" defer></script>
 
+<!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
+     Injected via this shared after_body include so a re-render preserves it. -->
+<footer class="site-footer" role="contentinfo">
+  <span><strong>Heterodata</strong> &mdash; an Arcanum Research project.</span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Hub: <a href="https://heterodata.org">heterodata.org</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Author: <a href="https://nickanderson.us">nickanderson.us</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
+</footer>
+
 
 </div>
 </div>
@@ -511,15 +529,6 @@ $(document).ready(function ()  {
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 </body>
 </html>

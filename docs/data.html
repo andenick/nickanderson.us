@@ -11,7 +11,7 @@
 
 
 
-<title>Data</title>
+<title>Data — Nick Anderson</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -36,6 +36,10 @@
      No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
      rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
      at render time only). -->
+
+<!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+
 <script>
   (function () {
     try {
@@ -46,6 +50,7 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
+<meta name="description" content="Datasets behind the published research of Nick Anderson, with self-hosted mirrors at files.heterodata.org and interactive explorers across the Heterodata ecosystem.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -54,7 +59,8 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-    </style>
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
@@ -315,9 +321,8 @@ class="section level3">
 2001–2023</em></h3>
 <ul>
 <li><strong>Self-hosted mirror:</strong> <a
-href="https://files.heterodata.org/duration-public-finance/">files.heterodata.org/duration-public-finance/</a>
-(coming online)</li>
-<li><a
+href="https://files.heterodata.org/duration-public-finance/">files.heterodata.org/duration-public-finance/</a>-
+<a
 href="https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing">Google
 Drive (legacy)</a></li>
 <li><a href="research.html#duration-and-public-finance">Read the paper
@@ -330,9 +335,8 @@ href="https://gerhard.heterodata.org">gerhard.heterodata.org</a></li>
 <h3>Tax Revenue Cyclicality</h3>
 <ul>
 <li><strong>Self-hosted mirror:</strong> <a
-href="https://files.heterodata.org/tax-revenue-cyclicality/">files.heterodata.org/tax-revenue-cyclicality/</a>
-(coming online)</li>
-<li><a
+href="https://files.heterodata.org/tax-revenue-cyclicality/">files.heterodata.org/tax-revenue-cyclicality/</a>-
+<a
 href="https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing">Google
 Drive (legacy)</a></li>
 <li>Interactive tool: <a
@@ -352,11 +356,10 @@ href="https://ffiec.cfpb.gov/data-browser/">CFPB</a>.</p>
 <ul>
 <li><strong>HMDA processing code (with data) — self-hosted
 mirror:</strong> <a
-href="https://files.heterodata.org/hmda-processing-code/">files.heterodata.org/hmda-processing-code/</a>
-(coming online). Fair warning: this is not a perfect replication
-package; you will need to adjust file paths if you run the code, and the
-underlying files are large enough that a laptop may not have the RAM to
-process them in full.
+href="https://files.heterodata.org/hmda-processing-code/">files.heterodata.org/hmda-processing-code/</a>.
+Fair warning: this is not a perfect replication package; you will need
+to adjust file paths if you run the code, and the underlying files are
+large enough that a laptop may not have the RAM to process them in full.
 <ul>
 <li><a
 href="https://drive.google.com/drive/folders/1wX-A157XSy2lfMjoSgbpTU8s0PbH9Jyu?usp=sharing">Google
@@ -364,7 +367,6 @@ Drive (legacy)</a></li>
 </ul></li>
 <li><strong>HMDA dashboard source code — self-hosted mirror:</strong> <a
 href="https://files.heterodata.org/hmda-dashboard-source/">files.heterodata.org/hmda-dashboard-source/</a>
-(coming online)
 <ul>
 <li><a
 href="https://drive.google.com/drive/folders/1w_3igaXfA0My0gK4gJpa0jg_d1KSxqff?usp=sharing">Google
@@ -458,6 +460,18 @@ href="https://digitalcommons.bard.edu/as_archive/">digitalcommons.bard.edu/as_ar
 <script src="ark-track.js" defer></script>
 <script src="toggle.js" defer></script>
 
+<!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
+     Injected via this shared after_body include so a re-render preserves it. -->
+<footer class="site-footer" role="contentinfo">
+  <span><strong>Heterodata</strong> &mdash; an Arcanum Research project.</span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Hub: <a href="https://heterodata.org">heterodata.org</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Author: <a href="https://nickanderson.us">nickanderson.us</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
+</footer>
+
 
 
 </div>
@@ -492,15 +506,6 @@ $(document).ready(function () {
 <!-- code folding -->
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 </body>
 </html>

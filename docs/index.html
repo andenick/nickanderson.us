@@ -11,7 +11,7 @@
 
 
 
-<title>Nick Anderson</title>
+<title>Nick Anderson — Economics Research</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -36,6 +36,10 @@
      No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
      rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
      at render time only). -->
+
+<!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+
 <script>
   (function () {
     try {
@@ -46,6 +50,7 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
+<meta name="description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -54,7 +59,8 @@
   div.column{display: inline-block; vertical-align: top; width: 50%;}
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
-    </style>
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
@@ -297,6 +303,18 @@ $(document).ready(function () {
 
 <p>Welcome to my research hosting site. I am an economics PhD candidate
 at The New School for Social Research.</p>
+<div class="ark-triad" role="navigation"
+aria-label="My code, data, and outputs">
+<p><a class="ark-triad-item" href="https://files.heterodata.org"><span
+class="ark-triad-k">My data</span><span
+class="ark-triad-v">files.heterodata.org</span></a>
+<a class="ark-triad-item" href="https://github.com/andenick"><span
+class="ark-triad-k">My code</span><span
+class="ark-triad-v">github.com/andenick</span></a>
+<a class="ark-triad-item" href="https://heterodata.org"><span
+class="ark-triad-k">My results</span><span
+class="ark-triad-v">heterodata.org</span></a></p>
+</div>
 <div id="welcome-here-are-some-projects-of-mine" class="section level1">
 <h1><strong>Welcome, here are some projects of mine</strong></h1>
 <h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">
@@ -308,7 +326,7 @@ Projects
 </div>
 <div id="heterodata" class="section level3">
 <h3><a href="https://heterodata.org">Heterodata</a></h3>
-<p>The research-data platform: a hub of data sites including
+<p>The research-data platform: a hub of interactive data sites including
 <strong>Gerhard</strong> (US public finance, <a
 href="https://gerhard.heterodata.org">gerhard.heterodata.org</a>),
 <strong>Shaikh Data</strong> (<a
@@ -318,22 +336,27 @@ Wealth of Nations</em>), <strong>Lewis</strong> (international
 economics, <a
 href="https://lewis.heterodata.org">lewis.heterodata.org</a>),
 <strong>Leonid</strong> (Soviet statistics, <a
-href="https://leonid.heterodata.org">leonid.heterodata.org</a>), and
+href="https://leonid.heterodata.org">leonid.heterodata.org</a>),
 <strong>Leontief</strong> (US input–output, <a
-href="https://leontief.heterodata.org">leontief.heterodata.org</a>),
+href="https://leontief.heterodata.org">leontief.heterodata.org</a>), and
+<strong>StarCruiser</strong> (US employment and inflation, <a
+href="https://starcruiser.heterodata.org">starcruiser.heterodata.org</a>),
 plus affiliated standalone sites: <a
 href="https://freenic.org">freenic.org</a> (banking data), <a
-href="https://foodberg.org">foodberg.org</a> (food prices), and <a
-href="https://methodex.fyi">methodex.fyi</a> (statistical
-methodology).</p>
+href="https://foodberg.org">foodberg.org</a> (food prices), <a
+href="https://hmdaexplore.com">hmdaexplore.com</a> (mortgage lending),
+<a href="https://methodex.fyi">methodex.fyi</a> (statistical
+methodology), and <a href="https://jjmuni.com">jjmuni.com</a> (municipal
+pedestrian infrastructure). Data downloads across the ecosystem are
+gathered at <a
+href="https://files.heterodata.org">files.heterodata.org</a> and indexed
+on the hub’s <a href="https://heterodata.org/data">data page</a>.</p>
 </div>
 <div id="economics-at-the-new-school" class="section level3">
 <h3><a href="tnse.html">Economics at the New School</a></h3>
 <p>A three-part institutional and intellectual history of The New
 School’s economics department. A 121-page draft of Part 1 is available
-<a
-href="https://drive.google.com/drive/folders/17Ip5x5DqTrQo8c7PagMYfp7mKX2KJDvg?usp=sharing">on
-Google Drive</a>.</p>
+on request.</p>
 </div>
 <div id="ai-tools" class="section level3">
 <h3><a href="aitools.html">AI Tools</a></h3>
@@ -355,7 +378,7 @@ developed web version.</li>
 <p>Thank you and let me know if you have any questions!</p>
 <p>Nick</p>
 <hr />
-<p>Last compiled: 2026-06-19</p>
+<p>Last compiled: 2026-07-14</p>
 </div>
 </div>
 
@@ -374,6 +397,18 @@ developed web version.</li>
 <script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
 <script src="ark-track.js" defer></script>
 <script src="toggle.js" defer></script>
+
+<!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
+     Injected via this shared after_body include so a re-render preserves it. -->
+<footer class="site-footer" role="contentinfo">
+  <span><strong>Heterodata</strong> &mdash; an Arcanum Research project.</span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Hub: <a href="https://heterodata.org">heterodata.org</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span>Author: <a href="https://nickanderson.us">nickanderson.us</a></span>
+  <span class="site-footer-sep" aria-hidden="true">&middot;</span>
+  <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
+</footer>
 
 
 
@@ -409,15 +444,6 @@ $(document).ready(function () {
 <!-- code folding -->
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 </body>
 </html>

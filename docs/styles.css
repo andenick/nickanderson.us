@@ -172,6 +172,49 @@ table, .table { color: var(--fg); }
 .navbar-nav > li.ark-theme-toggle-li { display: flex; align-items: center; }
 
 /* -----------------------------------------------------------------------------
-   8. MISC — preserved from the old research.Rmd inline block
+   8. ECOSYSTEM-VARIANT TRIAD  (Code / Data / Outputs — above the fold on index)
+   --------------------------------------------------------------------------- */
+.ark-triad {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  margin: 1.25rem 0 1.75rem;
+}
+.ark-triad-item {
+  flex: 1 1 180px;
+  display: flex; flex-direction: column; gap: 0.15rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-soft);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: border-color .15s ease, transform .1s ease;
+}
+.ark-triad-item:hover, .ark-triad-item:focus {
+  border-color: var(--link);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.ark-triad-k {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--fg-dim); font-weight: 700;
+}
+.ark-triad-v { color: var(--link); font-weight: 600; word-break: break-word; }
+
+/* -----------------------------------------------------------------------------
+   9. ECOSYSTEM FOOTER  (hub CTA on every page — dual-anchor reciprocity)
+   --------------------------------------------------------------------------- */
+.site-footer {
+  margin: 3rem 0 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--fg-dim);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+}
+.site-footer a { color: var(--link); }
+.site-footer-sep { opacity: 0.5; }
+
+/* -----------------------------------------------------------------------------
+   10. MISC — preserved from the old research.Rmd inline block
    --------------------------------------------------------------------------- */
 #getting-started img { margin-right: 10px; margin-left: 5px; }
