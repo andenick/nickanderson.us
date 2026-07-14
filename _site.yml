@@ -27,6 +27,7 @@ output_dir: "docs"
 output:
   html_document:
     css: styles.css
+    mathjax: null
     includes:
       in_header: _head.html
       after_body: _after_body.html
