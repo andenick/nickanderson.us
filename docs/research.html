@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" xml:lang="en">
 
 <head>
 
@@ -8,42 +8,35 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
 <title>Research — Nick Anderson</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <!-- nickanderson.us — in_header include (referenced from _site.yml).
-     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
-     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
-     at render time only). -->
+     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/
+     (it is read by pandoc at render time only).
+
+     Per-page <meta name="description">, canonical, Open Graph and Twitter tags
+     live in the per-page _meta_<page>.html includes, which are listed AFTER
+     this file in each page's YAML. -->
 
 <!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 
+<!-- Stylesheets, in cascade order:
+       1. shared/arcanum.css  — the Arcanum Site Kit design system (vendored)
+       2. styles.css          — this site's accent identity + layout + typography
+       3. assets/gantt.css    — the landing-page Coverage Gantt component
+     All served from this repo. No CDN, no webfont, no external request. -->
+<link rel="stylesheet" href="shared/arcanum.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/gantt.css">
+
 <script>
+  // No-FOUC: apply the saved theme before first paint.
   (function () {
     try {
       var t = localStorage.getItem("ark-theme");
@@ -53,7 +46,20 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
+<!-- nickanderson.us — per-page head metadata for research. Included AFTER
+     _head.html so it can rely on the stylesheets already being linked. -->
 <meta name="description" content="Empirical research by Nick Anderson on U.S. public finance: Treasury duration, tax-revenue cyclicality, and long-run balance of payments.">
+<link rel="canonical" href="https://www.nickanderson.us/research.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nick Anderson">
+<meta property="og:title" content="Research — Nick Anderson">
+<meta property="og:description" content="Empirical research by Nick Anderson on U.S. public finance: Treasury duration, tax-revenue cyclicality, and long-run balance of payments.">
+<meta property="og:url" content="https://www.nickanderson.us/research.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Research — Nick Anderson">
+<meta name="twitter:description" content="Empirical research by Nick Anderson on U.S. public finance: Treasury duration, tax-revenue cyclicality, and long-run balance of payments.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -65,245 +71,13 @@
       .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
 
 
 
-<link rel="stylesheet" href="styles.css" type="text/css" />
 
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
 
 
 
@@ -312,88 +86,79 @@ div.tocify {
 <body>
 
 
-<div class="container-fluid main-container">
+<!-- nickanderson.us — before_body include (referenced from _site.yml).
+     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/.
 
+     With `theme: null` R Markdown emits no wrapper element at all, so this file
+     owns the top of the body: the skip link, the site header and nav, and the
+     opening main element. _after_body.html closes it.
 
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
+     The nav is plain HTML — no Bootstrap, no jQuery, no JS required to work.
+     A ~250-byte script in _after_body.html marks the current page; without it
+     the nav is still fully functional, just unhighlighted. -->
 
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+<a class="ark-skip-link" href="#ark-main">Skip to content</a>
 
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Nick Anderson</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="research.html">Research</a>
-</li>
-<li>
-  <a href="tnse.html">TNSE</a>
-</li>
-<li>
-  <a href="aitools.html">AI Tools</a>
-</li>
-<li>
-  <a href="projects.html">Projects</a>
-</li>
-<li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="about.html">About</a>
-</li>
+<header class="na-header">
+  <div class="na-header-inner">
+    <a class="na-brand" href="index.html">
+      Nick&nbsp;Anderson
+      <span class="na-brand-sub">Economics &middot; The New School for Social Research</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="na-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="tnse.html">TNSE</a></li>
+        <li><a href="aitools.html">AI Tools</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="data.html">Data</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+    </nav>
+  </div>
+</header>
 
-<div id="header">
+<main id="ark-main" class="ark-main">
 
 
 
-<h1 class="title toc-ignore">Research</h1>
 
+<div id="TOC">
+<ul>
+<li><a href="#research" id="toc-research">Research</a>
+<ul>
+<li><a href="#duration-and-public-finance"
+id="toc-duration-and-public-finance">Duration and Public Finance in the
+United States, 2001–2023</a></li>
+<li><a href="#tax-revenue-cyclicality"
+id="toc-tax-revenue-cyclicality">Tax Revenue Cyclicality: The U.S.
+Example 1800–2020</a></li>
+<li><a href="#balance-of-payments-history"
+id="toc-balance-of-payments-history">Historical Balance of Payments
+Data: Comparing the United States and Germany</a></li>
+</ul></li>
+</ul>
 </div>
 
-
-<div id="duration-and-public-finance" class="section level1">
-<h1>Duration and Public Finance</h1>
-<div id="duration-and-public-finance-in-the-united-states-2001-2023"
-class="section level2">
-<h2><strong>Duration and Public Finance in the United States,
-2001-2023</strong></h2>
-<div id="by-nick-anderson" class="section level4">
-<h4>By Nick Anderson</h4>
-</div>
-<div id="dated-2023.05.19" class="section level4">
-<h4>Dated 2023.05.19</h4>
+<div id="research" class="section level1">
+<h1>Research</h1>
+<p>Three empirical papers on U.S. public finance and international
+accounts. Each is reproduced here in full, with its figures and
+bibliography; the underlying data and processing scripts are on the <a
+href="data.html">Data</a> page and mirrored at <a
+href="https://files.heterodata.org">files.heterodata.org</a>.</p>
+<div id="duration-and-public-finance" class="section level2">
+<h2>Duration and Public Finance in the United States, 2001–2023</h2>
+<p class="paper-meta">
+By Nick Anderson · 2023.05.19
+</p>
 <p>Sources: <a href="https://www.nickanderson.us/data.html">Data</a></p>
 <p><strong>Replication:</strong> data and processing scripts are
 available on the <a href="data.html">Data</a> page; a self-hosted data
 download mirror is available at <a
 href="https://files.heterodata.org/duration-public-finance/">files.heterodata.org</a>.</p>
-</div>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <p>The United States Treasury Market is a vital funding mechanism for
@@ -439,14 +204,14 @@ continued functioning of the economy of the United States.</p>
 U.S. Treasuries by Years to Maturity with data from the Treasury and
 <strong>Figure 2</strong> depicting aggregate treasury issuance from
 April 2022 to April 2023.</p>
-<p><img src="research_files/figure-html/7.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/7.%20Treasury-1.png" alt="Figure 1: stacked bar chart of outstanding marketable fixed-rate U.S. Treasuries in trillions of dollars, 2001 to 2023, coloured by years to maturity, rising from about 2 to over 20 trillion with jumps after 2008 and 2020." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
-<div id="figure-2-u.s.-treasury-monthly-issuance"
-class="section level4">
-<h4><strong>Figure 2: U.S. Treasury Monthly Issuance</strong></h4>
+<p class="fig-caption">
+<strong>Figure 2: U.S. Treasury Monthly Issuance</strong>
+</p>
 <div class="fig-card">
-<p><img src="DaPF-F2.jpg" /></p>
+<p><img src="DaPF-F2.jpg" alt="Figure 2: aggregate U.S. Treasury issuance by month, April 2022 to April 2023, as a stacked bar chart by security type." loading="lazy" decoding="async"></p>
 </div>
 <p><em>Note: this figure is reproduced from an external source and is
 slated for reconstruction directly from Treasury Monthly Statement of
@@ -455,7 +220,7 @@ the Public Debt (MSPD) and auction data.</em></p>
 &amp; code for this figure →</a></p>
 <p><strong>Figure 3</strong> depicts the percentage of Treasury
 securities by their maturities.</p>
-<p><img src="research_files/figure-html/9.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/9.%20Treasury-1.png" alt="Figure 3: stacked bar chart of outstanding marketable fixed-rate U.S. Treasuries as a percentage of total outstanding, 2001 to 2023, by years to maturity, showing the under-one-year share spiking in 2008 and 2020." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>A few notes on the figures above: 1. <strong>Figure 1</strong>
@@ -496,7 +261,6 @@ economy, has the prerogative to make decisions about the composition of
 its balance sheet, and these financing decisions have implications for
 both the public and private sectors.</p>
 </div>
-</div>
 <div id="understanding-duration" class="section level3">
 <h3>Understanding Duration</h3>
 <p>85 years ago, Frederick R. Macaulay published his 1938 study of
@@ -519,7 +283,7 @@ security.</p>
 <p><strong>Figure 4: Example Duration Calculation for a 5% Coupon Bond
 versus an Annuity</strong></p>
 <div class="fig-card">
-<p><img src="DaPF-F4.jpg" /></p>
+<p><img src="DaPF-F4.jpg" alt="Figure 4: the price-yield relationship of a Treasury security, showing the convex curve against its straight-line duration approximation." loading="lazy" decoding="async"></p>
 </div>
 <p><a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
@@ -546,13 +310,12 @@ above and compares them to actual changes in market value.</p>
 <p><strong>Figure 5: The Duration Approximation Equation</strong></p>
 <p>Change in $ Price = -(Macaulay Duration) * Change in Market Yield /
 (1 + Yield to Maturity)</p>
-<div
-id="figure-6-comparison-of-duration-approximation-and-actual-changes-in-market-value"
-class="section level4">
-<h4><strong>Figure 6: Comparison of Duration Approximation and Actual
-Changes in Market Value</strong></h4>
+<p class="fig-caption">
+<strong>Figure 6: Comparison of Duration Approximation and Actual
+Changes in Market Value</strong>
+</p>
 <div class="fig-card">
-<p><img src="DaPF-F6.jpg" /></p>
+<p><img src="DaPF-F6.jpg" alt="Figure 6: comparison of the duration approximation against actual changes in market value, showing where the linear approximation diverges." loading="lazy" decoding="async"></p>
 </div>
 <p><a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
@@ -569,7 +332,6 @@ investment management concept of duration to the field of public finance
 and, more specifically, the government’s issuance of massive amounts of
 securities, and thus massive amounts of duration.</p>
 </div>
-</div>
 <div id="aggregate-duration-in-the-treasury-market"
 class="section level3">
 <h3>Aggregate Duration in the Treasury Market</h3>
@@ -582,7 +344,7 @@ some measure of interest rate risk that affects the willingness of
 investors to hold those securities. Figure 7 displays the aggregate
 duration approximation of the treasury market, colored by years to
 maturity.</p>
-<p><img src="research_files/figure-html/10.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/10.%20Treasury-1.png" alt="Figure 7: stacked bars of the billions-of-dollars change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2001 to 2023, by years to maturity, rising steeply and dominated by 20-plus-year bonds." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p><strong>Figure 7</strong> stands in complement to <strong>Figure
@@ -606,7 +368,7 @@ intuitively.</p>
 <p><strong>Figure 7</strong> reveals the same story when graphed as
 percentages of the total Duration in the market, as in <strong>Figure
 8</strong> below.</p>
-<p><img src="research_files/figure-html/11.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/11.%20Treasury-1.png" alt="Figure 8: stacked bar chart of each maturity bucket's share of the total change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2001 to 2023, with 20-plus-year bonds exceeding half by 2017." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>Now that we have surveyed the entire dataset available for the
@@ -616,7 +378,7 @@ time periods more closely below.</p>
 <div id="study-1-the-treasury-stock-during-the-great-financial-crisis"
 class="section level3">
 <h3>Study 1 – the Treasury Stock during the Great Financial Crisis</h3>
-<p><img src="research_files/figure-html/12.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/12.%20Treasury-1.png" alt="Figure 9: stacked bar chart of outstanding marketable fixed-rate Treasuries in trillions of dollars by years to maturity, monthly from January 2007 to December 2010, with the debt stock growing sharply through the financial crisis." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>The above <strong>Figure 9</strong> displays the debt stock during
@@ -630,7 +392,7 @@ below.</p>
 duration securities. As we will note below, this begins a period in
 which the government issued an outsized amount of longer duration
 securities during the Obama and Trump administrations.</p>
-<p><img src="research_files/figure-html/13.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/13.%20Treasury-1.png" alt="Figure 10: stacked bar chart of outstanding marketable fixed-rate Treasuries as a percentage of total by years to maturity, 2007 to 2010, showing the under-one-year share swelling in 2009 then receding as longer maturities return." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 </div>
@@ -643,17 +405,17 @@ between 2010 and 2020. At the same time, the U.S. Federal Government
 also increased its issuance of 20+ year securities to finance this
 additional deficit spending. The stocks of these debts are in
 <strong>Figure 11</strong> below.</p>
-<p><img src="research_files/figure-html/14.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/14.%20Treasury-1.png" alt="Figure 11: stacked bar chart of outstanding marketable fixed-rate Treasuries in trillions of dollars by years to maturity, January 2008 to January 2020, more than doubling across the Obama and Trump administrations." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p><strong>Figure 12</strong> demonstrates that rapid rise in duration
 outstanding with the issuance of those longer duration securities.
 <strong>Figure 13</strong> displays these as a percentage of total
 aggregate duration.</p>
-<p><img src="research_files/figure-html/15.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/15.%20Treasury-1.png" alt="Figure 12: stacked bar chart of the billions-of-dollars change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2008 to 2020, by years to maturity, rising sharply as 20-plus-year issuance grows." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
-<p><img src="research_files/figure-html/16.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/16.%20Treasury-1.png" alt="Figure 13: stacked bar chart of each maturity bucket's share of the total change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2008 to 2020, with the 20-plus-year share climbing above half." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 </div>
@@ -663,10 +425,10 @@ class="section level3">
 <p>During the Coronavirus Pandemic, the stock of the national debt
 fluctuated in the same manner as during the Great Financial Crisis.
 <strong>Figures 14 and 15</strong> describe that stock of debt.</p>
-<p><img src="research_files/figure-html/17.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/17.%20Treasury-1.png" alt="Figure 14: stacked bar chart of outstanding marketable fixed-rate Treasuries in trillions of dollars by years to maturity, January 2019 to January 2023, jumping sharply in 2020 on pandemic borrowing." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
-<p><img src="research_files/figure-html/18.%20Treasury-1.png" width="672" />
+<p><img src="research_files/figure-html/18.%20Treasury-1.png" alt="Figure 15: stacked bar chart of outstanding marketable fixed-rate Treasuries as a percentage of total by years to maturity, 2019 to 2023, with the under-one-year share spiking in 2020 and then falling back." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 </div>
@@ -695,8 +457,8 @@ class="uri">https://fred.stlouisfed.org/series/W068RC1A027NBEA</a>.</p>
 class="uri">https://fred.stlouisfed.org/series/GDPA</a>.</p>
 <p>Securities Industry and Financial Markets Association (SIFMA). “US
 Treasury Securities Statistics.” SIFMA website, <a
-href="https://www.sifma.org/resources/research/us-treasury-securities-statistics/"
-class="uri">https://www.sifma.org/resources/research/us-treasury-securities-statistics/</a>.
+href="https://www.sifma.org/resources/research/statistics/us-treasury-securities-statistics/"
+class="uri">https://www.sifma.org/resources/research/statistics/us-treasury-securities-statistics/</a>.
 Accessed May 20, 2023.</p>
 <p>U.S. Treasury Fiscal Data. Monthly Statement of the Public Debt
 (MSPD). FiscalData.Treasury.gov, n.d. Web. 20 May 2023. <a
@@ -704,8 +466,8 @@ href="https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/sum
 class="uri">https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/summary-of-treasury-securities-outstanding</a>.</p>
 <p>Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of
 Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, <a
-href="http://www.jstor.org/stable/2351923"
-class="uri">http://www.jstor.org/stable/2351923</a>. Accessed 21 May
+href="https://www.jstor.org/stable/2351923"
+class="uri">https://www.jstor.org/stable/2351923</a>. Accessed 21 May
 2023.</p>
 </div>
 <div id="interactive-companion" class="section level3">
@@ -715,24 +477,16 @@ debt, and the Treasury market is at <a
 href="https://gerhard.heterodata.org">gerhard.heterodata.org</a>.</p>
 </div>
 </div>
-</div>
-<div id="tax-revenue-cyclicality" class="section level1">
-<h1>Tax Revenue Cyclicality</h1>
-<div id="tax-revenue-cyclicality-the-u.s.-example-1800-2020"
-class="section level2">
-<h2><strong>Tax Revenue Cyclicality: The U.S. Example
-1800-2020</strong></h2>
-<div id="by-nick-anderson-1" class="section level4">
-<h4>By Nick Anderson</h4>
-</div>
-<div id="dated-2022.01.07" class="section level4">
-<h4>Dated 2022.01.07</h4>
+<div id="tax-revenue-cyclicality" class="section level2">
+<h2>Tax Revenue Cyclicality: The U.S. Example 1800–2020</h2>
+<p class="paper-meta">
+By Nick Anderson · 2022.01.07
+</p>
 <p>Sources: <a href="https://www.nickanderson.us/data.html">Data</a></p>
 <p><strong>Replication:</strong> source data is available on the <a
 href="data.html">Data</a> page; a self-hosted data download mirror is
 available at <a
 href="https://files.heterodata.org/tax-revenue-cyclicality/">files.heterodata.org</a>.</p>
-</div>
 <div id="abstract" class="section level3">
 <h3>Abstract</h3>
 <p>This paper investigates the correlation between cyclicality and
@@ -763,7 +517,7 @@ example of the income tax’s cyclicality occurred in the Great
 Depression. As unemployment increased to as high as 24% in 1933, U.S.
 income tax revenues fell over 60% (Figure 1). In the years of greatest
 revenue need, income tax revenues almost disappeared.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-2-1.png" alt="Figure 1: columns of U.S. federal revenue in billions of dollars, split into income tax and other tax revenue, 1927 to 1941, with a line for the unemployment rate on a right-hand axis peaking near 25 percent as income tax receipts collapse." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>The Great Depression remains the severest example of economic
@@ -776,7 +530,7 @@ incomes) and the Unemployment Rate (as a measure of employment). The
 graph above replicated with Nominal GDP instead of the unemployment rate
 tell the similar stories from different perspectives (Figure 2). When
 aggregate demand contracts, the income tax contracts as well.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-3-1.png" alt="Figure 2: columns of U.S. federal revenue in billions of dollars, split into income tax and other tax revenue, 1927 to 1941, with a line for nominal GDP on a right-hand axis, both falling together in the early 1930s and recovering after 1933." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 </div>
@@ -857,7 +611,7 @@ CRS report summarized US Tax History into three phases instead of four,
 combining this paper’s two eras of Income Tax dominance into a single
 Income Tax Era.</p></li>
 </ol>
-<p><img src="research_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-4-1.png" alt="Figure 3: stacked area chart of U.S. federal revenue by source as a percentage of total receipts, 1800 to 2020, with vertical lines at 1862, 1913 and 1945 marking the customs duties, excise tax, income tax and payroll tax eras." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 </div>
@@ -866,7 +620,7 @@ Income Tax Era.</p></li>
 <p>This paper’s method relies on a simple decade by decade calculation
 of correlation between the measure of cyclicality (GDP or Unemployment
 Rate) and Tax Revenue by Source.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-5-1.png" alt="Figure 4: line chart of the decade-by-decade correlation between growth in U.S. federal total receipts and nominal GDP, 1800 to 2020, negative or negligible early in the nineteenth century and positive for the rest of the period." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>This first Figure 4 provides a two-century overview of the U.S.
@@ -875,7 +629,7 @@ GDP. In the initial 1800-1820, Total Receipts had a negligibly or
 negatively correlated relationship with Nominal GDP. For the remainder
 of U.S. history, Total Receipts remains positively correlated with
 Nominal GDP.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-6-1.png" alt="Figure 5: line chart of the decade-by-decade correlation between growth in U.S. federal total receipts and the unemployment rate, 1900 to 2020, mostly negative, indicating receipts fall as unemployment rises." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>Compare Figure 4 to Figure 5. The annual growth of the Unemployment
@@ -884,7 +638,7 @@ Rate is negatively correlated with Total Receipts over the sample period
 this again is evidence that U.S. tax revenue is procyclical. Let’s
 compare these two indicators to the specific types of taxes
 observed.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-7-1.png" alt="Figure 6: two-line chart of the decade-by-decade correlation of income tax revenue growth with nominal GDP and with the negative of the unemployment rate, 1930 to 2020, both mostly positive, showing procyclical income tax receipts." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>First, is the income tax correlated with GDP or changes in the
@@ -895,7 +649,7 @@ confirms the author’s hypothesis. The Income Tax maintains a procyclical
 orientation towards Nominal GDP and Unemployment Rate. To be specific,
 the Income Tax is positively correlated with Nominal GDP and negatively
 correlated with the Unemployment Rate.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-8-1.png" alt="Figure 7: two-line chart of the decade-by-decade correlation of social insurance and retirement tax revenue growth with nominal GDP and with the negative of the unemployment rate, 1950 to 2020, strong at first then fading after the 1960s." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>The correlation of Social Insurance and Retirement Taxes with Nominal
@@ -904,7 +658,7 @@ created, these Payroll taxes grew in a cyclical manner. However, since
 the correlation disappeared in the 1960’s and 1970’s, Social Insurance
 and Retirement Taxes have not been entirely procyclical or
 countercyclical.</p>
-<p><img src="research_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<p><img src="research_files/figure-html/unnamed-chunk-9-1.png" alt="Figure 8: line chart of the decade-by-decade correlation between growth in U.S. customs duties revenue and nominal GDP, 1810 to 1940, mixed before 1860 and consistently positive after 1880, indicating procyclical customs revenue." width="672" loading="lazy" decoding="async" />
 <a href="https://www.nickanderson.us/data.html" class="fig-src">Data
 &amp; code for this figure →</a></p>
 <p>Finally, Customs Duties. Customs Duties are only compared to Nominal
@@ -964,19 +718,12 @@ related empirical work on bank balance sheets and bank failure is
 collected at <a href="https://volcker.org">volcker.org</a>.</p>
 </div>
 </div>
-</div>
-<div id="balance-of-payments-history" class="section level1">
-<h1>Balance of Payments History</h1>
-<div
-id="historical-balance-of-payments-data-comparing-the-united-states-and-germany"
-class="section level2">
-<h2><strong>Historical Balance of Payments Data: Comparing the United
-States and Germany</strong></h2>
-<div id="by-nick-anderson-2" class="section level4">
-<h4>By Nick Anderson</h4>
-</div>
-<div id="dated-2024.12.05" class="section level4">
-<h4>Dated 2024.12.05</h4>
+<div id="balance-of-payments-history" class="section level2">
+<h2>Historical Balance of Payments Data: Comparing the United States and
+Germany</h2>
+<p class="paper-meta">
+By Nick Anderson · 2024.12.05
+</p>
 <p>Sources: <a href="https://www.nickanderson.us/data.html">Data</a></p>
 <p><strong>Replication:</strong> the long-run balance-of-payments data
 is available on the <a href="data.html">Data</a> page and explorable at
@@ -986,8 +733,7 @@ href="https://files.heterodata.org/">files.heterodata.org</a>.</p>
 <p>This work now has a fuller interactive home at <a
 href="https://lewis.heterodata.org">Lewis</a>, an international-accounts
 explorer (balance of payments, flow of funds, cross-border value
-transfers, 258 countries).</p>
-</div>
+transfers, 264 country and aggregate codes).</p>
 <div id="introduction-2" class="section level3">
 <h3>Introduction</h3>
 <p>The purpose of this research paper is to examine the longest-term
@@ -1033,33 +779,26 @@ Accounts for convenience: in both Germany and the United States the
 newly segregated Capital Account is of negligible size relative to the
 Financial and Current Accounts, almost always near 0% of Gross Domestic
 Product.</p>
-<div id="ongoing" class="section level4">
-<h4>Ongoing</h4>
-<p>This written treatment is still in progress. The full long-run
-balance-of-payments data — for the United States, Germany, and 256 other
-countries — is explorable now at <a
-href="https://lewis.heterodata.org">Lewis</a>.</p>
-<p>Last compiled: 2026-07-14</p>
 </div>
+<div id="ongoing" class="section level3">
+<h3>Ongoing</h3>
+<p>This written treatment is still in progress. The full long-run
+balance-of-payments data — for the United States, Germany, and 262 other
+country and aggregate codes — is explorable now at <a
+href="https://lewis.heterodata.org">Lewis</a>.</p>
+<p>Last compiled: 2026-07-24</p>
 </div>
 </div>
 </div>
 
 <!-- nickanderson.us — after_body include (referenced from _site.yml).
      Underscore-prefixed so render_site() does not copy it into docs/.
-     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
-     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
-     by render_site() and served. -->
+     Closes the main element opened in _before_body.html, then emits the mandated
+     dual-anchor ecosystem footer and loads the site's three small scripts.
+     toggle.js, ark-track.js, styles.css, shared/ and assets/ ARE copied to
+     docs/ by render_site() and served. -->
 
-<!-- Usage beacon config.
-     `endpoint` points at our own first-party usage endpoint
-     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
-     so cross-origin sendBeacon is used; the endpoint returns a wildcard CORS
-     header + handles the OPTIONS preflight. First-party, no third party, no
-     cookies, DNT-aware. -->
-<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
-<script src="ark-track.js" defer></script>
-<script src="toggle.js" defer></script>
+</main>
 
 <!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
      Injected via this shared after_body include so a re-render preserves it. -->
@@ -1073,70 +812,42 @@ href="https://lewis.heterodata.org">Lewis</a>.</p>
   <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
 </footer>
 
-
-</div>
-</div>
-
-</div>
-
 <script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+  // Mark the current page in the nav. Progressive enhancement only: with JS
+  // off the nav still works, it just carries no highlight.
+  (function () {
+    var here = location.pathname.split("/").pop() || "index.html";
+    var link = document.querySelector('.na-nav a[href="' + here + '"]');
+    if (link) link.setAttribute("aria-current", "page");
+  })();
 </script>
 
-<!-- tabsets -->
+<!-- Usage beacon config.
+     `endpoint` points at our own first-party usage endpoint
+     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
+     so the beacon is cross-origin; ark-track.js v2.0.1 detects that and uses a
+     keepalive fetch with credentials:"omit" (wildcard-CORS compatible) instead
+     of sendBeacon. First-party, no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
+<!-- Responsive tables: stamps data-label on every <td> so arcanum.css can
+     reflow wide tables into labelled cards below 680px. Vendored from the kit.
+     The kit enhancer matches `.ark-prose table, .prose table, table[data-arktable],
+     table.ark-table`; R Markdown emits BARE tables, so tag them first. This
+     inline script runs at parse time, before the deferred enhancer. -->
 <script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
-  });
-});
+  (function () {
+    var t = document.querySelectorAll("main table"), i;
+    for (i = 0; i < t.length; i++) { t[i].className += " ark-table"; }
+  })();
 </script>
+<script src="shared/ark-table.js" defer></script>
+
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 
 </body>

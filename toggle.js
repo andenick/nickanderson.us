@@ -46,15 +46,17 @@
       apply(effective() === "dark" ? "light" : "dark");
     });
 
-    // Prefer dropping the button into the navbar's link list as an <li>.
-    var navUl = document.querySelector(".navbar .navbar-nav");
+    // Drop the button into the site nav's link list as an <li>.
+    // (.na-nav replaced the Bootstrap .navbar-nav in the 2026-07-24 rebuild;
+    // the old selector is kept as a fallback so the legacy theme still works.)
+    var navUl = document.querySelector(".na-nav") || document.querySelector(".navbar .navbar-nav");
     if (navUl) {
       var li = document.createElement("li");
-      li.className = "ark-theme-toggle-li";
+      li.className = "na-nav-toggle ark-theme-toggle-li";
       li.appendChild(btn);
       navUl.appendChild(li);
     } else {
-      var bar = document.querySelector(".navbar .container, .navbar .container-fluid, .navbar");
+      var bar = document.querySelector(".na-header-inner, .navbar .container, .navbar");
       if (bar) bar.appendChild(btn);
       else document.body.appendChild(btn);
     }

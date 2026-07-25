@@ -1,220 +1,510 @@
 /* =============================================================================
    nickanderson.us — styles.css
-   Single source for site chrome, de-duplicated from the 7 inline <style> blocks
-   that previously repeated the navbar (#640000) / active (#006400) CSS.
 
-   Themeable via CSS variables: a light :root default, a dark
-   :root[data-theme="dark"] manual override, and an automatic
-   @media (prefers-color-scheme: dark) fallback for visitors with no saved
-   preference. Token naming/approach follows the Arcanum Site Kit. The site
-   keeps its own maroon/green brand identity rather than the kit accent.
+   Loaded AFTER shared/arcanum.css (the Arcanum Site Kit design system).
+   This file does three jobs and nothing else:
+
+     1. Sets the site's ACCENT IDENTITY (§1) — the maroon/green signature.
+     2. Bridges the site's semantic token names onto the kit's --ark-* tokens
+        (§2), so component CSS (gantt.css) never needs to know which system
+        it is running under.
+     3. Supplies the layout and typography the kit deliberately does NOT ship:
+        arcanum.css styles no bare <table>, no bare <main>, and sets only
+        line-height/letter-spacing on bare <h1>-<h6>. An R Markdown document
+        emits exactly those bare elements, so they are styled here.
+
+   Bootstrap 3, jQuery, jQuery UI, tocify and highlight.js were removed in the
+   2026-07-24 rebuild (`theme: null` in _site.yml). Nothing in this file may
+   depend on them. The previous Bootstrap-era stylesheet is preserved verbatim
+   at _legacy-theme/styles.css.
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
-   1. TOKENS — light default
+   1. ACCENT IDENTITY — the one-line swap
+   -----------------------------------------------------------------------------
+   The site keeps its own maroon/green brand identity within the kit's shared
+   STRUCTURE. This is the deliberate exception documented in the rebuild plan:
+   a unified theme, not identical branding.
+
+   > TO ADOPT THE KIT ACCENT INSTEAD: replace the three values in this block
+     with the kit theme (--ark-accent:#475569; --ark-accent-soft:#1d232c;
+     --ark-on-accent:#ffffff), or simply link shared/theme-kit-slate.css after
+     this file. Nothing else in the site needs to change.
    --------------------------------------------------------------------------- */
 :root {
-  color-scheme: light dark;
+  --brand-maroon:       #640000;
+  --brand-green:        #006400;
+  --brand-maroon-light: #e6a8a8;  /* lifted for contrast on dark backgrounds */
+  --brand-green-light:  #7ec27e;
 
-  /* Brand identity — stable across themes */
-  --nav-bg:        #640000;   /* maroon navbar */
-  --nav-fg:        #ffffff;
-  --nav-active-bg: #006400;   /* green active tab */
-  --nav-active-fg: #ffffff;
-
-  /* Neutrals — light */
-  --bg:        #ffffff;
-  --bg-soft:   #f7f9fc;
-  --fg:        #1a1d21;
-  --fg-dim:    #5a6673;
-  --line:      #dde3ea;
-  --link:      #8a0000;       /* maroon link in light mode */
-  --link-hover:#640000;
-
-  --card-bg:   #ffffff;
-  --code-bg:   #f3f4f6;
-
-  /* Figure card — ALWAYS light: the static research JPGs are light artwork. */
-  --fig-card-bg: #ffffff;
-
-  --shadow: 0 1px 4px rgba(0, 0, 0, .10);
+  /* Kit accent override — the site's signature. */
+  --ark-accent:      var(--brand-maroon);
+  --ark-accent-soft: #f0dede;
+  --ark-on-accent:   #ffffff;
 }
 
-/* -----------------------------------------------------------------------------
-   2. DARK — manual override (toggle / saved preference) + system fallback
-   --------------------------------------------------------------------------- */
+/* On dark surfaces the deep maroon fails contrast as link text; lift it.
+   The header keeps the true maroon because its ink is white. */
 :root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg:        #0e1116;
-  --bg-soft:   #161b22;
-  --fg:        #e7edf3;
-  --fg-dim:    #9aa7b4;
-  --line:      #2a313b;
-  --link:      #e6a8a8;       /* lightened maroon for contrast on dark */
-  --link-hover:#f3cccc;
-  --card-bg:   #161b22;
-  --code-bg:   #1b2027;
-  --shadow:    0 6px 22px -12px rgba(0, 0, 0, .55);
-  /* navbar stays maroon; --fig-card-bg stays white on purpose */
+  --ark-accent: var(--brand-maroon-light);
+  --ark-accent-soft: #2a1414;
 }
-
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    color-scheme: dark;
-    --bg:        #0e1116;
-    --bg-soft:   #161b22;
-    --fg:        #e7edf3;
-    --fg-dim:    #9aa7b4;
-    --line:      #2a313b;
-    --link:      #e6a8a8;
-    --link-hover:#f3cccc;
-    --card-bg:   #161b22;
-    --code-bg:   #1b2027;
-    --shadow:    0 6px 22px -12px rgba(0, 0, 0, .55);
+    --ark-accent: var(--brand-maroon-light);
+    --ark-accent-soft: #2a1414;
   }
 }
 
 /* -----------------------------------------------------------------------------
-   3. PAGE
+   2. TOKEN BRIDGE — site semantic names -> kit tokens
+   Keeps component stylesheets (gantt.css) portable and lets the former
+   Bootstrap-era variable names continue to resolve.
    --------------------------------------------------------------------------- */
-body {
-  background-color: var(--bg);
-  color: var(--fg);
+:root {
+  --bg:       var(--ark-bg);
+  --bg-soft:  var(--ark-bg-soft);
+  --fg:       var(--ark-fg);
+  --fg-dim:   var(--ark-fg-dim);
+  --line:     var(--ark-line);
+  --link:     var(--ark-accent);
+  --link-hover: var(--ark-accent);
+  --card-bg:  var(--ark-bg-soft);
+  --code-bg:  var(--ark-tag);
+  --shadow:   var(--ark-shadow);
+
+  /* Figure mat — ALWAYS light: the research figures are light artwork and must
+     not be shown on a dark card. Deliberate, not an oversight. */
+  --fig-card-bg: #ffffff;
+
+  /* Coverage Gantt */
+  --gantt-bar:       var(--ark-accent);
+  --gantt-era:       var(--brand-green);
+  --gantt-row-hover: var(--ark-tag);
 }
-.main-container { background-color: var(--bg); }
+:root[data-theme="dark"] { --gantt-era: var(--brand-green-light); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { --gantt-era: var(--brand-green-light); }
+}
 
-a { color: var(--link); }
-a:hover, a:focus { color: var(--link-hover); }
+/* -----------------------------------------------------------------------------
+   3. PAGE SHELL
+   --------------------------------------------------------------------------- */
+body { background: var(--ark-bg); color: var(--ark-fg); }
 
-hr { border-top-color: var(--line); }
+/* With `theme: null` R Markdown emits NO wrapper div — page content is a direct
+   child of <body>. So _before_body.html opens <main class="ark-main">, and this
+   IS the readable column. */
+main { display: block; }
+.ark-main {
+  max-width: var(--ark-maxw);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 0;
+  min-height: 50vh;
+}
 
-/* RMarkdown hides the page H1 title via the old `.title{display:none}` rule. */
+/* R Markdown prints the YAML title as <h1 class="title">. EVERY page opens with
+   its own H1 in the body, so this duplicate is always hidden. display:none also
+   removes it from the accessibility tree, leaving exactly one H1 per page. */
 .title { display: none; }
 
 /* -----------------------------------------------------------------------------
-   4. NAVBAR  (Bootstrap .navbar-default produced by rmarkdown html_document)
+   4. HEADER + NAV (replaces the Bootstrap navbar)
    --------------------------------------------------------------------------- */
-.navbar-default {
-  background-color: var(--nav-bg) !important;
-  border-color: var(--nav-bg) !important;
-}
-.navbar .navbar-brand,
-.navbar .navbar-nav .nav-links { color: var(--nav-fg); }
-.navbar-default .navbar-brand { color: var(--nav-fg) !important; }
-.navbar-default .navbar-nav > li > a {
-  color: var(--nav-fg) !important;
-  font-weight: 150;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  background-color: var(--nav-active-bg) !important;
-  color: var(--nav-active-fg) !important;
-  font-weight: 175;
-}
-
-/* -----------------------------------------------------------------------------
-   5. CODE / TOC / TABLES — keep readable in both themes
-   --------------------------------------------------------------------------- */
-pre, code {
-  background-color: var(--code-bg);
-  color: var(--fg);
-}
-pre { border: 1px solid var(--line); }
-
-#TOC, .tocify { color: var(--fg); }
-.tocify .tocify-item a, .list-group-item { color: var(--fg); background-color: transparent; }
-.tocify .tocify-item.active > a, .list-group-item.active,
-.list-group-item.active:hover, .list-group-item.active:focus {
-  background-color: var(--nav-active-bg);
-  border-color: var(--nav-active-bg);
+.na-header {
+  background: var(--brand-maroon);
   color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, .25);
+}
+.na-header-inner {
+  max-width: var(--ark-maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  min-height: 52px;
 }
 
-table, .table { color: var(--fg); }
-.table > thead > tr > th, .table > tbody > tr > td { border-color: var(--line); }
-
-/* -----------------------------------------------------------------------------
-   6. FIGURE CARD — neutral white mat so light JPGs read on a dark page
-   --------------------------------------------------------------------------- */
-.fig-card {
-  display: inline-block;
-  background: var(--fig-card-bg);
-  padding: 12px;
-  margin: 0.4rem 0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+.na-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  margin-right: auto;
 }
-.fig-card img { display: block; margin: 0 auto; }
+.na-brand:hover, .na-brand:focus { color: #fff !important; text-decoration: none; }
+.na-brand-sub {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
+}
 
-/* Per-figure provenance link */
-.fig-src {
+.na-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.na-nav a {
   display: block;
-  margin: 0.25rem 0 1rem;
-  font-size: 0.82rem;
+  padding: 0.42rem 0.7rem;
+  border-radius: 6px;
+  color: #fff !important;
+  font-size: 0.88rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background .14s ease;
+}
+.na-nav a:hover, .na-nav a:focus {
+  background: rgba(255, 255, 255, .14);
+  text-decoration: none;
+}
+/* Active page — the green tab, preserved from the original identity. */
+.na-nav a[aria-current="page"] {
+  background: var(--brand-green);
+  font-weight: 600;
 }
 
+/* Skip link (kit convention, restated so it works even without arcanum.css). */
+.ark-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--ark-bg-soft);
+  color: var(--ark-fg) !important;
+  border: 2px solid var(--brand-green);
+  border-radius: 0 0 8px 0;
+}
+.ark-skip-link:focus { left: 0; }
+
 /* -----------------------------------------------------------------------------
-   7. THEME TOGGLE  (injected into the navbar by toggle.js)
+   5. THEME TOGGLE (injected into the nav by toggle.js)
    --------------------------------------------------------------------------- */
 .ark-theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 2rem; height: 2rem; margin: 7px 4px; padding: 0;
+  width: 2rem; height: 2rem; margin: 0 0 0 0.3rem; padding: 0;
   border-radius: 999px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, .55);
   color: #fff; cursor: pointer; font-size: 1rem; line-height: 1;
   transition: border-color .15s ease, background .15s ease;
 }
-.ark-theme-toggle:hover,
-.ark-theme-toggle:focus { border-color: #fff; background: rgba(255, 255, 255, .12); }
-.navbar-nav > li.ark-theme-toggle-li { display: flex; align-items: center; }
+.ark-theme-toggle:hover, .ark-theme-toggle:focus {
+  border-color: #fff; background: rgba(255, 255, 255, .14);
+}
+.na-nav-toggle { display: flex; align-items: center; }
 
 /* -----------------------------------------------------------------------------
-   8. ECOSYSTEM-VARIANT TRIAD  (Code / Data / Outputs — above the fold on index)
+   6. TYPOGRAPHY — arcanum.css sizes no bare heading, so size them here.
    --------------------------------------------------------------------------- */
-.ark-triad {
-  display: flex; flex-wrap: wrap; gap: 0.75rem;
-  margin: 1.25rem 0 1.75rem;
+.ark-main h1 {
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  margin: 2rem 0 0.6rem;
+  letter-spacing: -0.02em;
 }
-.ark-triad-item {
-  flex: 1 1 180px;
-  display: flex; flex-direction: column; gap: 0.15rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--bg-soft);
-  text-decoration: none;
-  box-shadow: var(--shadow);
-  transition: border-color .15s ease, transform .1s ease;
+.ark-main h1:first-child { margin-top: 0.4rem; }
+.ark-main h2 { font-size: 1.32rem; margin: 1.9rem 0 0.55rem; letter-spacing: -0.01em; }
+.ark-main h3 { font-size: 1.12rem; margin: 1.5rem 0 0.45rem; }
+.ark-main h4 { font-size: 1rem;    margin: 1.25rem 0 0.4rem; color: var(--ark-fg-dim); }
+.ark-main h5, .ark-main h6 { font-size: 0.92rem; margin: 1rem 0 0.35rem; color: var(--ark-fg-dim); }
+
+.ark-main p, .ark-main li { line-height: 1.72; }
+.ark-main p { margin: 0 0 1rem; }
+.ark-main ul, .ark-main ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+.ark-main li { margin-bottom: 0.3rem; }
+
+/* Readable measure for body copy without constraining tables/figures. */
+.ark-main > p,
+.ark-main > ul,
+.ark-main > ol,
+.ark-main .section > p,
+.ark-main .section > ul,
+.ark-main .section > ol { max-width: 72ch; }
+
+.ark-main a { color: var(--ark-accent); }
+.ark-main a:hover, .ark-main a:focus { text-decoration: underline; }
+
+hr { border: 0; border-top: 1px solid var(--ark-line); margin: 2rem 0; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.4rem 0 0.4rem 1rem;
+  border-left: 3px solid var(--ark-accent);
+  color: var(--ark-fg-dim);
 }
-.ark-triad-item:hover, .ark-triad-item:focus {
-  border-color: var(--link);
-  transform: translateY(-1px);
-  text-decoration: none;
+
+pre, code, kbd, samp { font-family: var(--ark-mono); }
+code {
+  background: var(--ark-tag);
+  padding: 0.12em 0.34em;
+  border-radius: 4px;
+  font-size: 0.9em;
 }
-.ark-triad-k {
-  font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
-  color: var(--fg-dim); font-weight: 700;
+pre {
+  background: var(--ark-tag);
+  border: 1px solid var(--ark-line);
+  border-radius: var(--ark-radius-sm);
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
-.ark-triad-v { color: var(--link); font-weight: 600; word-break: break-word; }
+pre code { background: none; padding: 0; font-size: inherit; }
 
 /* -----------------------------------------------------------------------------
-   9. ECOSYSTEM FOOTER  (hub CTA on every page — dual-anchor reciprocity)
+   7. TABLE OF CONTENTS — zero JS.
+   R Markdown emits a plain <div id="TOC"> when toc:true and theme:null.
+   Sticky sidebar at >=1000px, plain block below that.
+   --------------------------------------------------------------------------- */
+#TOC {
+  margin: 0 0 1.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ark-line);
+  border-radius: var(--ark-radius-sm);
+  background: var(--ark-bg-soft);
+  font-size: 0.86rem;
+}
+#TOC ul { list-style: none; margin: 0; padding-left: 0.9rem; }
+#TOC > ul { padding-left: 0; }
+#TOC li { margin: 0.16rem 0; }
+#TOC a { color: var(--ark-fg-dim); text-decoration: none; }
+#TOC a:hover, #TOC a:focus { color: var(--ark-accent); text-decoration: underline; }
+#TOC::before {
+  content: "On this page";
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ark-fg-dim);
+}
+
+@media (min-width: 1000px) {
+  /* Two columns: content + sticky TOC rail — applied ONLY to pages that
+     actually contain a TOC, detected with :has() so no JS and no per-page
+     body class is needed. Browsers without :has() keep the block layout,
+     which is a complete and readable fallback. */
+  .ark-main:has(> #TOC) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 15rem;
+    gap: 0 2.5rem;
+    align-items: start;
+  }
+  .ark-main:has(> #TOC) > #TOC {
+    grid-column: 2;
+    grid-row: 1 / span 9999;
+    position: sticky;
+    top: 1.25rem;
+    max-height: calc(100vh - 2.5rem);
+    overflow-y: auto;
+    margin: 0;
+  }
+  .ark-main:has(> #TOC) > *:not(#TOC) { grid-column: 1; min-width: 0; }
+}
+
+/* -----------------------------------------------------------------------------
+   8. TABLES — arcanum.css styles NO bare table; ark-table.js adds .ark-table
+   and the responsive card behaviour. These rules cover the plain case.
+   --------------------------------------------------------------------------- */
+.ark-main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.25rem;
+  font-size: 0.88rem;
+}
+.ark-main th, .ark-main td {
+  padding: 0.42rem 0.6rem;
+  border-bottom: 1px solid var(--ark-line);
+  text-align: left;
+  vertical-align: top;
+}
+.ark-main th {
+  font-weight: 700;
+  color: var(--ark-fg);
+  border-bottom-width: 2px;
+}
+.ark-main tbody tr:hover { background: var(--ark-tag); }
+.ark-main td { font-variant-numeric: tabular-nums; }
+
+/* Horizontal scroll rather than page-level overflow on narrow screens. */
+.table-scroll, .ark-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 1.25rem;
+}
+
+/* -----------------------------------------------------------------------------
+   9. FIGURES
+   --------------------------------------------------------------------------- */
+img, svg, video { max-width: 100%; height: auto; }
+
+.fig-card {
+  display: inline-block;
+  background: var(--fig-card-bg);
+  padding: 12px;
+  margin: 0.4rem 0;
+  border: 1px solid var(--ark-line);
+  border-radius: 8px;
+  box-shadow: var(--ark-shadow);
+  max-width: 100%;
+}
+.fig-card img { display: block; margin: 0 auto; }
+
+.fig-src {
+  display: block;
+  margin: 0.25rem 0 1rem;
+  font-size: 0.82rem;
+  color: var(--ark-fg-dim);
+}
+
+/* knitr figure output */
+.figure { margin: 1.2rem 0; }
+.caption { font-size: 0.83rem; color: var(--ark-fg-dim); }
+
+/* Figure captions in research.html. These were <h4> under an <h2>, which broke
+   the heading ladder (defect N5); they are captions, not sections. */
+.fig-caption {
+  margin: 1.4rem 0 0.4rem;
+  font-size: 0.92rem;
+  color: var(--ark-fg);
+}
+
+/* Paper byline — likewise demoted from <h4>. */
+.paper-meta {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: var(--ark-fg-dim);
+  letter-spacing: 0.01em;
+}
+
+/* -----------------------------------------------------------------------------
+   10. LANDING PAGE
+   --------------------------------------------------------------------------- */
+.home .title {
+  display: block;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  margin: 0.6rem 0 0.3rem;
+  letter-spacing: -0.025em;
+}
+.home-lede {
+  max-width: 60ch;
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  color: var(--ark-fg-dim);
+  line-height: 1.65;
+}
+
+/* Project cards on the landing page */
+.na-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0.9rem;
+  margin: 1.25rem 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+.na-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.95rem 1.05rem;
+  border: 1px solid var(--ark-line);
+  border-radius: var(--ark-radius-sm);
+  background: var(--ark-bg-soft);
+  box-shadow: var(--ark-shadow);
+}
+.na-card h3 { margin: 0; font-size: 1.02rem; }
+.na-card h3 a { text-decoration: none; }
+.na-card p {
+  margin: 0; font-size: 0.88rem; color: var(--ark-fg-dim);
+  line-height: 1.6; max-width: none;
+}
+
+/* -----------------------------------------------------------------------------
+   11. PROJECT / DATASET ENTRIES (projects.html, data.html)
+   --------------------------------------------------------------------------- */
+.na-meta {
+  margin: 0.3rem 0 0.6rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+}
+.na-meta li { margin: 0.15rem 0; }
+.na-meta b {
+  display: inline-block;
+  min-width: 3.4rem;
+  color: var(--ark-fg-dim);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Download links */
+.na-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  margin: 0.2rem 0.4rem 0.2rem 0;
+  border: 1px solid var(--ark-line);
+  border-radius: 6px;
+  background: var(--ark-bg-soft);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.na-download:hover, .na-download:focus {
+  border-color: var(--ark-accent); text-decoration: none;
+}
+.na-download-meta { color: var(--ark-fg-dim); font-size: 0.92em; }
+
+/* -----------------------------------------------------------------------------
+   12. FOOTER
    --------------------------------------------------------------------------- */
 .site-footer {
-  margin: 3rem 0 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
+  max-width: var(--ark-maxw);
+  margin: 3rem auto 1.5rem;
+  padding: 1rem 1.25rem 0;
+  border-top: 1px solid var(--ark-line);
   font-size: 0.85rem;
-  color: var(--fg-dim);
+  color: var(--ark-fg-dim);
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
 }
-.site-footer a { color: var(--link); }
+.site-footer a { color: var(--ark-accent); }
 .site-footer-sep { opacity: 0.5; }
 
 /* -----------------------------------------------------------------------------
-   10. MISC — preserved from the old research.Rmd inline block
+   13. RESPONSIVE — real breakpoints (Bootstrap's grid is gone)
    --------------------------------------------------------------------------- */
-#getting-started img { margin-right: 10px; margin-left: 5px; }
+@media (max-width: 700px) {
+  .na-header-inner { padding: 0.35rem 1rem; }
+  .na-brand { margin-right: 0; flex: 1 1 100%; padding-bottom: 0.1rem; }
+  .na-nav { flex: 1 1 100%; padding-bottom: 0.3rem; }
+  .na-nav a { padding: 0.36rem 0.55rem; font-size: 0.84rem; }
+  .ark-main { padding-left: 1rem; padding-right: 1rem; }
+  .ark-main h1 { margin-top: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  .na-header, #TOC, .ark-skip-link, .site-footer, .gantt-links { display: none !important; }
+  .ark-main { max-width: none; padding: 0; }
+}

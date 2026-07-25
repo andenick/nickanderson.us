@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+     role="img" aria-label="Arcanum Research">
+  <title>Arcanum Research</title>
+  <!--
+    Arcanum mark: a stylised "A" (chevron + crossbar) over a single point — an
+    arcane glyph reading as both the letter A and an open compass/peak.
+    Tints to the site accent: set `color` on the parent (the path uses
+    currentColor). On its own it falls back to the hub blue below.
+  -->
+  <g fill="currentColor" color="#1565c0">
+    <path d="M16 3 4 27h5l2.4-5h9.2l2.4 5h5L16 3Zm-2.7 14L16 11l2.7 6h-5.4Z"
+          fill="currentColor"/>
+    <circle cx="16" cy="25.5" r="1.6" fill="currentColor"/>
+  </g>
+</svg>

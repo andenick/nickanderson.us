@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" xml:lang="en">
 
 <head>
 
@@ -8,39 +8,35 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
 <title>Nick Anderson — Economics Research</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <!-- nickanderson.us — in_header include (referenced from _site.yml).
-     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
-     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
-     at render time only). -->
+     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/
+     (it is read by pandoc at render time only).
+
+     Per-page <meta name="description">, canonical, Open Graph and Twitter tags
+     live in the per-page _meta_<page>.html includes, which are listed AFTER
+     this file in each page's YAML. -->
 
 <!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 
+<!-- Stylesheets, in cascade order:
+       1. shared/arcanum.css  — the Arcanum Site Kit design system (vendored)
+       2. styles.css          — this site's accent identity + layout + typography
+       3. assets/gantt.css    — the landing-page Coverage Gantt component
+     All served from this repo. No CDN, no webfont, no external request. -->
+<link rel="stylesheet" href="shared/arcanum.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/gantt.css">
+
 <script>
+  // No-FOUC: apply the saved theme before first paint.
   (function () {
     try {
       var t = localStorage.getItem("ark-theme");
@@ -50,7 +46,54 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
+<!-- nickanderson.us — per-page head metadata for index. Included AFTER
+     _head.html so it can rely on the stylesheets already being linked. -->
 <meta name="description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
+<link rel="canonical" href="https://www.nickanderson.us/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nick Anderson">
+<meta property="og:title" content="Nick Anderson — Economics Research">
+<meta property="og:description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
+<meta property="og:url" content="https://www.nickanderson.us/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nick Anderson — Economics Research">
+<meta name="twitter:description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://www.nickanderson.us/#nick",
+   "name": "Nick Anderson",
+   "url": "https://www.nickanderson.us/",
+   "jobTitle": "PhD Candidate in Economics",
+   "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "The New School for Social Research"
+   },
+   "knowsAbout": [
+    "Public finance",
+    "Banking and financial history",
+    "Economic data construction",
+    "Heterodox economics"
+   ],
+   "sameAs": ["https://github.com/andenick"]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.nickanderson.us/#site",
+   "url": "https://www.nickanderson.us/",
+   "name": "Nick Anderson",
+   "inLanguage": "en",
+   "author": { "@id": "https://www.nickanderson.us/#nick" }
+  }
+ ]
+}
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -62,181 +105,12 @@
       .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
 
 
 
-<link rel="stylesheet" href="styles.css" type="text/css" />
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
-}
-</style>
-
-
-<style type="text/css">
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script type="text/javascript">
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
 
 
 
@@ -246,88 +120,210 @@ $(document).ready(function () {
 <body>
 
 
-<div class="container-fluid main-container">
+<!-- nickanderson.us — before_body include (referenced from _site.yml).
+     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/.
 
+     With `theme: null` R Markdown emits no wrapper element at all, so this file
+     owns the top of the body: the skip link, the site header and nav, and the
+     opening main element. _after_body.html closes it.
 
+     The nav is plain HTML — no Bootstrap, no jQuery, no JS required to work.
+     A ~250-byte script in _after_body.html marks the current page; without it
+     the nav is still fully functional, just unhighlighted. -->
 
+<a class="ark-skip-link" href="#ark-main">Skip to content</a>
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Nick Anderson</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="research.html">Research</a>
-</li>
-<li>
-  <a href="tnse.html">TNSE</a>
-</li>
-<li>
-  <a href="aitools.html">AI Tools</a>
-</li>
-<li>
-  <a href="projects.html">Projects</a>
-</li>
-<li>
-  <a href="data.html">Data</a>
-</li>
-<li>
-  <a href="about.html">About</a>
-</li>
+<header class="na-header">
+  <div class="na-header-inner">
+    <a class="na-brand" href="index.html">
+      Nick&nbsp;Anderson
+      <span class="na-brand-sub">Economics &middot; The New School for Social Research</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="na-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="tnse.html">TNSE</a></li>
+        <li><a href="aitools.html">AI Tools</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="data.html">Data</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+    </nav>
+  </div>
+</header>
 
-<div id="header">
+<main id="ark-main" class="ark-main">
 
 
 
-<h1 class="title toc-ignore">Nick Anderson</h1>
-
-</div>
 
 
-<p>Welcome to my research hosting site. I am an economics PhD candidate
-at The New School for Social Research.</p>
-<div class="ark-triad" role="navigation"
-aria-label="My code, data, and outputs">
-<p><a class="ark-triad-item" href="https://files.heterodata.org"><span
-class="ark-triad-k">My data</span><span
-class="ark-triad-v">files.heterodata.org</span></a>
-<a class="ark-triad-item" href="https://github.com/andenick"><span
-class="ark-triad-k">My code</span><span
-class="ark-triad-v">github.com/andenick</span></a>
-<a class="ark-triad-item" href="https://heterodata.org"><span
-class="ark-triad-k">My results</span><span
-class="ark-triad-v">heterodata.org</span></a></p>
-</div>
-<div id="welcome-here-are-some-projects-of-mine" class="section level1">
-<h1><strong>Welcome, here are some projects of mine</strong></h1>
-<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">
-Projects
+<div id="nick-anderson" class="section level1">
+<h1>Nick Anderson</h1>
+<p class="home-lede">
+I am an economics PhD candidate at The New School for Social Research. I
+work on public finance, banking and financial history, and the empirical
+methods that make long-run economic data usable — which mostly means
+going and getting the sources myself.
+</p>
+<div class="gantt-wrap">
+<div class="gantt-head">
+<h2 class="gantt-title">
+Sources
 </h2>
-<div id="research" class="section level3">
-<h3><a href="research.html">Research</a></h3>
-<p>My empirical work on public finance and data.</p>
+<p><span class="gantt-span">1782 – 2026</span></p>
 </div>
-<div id="heterodata" class="section level3">
+<div id="coverage-gantt">
+<ul class="gantt-fallback">
+<li>
+<span class="gf-name">FDIC failures / history</span><span
+class="gf-span">1782–2026</span><span class="gf-rows">586,743
+rows</span>
+</li>
+<li>
+<span class="gf-name">Warehouse catalog (catalog.*)</span><span
+class="gf-span">1782–2026</span><span class="gf-rows">229,338
+rows</span>
+</li>
+<li>
+<span class="gf-name">OCC historical (1863-1941)</span><span
+class="gf-span">1863–1941</span><span class="gf-rows">17,775,763
+rows</span>
+</li>
+<li>
+<span class="gf-name">Robin / Failing Banks (derived)</span><span
+class="gf-span">1863–2024</span><span class="gf-rows">2,885,730
+rows</span>
+</li>
+<li>
+<span class="gf-name">Clean bank panel (163-yr $ levels)</span><span
+class="gf-span">1863–2026</span><span class="gf-rows">1,114,822
+rows</span>
+</li>
+<li>
+<span class="gf-name">Call Reports (FFIEC/Fed micro)</span><span
+class="gf-span">1959–2026</span><span class="gf-rows">1,954,826,984
+rows</span>
+</li>
+<li>
+<span class="gf-name">FDIC SDI (financials)</span><span
+class="gf-span">1984–2026</span><span class="gf-rows">69,868,690
+rows</span>
+</li>
+<li>
+<span class="gf-name">FR Y-9C / BHCF (holding cos)</span><span
+class="gf-span">1986–2025</span><span class="gf-rows">208,147,772
+rows</span>
+</li>
+<li>
+<span class="gf-name">NCUA 5300 (credit unions)</span><span
+class="gf-span">1994–2025</span><span class="gf-rows">1,180,978,509
+rows</span>
+</li>
+<li>
+<span class="gf-name">FDIC SOD (branch deposits)</span><span
+class="gf-span">1994–2025</span><span class="gf-rows">2,815,984
+rows</span>
+</li>
+<li>
+<span class="gf-name">UBPR ratios</span><span
+class="gf-span">2002–2026</span><span class="gf-rows">1,251,149,050
+rows</span>
+</li>
+<li>
+<span class="gf-name">DFAST / stress tests</span><span
+class="gf-span">2013–2025</span><span class="gf-rows">28,883 rows</span>
+</li>
+<li>
+<span class="gf-name">FR Y-15 (systemic indicators)</span><span
+class="gf-span">2020–2024</span><span class="gf-rows">22,481 rows</span>
+</li>
+<li>
+<span class="gf-name">Pillar 3 (G-SIB disclosures)</span><span
+class="gf-span">2024–2025</span><span class="gf-rows">8,653 rows</span>
+</li>
+</ul>
+<p class="gantt-atemporal">
+Plus 7 reference and cross-sectional families with no time axis (UBPR
+peer rank, UBPR peer stats, NIC identity &amp; attributes, FRED / H.8
+(macro context), Reference / crosswalks, HMDA (mortgage summary), Data
+dictionary (dict.*)) — 275,455,170 further rows.
+</p>
+</div>
+<p class="gantt-total">
+4,965,894,572 <span class="gantt-total-unit">rows of banking and
+public-finance data, assembled</span>
+</p>
+<p class="gantt-note">
+Every bar is a source family I went and retrieved, drawn across the
+years it actually covers. Counts are exact and come from the
+<a href="https://freenic.org">FreeNIC</a> warehouse coverage matrix; the
+21 families shown sum to the figure above. Hover a bar for its provider,
+exact span and provenance tier.
+</p>
+<div class="gantt-links">
+<p><a href="research.html">The work</a> <a href="data.html">The data</a>
+<a href="aitools.html">The method</a></p>
+</div>
+</div>
+<script src="assets/gantt.js" defer></script>
+<div id="code-data-and-outputs" class="section level2">
+<h2>Code, data, and outputs</h2>
+<section class="ark-triad" data-ark-triad aria-label="My code, data, and outputs">
+<a class="ark-triad-btn ark-triad-data" data-cdf="data" href="https://files.heterodata.org" aria-label="My data — files.heterodata.org">
+<span class="ark-triad-icon" aria-hidden="true">↓</span> <span
+class="ark-triad-text"> <span class="ark-triad-label">My data</span>
+<span class="ark-triad-sub"
+data-cdf-sub="data">files.heterodata.org</span> </span> </a>
+<a class="ark-triad-btn ark-triad-code" data-cdf="code" href="https://github.com/andenick" aria-label="My code — github.com/andenick">
+<span class="ark-triad-icon" aria-hidden="true">↓</span> <span
+class="ark-triad-text"> <span class="ark-triad-label">My code</span>
+<span class="ark-triad-sub"
+data-cdf-sub="code">github.com/andenick</span> </span> </a>
+<a class="ark-triad-btn ark-triad-outputs ark-triad-secondary" data-cdf="outputs" href="https://heterodata.org" aria-label="My results — heterodata.org">
+<span class="ark-triad-icon" aria-hidden="true">→</span> <span
+class="ark-triad-text"> <span class="ark-triad-label">My results</span>
+<span class="ark-triad-sub" data-cdf-sub="outputs">heterodata.org</span>
+</span> </a>
+</section>
+</div>
+<div id="projects" class="section level2">
+<h2>Projects</h2>
+<div class="na-cards">
+<div id="research" class="section level3 na-card">
+<h3><a href="research.html">Research</a></h3>
+<p>My empirical work on public finance and data: Treasury duration,
+tax-revenue cyclicality, and the long-run balance of payments. Both
+papers are downloadable.</p>
+</div>
+<div id="heterodata" class="section level3 na-card">
 <h3><a href="https://heterodata.org">Heterodata</a></h3>
-<p>The research-data platform: a hub of interactive data sites including
-<strong>Gerhard</strong> (US public finance, <a
+<p>The research-data platform gathering my interactive data sites and
+their downloads.</p>
+</div>
+<div id="economics-at-the-new-school" class="section level3 na-card">
+<h3><a href="tnse.html">Economics at the New School</a></h3>
+<p>A three-part institutional and intellectual history of The New
+School’s economics department. A 121-page draft of Part 1 is available
+on request.</p>
+</div>
+<div id="ai-tools" class="section level3 na-card">
+<h3><a href="aitools.html">AI Tools</a></h3>
+<p>The open-source research tooling I built for AI-assisted empirical
+economics, with links to the GitHub repositories.</p>
+</div>
+<div id="hmda-explore" class="section level3 na-card">
+<h3><a href="https://hmdaexplore.com">HMDA Explore</a></h3>
+<p>An interactive explorer over Home Mortgage Disclosure Act data. The
+actively developed web version is at <a
+href="https://hmdaexplore.com">hmdaexplore.com</a>; the earlier <a
+href="https://andenick.shinyapps.io/HMDAExplore/">R-Shiny draft</a> is
+slower to start.</p>
+</div>
+</div>
+<p>The platform hosts <strong>Gerhard</strong> (US public finance, <a
 href="https://gerhard.heterodata.org">gerhard.heterodata.org</a>),
 <strong>Shaikh Data</strong> (<a
 href="https://shaikh.heterodata.org">shaikh.heterodata.org</a> —
@@ -343,60 +339,32 @@ href="https://leontief.heterodata.org">leontief.heterodata.org</a>), and
 href="https://starcruiser.heterodata.org">starcruiser.heterodata.org</a>),
 plus affiliated standalone sites: <a
 href="https://freenic.org">freenic.org</a> (banking data), <a
+href="https://volcker.org">volcker.org</a> (my dissertation), <a
 href="https://foodberg.org">foodberg.org</a> (food prices), <a
 href="https://hmdaexplore.com">hmdaexplore.com</a> (mortgage lending),
 <a href="https://methodex.fyi">methodex.fyi</a> (statistical
-methodology), and <a href="https://jjmuni.com">jjmuni.com</a> (municipal
-pedestrian infrastructure). Data downloads across the ecosystem are
-gathered at <a
+methodology), <a href="https://nycvisualizer.com">nycvisualizer.com</a>
+(New York City transit and sidewalk accessibility), and <a
+href="https://jjmuni.com">jjmuni.com</a> (municipal pedestrian
+infrastructure). Data downloads across the ecosystem are gathered at <a
 href="https://files.heterodata.org">files.heterodata.org</a> and indexed
 on the hub’s <a href="https://heterodata.org/data">data page</a>.</p>
-</div>
-<div id="economics-at-the-new-school" class="section level3">
-<h3><a href="tnse.html">Economics at the New School</a></h3>
-<p>A three-part institutional and intellectual history of The New
-School’s economics department. A 121-page draft of Part 1 is available
-on request.</p>
-</div>
-<div id="ai-tools" class="section level3">
-<h3><a href="aitools.html">AI Tools</a></h3>
-<p>The open-source research tooling I built for AI-assisted empirical
-economics, with links to the GitHub repositories.</p>
-</div>
-<div id="hmda-explore" class="section level3">
-<h3>HMDA Explore</h3>
-<p>An interactive explorer over Home Mortgage Disclosure Act data, in
-two versions side by side:</p>
-<ul>
-<li><a
-href="https://andenick.shinyapps.io/HMDAExplore/">andenick.shinyapps.io/HMDAExplore</a>
-— the earlier interactive draft (R-Shiny; slower to start).</li>
-<li><a href="https://hmdaexplore.com">hmdaexplore.com</a> — the actively
-developed web version.</li>
-</ul>
 <hr />
 <p>Thank you and let me know if you have any questions!</p>
 <p>Nick</p>
 <hr />
-<p>Last compiled: 2026-07-14</p>
+<p>Last compiled: 2026-07-24</p>
 </div>
 </div>
 
 <!-- nickanderson.us — after_body include (referenced from _site.yml).
      Underscore-prefixed so render_site() does not copy it into docs/.
-     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
-     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
-     by render_site() and served. -->
+     Closes the main element opened in _before_body.html, then emits the mandated
+     dual-anchor ecosystem footer and loads the site's three small scripts.
+     toggle.js, ark-track.js, styles.css, shared/ and assets/ ARE copied to
+     docs/ by render_site() and served. -->
 
-<!-- Usage beacon config.
-     `endpoint` points at our own first-party usage endpoint
-     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
-     so cross-origin sendBeacon is used; the endpoint returns a wildcard CORS
-     header + handles the OPTIONS preflight. First-party, no third party, no
-     cookies, DNT-aware. -->
-<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
-<script src="ark-track.js" defer></script>
-<script src="toggle.js" defer></script>
+</main>
 
 <!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
      Injected via this shared after_body include so a re-render preserves it. -->
@@ -410,36 +378,39 @@ developed web version.</li>
   <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
 </footer>
 
-
-
-</div>
-
 <script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
+  // Mark the current page in the nav. Progressive enhancement only: with JS
+  // off the nav still works, it just carries no highlight.
+  (function () {
+    var here = location.pathname.split("/").pop() || "index.html";
+    var link = document.querySelector('.na-nav a[href="' + here + '"]');
+    if (link) link.setAttribute("aria-current", "page");
+  })();
 </script>
 
-<!-- tabsets -->
+<!-- Usage beacon config.
+     `endpoint` points at our own first-party usage endpoint
+     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
+     so the beacon is cross-origin; ark-track.js v2.0.1 detects that and uses a
+     keepalive fetch with credentials:"omit" (wildcard-CORS compatible) instead
+     of sendBeacon. First-party, no third party, no cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
+<!-- Responsive tables: stamps data-label on every <td> so arcanum.css can
+     reflow wide tables into labelled cards below 680px. Vendored from the kit.
+     The kit enhancer matches `.ark-prose table, .prose table, table[data-arktable],
+     table.ark-table`; R Markdown emits BARE tables, so tag them first. This
+     inline script runs at parse time, before the deferred enhancer. -->
 <script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
-  });
-});
+  (function () {
+    var t = document.querySelectorAll("main table"), i;
+    for (i = 0; i < t.length; i++) { t[i].className += " ark-table"; }
+  })();
 </script>
+<script src="shared/ark-table.js" defer></script>
+
 
 <!-- code folding -->
 

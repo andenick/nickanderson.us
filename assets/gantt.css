@@ -1,0 +1,219 @@
+/* =============================================================================
+   nickanderson.us — gantt.css — "The Coverage Gantt" landing visual
+
+   Styles both states of the hero:
+     1. the build-time static list (JS off / data unreachable), and
+     2. the enhanced inline SVG that gantt.js swaps in.
+   Everything is driven by the site tokens in styles.css, so light/dark and any
+   future accent change are inherited, not re-specified here.
+   ============================================================================= */
+
+.gantt-wrap {
+  margin: 0 0 2rem;
+  padding: 1.15rem 1.25rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-soft);
+  box-shadow: var(--shadow);
+}
+
+.gantt-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+.gantt-title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin: 0;
+}
+
+.gantt-span {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The figure that reconciles: the sum of every bar on screen. */
+.gantt-total {
+  margin: 0.55rem 0 0;
+  font-size: clamp(1.15rem, 3.6vw, 1.6rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  line-height: 1.25;
+}
+.gantt-total .gantt-total-unit {
+  font-size: 0.62em;
+  font-weight: 500;
+  color: var(--fg-dim);
+  letter-spacing: 0.01em;
+}
+
+.gantt-note {
+  margin: 0.3rem 0 0;
+  font-size: 0.79rem;
+  color: var(--fg-dim);
+  line-height: 1.5;
+}
+.gantt-note a { color: var(--link); }
+
+#coverage-gantt { position: relative; margin-top: 0.5rem; }
+
+/* -----------------------------------------------------------------------------
+   SVG
+   --------------------------------------------------------------------------- */
+.gantt-svg { display: block; overflow: visible; }
+
+.gantt-bar {
+  fill: var(--gantt-bar);
+  /* width is animated by gantt.js; nothing loops. */
+}
+
+.gantt-hit { fill: transparent; }
+
+.gantt-row { cursor: default; }
+.gantt-row:hover .gantt-hit,
+.gantt-row:focus .gantt-hit { fill: var(--gantt-row-hover); }
+.gantt-row:hover .gantt-bar,
+.gantt-row:focus .gantt-bar { fill-opacity: 1 !important; }
+.gantt-row:focus { outline: none; }
+.gantt-row:focus-visible .gantt-hit {
+  stroke: var(--link);
+  stroke-width: 1.5;
+}
+
+.gantt-label {
+  font-size: 11.5px;
+  fill: var(--fg);
+  font-family: inherit;
+}
+
+.gantt-count {
+  font-size: 9.5px;
+  fill: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.gantt-axis { stroke: var(--line); stroke-width: 1; }
+
+.gantt-tick {
+  font-size: 10px;
+  fill: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Era markers — 1863 National Banking Act, 1934 FDIC. */
+.gantt-era {
+  stroke: var(--gantt-era);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+.gantt-era-label {
+  font-size: 9.5px;
+  fill: var(--gantt-era);
+  letter-spacing: 0.04em;
+}
+
+/* -----------------------------------------------------------------------------
+   Tooltip
+   --------------------------------------------------------------------------- */
+.gantt-tip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity .12s ease, transform .12s ease;
+  max-width: min(19rem, 82vw);
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card-bg);
+  box-shadow: 0 8px 24px -10px rgba(0, 0, 0, .45);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+.gantt-tip.is-on { opacity: 1; transform: translateY(0); }
+.gantt-tip strong { display: block; margin-bottom: 0.15rem; }
+.gantt-tip span { display: block; color: var(--fg-dim); font-variant-numeric: tabular-nums; }
+.gantt-tip .gantt-tip-meta { margin-top: 0.2rem; font-size: 0.94em; opacity: .85; }
+
+/* -----------------------------------------------------------------------------
+   Static fallback list — the content when JS is off. Never display:none.
+   --------------------------------------------------------------------------- */
+.gantt-fallback { margin: 0; padding: 0; list-style: none; }
+.gantt-fallback li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.6rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.83rem;
+}
+.gantt-fallback li:last-child { border-bottom: 0; }
+.gantt-fallback .gf-name { flex: 1 1 12rem; color: var(--fg); }
+.gantt-fallback .gf-span,
+.gantt-fallback .gf-rows {
+  color: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95em;
+}
+.gantt-fallback .gf-rows { min-width: 6.5rem; text-align: right; }
+
+/* Atemporal families — real rows, no time axis. Stated, never invented. */
+.gantt-atemporal {
+  margin: 0.7rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--fg-dim);
+  line-height: 1.55;
+}
+
+/* -----------------------------------------------------------------------------
+   Landing triad of destinations under the hero
+   --------------------------------------------------------------------------- */
+.gantt-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.1rem 0 0;
+}
+.gantt-links a {
+  flex: 1 1 9rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--link);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color .15s ease, transform .1s ease;
+}
+.gantt-links a:hover,
+.gantt-links a:focus {
+  border-color: var(--link);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .gantt-wrap { padding: 0.95rem 0.85rem 0.85rem; }
+  .gantt-links a { flex: 1 1 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gantt-bar, .gantt-tip, .gantt-links a { transition: none !important; }
+}
