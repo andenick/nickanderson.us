@@ -1,21 +1,24 @@
 ---
-title: "Research"
 pagetitle: "Research — Nick Anderson"
 output:
   html_document:
     toc: true
-    toc_float: true
-    collapsed: false
     number_sections: false
-    toc_depth: 1
-    #code_folding: hide
+    toc_depth: 2
     includes:
       in_header: ["_head.html", "_meta_research.html"]
+      before_body: _before_body.html
       after_body: _after_body.html
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE,
+                      # This page carries 22 retina figures. Lazy-loading means the
+                      # browser fetches only what the reader actually scrolls to,
+                      # which is the difference between a ~130 KB first paint and
+                      # pulling the whole figure set up front. Per-figure alt text
+                      # is set with fig.alt on each chunk.
+                      out.extra = 'loading="lazy" decoding="async"')
 ```
 
 ```{r, include = F, echo = F, "1. Packages"}
@@ -30,16 +33,25 @@ library(tidyverse)
 library(formattable)
 remove(list = ls())
 
+# Portable data loading: src() / src_path() prefer the committed data-cache/
+# and only touch the E:\ originals when the cache is missing, so this document
+# renders on machines that do not have that drive. See R/cache.R and
+# data-cache/README.md. (Sourced after remove(list = ls()), which would
+# otherwise wipe the helpers.)
+source("R/cache.R")
 
 ```
 
-# Duration and Public Finance
+# Research
 
-## **Duration and Public Finance in the United States, 2001-2023**
+Three empirical papers on U.S. public finance and international accounts. Each is
+reproduced here in full, with its figures and bibliography; the underlying data
+and processing scripts are on the [Data](data.html) page and mirrored at
+[files.heterodata.org](https://files.heterodata.org).
 
-#### By Nick Anderson
+## Duration and Public Finance in the United States, 2001–2023 {#duration-and-public-finance}
 
-#### Dated 2023.05.19
+<p class="paper-meta">By Nick Anderson &middot; 2023.05.19</p>
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
@@ -64,7 +76,12 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 ```{r, echo = F, "2. Begin Treasury"}
 
 #write_xlsx(looptest_graph,"E:\\Storage\\Cloud Drive\\Vide\\DataScience\\DaPF\\looptest-graph1.xlsx")
-looptest_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\looptest-graph1.xlsx")
+
+# Committed aggregate (recDate x secDesc1 x yearsCat) of looptest-graph1.xlsx;
+# the CUSIP-level detail is collapsed because every plot below stacks over it.
+looptest_graph <- src("treasury_looptest_agg.csv",
+                      na_build_looptest(),
+                      col_types = na_cols_looptest())
 
 ggOutstandingEnd <- ggplot(looptest_graph) +
                     geom_bar(aes(x = recDate, y = outsAmtMln/1000000, fill = as.factor(secDesc1)), 
@@ -156,7 +173,10 @@ legend.position = "bottom"
 
 ```{r, echo = F, "4b. Data"}
 
-det_data_mkt_fix_graph <- read_excel("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\DaPF\\det_data_mkt_fix_graph1.xlsx")
+# Committed aggregate (recDate x yearsCat) of det_data_mkt_fix_graph1.xlsx.
+det_data_mkt_fix_graph <- src("treasury_det_agg.csv",
+                              na_build_det(),
+                              col_types = na_cols_det())
 
 det_data_mkt_fix_graph_gfc <- det_data_mkt_fix_graph %>%
                               filter(recDate >= "2007-01-31" & recDate <= "2010-12-31")
@@ -598,12 +618,12 @@ legend.position = "right") +
 
 ```
 
-```{r, echo = F, "7. Treasury"}
+```{r, echo = F, "7. Treasury", fig.alt="Figure 1: stacked bar chart of outstanding marketable fixed-rate U.S. Treasuries in trillions of dollars, 2001 to 2023, coloured by years to maturity, rising from about 2 to over 20 trillion with jumps after 2008 and 2020."}
 ggOutstandingEnd2
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
-#### **Figure 2: U.S. Treasury Monthly Issuance**
+<p class="fig-caption"><strong>Figure 2: U.S. Treasury Monthly Issuance</strong></p>
 
 ```{r, echo = F, "8. Treasury"}
 #?knitr
@@ -612,7 +632,7 @@ ggOutstandingEnd2
 ```
 
 ::: {.fig-card}
-![](DaPF-F2.jpg)
+<img src="DaPF-F2.jpg" alt="Figure 2: aggregate U.S. Treasury issuance by month, April 2022 to April 2023, as a stacked bar chart by security type." loading="lazy" decoding="async">
 :::
 
 *Note: this figure is reproduced from an external source and is slated for reconstruction directly from Treasury Monthly Statement of the Public Debt (MSPD) and auction data.*
@@ -621,7 +641,7 @@ ggOutstandingEnd2
 
 **Figure 3** depicts the percentage of Treasury securities by their maturities. 
 
-```{r, echo = F, "9. Treasury"}
+```{r, echo = F, "9. Treasury", fig.alt="Figure 3: stacked bar chart of outstanding marketable fixed-rate U.S. Treasuries as a percentage of total outstanding, 2001 to 2023, by years to maturity, showing the under-one-year share spiking in 2008 and 2020."}
 ggOutstandingEnd3
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -650,7 +670,7 @@ The duration of a bond is an easily calculable mathematical concept, calculated 
 **Figure 4: Example Duration Calculation for a 5% Coupon Bond versus an Annuity**
 
 ::: {.fig-card}
-![](DaPF-F4.jpg)
+<img src="DaPF-F4.jpg" alt="Figure 4: the price-yield relationship of a Treasury security, showing the convex curve against its straight-line duration approximation." loading="lazy" decoding="async">
 :::
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
@@ -665,10 +685,10 @@ The duration approximation equation in **Figure 5** estimates the change in the 
 Change in $ Price = -(Macaulay Duration) * Change in Market Yield / (1 + Yield to Maturity)
 
 
-#### **Figure 6: Comparison of Duration Approximation and Actual Changes in Market Value**
+<p class="fig-caption"><strong>Figure 6: Comparison of Duration Approximation and Actual Changes in Market Value</strong></p>
 
 ::: {.fig-card}
-![](DaPF-F6.jpg)
+<img src="DaPF-F6.jpg" alt="Figure 6: comparison of the duration approximation against actual changes in market value, showing where the linear approximation diverges." loading="lazy" decoding="async">
 :::
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
@@ -680,7 +700,7 @@ In practice, contemporary fixed income money managers keep dashboards that recor
 
 The inspiration for this paper lies in the author’s thirst for measures of the aggregate duration in the treasury market and the evolution of this statistic over time. As discussed in section 2 above, the treasury market is a vital funding mechanism for the U.S. Federal Government, and all of those trillions of dollars of securities hold some measure of interest rate risk that affects the willingness of investors to hold those securities. Figure 7 displays the aggregate duration approximation of the treasury market, colored by years to maturity. 
 
-```{r, echo = F, "10. Treasury"}
+```{r, echo = F, "10. Treasury", fig.alt="Figure 7: stacked bars of the billions-of-dollars change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2001 to 2023, by years to maturity, rising steeply and dominated by 20-plus-year bonds."}
 ggDurApproxUSD4
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -694,7 +714,7 @@ Another interesting aspect of the historical development of the aggregate durati
 **Figure 7** reveals the same story when graphed as percentages of the total Duration in the market, as in **Figure 8** below. 
 
 
-```{r, echo = F, "11. Treasury"}
+```{r, echo = F, "11. Treasury", fig.alt="Figure 8: stacked bar chart of each maturity bucket's share of the total change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2001 to 2023, with 20-plus-year bonds exceeding half by 2017."}
 ggDurApproxUSD5
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -703,7 +723,7 @@ Now that we have surveyed the entire dataset available for the outstanding debt 
 
 ### Study 1 – the Treasury Stock during the Great Financial Crisis
 
-```{r, echo = F, "12. Treasury"}
+```{r, echo = F, "12. Treasury", fig.alt="Figure 9: stacked bar chart of outstanding marketable fixed-rate Treasuries in trillions of dollars by years to maturity, monthly from January 2007 to December 2010, with the debt stock growing sharply through the financial crisis."}
 ggOutstandingEnd2_gfc
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -712,7 +732,7 @@ The above **Figure 9** displays the debt stock during the most volatile years of
 
 Over time, however, the government rebalanced back towards longer duration securities. As we will note below, this begins a period in which the government issued an outsized amount of longer duration securities during the Obama and Trump administrations. 
 
-```{r, echo = F, "13. Treasury"}
+```{r, echo = F, "13. Treasury", fig.alt="Figure 10: stacked bar chart of outstanding marketable fixed-rate Treasuries as a percentage of total by years to maturity, 2007 to 2010, showing the under-one-year share swelling in 2009 then receding as longer maturities return."}
 ggOutstandingEnd3_gfc
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -722,7 +742,7 @@ ggOutstandingEnd3_gfc
 Following the Great Financial Crisis and the passage of Obamacare, the national debt rose considerably faster than before, over doubling between 2010 and 2020. At the same time, the U.S. Federal Government also increased its issuance of 20+ year securities to finance this additional deficit spending. The stocks of these debts are in **Figure 11** below.
 
 
-```{r, echo = F, "14. Treasury"}
+```{r, echo = F, "14. Treasury", fig.alt="Figure 11: stacked bar chart of outstanding marketable fixed-rate Treasuries in trillions of dollars by years to maturity, January 2008 to January 2020, more than doubling across the Obama and Trump administrations."}
 ggOutstandingEnd2_obamatrump
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -731,13 +751,13 @@ ggOutstandingEnd2_obamatrump
 
 
 
-```{r, echo = F, "15. Treasury"}
+```{r, echo = F, "15. Treasury", fig.alt="Figure 12: stacked bar chart of the billions-of-dollars change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2008 to 2020, by years to maturity, rising sharply as 20-plus-year issuance grows."}
 ggDurApproxUSD4_obamatrump
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
 
-```{r, echo = F, "16. Treasury"}
+```{r, echo = F, "16. Treasury", fig.alt="Figure 13: stacked bar chart of each maturity bucket's share of the total change in market value of marketable fixed-rate Treasuries for a 0.01 percent rate cut, 2008 to 2020, with the 20-plus-year share climbing above half."}
 ggDurApproxUSD5_obamatrump
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -747,12 +767,12 @@ ggDurApproxUSD5_obamatrump
 During the Coronavirus Pandemic, the stock of the national debt fluctuated in the same manner as during the Great Financial Crisis. **Figures 14 and 15** describe that stock of debt. 
 
 
-```{r, echo = F, "17. Treasury"}
+```{r, echo = F, "17. Treasury", fig.alt="Figure 14: stacked bar chart of outstanding marketable fixed-rate Treasuries in trillions of dollars by years to maturity, January 2019 to January 2023, jumping sharply in 2020 on pandemic borrowing."}
 ggOutstandingEnd2_covid
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
 
-```{r, echo = F, "18. Treasury"}
+```{r, echo = F, "18. Treasury", fig.alt="Figure 15: stacked bar chart of outstanding marketable fixed-rate Treasuries as a percentage of total by years to maturity, 2019 to 2023, with the under-one-year share spiking in 2020 and then falling back."}
 ggOutstandingEnd3_covid
 ```
 [Data & code for this figure →](https://www.nickanderson.us/data.html){.fig-src}
@@ -772,11 +792,11 @@ FRED Expenditures Dataset. Federal Reserve Bank of St. Louis, March 8, 2023. htt
 
 FRED GDP Dataset. Federal Reserve Bank of St. Louis, March 8, 2023. https://fred.stlouisfed.org/series/GDPA.
 
-Securities Industry and Financial Markets Association (SIFMA). "US Treasury Securities Statistics." SIFMA website, https://www.sifma.org/resources/research/us-treasury-securities-statistics/. Accessed May 20, 2023.
+Securities Industry and Financial Markets Association (SIFMA). "US Treasury Securities Statistics." SIFMA website, https://www.sifma.org/resources/research/statistics/us-treasury-securities-statistics/. Accessed May 20, 2023.
 
 U.S. Treasury Fiscal Data. Monthly Statement of the Public Debt (MSPD). FiscalData.Treasury.gov, n.d. Web. 20 May 2023. https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/summary-of-treasury-securities-outstanding.
 
-Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, http://www.jstor.org/stable/2351923. Accessed 21 May 2023.
+Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, https://www.jstor.org/stable/2351923. Accessed 21 May 2023.
 
 
 
@@ -806,13 +826,9 @@ A broader interactive treatment of U.S. taxation, spending, deficits, debt, and 
 
 
 
-# Tax Revenue Cyclicality
+## Tax Revenue Cyclicality: The U.S. Example 1800–2020 {#tax-revenue-cyclicality}
 
-## **Tax Revenue Cyclicality: The U.S. Example 1800-2020**
-
-#### By Nick Anderson
-
-#### Dated 2022.01.07
+<p class="paper-meta">By Nick Anderson &middot; 2022.01.07</p>
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
@@ -822,14 +838,16 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 ```{r, include = F, echo = F}
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
 # IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
-IncomeTaxData <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport1")
-IncomeTaxData2 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport2")
-IncomeTaxData3 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport3")
-IncomeTaxData4 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport4")
-IncomeTaxData5 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport5")
-IncomeTaxData6 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport6")
-IncomeTaxData7 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport7")
-IncomeTaxData8 <- read_excel('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport8")
+# Committed verbatim copies of the RExport1..8 sheets of IncomeTaxData_NA.xlsx
+# (row order preserved -- several marks below are indexed positionally).
+IncomeTaxData  <- src("tax_rexport1.csv", na_build_tax("RExport1"), col_types = na_cols_tax())
+IncomeTaxData2 <- src("tax_rexport2.csv", na_build_tax("RExport2"), col_types = na_cols_tax())
+IncomeTaxData3 <- src("tax_rexport3.csv", na_build_tax("RExport3"), col_types = na_cols_tax(c("date", "value", "type", "order")))
+IncomeTaxData4 <- src("tax_rexport4.csv", na_build_tax("RExport4"), col_types = na_cols_tax(c("date", "value")))
+IncomeTaxData5 <- src("tax_rexport5.csv", na_build_tax("RExport5"), col_types = na_cols_tax(c("date", "value")))
+IncomeTaxData6 <- src("tax_rexport6.csv", na_build_tax("RExport6"), col_types = na_cols_tax())
+IncomeTaxData7 <- src("tax_rexport7.csv", na_build_tax("RExport7"), col_types = na_cols_tax())
+IncomeTaxData8 <- src("tax_rexport8.csv", na_build_tax("RExport8"), col_types = na_cols_tax(c("date", "value")))
 
 #IncomeTaxData$Year <- ymd(IncomeTaxData$Year,truncated=2L)
 #IncomeTaxData$Year <- update(IncomeTaxData$Year, month = 6, mday = 30)
@@ -848,7 +866,7 @@ This paper investigates the correlation between cyclicality and federal tax reve
   The complication in the above policy prescription lies in the nature of the income tax. By the publication of Keynes’ General Theory in 1936, the income tax was a vital funding mechanism for the United States and United Kingdom, among many other countries. Because income taxes are earned by the government only when taxable incomes are earned, income taxes are inherently procyclical. This paper grew out of the author’s attempt to test the strength of the income tax’s cyclicality in U.S. history. 
   The starkest example of the income tax’s cyclicality occurred in the Great Depression. As unemployment increased to as high as 24% in 1933, U.S. income tax revenues fell over 60% (Figure 1). In the years of greatest revenue need, income tax revenues almost disappeared. 
 
-```{r, echo = F}
+```{r, echo = F, fig.alt="Figure 1: columns of U.S. federal revenue in billions of dollars, split into income tax and other tax revenue, 1927 to 1941, with a line for the unemployment rate on a right-hand axis peaking near 25 percent as income tax receipts collapse."}
 
 TotalReceipts  <- IncomeTaxData %>%
                 filter(type == 'Total Receipts')
@@ -939,7 +957,7 @@ The Great Depression remains the severest example of economic depression availab
 The ‘business cycle’ is not easy to define, so this paper examines two aspects of cyclicality: Gross Domestic Product (as a measure of incomes) and the Unemployment Rate (as a measure of employment). The graph above replicated with Nominal GDP instead of the unemployment rate tell the similar stories from different perspectives (Figure 2). When aggregate demand contracts, the income tax contracts as well.
 
 
-```{r, echo = F}
+```{r, echo = F, fig.alt="Figure 2: columns of U.S. federal revenue in billions of dollars, split into income tax and other tax revenue, 1927 to 1941, with a line for nominal GDP on a right-hand axis, both falling together in the early 1930s and recovering after 1933."}
 
 ITvsCol2 <- rbind(ITvsCol,IncomeTaxData2)
 
@@ -1037,7 +1055,7 @@ ggIncomeTaxData2
 The data for Figure 3 below uses the methodology and data from Hungerford (2006). His CRS report summarized US Tax History into three phases instead of four, combining this paper’s two eras of Income Tax dominance into a single Income Tax Era. 
 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt="Figure 3: stacked area chart of U.S. federal revenue by source as a percentage of total receipts, 1800 to 2020, with vertical lines at 1862, 1913 and 1945 marking the customs duties, excise tax, income tax and payroll tax eras."}
 TaxEra <- IncomeTaxData3 %>%
           select(date) %>%
           mutate(mark = NA) 
@@ -1088,7 +1106,7 @@ ggTaxData1
 
   This paper’s method relies on a simple decade by decade calculation of correlation between the measure of cyclicality (GDP or Unemployment Rate) and Tax Revenue by Source.
   
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt="Figure 4: line chart of the decade-by-decade correlation between growth in U.S. federal total receipts and nominal GDP, 1800 to 2020, negative or negligible early in the nineteenth century and positive for the rest of the period."}
 
 ggCorrelation1 <- ggplot(IncomeTaxData4,aes(x=date,y=value)) +
                   geom_line(size = 2, color = "#640000") +
@@ -1120,7 +1138,7 @@ ggCorrelation1
 
   This first Figure 4 provides a two-century overview of the U.S. Federal Government’s Total Receipts’ 10-Year Correlation with Nominal GDP. In the initial 1800-1820, Total Receipts had a negligibly or negatively correlated relationship with Nominal GDP. For the remainder of U.S. history, Total Receipts remains positively correlated with Nominal GDP. 
   
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt="Figure 5: line chart of the decade-by-decade correlation between growth in U.S. federal total receipts and the unemployment rate, 1900 to 2020, mostly negative, indicating receipts fall as unemployment rises."}
 
 ggCorrelation2 <- ggplot(IncomeTaxData5,aes(x=date,y=value)) +
                   geom_line(size = 2, color = "#640000") +
@@ -1149,7 +1167,7 @@ ggCorrelation2
   
   Compare Figure 4 to Figure 5. The annual growth of the Unemployment Rate is negatively correlated with Total Receipts over the sample period 1910-2020. Because the Unemployment Rate would increase in a downturn, this again is evidence that U.S. tax revenue is procyclical. Let’s compare these two indicators to the specific types of taxes observed.
   
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt="Figure 6: two-line chart of the decade-by-decade correlation of income tax revenue growth with nominal GDP and with the negative of the unemployment rate, 1930 to 2020, both mostly positive, showing procyclical income tax receipts."}
 ggCorrelation3 <- ggplot(IncomeTaxData6,aes(x=date,y=value,colour=type)) +
                   geom_line(size = 2) +
                   guides(colour=guide_legend(title=''))+
@@ -1178,7 +1196,7 @@ ggCorrelation3
   First, is the income tax correlated with GDP or changes in the Unemployment Rate? Figure 6 displays the negative of the Income Tax vs Unemployment Rate, which means that the positive displayed values are the result of a negative correlation with Unemployment Rate. This graph confirms the author’s hypothesis. The Income Tax maintains a procyclical orientation towards Nominal GDP and Unemployment Rate. To be specific, the Income Tax is positively correlated with Nominal GDP and negatively correlated with the Unemployment Rate. 
   
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt="Figure 7: two-line chart of the decade-by-decade correlation of social insurance and retirement tax revenue growth with nominal GDP and with the negative of the unemployment rate, 1950 to 2020, strong at first then fading after the 1960s."}
 ggCorrelation4 <- ggplot(IncomeTaxData7,aes(x=date,y=value,colour=type)) +
                   geom_line(size = 2) +
                   guides(colour=guide_legend(title=''))+
@@ -1210,7 +1228,7 @@ The correlation of Social Insurance and Retirement Taxes with Nominal GDP and th
 
 
 	
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt="Figure 8: line chart of the decade-by-decade correlation between growth in U.S. customs duties revenue and nominal GDP, 1810 to 1940, mixed before 1860 and consistently positive after 1880, indicating procyclical customs revenue."}
 ggCorrelation5 <- ggplot(IncomeTaxData8,aes(x=date,y=value)) +
                   geom_line(size = 2,color='#640000') +
                   theme(legend.position="bottom",
@@ -1267,25 +1285,24 @@ Office of Management and Budget. Historical Tables. Table 1.1, “Summary of Rec
 
 A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [gerhard.heterodata.org](https://gerhard.heterodata.org). My related empirical work on bank balance sheets and bank failure is collected at [volcker.org](https://volcker.org).
 
-# Balance of Payments History
+## Historical Balance of Payments Data: Comparing the United States and Germany {#balance-of-payments-history}
 
-## **Historical Balance of Payments Data: Comparing the United States and Germany**
-
-#### By Nick Anderson
-
-#### Dated 2024.12.05
+<p class="paper-meta">By Nick Anderson &middot; 2024.12.05</p>
 
 Sources: [Data](https://www.nickanderson.us/data.html)
 
 **Replication:** the long-run balance-of-payments data is available on the [Data](data.html) page and explorable at [lewis.heterodata.org](https://lewis.heterodata.org); a self-hosted data download mirror is available at [files.heterodata.org](https://files.heterodata.org/).
 
-This work now has a fuller interactive home at [Lewis](https://lewis.heterodata.org), an international-accounts explorer (balance of payments, flow of funds, cross-border value transfers, 258 countries).
+This work now has a fuller interactive home at [Lewis](https://lewis.heterodata.org), an international-accounts explorer (balance of payments, flow of funds, cross-border value transfers, 264 country and aggregate codes).
 
 ```{r, include = F, echo = F, "20. BoP"}
 
-GERdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\GERdata_annual_pct.csv", check.names = FALSE)
+# Committed verbatim copies of the two long-run balance-of-payments extracts.
+GERdata_annual_pct <- read.csv(src_path("bop_GERdata_annual_pct.csv",
+                                        na_bop_source("GERdata_annual_pct.csv")), check.names = FALSE)
 
-USdata_annual_pct <- read.csv("E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\BoP\\USdata_annual_pct.csv", check.names = FALSE)
+USdata_annual_pct <- read.csv(src_path("bop_USdata_annual_pct.csv",
+                                       na_bop_source("USdata_annual_pct.csv")), check.names = FALSE)
 
 USdata_annual_pct$Country <- "US"
 GERdata_annual_pct$Country <- "GER"
@@ -1433,9 +1450,9 @@ In recent history, the Capital Account has been separated out into the Capital &
 
 For the purposes of this paper, I combine the Capital and Financial Accounts for convenience: in both Germany and the United States the newly segregated Capital Account is of negligible size relative to the Financial and Current Accounts, almost always near 0% of Gross Domestic Product.
 
-#### Ongoing
+### Ongoing
 
-This written treatment is still in progress. The full long-run balance-of-payments data — for the United States, Germany, and 256 other countries — is explorable now at [Lewis](https://lewis.heterodata.org).
+This written treatment is still in progress. The full long-run balance-of-payments data — for the United States, Germany, and 262 other country and aggregate codes — is explorable now at [Lewis](https://lewis.heterodata.org).
 
 
 

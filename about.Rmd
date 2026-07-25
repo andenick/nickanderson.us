@@ -1,16 +1,28 @@
 ---
-title: "About"
 pagetitle: "About — Nick Anderson"
 output:
   html_document:
     includes:
       in_header: ["_head.html", "_meta_about.html"]
+      before_body: _before_body.html
       after_body: _after_body.html
 ---
 
+# About
+
 Hi everyone.
 
-I am Nick Anderson, a PhD candidate in Economics at The New School for Social Research. This is a website where I host my projects and anything else I want to share publicly.
+I am Nick Anderson, a PhD candidate in Economics at The New School for Social
+Research. This is a website where I host my projects and anything else I want to
+share publicly.
+
+My dissertation, [Volcker](https://volcker.org), tests twelve traditions of
+banking theory against one another on a single harmonised panel of US banking
+data, under the chairmanship of Paulo dos Santos. Alongside it I work on public
+finance — Treasury duration and tax-revenue cyclicality — and on the
+institutional history of economics at The New School. Most of what I do involves
+retrieving primary sources that are not otherwise available in machine-readable
+form, and publishing them with their provenance intact.
 
 Best wishes,
 
@@ -18,4 +30,4 @@ Nick
 
 ---
 
-[nickawebbox@gmail.com](mailto:nickawebbox@gmail.com) · [github.com/andenick](https://github.com/andenick)
+[nickawebbox@gmail.com](mailto:nickawebbox@gmail.com) · [github.com/andenick](https://github.com/andenick) · [Contact](contact.html)

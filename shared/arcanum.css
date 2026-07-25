@@ -1,0 +1,845 @@
+/* =============================================================================
+   Arcanum Site Kit (ASK) — arcanum.css — v1.3
+   v1.3 (2026-06-12): header-density breakpoint (≤1100px) so 9-10-item navs
+   don't wrap the theme toggle onto a second row; no token changes.
+   v1.2 (Heterodata rebrand)
+   The single, vendored, versioned design system for Arcanum Research sites.
+   ONE visual identity across ~12 sites; themeable per-site by ONE accent color.
+
+   Promoted from the heterodata.org hub palette (dark default + light via
+   prefers-color-scheme, the card grid, the accent system). No CDN, no web-font
+   hosting — body font is the system-ui stack (offline rule).
+
+   A per-site theme is just 1-2 lines overriding --ark-accent / --ark-accent-soft.
+   See themes/<site>.css and README.md.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. TOKENS  (:root — dark default; light via prefers-color-scheme)
+   --------------------------------------------------------------------------- */
+:root {
+  color-scheme: light dark;
+
+  /* --- Identity — NEVER override per site ----------------------------------- */
+  --ark-font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --ark-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ark-radius: 14px;
+  --ark-radius-sm: 8px;
+  --ark-maxw: 1080px;
+
+  /* Type scale (rem, ~1.2 minor-third) */
+  --ark-text-xs:   0.75rem;
+  --ark-text-sm:   0.85rem;
+  --ark-text-base: 1rem;
+  --ark-text-md:   1.08rem;
+  --ark-text-lg:   1.18rem;
+  --ark-text-xl:   1.5rem;
+  --ark-text-2xl:  2rem;
+  --ark-text-3xl:  clamp(2.1rem, 5vw, 3rem);
+  --ark-leading: 1.6;
+  --ark-leading-tight: 1.2;
+
+  /* Spacing scale */
+  --ark-space-1: 0.25rem;
+  --ark-space-2: 0.5rem;
+  --ark-space-3: 0.75rem;
+  --ark-space-4: 1rem;
+  --ark-space-5: 1.5rem;
+  --ark-space-6: 2.5rem;
+
+  --ark-shadow: 0 6px 22px -12px rgba(0, 0, 0, .4);
+  --ark-shadow-lg: 0 8px 28px rgba(0, 0, 0, .35);
+
+  /* --- Neutrals — dark default ---------------------------------------------- */
+  --ark-bg:       #0e1116;
+  --ark-bg-soft:  #161b22;
+  --ark-fg:       #e7edf3;
+  --ark-fg-dim:   #9aa7b4;
+  --ark-line:     #2a313b;
+  --ark-tag:      #1f2733;
+
+  /* --- THE per-site knob — override these two only (default = hub blue) ------ */
+  --ark-accent:      #1565c0;
+  --ark-accent-soft: #1b3a5c;
+  /* v1.2 contrast token: the text/ink color to place ON a solid --ark-accent
+     fill (buttons, badges-on-accent, download controls, skip-link). EVERY theme
+     sets this so accent-on-accent (invisible text) can never happen. White for
+     dark/saturated accents; a theme with a light accent sets it to a dark ink.
+     --ark-accent-ink is kept as a back-compat alias. */
+  --ark-on-accent:   #ffffff;
+  --ark-accent-ink:  var(--ark-on-accent);
+
+  /* Semantic status colors (stable across themes) */
+  --ark-ok:    #2ea043;
+  --ark-warn:  #d29922;
+  --ark-danger:#f85149;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ark-bg:       #f7f9fc;
+    --ark-bg-soft:  #ffffff;
+    --ark-fg:       #14181d;
+    --ark-fg-dim:   #5a6673;
+    --ark-line:     #dde3ea;
+    --ark-tag:      #eef2f7;
+
+    --ark-accent:      #1565c0;
+    --ark-accent-soft: #d9e8fb;
+    --ark-on-accent:   #ffffff;
+    --ark-accent-ink:  var(--ark-on-accent);
+
+    --ark-shadow: 0 6px 22px -12px rgba(0, 0, 0, .18);
+    --ark-shadow-lg: 0 8px 28px rgba(0, 0, 0, .14);
+  }
+}
+
+/* Manual override hooks (a site/user can force a scheme without prefers query).
+   v2.0.1 dark-toggle fix: the dark neutral palette above lives on :root as the
+   default, but the JS toggle sets [data-theme="dark"] to force dark for a
+   light-OS visitor. Previously [data-theme="dark"] only set color-scheme, so on
+   a light OS the palette never flipped. Re-apply the dark tokens on the explicit
+   attribute so the toggle works regardless of the OS preference. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ark-bg:       #0e1116;
+  --ark-bg-soft:  #161b22;
+  --ark-fg:       #e7edf3;
+  --ark-fg-dim:   #9aa7b4;
+  --ark-line:     #2a313b;
+  --ark-tag:      #1f2733;
+  --ark-accent-soft: #1b3a5c;
+  --ark-shadow: 0 6px 22px -12px rgba(0, 0, 0, .4);
+  --ark-shadow-lg: 0 8px 28px rgba(0, 0, 0, .35);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ark-bg: #f7f9fc; --ark-bg-soft: #fff; --ark-fg: #14181d;
+  --ark-fg-dim: #5a6673; --ark-line: #dde3ea; --ark-tag: #eef2f7;
+  --ark-accent-soft: #d9e8fb;
+}
+
+/* -----------------------------------------------------------------------------
+   2. RESET / BASE
+   --------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--ark-font);
+  font-size: var(--ark-text-base);
+  line-height: var(--ark-leading);
+  background: var(--ark-bg);
+  color: var(--ark-fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--ark-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4, h5, h6 { line-height: var(--ark-leading-tight); letter-spacing: -.01em; }
+
+img, svg, video { max-width: 100%; height: auto; }
+hr { border: 0; border-top: 1px solid var(--ark-line); margin: var(--ark-space-5) 0; }
+
+code, kbd, samp, pre { font-family: var(--ark-mono); }
+
+/* Baseline a11y: visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid var(--ark-accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.ark-visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.ark-skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 1000;
+  background: var(--ark-accent); color: var(--ark-on-accent);
+  padding: var(--ark-space-2) var(--ark-space-4); border-radius: 0 0 var(--ark-radius-sm) 0;
+}
+.ark-skip-link:focus { left: 0; }
+
+/* -----------------------------------------------------------------------------
+   3. LAYOUT HELPERS
+   --------------------------------------------------------------------------- */
+.ark-wrap {
+  max-width: var(--ark-maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.ark-main { padding: var(--ark-space-6) 0; min-height: 50vh; }
+
+.ark-section-head {
+  display: flex; align-items: baseline; gap: var(--ark-space-3);
+  margin: var(--ark-space-6) 0 var(--ark-space-5);
+  padding-bottom: var(--ark-space-3);
+  border-bottom: 1px solid var(--ark-line);
+  flex-wrap: wrap;
+}
+.ark-section-head h2 { margin: 0; font-size: var(--ark-text-lg); }
+.ark-section-head .ark-note { margin: 0; font-size: var(--ark-text-sm); color: var(--ark-fg-dim); }
+
+/* Hero / landing intro */
+.ark-hero { padding: var(--ark-space-6) 0 var(--ark-space-5); }
+.ark-hero h1 { font-size: var(--ark-text-3xl); margin: 0 0 .6rem; line-height: 1.1; }
+.ark-hero .ark-lede { margin: 0; max-width: 62ch; color: var(--ark-fg-dim); font-size: var(--ark-text-md); }
+
+/* Prose measure for readability */
+.ark-prose { max-width: 72ch; font-size: var(--ark-text-md); line-height: 1.75; }
+.ark-prose p { margin: 0 0 1.1em; }
+.ark-prose h2 { margin-top: 2.2em; }
+.ark-prose h3 { margin-top: 1.7em; }
+.ark-prose a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* -----------------------------------------------------------------------------
+   4. HEADER  /  STICKY NAV
+   .ark-header > .ark-wrap > [.ark-brand] [.ark-site-title] [.ark-switcher] <nav.ark-nav>
+   --------------------------------------------------------------------------- */
+.ark-header {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--ark-bg) 92%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(8px);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid var(--ark-line);
+}
+/* Fallback for browsers without backdrop-filter / color-mix */
+@supports not (backdrop-filter: blur(1px)) {
+  .ark-header { background: var(--ark-bg); }
+}
+
+.ark-header-inner {
+  display: flex; align-items: center; gap: var(--ark-space-4);
+  max-width: var(--ark-maxw); margin: 0 auto;
+  padding: .7rem 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Brand mark — links to the hub (heterodata.org) */
+.ark-brand {
+  display: inline-flex; align-items: center; gap: .55rem;
+  color: var(--ark-fg); font-weight: 700; flex-shrink: 0;
+}
+.ark-brand:hover { text-decoration: none; }
+.ark-brand .ark-mark {
+  width: 26px; height: 26px; flex-shrink: 0;
+  color: var(--ark-accent); /* favicon.svg tints via currentColor */
+}
+.ark-brand .ark-brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+.ark-brand .ark-brand-name { font-size: .98rem; letter-spacing: -.01em; }
+.ark-brand .ark-brand-sub {
+  font-size: .58rem; font-weight: 500; color: var(--ark-fg-dim);
+  letter-spacing: .08em; text-transform: uppercase;
+}
+
+/* Site title (current site, accent-tinted divider) */
+.ark-site-title {
+  font-weight: 600; font-size: .98rem; color: var(--ark-fg);
+  padding-left: var(--ark-space-4);
+  border-left: 2px solid var(--ark-accent);
+  flex-shrink: 0;
+}
+.ark-site-title:hover { text-decoration: none; }
+
+/* Per-site nav links */
+.ark-nav { display: flex; gap: var(--ark-space-4); margin-left: auto; flex-wrap: wrap; align-items: center; }
+.ark-nav-a {
+  color: var(--ark-fg-dim); font-size: .92rem; padding: 2px 0;
+  border-bottom: 2px solid transparent; transition: color .12s, border-color .12s;
+}
+.ark-nav-a:hover { color: var(--ark-accent); text-decoration: none; }
+.ark-nav-a.active { color: var(--ark-fg); border-bottom-color: var(--ark-accent); font-weight: 600; }
+
+/* -----------------------------------------------------------------------------
+   5. ECOSYSTEM SWITCHER  (<details>-based, no-JS-required dropdown)
+   --------------------------------------------------------------------------- */
+.ark-switcher { position: relative; flex-shrink: 0; }
+.ark-switcher > summary {
+  list-style: none; cursor: pointer; user-select: none;
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .88rem; color: var(--ark-fg-dim);
+  border: 1px solid var(--ark-line); border-radius: 999px;
+  padding: .3rem .75rem; background: var(--ark-bg-soft);
+  transition: border-color .12s, color .12s;
+}
+.ark-switcher > summary::-webkit-details-marker { display: none; }
+.ark-switcher > summary:hover { color: var(--ark-fg); border-color: var(--ark-accent); }
+.ark-switcher > summary .ark-caret { font-size: .7rem; transition: transform .15s; }
+.ark-switcher[open] > summary .ark-caret { transform: rotate(180deg); }
+
+.ark-switcher-menu {
+  position: absolute; top: calc(100% + .4rem); right: 0;
+  width: min(340px, 86vw); max-height: 70vh; overflow-y: auto;
+  background: var(--ark-bg-soft); border: 1px solid var(--ark-line);
+  border-radius: var(--ark-radius); box-shadow: var(--ark-shadow-lg);
+  z-index: 200; padding: .4rem;
+}
+.ark-switcher-group {
+  font-size: var(--ark-text-xs); font-weight: 600; text-transform: uppercase;
+  letter-spacing: .07em; color: var(--ark-fg-dim);
+  padding: .6rem .6rem .3rem;
+}
+.ark-switcher-item {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .5rem .6rem; border-radius: var(--ark-radius-sm);
+  color: var(--ark-fg); font-size: .9rem; text-decoration: none;
+  transition: background .1s;
+}
+.ark-switcher-item:hover { background: var(--ark-tag); text-decoration: none; }
+.ark-switcher-item.current { background: var(--ark-accent-soft); }
+.ark-switcher-item .ark-dot {
+  width: 10px; height: 10px; border-radius: 999px; flex-shrink: 0;
+  background: var(--ark-si-accent, var(--ark-accent));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ark-si-accent, var(--ark-accent)) 22%, transparent);
+}
+.ark-switcher-item .ark-si-name { font-weight: 500; }
+.ark-switcher-item .ark-si-host {
+  margin-left: auto; font-family: var(--ark-mono);
+  font-size: .74rem; color: var(--ark-fg-dim);
+}
+.ark-switcher-item .ark-si-pill {
+  font-size: .6rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ark-fg-dim); background: var(--ark-tag);
+  border-radius: 999px; padding: .1rem .4rem;
+}
+/* v1.2: "affiliated" suffix tag on switcher/cards (external-owner sites). */
+.ark-affiliated {
+  font-size: .58rem; letter-spacing: .04em; text-transform: lowercase;
+  color: var(--ark-fg-dim); background: var(--ark-tag);
+  border: 1px solid var(--ark-line);
+  border-radius: 999px; padding: .08rem .4rem; white-space: nowrap;
+}
+
+/* v1.2: indented subpage links under each site in the detailed dropdown. */
+.ark-si-sub {
+  display: flex; align-items: center;
+  padding: .25rem .6rem .25rem 2.05rem; border-radius: var(--ark-radius-sm);
+  color: var(--ark-fg-dim); font-size: .8rem; text-decoration: none;
+  transition: background .1s, color .1s;
+}
+.ark-si-sub::before {
+  content: ""; width: 4px; height: 4px; border-radius: 999px;
+  background: currentColor; opacity: .5; margin-right: .5rem; flex-shrink: 0;
+}
+.ark-si-sub:hover { background: var(--ark-tag); color: var(--ark-fg); text-decoration: none; }
+.ark-si-sub .ark-si-sub-label { line-height: 1.3; }
+
+/* v1.2: greyed-out "planned" entries (sites or subpages not yet routed). */
+.ark-planned {
+  opacity: .5; pointer-events: none; cursor: default;
+  filter: grayscale(0.6);
+}
+
+/* -----------------------------------------------------------------------------
+   6. CARDS  /  GRID  (ported from the hub)
+   --------------------------------------------------------------------------- */
+.ark-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: var(--ark-space-4);
+}
+.ark-card {
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius);
+  padding: 1.4rem 1.45rem; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; background: var(--ark-bg-soft);
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.ark-card:hover, .ark-card:focus-visible {
+  border-color: var(--ark-accent); transform: translateY(-2px);
+  box-shadow: var(--ark-shadow); outline: none; text-decoration: none;
+}
+.ark-card .ark-card-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .5rem; margin-bottom: .5rem;
+}
+.ark-card h3 { margin: 0; font-size: var(--ark-text-lg); }
+.ark-card .ark-arrow { color: var(--ark-accent); font-size: 1.05rem; opacity: .8; transition: transform .15s ease; }
+.ark-card:hover .ark-arrow { transform: translateX(3px); }
+.ark-card p { margin: 0 0 1rem; color: var(--ark-fg-dim); font-size: .92rem; flex: 1; }
+.ark-card .ark-url {
+  font-size: .82rem; color: var(--ark-accent);
+  font-family: var(--ark-mono); word-break: break-all;
+}
+
+.ark-pill {
+  font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+  color: var(--ark-fg-dim); background: var(--ark-tag);
+  border-radius: 999px; padding: .2rem .55rem; white-space: nowrap;
+}
+.ark-pill.draft { color: var(--ark-warn); background: color-mix(in srgb, var(--ark-warn) 16%, transparent); }
+
+/* -----------------------------------------------------------------------------
+   7. BUTTONS  +  DOWNLOAD CLUSTER
+   --------------------------------------------------------------------------- */
+.ark-btn {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: inherit; font-size: .9rem; font-weight: 600; line-height: 1;
+  padding: .6rem 1.1rem; border-radius: var(--ark-radius-sm);
+  border: 1px solid var(--ark-accent); background: var(--ark-accent);
+  /* !important so a site's own `.prose a {color}` can't make button text accent-on-accent (invisible) */
+  color: var(--ark-on-accent) !important; cursor: pointer; text-decoration: none;
+  transition: filter .12s, background .12s, color .12s;
+}
+.ark-btn:hover { filter: brightness(1.08); text-decoration: none; }
+.ark-btn:active { filter: brightness(.94); }
+.ark-btn[disabled], .ark-btn:disabled { opacity: .55; cursor: default; filter: none; }
+
+.ark-btn-outline {
+  /* fg text (always readable on any bg, light or dark accent) + accent border; fills on hover */
+  background: transparent; color: var(--ark-fg) !important; border-color: var(--ark-accent);
+}
+.ark-btn-outline:hover { background: var(--ark-accent); color: var(--ark-on-accent) !important; filter: none; }
+
+.ark-btn-ghost {
+  background: transparent; border-color: var(--ark-line); color: var(--ark-fg) !important;
+}
+.ark-btn-ghost:hover { border-color: var(--ark-accent); color: var(--ark-accent) !important; background: transparent; }
+
+.ark-btn-sm { font-size: .78rem; padding: .35rem .7rem; }
+
+.ark-btn-group { display: inline-flex; flex-wrap: wrap; gap: var(--ark-space-2); }
+
+/* Download cluster — labelled group of format buttons */
+.ark-download {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--ark-space-2);
+  padding: var(--ark-space-3) 0;
+}
+.ark-download .ark-download-label {
+  font-size: var(--ark-text-xs); text-transform: uppercase; letter-spacing: .06em;
+  color: var(--ark-fg-dim); margin-right: var(--ark-space-2);
+}
+/* v1.3 FIX: scope the outline-chip style to plain links only. The previous
+   `.ark-download a` selector (0,1,1) beat `.ark-btn` (0,1,0) and repainted the
+   ArkDownloads.buttons() chips' text in the accent color ON the accent fill —
+   invisible labels in production (gerhard, lewis). */
+.ark-download a:not(.ark-btn) {
+  display: inline-block; font-size: .76rem; font-family: var(--ark-mono);
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius-sm);
+  padding: .25rem .6rem; color: var(--ark-accent); text-decoration: none;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.ark-download a:not(.ark-btn):hover { background: var(--ark-accent); color: var(--ark-on-accent); border-color: var(--ark-accent); }
+
+/* -----------------------------------------------------------------------------
+   8. DATA TABLE
+   --------------------------------------------------------------------------- */
+.ark-table-wrap {
+  width: 100%; overflow-x: auto;
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius);
+  background: var(--ark-bg-soft);
+}
+.ark-table {
+  width: 100%; border-collapse: collapse;
+  font-size: .85rem; font-variant-numeric: tabular-nums;
+}
+.ark-table caption {
+  text-align: left; padding: .7rem 1rem; color: var(--ark-fg-dim);
+  font-size: var(--ark-text-sm); border-bottom: 1px solid var(--ark-line);
+}
+.ark-table th, .ark-table td {
+  padding: .5rem .8rem; border-bottom: 1px solid var(--ark-line);
+  text-align: right; white-space: nowrap;
+}
+.ark-table th:first-child, .ark-table td:first-child { text-align: left; }
+.ark-table thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--ark-tag); color: var(--ark-fg-dim);
+  font-size: .76rem; letter-spacing: .02em; font-weight: 600;
+}
+.ark-table tbody tr:hover td { background: var(--ark-tag); }
+.ark-table tbody tr:last-child td { border-bottom: 0; }
+
+/* -----------------------------------------------------------------------------
+   9. PLOTLY CHART CONTAINER (responsive)
+   --------------------------------------------------------------------------- */
+.ark-chart {
+  width: 100%; min-height: 440px;
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius);
+  background: var(--ark-bg-soft);
+  padding: var(--ark-space-2);
+  display: flex; flex-direction: column;
+}
+.ark-chart > .js-plotly-plot, .ark-chart > .plotly, .ark-chart > * { flex: 1 1 auto; min-width: 0; }
+.ark-chart-meta {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--ark-space-3);
+  flex-wrap: wrap; font-size: var(--ark-text-sm); color: var(--ark-fg-dim);
+  padding: var(--ark-space-2) var(--ark-space-3) 0;
+}
+.ark-chart-loading { color: var(--ark-fg-dim); padding: var(--ark-space-5); text-align: center; font-style: italic; }
+.ark-chart-error { color: var(--ark-danger); padding: var(--ark-space-5); text-align: center; font-size: .9rem; }
+
+/* -----------------------------------------------------------------------------
+   10. PROVENANCE  /  DPR PANEL  ("How this was built")
+   --------------------------------------------------------------------------- */
+.ark-provenance {
+  border: 1px solid var(--ark-line);
+  border-left: 4px solid var(--ark-accent);
+  border-radius: var(--ark-radius);
+  background: var(--ark-bg-soft);
+  padding: var(--ark-space-5);
+  margin: var(--ark-space-5) 0;
+}
+.ark-provenance > h2, .ark-provenance > h3 {
+  margin: 0 0 var(--ark-space-3); font-size: var(--ark-text-lg);
+  display: flex; align-items: center; gap: .5rem;
+}
+.ark-provenance dl {
+  display: grid; grid-template-columns: max-content 1fr;
+  gap: .4rem var(--ark-space-4); margin: 0;
+}
+.ark-provenance dt {
+  font-size: var(--ark-text-xs); text-transform: uppercase; letter-spacing: .06em;
+  font-weight: 600; color: var(--ark-fg-dim); padding-top: .15rem;
+}
+.ark-provenance dd { margin: 0; font-size: .92rem; }
+.ark-provenance dd a { color: var(--ark-accent); }
+.ark-provenance .ark-prov-updated {
+  margin-top: var(--ark-space-4); padding-top: var(--ark-space-3);
+  border-top: 1px solid var(--ark-line);
+  font-size: var(--ark-text-sm); color: var(--ark-fg-dim);
+}
+@media (max-width: 560px) {
+  .ark-provenance dl { grid-template-columns: 1fr; gap: 0 0; }
+  .ark-provenance dd { margin-bottom: var(--ark-space-3); }
+}
+
+/* -----------------------------------------------------------------------------
+   11. BADGES  (Reproducible · Offline · Real data · Draft)
+   --------------------------------------------------------------------------- */
+.ark-badge {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-size: var(--ark-text-xs); font-weight: 600;
+  letter-spacing: .04em; line-height: 1;
+  padding: .3rem .6rem; border-radius: 999px;
+  color: var(--ark-fg-dim); background: var(--ark-tag);
+  border: 1px solid var(--ark-line);
+}
+.ark-badge::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: currentColor; opacity: .8; }
+.ark-badge.reproducible { color: var(--ark-ok); }
+.ark-badge.offline { color: var(--ark-accent); }
+.ark-badge.real-data { color: var(--ark-fg); }
+.ark-badge.draft { color: var(--ark-warn); }
+.ark-badge-row { display: inline-flex; flex-wrap: wrap; gap: var(--ark-space-2); align-items: center; }
+
+/* -----------------------------------------------------------------------------
+   12. CODE BLOCK  +  COPY BUTTON
+   --------------------------------------------------------------------------- */
+.ark-code {
+  position: relative;
+  background: var(--ark-bg-soft);
+  border: 1px solid var(--ark-line);
+  border-radius: var(--ark-radius);
+  margin: var(--ark-space-4) 0;
+  overflow: hidden;
+}
+.ark-code-head {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .45rem .8rem; background: var(--ark-tag);
+  border-bottom: 1px solid var(--ark-line);
+  font-family: var(--ark-mono); font-size: .76rem; color: var(--ark-fg-dim);
+  flex-wrap: wrap;
+}
+.ark-code-head .ark-code-path { word-break: break-all; }
+.ark-copy {
+  margin-left: auto;
+  background: var(--ark-bg-soft); color: var(--ark-accent);
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius-sm);
+  padding: .2rem .65rem; font-family: inherit; font-size: .74rem;
+  cursor: pointer; white-space: nowrap; transition: background .12s, color .12s;
+}
+.ark-copy:hover { background: var(--ark-accent); color: var(--ark-on-accent); border-color: var(--ark-accent); }
+.ark-copy:disabled { opacity: .6; cursor: default; }
+.ark-code pre { margin: 0; padding: var(--ark-space-4); overflow-x: auto; font-size: .87rem; line-height: 1.55; }
+.ark-code pre[hidden] { display: none; }
+.ark-code code { font-family: var(--ark-mono); }
+
+/* A6 dual-language extension (ark-code.js): R | Python toggle + Download.
+   Reuses the .ark-code box + .ark-copy button above; only adds toggle chrome. */
+.ark-code-toggle {
+  display: inline-flex; align-items: stretch;
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius-sm);
+  overflow: hidden;
+}
+.ark-code-lang {
+  background: var(--ark-bg-soft); color: var(--ark-fg-dim);
+  border: 0; border-right: 1px solid var(--ark-line);
+  padding: .2rem .7rem; font-family: inherit; font-size: .74rem;
+  cursor: pointer; white-space: nowrap; transition: background .12s, color .12s;
+}
+.ark-code-lang:last-child { border-right: 0; }
+.ark-code-lang:hover { color: var(--ark-fg); }
+.ark-code-lang.is-active {
+  background: var(--ark-accent); color: var(--ark-on-accent); cursor: default;
+}
+.ark-code-dl { margin-left: var(--ark-space-2); }
+
+/* Inline code */
+:not(pre) > code.ark-inline, .ark-prose :not(pre) > code {
+  background: var(--ark-tag); padding: .1rem .35rem;
+  border-radius: 4px; font-size: .88em;
+}
+
+/* -----------------------------------------------------------------------------
+   13. FOOTER  (mandated — dual anchors: heterodata.org + nickanderson.us)
+   --------------------------------------------------------------------------- */
+.ark-footer {
+  border-top: 1px solid var(--ark-line);
+  background: var(--ark-bg-soft);
+  color: var(--ark-fg-dim);
+  font-size: var(--ark-text-sm);
+  margin-top: var(--ark-space-6);
+}
+.ark-footer-inner {
+  max-width: var(--ark-maxw); margin: 0 auto;
+  padding: var(--ark-space-5) 1.25rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .75rem;
+  line-height: 1.7;
+}
+.ark-footer a { color: var(--ark-accent); }
+.ark-footer strong { color: var(--ark-fg); }
+.ark-footer .ark-sep { color: var(--ark-line); user-select: none; }
+.ark-footer .ark-foot-badges { display: inline-flex; flex-wrap: wrap; gap: .4rem; }
+/* Educational disclaimer (EDUCATIONAL_DISCLAIMER_STANDARD.md) — site-wide footer placement. */
+.ark-footer-disclaimer {
+  max-width: var(--ark-maxw); margin: 0 auto;
+  padding: var(--ark-space-4) 1.25rem 0;
+  font-size: var(--ark-text-xs); color: var(--ark-fg-dim);
+  line-height: 1.6; text-wrap: pretty;
+}
+.ark-footer-disclaimer .ark-disclaimer-source { color: var(--ark-fg); }
+
+/* -----------------------------------------------------------------------------
+   14. RESPONSIVE
+   --------------------------------------------------------------------------- */
+/* v1.3: density step — keep long navs (9-10 items) on one header row before
+   the full mobile stack kicks in; prevents the theme toggle wrapping onto a
+   second row that overlaps content under the translucent sticky header. */
+@media (max-width: 1100px) {
+  .ark-header-inner { gap: var(--ark-space-2) var(--ark-space-3); }
+  .ark-nav { gap: .65rem; }
+  .ark-nav-a { font-size: .85rem; }
+  .ark-brand .ark-brand-sub { display: none; }
+}
+
+@media (max-width: 680px) {
+  .ark-header-inner { gap: .6rem .9rem; }
+  .ark-site-title { padding-left: .7rem; }
+  .ark-nav { gap: .9rem; font-size: .85rem; width: 100%; order: 3; }
+  .ark-hero h1 { font-size: 1.9rem; }
+  .ark-grid { grid-template-columns: 1fr; }
+}
+
+/* -----------------------------------------------------------------------------
+   15. MOTION / PREFERS-REDUCED-MOTION
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important; scroll-behavior: auto !important;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   16. LIGHT/DARK TOGGLE (v1.1) — button + sun/moon swap by effective theme
+   --------------------------------------------------------------------------- */
+.ark-theme-toggle {
+  margin-left: auto; flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2rem; height: 2rem; border-radius: 999px;
+  background: transparent; border: 1px solid var(--ark-line);
+  color: var(--ark-fg-dim); cursor: pointer; font-size: 1rem; line-height: 1;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.ark-theme-toggle:hover { color: var(--ark-fg); border-color: var(--ark-accent); }
+.ark-theme-toggle:focus-visible { outline: 2px solid var(--ark-accent); outline-offset: 2px; }
+/* When a per-site nav exists it has margin-left:auto; keep the toggle to its right. */
+.ark-header .ark-nav + .ark-theme-toggle { margin-left: .5rem; }
+/* Glyph visibility: show the icon for the mode you'd switch TO. Default kit = dark → show sun. */
+.ark-theme-moon { display: none; }
+.ark-theme-sun  { display: inline; }
+:root[data-theme="light"] .ark-theme-sun  { display: none; }
+:root[data-theme="light"] .ark-theme-moon { display: inline; }
+:root[data-theme="dark"]  .ark-theme-sun  { display: inline; }
+:root[data-theme="dark"]  .ark-theme-moon { display: none; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .ark-theme-sun  { display: none; }
+  :root:not([data-theme]) .ark-theme-moon { display: inline; }
+}
+
+/* ── §17 ArkChart — the single chart entry point (ark-chart.js) ───────────────
+   DNA Universal Graph Contract: one chart per row (full width), title left +
+   controls (transform + Download CSV) pinned top-right, plot, then downloads row. */
+.ark-chart-wrap { display: block; width: 100%; margin: 0 0 var(--ark-space-5, 24px); }
+.ark-chart-head {
+  display: flex; align-items: center; gap: var(--ark-space-2, 8px);
+  justify-content: space-between; flex-wrap: wrap; margin-bottom: var(--ark-space-2, 8px);
+}
+.ark-chart-title { font-weight: 600; font-size: var(--ark-text-lg, 1.125rem); color: var(--ark-fg); }
+.ark-chart-controls { display: flex; align-items: center; gap: var(--ark-space-2, 8px); margin-left: auto; }
+.ark-chart-csv { white-space: nowrap; }
+.ark-chart-transform { padding: 2px 8px; }
+.ark-chart { width: 100%; min-height: 320px; }
+.ark-chart-downloads { margin-top: var(--ark-space-2, 8px); }
+/* never two charts sharing a row */
+.ark-chart-row, .ark-charts { display: block; }
+@media (max-width: 680px) {
+  .ark-chart-head { flex-direction: column; align-items: flex-start; }
+  .ark-chart-controls { margin-left: 0; }
+}
+
+/* ── §18 ArkTable — responsive narrative tables (ark-table.js) ────────────────
+   DNA TABLE_RENDERING_STANDARD: at narrow widths a narrative table reflows to
+   label-stacked cards (each cell shows its column header via data-label) instead
+   of a horizontally-scrolling mystery. Wide data grids belong in the Explorer. */
+.ark-table-wrap { width: 100%; overflow-x: auto; }
+.ark-table { width: 100%; border-collapse: collapse; font-size: var(--ark-text-sm, .92rem); }
+.ark-table th, .ark-table td {
+  padding: 6px 10px; border-bottom: 1px solid var(--ark-line); text-align: left; vertical-align: top;
+}
+.ark-table thead th { color: var(--ark-fg-dim); font-weight: 600; }
+@media (max-width: 680px) {
+  /* Scoped under .ark-table-wrap (ArkTable always wraps) + !important so the reflow beats a
+     site's own .doc-table/.stat-table/.grid/.prose table CSS regardless of source order. */
+  .ark-table-wrap .ark-table,
+  .ark-table-wrap .ark-table tbody,
+  .ark-table-wrap .ark-table tr,
+  .ark-table-wrap .ark-table td {
+    display: block !important; width: 100% !important; box-sizing: border-box !important;
+  }
+  /* keep the header for screen readers but take it out of the visual flow */
+  .ark-table-wrap .ark-table thead { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .ark-table-wrap .ark-table tr {
+    margin: 0 0 12px !important; border: 1px solid var(--ark-line) !important;
+    border-radius: var(--ark-radius, 10px); padding: 4px 0 !important; background: var(--ark-bg-soft);
+  }
+  .ark-table-wrap .ark-table td {
+    border-bottom: 1px solid var(--ark-line); padding: 6px 10px 6px 44% !important;
+    position: relative; min-height: 1.6em; overflow-wrap: anywhere; white-space: normal !important;
+  }
+  .ark-table-wrap .ark-table td:last-child { border-bottom: 0; }
+  .ark-table-wrap .ark-table td::before {
+    content: attr(data-label); position: absolute; left: 10px; top: 6px; width: 38%;
+    font-weight: 600; color: var(--ark-fg-dim);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  /* the wrap itself must not force a min-width from the old table layout */
+  .ark-table-wrap { overflow-x: hidden !important; }
+}
+
+/* ── §19 ArkGallery — curated featured-chart gallery (ark-gallery.js) ──────────
+   A standardized "Chart Gallery" section rendered FROM a human-approved
+   gallery_manifest.json. Responsive grid of cards; ONE chart per card (each card
+   reuses the site's standard live `.chart-embed`, so legend-below + top-right
+   Download-CSV + tokens are inherited by construction — DNA-compliant). The card
+   grid is responsive (never two charts crammed into one card). */
+.ark-gallery { display: block; width: 100%; }
+.ark-gallery-heading { margin: 0 0 var(--ark-space-3, 12px); font-size: var(--ark-text-xl, 1.5rem); }
+.ark-gallery-intro { margin: 0 0 var(--ark-space-5, 24px); color: var(--ark-fg-dim); max-width: 64ch; }
+.ark-gallery-grid {
+  display: grid; gap: var(--ark-space-5, 24px);
+  /* responsive: 1 column on phones, 2 on wide screens — but each card is a full,
+     standalone chart (the per-CARD chart is never split into side-by-side plots). */
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) { .ark-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ark-gallery-card {
+  margin: 0; display: flex; flex-direction: column;
+  border: 1px solid var(--ark-line); border-radius: var(--ark-radius, 10px);
+  background: var(--ark-bg-soft); padding: var(--ark-space-3, 12px);
+}
+.ark-gallery-card-title {
+  margin: 0 0 var(--ark-space-2, 8px); font-size: var(--ark-text-lg, 1.125rem);
+  font-weight: 600; color: var(--ark-fg); line-height: 1.25;
+}
+.ark-gallery-chart { width: 100%; min-height: 360px; }
+.ark-gallery-card-caption {
+  margin-top: var(--ark-space-3, 12px); font-size: var(--ark-text-sm, .92rem);
+  color: var(--ark-fg-dim); display: flex; flex-direction: column; gap: var(--ark-space-2, 8px);
+}
+.ark-gallery-card-link { color: var(--ark-accent); font-weight: 600; align-self: flex-start; text-decoration: none; }
+.ark-gallery-card-link:hover { text-decoration: underline; }
+.ark-gallery-pending { color: var(--ark-fg-dim); font-style: italic; padding: var(--ark-space-5, 24px) 0; }
+
+/* ── §20 ArkTriad — the Research Triad (hero action row) + compact footer form ─
+   CODE_DATA_FIRST_STANDARD.md §B1.1/§B1.2. Data + Code = PRIMARY (accent fill,
+   --ark-on-accent ink — text is NEVER accent-on-accent, the v1.2 contrast lesson);
+   Outputs = SECONDARY (outline, fills on hover). Stacked full-width < 768px; one
+   equal-width row ≥ 768px. AA in both themes; visible focus rings. Filled by
+   ark-triad.js from the site's ecosystem `cdf` block. */
+.ark-triad {
+  display: grid;
+  grid-template-columns: 1fr;                 /* mobile: stacked, full width */
+  gap: var(--ark-space-3);
+  margin: var(--ark-space-5) 0;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .ark-triad { grid-template-columns: repeat(3, minmax(0, 1fr)); }  /* one row, equal cols */
+}
+.ark-triad[hidden], .ark-triad-btn[hidden] { display: none; }
+
+.ark-triad-btn {
+  display: flex; align-items: center; gap: var(--ark-space-3);
+  padding: var(--ark-space-4) var(--ark-space-5);
+  border-radius: var(--ark-radius-sm);
+  border: 1px solid var(--ark-accent);
+  background: var(--ark-accent);
+  color: var(--ark-on-accent) !important;
+  text-decoration: none; cursor: pointer;
+  transition: filter .12s ease, transform .12s ease, box-shadow .12s ease;
+  min-height: 56px;
+}
+.ark-triad-btn:hover { filter: brightness(1.08); text-decoration: none; transform: translateY(-1px); box-shadow: var(--ark-shadow); }
+.ark-triad-btn:active { filter: brightness(.94); transform: none; }
+.ark-triad-btn:focus-visible { outline: 3px solid var(--ark-accent); outline-offset: 2px; }
+
+.ark-triad-icon { font-size: 1.25rem; line-height: 1; flex: none; }
+.ark-triad-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ark-triad-label { font-weight: 600; font-size: var(--ark-text-md); line-height: 1.2; }
+.ark-triad-sub {
+  font-size: var(--ark-text-sm); line-height: 1.2;
+  color: var(--ark-on-accent); opacity: .88;   /* AA-safe: the on-accent pair is AA by token contract */
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ark-triad-sub:empty { display: none; }
+
+/* Outputs = SECONDARY (outline). --ark-fg ink on transparent; fills accent on hover. */
+.ark-triad-secondary {
+  background: transparent;
+  color: var(--ark-fg) !important;
+  border-color: var(--ark-accent);
+}
+.ark-triad-secondary .ark-triad-icon,
+.ark-triad-secondary .ark-triad-label { color: var(--ark-fg); }
+.ark-triad-secondary .ark-triad-sub { color: var(--ark-fg-dim); opacity: 1; }
+.ark-triad-secondary:hover { background: var(--ark-accent); color: var(--ark-on-accent) !important; filter: none; }
+.ark-triad-secondary:hover .ark-triad-icon,
+.ark-triad-secondary:hover .ark-triad-label,
+.ark-triad-secondary:hover .ark-triad-sub { color: var(--ark-on-accent); opacity: 1; }
+
+/* Compact form — the footer triad (smaller, tighter). */
+.ark-triad-compact { gap: var(--ark-space-2); margin: 0; }
+.ark-triad-compact .ark-triad-btn { padding: var(--ark-space-2) var(--ark-space-3); min-height: 0; }
+.ark-triad-compact .ark-triad-icon { font-size: 1rem; }
+.ark-triad-compact .ark-triad-label { font-size: var(--ark-text-sm); }
+.ark-triad-compact .ark-triad-sub { font-size: .72rem; }
+
+/* ── §21 ArkActionFooter — the footer v2 useful-buttons bar ────────────────────
+   CODE_DATA_FIRST_STANDARD.md §B1.2. A compact triad + "Website source" + "Cite
+   this site", ABOVE the existing dual-anchor colophon (which is preserved exactly
+   — heterodata.org hub + nickanderson.us author). One footer per page. */
+.ark-action-footer .ark-action-bar {
+  max-width: var(--ark-maxw); margin: 0 auto;
+  padding: var(--ark-space-5) 1.25rem var(--ark-space-4);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--ark-space-4) var(--ark-space-5);
+  border-bottom: 1px solid var(--ark-line);
+}
+.ark-action-footer .ark-triad-compact { flex: 1 1 320px; max-width: 680px; }
+.ark-action-tools { display: inline-flex; flex-wrap: wrap; gap: var(--ark-space-2); align-items: center; }
+.ark-action-tools [hidden] { display: none; }
