@@ -1,0 +1,259 @@
+/* =============================================================================
+   nickanderson.us — plotter.css — "The Pen-Plotter Index" landing visual
+
+   Styles all three states of the index:
+     1. no JavaScript      — a plain, complete, fully-linked list (the default);
+     2. reduced motion     — the diagrams and labels at their finished state;
+     3. the one-pass draw  — diagrams sketched, labels typed, ~1.2s, then rest.
+
+   Linked from _meta_index.html, so it is fetched by the landing page only.
+   Everything is driven by the tokens in styles.css, so light/dark and the
+   maroon/green accent are inherited rather than restated here.
+   ============================================================================= */
+
+:root {
+  --pi-ink:  var(--ark-fg-dim);   /* the pen: monochrome, one weight        */
+  --pi-ref:  var(--brand-green);  /* dashed reference strokes only          */
+  --pi-rule: var(--ark-line);
+}
+:root[data-theme="dark"] { --pi-ref: var(--brand-green-light); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { --pi-ref: var(--brand-green-light); }
+}
+
+/* -----------------------------------------------------------------------------
+   Frame
+   --------------------------------------------------------------------------- */
+.pi-wrap { margin: 0 0 2.25rem; }
+
+.pi-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.9rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--pi-rule);
+}
+/* NB throughout this file: styles.css qualifies its layout rules by element
+   (`.ark-main h2`, `.ark-main ul`, `.ark-main li`, `.ark-main p`), which
+   out-specifies a bare class. Component selectors here are therefore written
+   with two classes so the component wins on its own elements. */
+.pi-head .pi-title {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ark-fg-dim);
+}
+/* Pandoc wraps a bare inline element on its own line in a <p>. Harmless, but
+   it arrives with `.ark-main p`'s bottom margin, which would unbalance the rule
+   under the head. */
+.pi-head p { margin: 0; }
+.pi-count {
+  font-family: var(--ark-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ark-fg-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -----------------------------------------------------------------------------
+   The index itself. Present and complete with no JavaScript at all.
+   --------------------------------------------------------------------------- */
+.pi-wrap .pi-list { margin: 0; padding: 0; list-style: none; }
+
+.pi-list .pi-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.52rem 0;
+  border-bottom: 1px dotted var(--pi-rule);
+}
+.pi-list .pi-item:last-child { border-bottom: 0; }
+
+.pi-text { min-width: 0; flex: 1 1 auto; }
+
+/* The typed label. Monospace so the steps() typewriter lands on real character
+   boundaries, and because a plotter has one pen and one width. */
+.pi-name {
+  box-sizing: content-box;      /* the width animation is a content width */
+  font-family: var(--ark-mono);
+  font-size: clamp(0.8rem, 3.1vw, 0.94rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ark-accent);
+  text-decoration: none;
+}
+a.pi-name:hover, a.pi-name:focus { text-decoration: underline; }
+/* Unlinked rows are a deliberate state, not a broken link — see index.Rmd. */
+span.pi-name { color: var(--ark-fg); }
+
+.pi-blurb {
+  display: block;
+  margin: 0.12rem 0 0;
+  max-width: 62ch;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ark-fg-dim);
+}
+.pi-note {
+  display: block;
+  margin: 0.1rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ark-fg-dim);
+  opacity: 0.85;
+}
+
+/* -----------------------------------------------------------------------------
+   The drawing gutter. Hidden unless JavaScript is running, so the no-JS page
+   has no empty column, and reserved from the first paint when it is, so the
+   injected SVG never shifts the text.
+   --------------------------------------------------------------------------- */
+.pi-mark { display: none; }
+.js-plot .pi-mark {
+  display: block;
+  flex: 0 0 3.4rem;
+  width: 3.4rem;
+  height: 1.93rem;
+  margin-top: 0.1rem;
+}
+.pi-svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+.pi-stroke {
+  fill: none;
+  stroke: var(--pi-ink);
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+/* Reference lines — inferred, not measured. The dash pattern declared here is
+   overridden by plotter.js's inline stroke-dasharray for the duration of the
+   draw (the two cannot coexist), and takes effect when the pen lifts and the
+   inline value is cleared. With reduced motion nothing is ever set inline, so
+   the pattern applies from the first paint. */
+.pi-stroke-dashed {
+  stroke: var(--pi-ref);
+  stroke-width: 1;
+  stroke-dasharray: 2 2.6;
+  opacity: 0.9;
+}
+
+/* -----------------------------------------------------------------------------
+   The typewriter — pure CSS over `width`, in whole character steps.
+   No character is ever added to or removed from the DOM.
+   --------------------------------------------------------------------------- */
+.js-plot .pi-name {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.js-plot .pi-blurb, .js-plot .pi-note { opacity: 0; }
+
+/* The pen head rides the right edge of the growing box and lifts on the last
+   frame. It is a keyframe of the SAME animation rather than a second one:
+   a separate 1ms `forwards` animation on a long delay was observed not to
+   settle on the last rows in Chrome, leaving two carets on the page forever. */
+.pi-item.is-typing .pi-name {
+  border-right: 1px solid transparent;
+  animation: pi-type 420ms steps(var(--pi-ch, 12)) var(--pi-delay, 0ms) forwards;
+}
+.pi-item.is-typing .pi-blurb,
+.pi-item.is-typing .pi-note {
+  animation: pi-fade 420ms ease var(--pi-delay, 0ms) forwards;
+}
+
+@keyframes pi-type {
+  from { width: 0;                                     border-right-color: var(--ark-accent); }
+  99%  { width: calc(var(--pi-ch, 12) * 1ch + 0.08em); border-right-color: var(--ark-accent); }
+  to   { width: calc(var(--pi-ch, 12) * 1ch + 0.08em); border-right-color: transparent; }
+}
+@keyframes pi-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* -----------------------------------------------------------------------------
+   Reduced motion — the SECOND, independent honouring. plotter.js already skips
+   the animation entirely; this makes the finished state unconditional even if
+   that file changes, misbehaves, or is served stale from a cache.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .js-plot .pi-name,
+  .pi-item.is-typing .pi-name {
+    width: auto !important;
+    overflow: visible !important;
+    border-right: 0 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .js-plot .pi-blurb, .js-plot .pi-note,
+  .pi-item.is-typing .pi-blurb, .pi-item.is-typing .pi-note {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .pi-stroke {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .pi-stroke-dashed { stroke-dasharray: 2 2.6 !important; }
+}
+
+/* -----------------------------------------------------------------------------
+   Small screens and print
+   --------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .js-plot .pi-mark { flex-basis: 2.7rem; width: 2.7rem; height: 1.53rem; }
+  .pi-list .pi-item { gap: 0.65rem; }
+  .pi-blurb { font-size: 0.8rem; }
+}
+
+@media print {
+  .pi-mark { display: none !important; }
+  .pi-name { width: auto !important; overflow: visible !important; border: 0 !important; }
+  .pi-blurb, .pi-note { opacity: 1 !important; }
+  .pi-item { break-inside: avoid; }
+}
+
+/* -----------------------------------------------------------------------------
+   Scholarly identifiers (R/identifiers.R). Renders only once Nick has supplied
+   at least one; see R/identifiers.json.
+   --------------------------------------------------------------------------- */
+.na-ids { margin: 0 0 2rem; }
+.na-ids .na-ids-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ark-fg-dim);
+}
+.na-ids .na-ids-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.na-id {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.32rem 0.65rem;
+  border: 1px solid var(--ark-line);
+  border-radius: 6px;
+  background: var(--ark-bg-soft);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+.na-id:hover, .na-id:focus { border-color: var(--ark-accent); text-decoration: none; }
+.na-id-label { font-weight: 600; color: var(--ark-accent); }
+.na-id-value {
+  font-family: var(--ark-mono);
+  font-size: 0.92em;
+  color: var(--ark-fg-dim);
+  font-variant-numeric: tabular-nums;
+}

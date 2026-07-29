@@ -17,83 +17,100 @@ make long-run economic data usable — which mostly means going and getting the
 sources myself.
 </p>
 
-```{r gantt, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+<script>
+/* Pre-collapse the typed labels BEFORE first paint, so the typewriter in
+   assets/plotter.js never flashes its finished text and then retracts.
+
+   Self-healing by design: if plotter.js does not run within 1.2s — blocked,
+   404, cached stale, thrown — the class comes straight back off and the index
+   is shown in full. The page can lose the animation; it can never lose the
+   content. */
+(function (d) {
+  var h = d.documentElement;
+  h.className += " js-plot";
+  setTimeout(function () {
+    if (!h.hasAttribute("data-plotter")) {
+      h.className = h.className.replace(/\s*\bjs-plot\b/, "");
+    }
+  }, 1200);
+})(document);
+</script>
+
+```{r index, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 # ---------------------------------------------------------------------------
-# THE COVERAGE GANTT — build-time rendering.
+# THE PEN-PLOTTER INDEX — build-time rendering.
 #
-# Reads the SAME committed file the browser reads (data/coverage.json, distilled
-# from the FreeNIC warehouse coverage matrix by tools/build_coverage_json.py) and
-# emits a complete, readable static list. assets/gantt.js then replaces that list
-# with the animated inline-SVG timeline.
+# Reads data/index.json and emits the complete index: every label, every link,
+# every blurb. assets/plotter.js then sketches a small diagram into each row's
+# gutter and types the labels in — one pass, about 1.2 seconds, then it rests.
 #
-# This is why the page degrades correctly: with JavaScript disabled, or if the
-# JSON fails to load, the list below IS the content — same families, same spans,
-# same row counts, no placeholder.
+# The browser NEVER fetches index.json. The script is decoration over markup
+# that is already on the page, which is why the index survives JavaScript being
+# off, blocked, or broken: the list below IS the content.
+#
+# `href: null` in the JSON is a deliberate state, not an omission — a project
+# whose public host is not routed yet is named and described, and simply not
+# hyperlinked. Never fill a null href with a guess.
 # ---------------------------------------------------------------------------
-cov <- jsonlite::fromJSON("data/coverage.json", simplifyVector = FALSE)
+idx <- jsonlite::fromJSON("data/index.json", simplifyVector = FALSE)
 
 esc <- function(x) {
   x <- gsub("&", "&amp;", x, fixed = TRUE)
   x <- gsub("<", "&lt;",  x, fixed = TRUE)
-  gsub(">", "&gt;", x, fixed = TRUE)
+  x <- gsub(">", "&gt;",  x, fixed = TRUE)
+  gsub('"', "&quot;", x, fixed = TRUE)
 }
-# NB: format="d" returns NA above .Machine$integer.max, and the headline figure
-# (4,965,894,572) is well past it. Format as a fixed-point double instead.
-commas <- function(n) formatC(as.numeric(n), format = "f", digits = 0, big.mark = ",")
 
-rows <- vapply(cov$families, function(d) {
+rows <- vapply(idx$entries, function(e) {
+  # An entry with a URL is a link; an entry without one is a <span>. Same row,
+  # same weight in the index, no dead href and no "coming soon" placeholder.
+  name <- if (is.null(e$href)) {
+    sprintf('<span class="pi-name">%s</span>', esc(e$label))
+  } else {
+    sprintf('<a class="pi-name" href="%s">%s</a>', esc(e$href), esc(e$label))
+  }
+  note <- if (is.null(e$note)) "" else
+    sprintf('<span class="pi-note">%s</span>', esc(e$note))
+
   sprintf(
-    '<li><span class="gf-name">%s</span><span class="gf-span">%s&ndash;%s</span><span class="gf-rows">%s rows</span></li>',
-    esc(d$name), d$start, d$end, commas(d$rows)
-  )
+'<li class="pi-item" data-glyph="%s">
+<span class="pi-mark" aria-hidden="true"></span>
+<span class="pi-text">%s<span class="pi-blurb">%s</span>%s</span>
+</li>',
+    esc(e$glyph), name, esc(e$blurb), note)
 }, character(1))
 
-atemporal_rows <- sum(vapply(cov$atemporal, function(d) d$rows, numeric(1)))
-atemporal_names <- paste(vapply(cov$atemporal, function(d) esc(d$name), character(1)),
-                         collapse = ", ")
-
-# NOTE: every line below must start flush-left. Pandoc treats a 4-space-indented
-# line inside a raw HTML block as a code block, which would render the markup as
-# visible source instead of as HTML.
+# NOTE: every line of the emitted HTML must start flush-left. Pandoc treats a
+# 4-space-indented line in a raw HTML block as a code block, and would render
+# the markup as visible source.
 cat(sprintf(
-'<div class="gantt-wrap">
-<div class="gantt-head">
-<h2 class="gantt-title">Sources</h2>
-<span class="gantt-span">%s &ndash; %s</span>
+'<section class="pi-wrap" id="plotter-index" aria-labelledby="pi-title">
+<div class="pi-head">
+<h2 class="pi-title" id="pi-title">Index</h2>
+<span class="pi-count">%d areas of work</span>
 </div>
-<div id="coverage-gantt">
-<ul class="gantt-fallback">
+<ul class="pi-list">
 %s
 </ul>
-<p class="gantt-atemporal">
-Plus %d reference and cross-sectional families with no time axis
-(%s) &mdash; %s further rows.
-</p>
-</div>
-<p class="gantt-total">%s <span class="gantt-total-unit">rows of banking and public-finance data, assembled</span></p>
-<p class="gantt-note">
-Every bar is a source family I went and retrieved, drawn across the years it
-actually covers. Counts are exact and come from the
-<a href="https://freenic.org">FreeNIC</a> warehouse coverage matrix; the
-%d families shown sum to the figure above. Hover a bar for its provider,
-exact span and provenance tier.
-</p>
-<div class="gantt-links">
-<a href="research.html">The work</a>
-<a href="data.html">The data</a>
-<a href="aitools.html">The method</a>
-</div>
-</div>
-',
-  cov$span_min, cov$span_max,
-  paste(rows, collapse = "\n"),
-  length(cov$atemporal), atemporal_names, commas(atemporal_rows),
-  commas(cov$total_rows),
-  cov$family_count
-))
+</section>
+', length(idx$entries), paste(rows, collapse = "\n")))
 ```
 
-<script src="assets/gantt.js" defer></script>
+<script src="assets/plotter.js" defer></script>
+
+```{r identifiers, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+# ---------------------------------------------------------------------------
+# SCHOLARLY IDENTIFIERS — ORCID / Google Scholar / RePEc / SSRN.
+#
+# The markup, styling and build wiring are finished; the identifiers are not
+# mine to invent. R/identifiers.R renders ONLY the profiles that have a value in
+# R/identifiers.json, and emits nothing at all while every value is null —
+# which is the state as this page was built. Supply one identifier there and
+# re-render, and the row appears; nothing else has to change.
+# ---------------------------------------------------------------------------
+source("R/identifiers.R")
+cat(identifiers_html())
+```
 
 ## Code, data, and outputs
 
@@ -121,47 +138,80 @@ exact span and provenance tier.
   </a>
 </section>
 
-## Projects
+## The sources behind it
 
-::: {.na-cards}
+```{r gantt, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+# ---------------------------------------------------------------------------
+# THE COVERAGE GANTT — build-time rendering.
+#
+# Demoted from the hero to this section in the front-page v2 rebuild, and
+# otherwise unchanged. It is the honest data hero of the site and stays.
+#
+# Reads the SAME committed file the browser reads (data/coverage.json, distilled
+# from the FreeNIC warehouse coverage matrix by tools/build_coverage_json.py) and
+# emits a complete, readable static list. assets/gantt.js then replaces that list
+# with the animated inline-SVG timeline.
+#
+# This is why the page degrades correctly: with JavaScript disabled, or if the
+# JSON fails to load, the list below IS the content — same families, same spans,
+# same row counts, no placeholder.
+# ---------------------------------------------------------------------------
+cov <- jsonlite::fromJSON("data/coverage.json", simplifyVector = FALSE)
 
-::: {.na-card}
-### [Research](research.html)
+# NB: format="d" returns NA above .Machine$integer.max, and the headline figure
+# (4,965,894,572) is well past it. Format as a fixed-point double instead.
+commas <- function(n) formatC(as.numeric(n), format = "f", digits = 0, big.mark = ",")
 
-My empirical work on public finance and data: Treasury duration, tax-revenue
-cyclicality, and the long-run balance of payments. Both papers are downloadable.
-:::
+rows <- vapply(cov$families, function(d) {
+  sprintf(
+    '<li><span class="gf-name">%s</span><span class="gf-span">%s&ndash;%s</span><span class="gf-rows">%s rows</span></li>',
+    esc(d$name), d$start, d$end, commas(d$rows)
+  )
+}, character(1))
 
-::: {.na-card}
-### [Heterodata](https://heterodata.org)
+atemporal_rows <- sum(vapply(cov$atemporal, function(d) d$rows, numeric(1)))
+atemporal_names <- paste(vapply(cov$atemporal, function(d) esc(d$name), character(1)),
+                         collapse = ", ")
 
-The research-data platform gathering my interactive data sites and their downloads.
-:::
+# NOTE: every line below must start flush-left. Pandoc treats a 4-space-indented
+# line inside a raw HTML block as a code block, which would render the markup as
+# visible source instead of as HTML.
+cat(sprintf(
+'<div class="gantt-wrap">
+<div class="gantt-head">
+<p class="gantt-title">FreeNIC coverage</p>
+<span class="gantt-span">%s &ndash; %s</span>
+</div>
+<div id="coverage-gantt">
+<ul class="gantt-fallback">
+%s
+</ul>
+<p class="gantt-atemporal">
+Plus %d reference and cross-sectional families with no time axis
+(%s) &mdash; %s further rows.
+</p>
+</div>
+<p class="gantt-total">%s <span class="gantt-total-unit">rows of banking and public-finance data, assembled</span></p>
+<p class="gantt-note">
+Every bar is a source family I went and retrieved, drawn across the years it
+actually covers. Counts are exact and come from the
+<a href="https://freenic.org">FreeNIC</a> warehouse coverage matrix; the
+%d families shown sum to the figure above. Hover a bar for its provider,
+exact span and provenance tier.
+</p>
+</div>
+',
+  cov$span_min, cov$span_max,
+  paste(rows, collapse = "\n"),
+  length(cov$atemporal), atemporal_names, commas(atemporal_rows),
+  commas(cov$total_rows),
+  cov$family_count
+))
+```
 
-::: {.na-card}
-### [Economics at the New School](tnse.html)
+<script src="assets/gantt.js" defer></script>
 
-A three-part institutional and intellectual history of The New School's economics
-department. A 121-page draft of Part 1 is available on request.
-:::
-
-::: {.na-card}
-### [AI Tools](aitools.html)
-
-The open-source research tooling I built for AI-assisted empirical economics,
-with links to the GitHub repositories.
-:::
-
-::: {.na-card}
-### [HMDA Explore](https://hmdaexplore.com)
-
-An interactive explorer over Home Mortgage Disclosure Act data. The actively
-developed web version is at [hmdaexplore.com](https://hmdaexplore.com); the
-earlier [R-Shiny draft](https://andenick.shinyapps.io/HMDAExplore/) is slower to
-start.
-:::
-
-:::
+## The rest of the ecosystem
 
 The platform hosts **Gerhard** (US public finance,
 [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data**
@@ -170,10 +220,12 @@ Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis**
 (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)),
 **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)),
 **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)),
-and **StarCruiser** (US employment and inflation,
-[starcruiser.heterodata.org](https://starcruiser.heterodata.org)), plus affiliated
-standalone sites: [freenic.org](https://freenic.org) (banking data),
-[volcker.org](https://volcker.org) (my dissertation),
+**StarCruiser** (US employment and inflation,
+[starcruiser.heterodata.org](https://starcruiser.heterodata.org)), and
+**Erwin** (military and defense economics — 322 series; the site is built but
+its public address is not routed yet, so there is nothing to link to). Alongside
+them are the affiliated standalone sites: [freenic.org](https://freenic.org)
+(banking data), [volcker.org](https://volcker.org) (my dissertation),
 [foodberg.org](https://foodberg.org) (food prices),
 [hmdaexplore.com](https://hmdaexplore.com) (mortgage lending),
 [methodex.fyi](https://methodex.fyi) (statistical methodology),
@@ -181,7 +233,8 @@ standalone sites: [freenic.org](https://freenic.org) (banking data),
 sidewalk accessibility), and [jjmuni.com](https://jjmuni.com) (municipal
 pedestrian infrastructure). Data downloads across the ecosystem are gathered at
 [files.heterodata.org](https://files.heterodata.org) and indexed on the hub's
-[data page](https://heterodata.org/data).
+[data page](https://heterodata.org/data). The full list, with each project's
+repository beside its site, is on the [Projects](projects.html) page.
 
 ---
 

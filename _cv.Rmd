@@ -1,0 +1,167 @@
+---
+pagetitle: "CV — Nick Anderson"
+output:
+  html_document:
+    toc: true
+    number_sections: false
+    toc_depth: 2
+    includes:
+      in_header: ["_head.html", "_meta_cv.html"]
+      before_body: _before_body.html
+      after_body: _after_body.html
+---
+
+<!-- =============================================================================
+     CV SCAFFOLDING — NOT PUBLISHED, AND NOT PUBLISHABLE AS IT STANDS.
+
+     This file is deliberately named `_cv.Rmd`. rmarkdown::render_site() skips
+     every file beginning with an underscore, so this page is versioned, styled
+     and ready — and is NOT built, NOT copied into docs/, and NOT served. An
+     incomplete CV is worse than no CV; this one goes live when Nick says so,
+     not when an agent decides it looks finished.
+
+     TO ACTIVATE, in this order:
+       1. Fill in the sections below. Every line marked TODO is a placeholder
+          and must be replaced or deleted — none of them may ship.
+       2. Rename this file to `cv.Rmd`.
+       3. Add a nav entry to _before_body.html:
+              <li><a href="cv.html">CV</a></li>
+          (the nav is shared, so this is the only place it needs adding).
+       4. Fill in the description and canonical URL in _meta_cv.html.
+       5. Add `<url><loc>https://www.nickanderson.us/cv.html</loc></url>` to
+          sitemap.xml, and a line to llms.txt.
+       6. rmarkdown::render_site()  — then re-copy economichistory.html per
+          README.md, and check the result before pushing.
+
+     ── THE ONE HARD CONSTRAINT ───────────────────────────────────────────────
+     THIS CV IS RESEARCH-AND-TEACHING SHAPED. NO EMPLOYER APPEARS ON IT.
+
+     Every affiliation named anywhere on this site today is academic or
+     archival — The New School for Social Research, the Levy Economics
+     Institute, SCEPA. That is deliberate and it is not an oversight to be
+     "completed". Do not add a current or former employer, a job title, a work
+     address, a work email, or a dated employment history, and do not describe
+     any project in terms of the organisation it was done for. The structure
+     below is built so that the honest version of this document is also the
+     complete version: education, research, writing, data, teaching, service.
+     If a section can only be filled in by naming an employer, delete the
+     section — do not fill it.
+     ============================================================================= -->
+
+# Curriculum Vitae
+
+<p class="home-lede">
+TODO — one or two sentences: field, method, what the work is about. The lede on
+the <a href="index.html">home page</a> is a good starting point; do not simply
+repeat it.
+</p>
+
+<p class="paper-meta">
+Last updated TODO Month YYYY ·
+<a href="contact.html">Contact</a> ·
+<a href="https://github.com/andenick">github.com/andenick</a>
+<!-- Add ORCID / Scholar / RePEc / SSRN here once R/identifiers.json is
+     filled in; see R/identifiers.R, which renders exactly this row on the home
+     page and can be sourced here too:
+         source("R/identifiers.R"); cat(identifiers_html(heading = "Profiles"))
+-->
+</p>
+
+<!-- A downloadable PDF is the usual expectation. When there is one, put it in
+     the repo root (it is copied to docs/ by render_site) and link it here:
+       <a class="na-download" href="Anderson_CV.pdf">Download the CV (PDF)
+         <span class="na-download-meta">TODO size · TODO date</span></a>
+     Do not link a PDF that does not exist yet. -->
+
+## Education
+
+- **PhD in Economics** (in progress), The New School for Social Research.
+  Dissertation: *Comparative Empirical Testing of Theories of Banking*, chaired
+  by Paulo dos Santos. TODO — expected completion.
+- TODO — prior degrees: institution, degree, field, year.
+
+## Research fields
+
+- Banking and financial history
+- Public finance
+- Economic data construction, provenance and measurement
+- Heterodox and classical political economy
+
+## Working papers and publications
+
+<!-- Papers already public on this site are listed on research.html; keep the
+     two lists consistent, and give each entry the same title, coauthors and
+     year in both places. Use one of the two forms and be consistent:
+       - "Title." Status/venue, year. [PDF](...) [Data](...) [Code](...)
+     Mark clearly what is a working paper and what is published; do not list a
+     submission as a publication. -->
+
+- TODO — *Title*. Working paper, year. [PDF](research.html)
+- TODO — *Title*. Working paper, year. [PDF](research.html)
+
+## Work in progress
+
+- *Economics at The New School* — a three-part institutional and intellectual
+  history of the department. Part 1 draft available on request
+  ([TNSE](tnse.html)).
+- TODO — further projects, with an honest stage for each.
+
+## Data and software
+
+<!-- This is a real strength of the record and is worth its own section: these
+     are citable research outputs, not "other". Each entry: what it is, its
+     scale, where it lives. Keep the figures identical to the ones the sites
+     themselves publish. -->
+
+- **FreeNIC** — an open Python and R package and server over 4,965,894,572 rows
+  of US banking regulatory data, 1863–2026
+  ([freenic.org](https://freenic.org)).
+- **failing-banks** — an R package replicating Correia, Luck and Verner (2025),
+  "Failing Banks" ([github.com/andenick/failing-banks](https://github.com/andenick/failing-banks)).
+- **Heterodata** — the research-data platform gathering the interactive data
+  sites and their downloads ([heterodata.org](https://heterodata.org)).
+- TODO — others worth naming individually; the full list is on
+  [Projects](projects.html).
+
+## Teaching
+
+<!-- Course title, level, institution, term(s), and role (instructor of record
+     vs teaching assistant) — state the role plainly. If there is nothing here
+     yet, delete the section rather than padding it. -->
+
+- TODO — Course title, level. Institution, term.
+
+## Archival work
+
+- **Lead Archivist**, the Anwar Shaikh Papers, Levy Economics Institute of Bard
+  College — approximately 35 boxes and 77,452 pages of working papers,
+  correspondence, lecture notes, manuscripts and recordings
+  ([public archive](https://digitalcommons.bard.edu/as_archive/)).
+
+## Presentations
+
+<!-- Title. Venue, location, month year. Distinguish invited from submitted. -->
+
+- TODO — Title. Venue, month year.
+
+## Service and affiliations
+
+<!-- Referee work, seminar organising, departmental service, professional
+     associations. Academic only. -->
+
+- TODO
+
+## Awards and fellowships
+
+- TODO — award, awarding body, year. Delete the section if empty.
+
+## Skills
+
+- **Languages and tools:** TODO — R, Python, SQL, Stata, LaTeX, … Name only
+  what you would be comfortable being tested on.
+- **Methods:** TODO — panel econometrics, time series, index construction,
+  national-accounting frameworks, …
+
+---
+
+Last compiled: `r Sys.Date()`

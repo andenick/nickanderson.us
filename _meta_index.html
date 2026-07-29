@@ -1,5 +1,13 @@
 <!-- nickanderson.us — per-page head metadata for index. Included AFTER
      _head.html so it can rely on the stylesheets already being linked. -->
+
+<!-- The pen-plotter index is the landing page only, so its stylesheet is
+     requested by the landing page only — it is not in _head.html and the other
+     eight pages never fetch it. (assets/gantt.css predates this convention and
+     is still linked site-wide from _head.html; left alone here rather than
+     re-rendering all nine pages for ~6 KB.) -->
+<link rel="stylesheet" href="assets/plotter.css">
+
 <meta name="description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
 <link rel="canonical" href="https://www.nickanderson.us/">
 
@@ -13,6 +21,25 @@
 <meta name="twitter:title" content="Nick Anderson — Economics Research">
 <meta name="twitter:description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
 
+<!-- SCHOLARLY IDENTIFIERS — the `sameAs` array below is where the ORCID,
+     Google Scholar, RePEc and SSRN profile URLs belong once they exist. JSON
+     permits no comments, so the instructions live out here:
+
+       1. Put the bare identifiers in R/identifiers.json (that file drives the
+          visible "Profiles" row on the page, via R/identifiers.R).
+       2. Then add the matching profile URLs to "sameAs" below, e.g.
+            "sameAs": [
+              "https://github.com/andenick",
+              "https://orcid.org/0000-0000-0000-0000",
+              "https://scholar.google.com/citations?user=XXXXXXXXXXXX",
+              "https://ideas.repec.org/e/pXXX.html",
+              "https://ssrn.com/author=XXXXXXX"
+            ]
+       3. Re-render index.Rmd.
+
+     Nothing is pre-filled: an unowned identifier in structured data is a false
+     claim to a search engine, not a placeholder. Leave `sameAs` as it stands
+     until the real values are in hand. -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",

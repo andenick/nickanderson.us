@@ -48,6 +48,14 @@
 </script>
 <!-- nickanderson.us — per-page head metadata for index. Included AFTER
      _head.html so it can rely on the stylesheets already being linked. -->
+
+<!-- The pen-plotter index is the landing page only, so its stylesheet is
+     requested by the landing page only — it is not in _head.html and the other
+     eight pages never fetch it. (assets/gantt.css predates this convention and
+     is still linked site-wide from _head.html; left alone here rather than
+     re-rendering all nine pages for ~6 KB.) -->
+<link rel="stylesheet" href="assets/plotter.css">
+
 <meta name="description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
 <link rel="canonical" href="https://www.nickanderson.us/">
 
@@ -61,6 +69,25 @@
 <meta name="twitter:title" content="Nick Anderson — Economics Research">
 <meta name="twitter:description" content="Nick Anderson, economics PhD candidate at The New School for Social Research. Empirical research on public finance, banking and financial history, and heterodox empirics, and the Heterodata research-data ecosystem.">
 
+<!-- SCHOLARLY IDENTIFIERS — the `sameAs` array below is where the ORCID,
+     Google Scholar, RePEc and SSRN profile URLs belong once they exist. JSON
+     permits no comments, so the instructions live out here:
+
+       1. Put the bare identifiers in R/identifiers.json (that file drives the
+          visible "Profiles" row on the page, via R/identifiers.R).
+       2. Then add the matching profile URLs to "sameAs" below, e.g.
+            "sameAs": [
+              "https://github.com/andenick",
+              "https://orcid.org/0000-0000-0000-0000",
+              "https://scholar.google.com/citations?user=XXXXXXXXXXXX",
+              "https://ideas.repec.org/e/pXXX.html",
+              "https://ssrn.com/author=XXXXXXX"
+            ]
+       3. Re-render index.Rmd.
+
+     Nothing is pre-filled: an unowned identifier in structured data is a false
+     claim to a search engine, not a placeholder. Leave `sameAs` as it stands
+     until the real values are in hand. -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -168,11 +195,141 @@ work on public finance, banking and financial history, and the empirical
 methods that make long-run economic data usable — which mostly means
 going and getting the sources myself.
 </p>
+<script>
+/* Pre-collapse the typed labels BEFORE first paint, so the typewriter in
+   assets/plotter.js never flashes its finished text and then retracts.
+
+   Self-healing by design: if plotter.js does not run within 1.2s — blocked,
+   404, cached stale, thrown — the class comes straight back off and the index
+   is shown in full. The page can lose the animation; it can never lose the
+   content. */
+(function (d) {
+  var h = d.documentElement;
+  h.className += " js-plot";
+  setTimeout(function () {
+    if (!h.hasAttribute("data-plotter")) {
+      h.className = h.className.replace(/\s*\bjs-plot\b/, "");
+    }
+  }, 1200);
+})(document);
+</script>
+<section class="pi-wrap" id="plotter-index" aria-labelledby="pi-title">
+<div class="pi-head">
+<h2 class="pi-title" id="pi-title">
+Index
+</h2>
+<p><span class="pi-count">13 areas of work</span></p>
+</div>
+<ul class="pi-list">
+<li class="pi-item" data-glyph="paper">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="research.html">Papers</a><span
+class="pi-blurb">Treasury duration, tax-revenue cyclicality, and the
+long-run balance of payments.</span></span>
+</li>
+<li class="pi-item" data-glyph="race">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://volcker.org">Dissertation</a><span
+class="pi-blurb">Twelve traditions of banking theory, raced against one
+harmonised US banking panel.</span></span>
+</li>
+<li class="pi-item" data-glyph="columns">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="tnse.html">Department
+history</a><span class="pi-blurb">A three-part institutional history of
+economics at The New School.</span></span>
+</li>
+<li class="pi-item" data-glyph="stack">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://freenic.org">Banking
+data</a><span class="pi-blurb">4,965,894,572 rows of US banking
+regulatory data, free and documented.</span></span>
+</li>
+<li class="pi-item" data-glyph="area">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://gerhard.heterodata.org">Public
+finance</a><span class="pi-blurb">Federal taxation, spending, deficits,
+debt, and the Treasury market over time.</span></span>
+</li>
+<li class="pi-item" data-glyph="converge">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://shaikh.heterodata.org">Real
+competition</a><span class="pi-blurb">Replications of Anwar Shaikh’s
+Capitalism and Measuring the Wealth of Nations.</span></span>
+</li>
+<li class="pi-item" data-glyph="arcs">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://lewis.heterodata.org">International
+trade</a><span class="pi-blurb">The current account, the flow of funds,
+and who finances the United States.</span></span>
+</li>
+<li class="pi-item" data-glyph="matrix">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://leontief.heterodata.org">Input-output</a><span
+class="pi-blurb">The Leontief inverse across 71 sectors of the US
+economy, 1997-2024.</span></span>
+</li>
+<li class="pi-item" data-glyph="steps">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://leonid.heterodata.org">Soviet
+statistics</a><span class="pi-blurb">The official statistics of the
+Soviet Union and Imperial Russia.</span></span>
+</li>
+<li class="pi-item" data-glyph="scissors">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://starcruiser.heterodata.org">Employment
+&amp; prices</a><span class="pi-blurb">More than 1,100 series from the
+BLS, the BEA and the Federal Reserve.</span></span>
+</li>
+<li class="pi-item" data-glyph="bars">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><span class="pi-name">Defense economics</span><span
+class="pi-blurb">Military spending read as an endogenous feature of
+accumulation, not a policy shock.</span><span class="pi-note">Erwin —
+322 series; the site is built but not yet published.</span></span>
+</li>
+<li class="pi-item" data-glyph="nodes">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="https://nycvisualizer.com">Cities
+&amp; transit</a><span class="pi-blurb">Live New York City transit, and
+citywide sidewalk accessibility.</span></span>
+</li>
+<li class="pi-item" data-glyph="boxes">
+<span class="pi-mark" aria-hidden="true"></span> <span
+class="pi-text"><a class="pi-name" href="aitools.html">Research
+tooling</a><span class="pi-blurb">The open-source tooling I built to do
+all of the above.</span></span>
+</li>
+</ul>
+</section>
+<script src="assets/plotter.js" defer></script>
+<div id="code-data-and-outputs" class="section level2">
+<h2>Code, data, and outputs</h2>
+<section class="ark-triad" data-ark-triad aria-label="My code, data, and outputs">
+<a class="ark-triad-btn ark-triad-data" data-cdf="data" href="https://files.heterodata.org" aria-label="My data — files.heterodata.org">
+<span class="ark-triad-icon" aria-hidden="true">↓</span> <span
+class="ark-triad-text"> <span class="ark-triad-label">My data</span>
+<span class="ark-triad-sub"
+data-cdf-sub="data">files.heterodata.org</span> </span> </a>
+<a class="ark-triad-btn ark-triad-code" data-cdf="code" href="https://github.com/andenick" aria-label="My code — github.com/andenick">
+<span class="ark-triad-icon" aria-hidden="true">↓</span> <span
+class="ark-triad-text"> <span class="ark-triad-label">My code</span>
+<span class="ark-triad-sub"
+data-cdf-sub="code">github.com/andenick</span> </span> </a>
+<a class="ark-triad-btn ark-triad-outputs ark-triad-secondary" data-cdf="outputs" href="https://heterodata.org" aria-label="My results — heterodata.org">
+<span class="ark-triad-icon" aria-hidden="true">→</span> <span
+class="ark-triad-text"> <span class="ark-triad-label">My results</span>
+<span class="ark-triad-sub" data-cdf-sub="outputs">heterodata.org</span>
+</span> </a>
+</section>
+</div>
+<div id="the-sources-behind-it" class="section level2">
+<h2>The sources behind it</h2>
 <div class="gantt-wrap">
 <div class="gantt-head">
-<h2 class="gantt-title">
-Sources
-</h2>
+<p class="gantt-title">
+FreeNIC coverage
+</p>
 <p><span class="gantt-span">1782 – 2026</span></p>
 </div>
 <div id="coverage-gantt">
@@ -263,66 +420,11 @@ years it actually covers. Counts are exact and come from the
 21 families shown sum to the figure above. Hover a bar for its provider,
 exact span and provenance tier.
 </p>
-<div class="gantt-links">
-<p><a href="research.html">The work</a> <a href="data.html">The data</a>
-<a href="aitools.html">The method</a></p>
-</div>
 </div>
 <script src="assets/gantt.js" defer></script>
-<div id="code-data-and-outputs" class="section level2">
-<h2>Code, data, and outputs</h2>
-<section class="ark-triad" data-ark-triad aria-label="My code, data, and outputs">
-<a class="ark-triad-btn ark-triad-data" data-cdf="data" href="https://files.heterodata.org" aria-label="My data — files.heterodata.org">
-<span class="ark-triad-icon" aria-hidden="true">↓</span> <span
-class="ark-triad-text"> <span class="ark-triad-label">My data</span>
-<span class="ark-triad-sub"
-data-cdf-sub="data">files.heterodata.org</span> </span> </a>
-<a class="ark-triad-btn ark-triad-code" data-cdf="code" href="https://github.com/andenick" aria-label="My code — github.com/andenick">
-<span class="ark-triad-icon" aria-hidden="true">↓</span> <span
-class="ark-triad-text"> <span class="ark-triad-label">My code</span>
-<span class="ark-triad-sub"
-data-cdf-sub="code">github.com/andenick</span> </span> </a>
-<a class="ark-triad-btn ark-triad-outputs ark-triad-secondary" data-cdf="outputs" href="https://heterodata.org" aria-label="My results — heterodata.org">
-<span class="ark-triad-icon" aria-hidden="true">→</span> <span
-class="ark-triad-text"> <span class="ark-triad-label">My results</span>
-<span class="ark-triad-sub" data-cdf-sub="outputs">heterodata.org</span>
-</span> </a>
-</section>
 </div>
-<div id="projects" class="section level2">
-<h2>Projects</h2>
-<div class="na-cards">
-<div id="research" class="section level3 na-card">
-<h3><a href="research.html">Research</a></h3>
-<p>My empirical work on public finance and data: Treasury duration,
-tax-revenue cyclicality, and the long-run balance of payments. Both
-papers are downloadable.</p>
-</div>
-<div id="heterodata" class="section level3 na-card">
-<h3><a href="https://heterodata.org">Heterodata</a></h3>
-<p>The research-data platform gathering my interactive data sites and
-their downloads.</p>
-</div>
-<div id="economics-at-the-new-school" class="section level3 na-card">
-<h3><a href="tnse.html">Economics at the New School</a></h3>
-<p>A three-part institutional and intellectual history of The New
-School’s economics department. A 121-page draft of Part 1 is available
-on request.</p>
-</div>
-<div id="ai-tools" class="section level3 na-card">
-<h3><a href="aitools.html">AI Tools</a></h3>
-<p>The open-source research tooling I built for AI-assisted empirical
-economics, with links to the GitHub repositories.</p>
-</div>
-<div id="hmda-explore" class="section level3 na-card">
-<h3><a href="https://hmdaexplore.com">HMDA Explore</a></h3>
-<p>An interactive explorer over Home Mortgage Disclosure Act data. The
-actively developed web version is at <a
-href="https://hmdaexplore.com">hmdaexplore.com</a>; the earlier <a
-href="https://andenick.shinyapps.io/HMDAExplore/">R-Shiny draft</a> is
-slower to start.</p>
-</div>
-</div>
+<div id="the-rest-of-the-ecosystem" class="section level2">
+<h2>The rest of the ecosystem</h2>
 <p>The platform hosts <strong>Gerhard</strong> (US public finance, <a
 href="https://gerhard.heterodata.org">gerhard.heterodata.org</a>),
 <strong>Shaikh Data</strong> (<a
@@ -334,11 +436,13 @@ href="https://lewis.heterodata.org">lewis.heterodata.org</a>),
 <strong>Leonid</strong> (Soviet statistics, <a
 href="https://leonid.heterodata.org">leonid.heterodata.org</a>),
 <strong>Leontief</strong> (US input–output, <a
-href="https://leontief.heterodata.org">leontief.heterodata.org</a>), and
+href="https://leontief.heterodata.org">leontief.heterodata.org</a>),
 <strong>StarCruiser</strong> (US employment and inflation, <a
 href="https://starcruiser.heterodata.org">starcruiser.heterodata.org</a>),
-plus affiliated standalone sites: <a
-href="https://freenic.org">freenic.org</a> (banking data), <a
+and <strong>Erwin</strong> (military and defense economics — 322 series;
+the site is built but its public address is not routed yet, so there is
+nothing to link to). Alongside them are the affiliated standalone sites:
+<a href="https://freenic.org">freenic.org</a> (banking data), <a
 href="https://volcker.org">volcker.org</a> (my dissertation), <a
 href="https://foodberg.org">foodberg.org</a> (food prices), <a
 href="https://hmdaexplore.com">hmdaexplore.com</a> (mortgage lending),
@@ -348,12 +452,14 @@ methodology), <a href="https://nycvisualizer.com">nycvisualizer.com</a>
 href="https://jjmuni.com">jjmuni.com</a> (municipal pedestrian
 infrastructure). Data downloads across the ecosystem are gathered at <a
 href="https://files.heterodata.org">files.heterodata.org</a> and indexed
-on the hub’s <a href="https://heterodata.org/data">data page</a>.</p>
+on the hub’s <a href="https://heterodata.org/data">data page</a>. The
+full list, with each project’s repository beside its site, is on the <a
+href="projects.html">Projects</a> page.</p>
 <hr />
 <p>Thank you and let me know if you have any questions!</p>
 <p>Nick</p>
 <hr />
-<p>Last compiled: 2026-07-24</p>
+<p>Last compiled: 2026-07-29</p>
 </div>
 </div>
 

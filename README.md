@@ -19,3 +19,41 @@ survives:
 ```r
 file.copy("economichistory.html", "docs/economichistory.html", overwrite = TRUE)
 ```
+
+## Re-rendering gotcha: the research figures
+
+`render_site()` copies `research_files/` from the repo root over `docs/research_files/`,
+which silently **undoes `tools/optimize_figures.py`** — the twenty figure PNGs in
+`docs/` come back 10–15% larger than the ones that are committed. Rendering any
+page re-triggers this, even a page that has nothing to do with `research.Rmd`.
+
+After any render, check and restore:
+
+```
+git status --porcelain -- docs/research_files    # expect: empty
+git checkout -- docs/research_files/             # if it is not
+```
+
+Re-run `tools/optimize_figures.py` instead if `research.Rmd` itself changed and
+the figures are genuinely new.
+
+## The landing page
+
+Two components, both build-time-rendered and both enhancement-only:
+
+| | source | data | script |
+|---|---|---|---|
+| Pen-plotter index (hero) | `index.Rmd` | `data/index.json` | `assets/plotter.js` |
+| Coverage Gantt (below) | `index.Rmd` | `data/coverage.json` | `assets/gantt.js` |
+
+The R chunks knit the complete content — every label, link, blurb, family and row
+count — into the HTML. The scripts only decorate what is already there, so both
+survive JavaScript being off, and both honour `prefers-reduced-motion`. An entry
+in `data/index.json` with `"href": null` is deliberately not hyperlinked (a
+project whose public host is not routed yet); never fill one in with a guess.
+
+Scholarly identifiers (ORCID / Scholar / RePEc / SSRN) come from
+`R/identifiers.json` via `R/identifiers.R`, and render **only** once a value is
+supplied — while every value is `null` the block is absent from the output
+entirely. `_cv.Rmd` is CV scaffolding, underscore-prefixed so `render_site()`
+skips it; activation instructions are at the top of that file.

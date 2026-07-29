@@ -1,0 +1,90 @@
+{
+ "_comment": "The landing-page index. Read at BUILD TIME by index.Rmd, which knits it into a complete static <ul>. The browser never fetches this file — assets/plotter.js only enhances the markup that is already there, so the index is present with JavaScript disabled. Edit here, then re-render index.Rmd.",
+ "_fields": {
+  "label": "Typed in monospace. Keep it under ~24 characters or it will wrap on a phone.",
+  "href": "null means DELIBERATELY NOT LINKED — see note. Never invent a URL to fill this in.",
+  "note": "Optional. Rendered after the blurb, in the dim voice, when href is null.",
+  "glyph": "Key into the stroke dictionary in assets/plotter.js. Adding an entry here without adding the glyph there is harmless: the row simply draws nothing."
+ },
+ "entries": [
+  {
+   "label": "Papers",
+   "href": "research.html",
+   "glyph": "paper",
+   "blurb": "Treasury duration, tax-revenue cyclicality, and the long-run balance of payments."
+  },
+  {
+   "label": "Dissertation",
+   "href": "https://volcker.org",
+   "glyph": "race",
+   "blurb": "Twelve traditions of banking theory, raced against one harmonised US banking panel."
+  },
+  {
+   "label": "Department history",
+   "href": "tnse.html",
+   "glyph": "columns",
+   "blurb": "A three-part institutional history of economics at The New School."
+  },
+  {
+   "label": "Banking data",
+   "href": "https://freenic.org",
+   "glyph": "stack",
+   "blurb": "4,965,894,572 rows of US banking regulatory data, free and documented."
+  },
+  {
+   "label": "Public finance",
+   "href": "https://gerhard.heterodata.org",
+   "glyph": "area",
+   "blurb": "Federal taxation, spending, deficits, debt, and the Treasury market over time."
+  },
+  {
+   "label": "Real competition",
+   "href": "https://shaikh.heterodata.org",
+   "glyph": "converge",
+   "blurb": "Replications of Anwar Shaikh's Capitalism and Measuring the Wealth of Nations."
+  },
+  {
+   "label": "International trade",
+   "href": "https://lewis.heterodata.org",
+   "glyph": "arcs",
+   "blurb": "The current account, the flow of funds, and who finances the United States."
+  },
+  {
+   "label": "Input-output",
+   "href": "https://leontief.heterodata.org",
+   "glyph": "matrix",
+   "blurb": "The Leontief inverse across 71 sectors of the US economy, 1997-2024."
+  },
+  {
+   "label": "Soviet statistics",
+   "href": "https://leonid.heterodata.org",
+   "glyph": "steps",
+   "blurb": "The official statistics of the Soviet Union and Imperial Russia."
+  },
+  {
+   "label": "Employment & prices",
+   "href": "https://starcruiser.heterodata.org",
+   "glyph": "scissors",
+   "blurb": "More than 1,100 series from the BLS, the BEA and the Federal Reserve."
+  },
+  {
+   "label": "Defense economics",
+   "href": null,
+   "glyph": "bars",
+   "note": "Erwin — 322 series; the site is built but not yet published.",
+   "blurb": "Military spending read as an endogenous feature of accumulation, not a policy shock."
+  },
+  {
+   "label": "Cities & transit",
+   "href": "https://nycvisualizer.com",
+   "glyph": "nodes",
+   "blurb": "Live New York City transit, and citywide sidewalk accessibility."
+  },
+  {
+   "label": "Research tooling",
+   "href": "aitools.html",
+   "glyph": "boxes",
+   "blurb": "The open-source tooling I built to do all of the above."
+  }
+ ]
+}

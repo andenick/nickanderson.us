@@ -29,7 +29,7 @@ the site is the interactive explorer; the repo holds the code and data.
 - **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
 The research-data platform that gathers the interactive data sites — Gerhard,
-Shaikh Data, Lewis, Leonid, Leontief and StarCruiser — alongside the affiliated
+Shaikh Data, Lewis, Leonid, Leontief, StarCruiser and Erwin — alongside the affiliated
 standalone sites (freenic.org, volcker.org, foodberg.org, methodex.fyi,
 nycvisualizer.com, jjmuni.com).
 
@@ -123,6 +123,22 @@ A macroeconomic employment-and-inflation toolkit built on BLS, BEA and Federal
 Reserve primary data and read through a heterodox real-competition lens. It
 aggregates more than 1,100 registered series from FRED, BLS, BEA, Census, FDIC,
 NBER, OECD and the World Bank into one documented dataset.
+
+## Erwin
+
+*Military and Defense Economics*
+
+- **Site:** not published yet — the site is built and its address is reserved,
+  but it is not routed, so there is deliberately no link here.
+- **Repo:** not public yet.
+
+Military expenditure, defense procurement, the arms trade and veterans
+economics, read as an endogenous feature of accumulation rather than as a policy
+shock: military Keynesianism, the permanent arms economy, and the
+military-industrial complex. The dataset is complete and analysis-ready — 322
+series across eleven source families, 325 machine-readable tables — and the
+interactive site is written and running privately. This entry will carry its
+links the day it is published; until then it is listed rather than promised.
 
 ## FreeNIC
 

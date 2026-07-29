@@ -1,0 +1,45 @@
+{
+ "_comment": "Scholarly identifiers. EVERY VALUE IS null UNTIL NICK SUPPLIES IT. Nothing here is guessed, derived or placeholder-shaped: an identifier that is not owned is not an identifier. Read at build time by R/identifiers.R.",
+ "_howto": [
+  "1. Put the bare identifier (not a URL) in `value` for each profile you actually have.",
+  "2. Re-render index.Rmd and contact.Rmd (rmarkdown::render_site('index.Rmd')).",
+  "3. Any entry still null stays OUT of the built HTML entirely — no empty row, no dead link,",
+  "   no 'coming soon'. The block itself disappears if every value is null, which is today's state.",
+  "4. Optional: mirror the resulting profile URLs into the schema.org `sameAs` array in",
+  "   _meta_index.html, where a marked placeholder comment is waiting."
+ ],
+ "profiles": [
+  {
+   "key": "orcid",
+   "label": "ORCID",
+   "value": null,
+   "url_pattern": "https://orcid.org/{value}",
+   "value_looks_like": "0000-0000-0000-0000",
+   "where": "https://orcid.org — free, self-registered; the one worth having first."
+  },
+  {
+   "key": "scholar",
+   "label": "Google Scholar",
+   "value": null,
+   "url_pattern": "https://scholar.google.com/citations?user={value}",
+   "value_looks_like": "the 12-character `user=` token from your Scholar profile URL",
+   "where": "https://scholar.google.com/citations — claim the profile, then copy the token."
+  },
+  {
+   "key": "repec",
+   "label": "RePEc",
+   "value": null,
+   "url_pattern": "https://ideas.repec.org/e/{value}.html",
+   "value_looks_like": "pan123 — the RePEc Short-ID from your Author Service registration",
+   "where": "https://authors.repec.org — economics-specific; indexes working papers."
+  },
+  {
+   "key": "ssrn",
+   "label": "SSRN",
+   "value": null,
+   "url_pattern": "https://ssrn.com/author={value}",
+   "value_looks_like": "a 7-digit author id",
+   "where": "https://ssrn.com — author id appears once a paper is posted."
+  }
+ ]
+}

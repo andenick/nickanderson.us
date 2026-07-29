@@ -25,7 +25,11 @@
   margin-bottom: 0.35rem;
 }
 
-.gantt-title {
+/* The landing rebuild demoted this from <h2> to <p> (the section above it now
+   carries the heading). `.ark-main p` in styles.css out-specifies a bare class,
+   so the head rules are restated here with two classes. */
+.gantt-head p { margin: 0; }
+.gantt-head .gantt-title {
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -151,7 +155,7 @@
 /* -----------------------------------------------------------------------------
    Static fallback list — the content when JS is off. Never display:none.
    --------------------------------------------------------------------------- */
-.gantt-fallback { margin: 0; padding: 0; list-style: none; }
+.gantt-wrap .gantt-fallback { margin: 0; padding: 0; list-style: none; }
 .gantt-fallback li {
   display: flex;
   flex-wrap: wrap;
