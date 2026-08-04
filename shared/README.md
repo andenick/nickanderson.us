@@ -3,7 +3,7 @@
 Physical copies of files from the Arcanum Site Kit, canonical source:
 
 ```
-Council/Carson/Technical/deploy/_shared/arcanum-site-kit/v1/
+arcanum-site-kit/v1/ (maintainer's private kit tree)
 ```
 
 Vendoring (plain file copy — no symlink, submodule or CDN) is how all thirteen
@@ -66,7 +66,7 @@ This site was therefore silently excluded from every kit fix.
 (see the `$SearchRoots` block). Verify with:
 
 ```powershell
-pwsh -File Council/Carson/Technical/deploy/_shared/arcanum-site-kit/v1/revendor.ps1 -Check -Site nickanderson
+pwsh -File <kit-root>/arcanum-site-kit/v1/revendor.ps1 -Check -Site nickanderson
 ```
 
 `-Check` writes nothing and exits 1 on any mismatch. Drop `-Check` to sync.

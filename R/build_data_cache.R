@@ -2,13 +2,14 @@
 #
 # Regenerates data-cache/ from the original source workbooks.
 #
-# THIS SCRIPT ONLY RUNS ON NICK'S WORKSTATION. It reads from:
+# THIS SCRIPT ONLY RUNS ON A MACHINE THAT HAS THE ORIGINAL WORKBOOKS MOUNTED.
+# Point NICKANDERSON_SOURCE_ROOT at the folder holding them; it reads:
 #
-#   E:\Storage\Cloud Drive\Vide\DataScience\_references\DaPF\looptest-graph1.xlsx
-#   E:\Storage\Cloud Drive\Vide\DataScience\_references\DaPF\det_data_mkt_fix_graph1.xlsx
-#   E:\Storage\Cloud Drive\Vide\DataScience\_references\Tax Revenue Cyclicality\IncomeTaxData_NA.xlsx
-#   E:\Storage\Cloud Drive\Vide\DataScience\_references\BoP\GERdata_annual_pct.csv
-#   E:\Storage\Cloud Drive\Vide\DataScience\_references\BoP\USdata_annual_pct.csv
+#   <SOURCE_ROOT>\DaPF\looptest-graph1.xlsx
+#   <SOURCE_ROOT>\DaPF\det_data_mkt_fix_graph1.xlsx
+#   <SOURCE_ROOT>\Tax Revenue Cyclicality\IncomeTaxData_NA.xlsx
+#   <SOURCE_ROOT>\BoP\GERdata_annual_pct.csv
+#   <SOURCE_ROOT>\BoP\USdata_annual_pct.csv
 #
 # (root overridable with the NICKANDERSON_SOURCE_ROOT environment variable)
 #

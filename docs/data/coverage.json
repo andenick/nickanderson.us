@@ -1,5 +1,5 @@
 {
- "_comment": "Distilled from Projects/freenic/Outputs/coverage_matrix.csv by tools/build_coverage_json.py. Row counts are verbatim; the families sum exactly to total_rows. Do not hand-edit.",
+ "_comment": "Distilled from the FreeNIC coverage matrix by tools/build_coverage_json.py. Row counts are verbatim; the families sum exactly to total_rows. Do not hand-edit.",
  "source": "FreeNIC warehouse coverage matrix",
  "source_file": "Outputs/coverage_matrix.csv",
  "total_rows": 4965894572,

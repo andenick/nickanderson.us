@@ -22,8 +22,8 @@ consulted if a cache file is missing. A missing `E:\` never aborts a render.
 | `bop_GERdata_annual_pct.csv` | verbatim | `BoP\GERdata_annual_pct.csv` | chunk **20. BoP** |
 | `bop_USdata_annual_pct.csv` | verbatim | `BoP\USdata_annual_pct.csv` | chunk **20. BoP** |
 
-Source root on Nick's workstation:
-`E:\Storage\Cloud Drive\Vide\DataScience\_references\`
+Source root: set the `NICKANDERSON_SOURCE_ROOT` environment variable to the
+folder that holds `DaPF/`, `Tax Revenue Cyclicality/` and `BoP/`.
 
 ## Why the two Treasury files are aggregates, not copies
 

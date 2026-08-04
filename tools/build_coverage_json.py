@@ -3,7 +3,7 @@
 build_coverage_json.py — distil the FreeNIC coverage matrix into the landing-page dataset.
 
 SOURCE OF TRUTH
-    D:/Arcanum/Projects/freenic/Outputs/coverage_matrix.csv   (6,487 bytes, 21 source families)
+    <freenic>/Outputs/coverage_matrix.csv   (6,487 bytes, 21 source families)
 
 OUTPUT
     data/coverage.json   — committed to the repo and served at /data/coverage.json
@@ -17,7 +17,7 @@ WHY THIS SCRIPT EXISTS
 HONESTY CONTRACT
     * Row counts are copied verbatim from coverage_matrix.csv. Nothing is rounded.
     * The 21 families' base_rows SUM EXACTLY to 4,965,894,572 — the figure published as
-      `base_rows` in Projects/freenic/site/app/data/freenic_counts.json (which also records
+      `base_rows` in the FreeNIC site's freenic_counts.json (which also records
       base_tables = 58, n_families = 21, coverage_span "1782-2026"). This script ASSERTS that
       identity and fails loudly if it ever stops holding, so the headline is not a separate
       claim: it is the total of the bars on screen.
@@ -44,13 +44,16 @@ import argparse
 import csv
 import json
 import sys
+import os
 from pathlib import Path
 
 # The FreeNIC base-row count published in site/app/data/freenic_counts.json ("base_rows").
 # The coverage matrix must sum to exactly this. Do not round it, anywhere, ever.
 HEADLINE_BASE_ROWS = 4_965_894_572
 
-DEFAULT_SOURCE = Path("D:/Arcanum/Projects/freenic/Outputs/coverage_matrix.csv")
+DEFAULT_SOURCE = Path(
+    os.environ.get("FREENIC_COVERAGE_CSV", "coverage_matrix.csv")
+)
 DEFAULT_OUT = Path(__file__).resolve().parent.parent / "data" / "coverage.json"
 
 
@@ -124,7 +127,7 @@ def build(source: Path) -> dict:
 
     return {
         "_comment": (
-            "Distilled from Projects/freenic/Outputs/coverage_matrix.csv by "
+            "Distilled from the FreeNIC coverage matrix by "
             "tools/build_coverage_json.py. Row counts are verbatim; the families sum exactly to "
             "total_rows. Do not hand-edit."
         ),

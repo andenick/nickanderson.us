@@ -75,7 +75,7 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 
 ```{r, echo = F, "2. Begin Treasury"}
 
-#write_xlsx(looptest_graph,"E:\\Storage\\Cloud Drive\\Vide\\DataScience\\DaPF\\looptest-graph1.xlsx")
+#write_xlsx(looptest_graph,"<SOURCE_ROOT>\\DaPF\\looptest-graph1.xlsx")
 
 # Committed aggregate (recDate x secDesc1 x yearsCat) of looptest-graph1.xlsx;
 # the CUSIP-level detail is collapsed because every plot below stacks over it.
@@ -628,7 +628,7 @@ ggOutstandingEnd2
 ```{r, echo = F, "8. Treasury"}
 #?knitr
 
-#knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
+#knitr::include_graphics('<SOURCE_ROOT>\\Duration and Public Finance\\Figure 2.jpg')
 ```
 
 ::: {.fig-card}
@@ -805,19 +805,19 @@ Weil, Roman L. “Macaulay’s Duration: An Appreciation.” The Journal of Busi
 A broader interactive treatment of U.S. taxation, spending, deficits, debt, and the Treasury market is at [gerhard.heterodata.org](https://gerhard.heterodata.org).
 
 ```{r, echo = F, "19. Emptied"}
-#setwd('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_wd')
-#knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 1.png')
+#setwd('<SOURCE_ROOT>\\_wd')
+#knitr::include_graphics('<SOURCE_ROOT>\\Duration and Public Finance\\Figure 1.png')
 #knitr::include_graphics('Figure 1.png')
 
-#knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 2.jpg')
+#knitr::include_graphics('<SOURCE_ROOT>\\Duration and Public Finance\\Figure 2.jpg')
 
-#knitr::include_graphics('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
+#knitr::include_graphics('<SOURCE_ROOT>\\Duration and Public Finance\\Figure 3.png')
 
-#![Figure 3]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure 3.png')
+#![Figure 3]('<SOURCE_ROOT>\\Duration and Public Finance\\Figure 3.png')
 
-#![Figure 2]('E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public #Finance\\Figure 2.jpg')
+#![Figure 2]('<SOURCE_ROOT>\\Duration and Public #Finance\\Figure 2.jpg')
 
-#<img src='E:\\Storage\\Cloud Drive\\Vide\\DataScience\\_references\\Duration and Public Finance\\Figure #2.jpg' alt="My photo" width="100" height="100">
+#<img src='<SOURCE_ROOT>\\Duration and Public Finance\\Figure #2.jpg' alt="My photo" width="100" height="100">
 
 
 ```
@@ -837,7 +837,7 @@ Sources: [Data](https://www.nickanderson.us/data.html)
 
 ```{r, include = F, echo = F}
 #now I am going to read the excel sheet I need into the RMarkdown for graphing
-# IncomeTaxData <- read_excel('C:\\Users\\anden\\Dropbox\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
+# IncomeTaxData <- read_excel('<SOURCE_ROOT>\\Data Science\\web Tax Revenue Cyclicality\\IncomeTaxData_NA.xlsx', sheet="RExport")
 # Committed verbatim copies of the RExport1..8 sheets of IncomeTaxData_NA.xlsx
 # (row order preserved -- several marks below are indexed positionally).
 IncomeTaxData  <- src("tax_rexport1.csv", na_build_tax("RExport1"), col_types = na_cols_tax())

@@ -6,7 +6,7 @@
 # drive, which meant rmarkdown::render_site() only worked on one machine. The
 # minimal data each chunk actually consumes is now cached under data-cache/ and
 # committed, so the site builds anywhere. The E:\ originals remain an OPTIONAL
-# fallback for Nick's own workstation; a missing E:\ must never abort a render.
+# fallback for the maintainer's own machine; missing originals must never abort a render.
 #
 # Two accessors:
 #   src()      -- return a data frame: committed cache file if present,
@@ -23,11 +23,12 @@
 
 NA_CACHE_DIR <- "data-cache"
 
-# Root that holds DaPF/, Tax Revenue Cyclicality/ and BoP/ on Nick's workstation.
+# Root that holds DaPF/, Tax Revenue Cyclicality/ and BoP/. There is no useful
+# default: set NICKANDERSON_SOURCE_ROOT to the folder holding the originals.
 na_source_root <- function() {
   Sys.getenv(
     "NICKANDERSON_SOURCE_ROOT",
-    unset = "E:/Storage/Cloud Drive/Vide/DataScience/_references"
+    unset = "_references"
   )
 }
 
@@ -36,7 +37,7 @@ na_src_file <- function(...) file.path(na_source_root(), ...)
 # --- accessors ---------------------------------------------------------------
 
 # `fallback` is evaluated lazily: it is only touched when the cache file is
-# absent, so a machine without E:\ never even looks at the drive.
+# absent, so a machine without the originals never even looks for them.
 src <- function(cache_file, fallback, col_types = NULL) {
   p <- file.path(NA_CACHE_DIR, cache_file)
   if (file.exists(p)) {
