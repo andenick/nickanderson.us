@@ -22,6 +22,15 @@ for item in SRC.iterdir():
     else:
         shutil.copy2(item, dst)
 print("restored:", sorted(p.name for p in SRC.iterdir()))
+
+# render_site() also COPIES root-level non-Rmd files/dirs (tools/, site_static/,
+# *.Rproj, CNAME is fine) into docs/. Remove the ones that are build tooling.
+for junk in ("site_static", "tools", "nickanderson.Rproj"):
+    p = DST / junk
+    if p.exists():
+        shutil.rmtree(p) if p.is_dir() else p.unlink()
+        print("removed render-copied junk:", junk)
+
 # also re-delete the lorem demo rmarkdown re-vendors on every render
 lorem = DST / "site_libs" / "jqueryui-1.13.2" / "index.html"
 if lorem.exists():
