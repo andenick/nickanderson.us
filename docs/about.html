@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xml:lang="en">
+<html>
 
 <head>
 
@@ -8,35 +8,41 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
 <title>About — Nick Anderson</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 <!-- nickanderson.us — in_header include (referenced from _site.yml).
-     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/
-     (it is read by pandoc at render time only).
-
-     Per-page <meta name="description">, canonical, Open Graph and Twitter tags
-     live in the per-page _meta_<page>.html includes, which are listed AFTER
-     this file in each page's YAML. -->
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
 
 <!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 
-<!-- Stylesheets, in cascade order:
-       1. shared/arcanum.css  — the Arcanum Site Kit design system (vendored)
-       2. styles.css          — this site's accent identity + layout + typography
-       3. assets/gantt.css    — the landing-page Coverage Gantt component
-     All served from this repo. No CDN, no webfont, no external request. -->
-<link rel="stylesheet" href="shared/arcanum.css">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="assets/gantt.css">
-
 <script>
-  // No-FOUC: apply the saved theme before first paint.
   (function () {
     try {
       var t = localStorage.getItem("ark-theme");
@@ -46,20 +52,7 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
-<!-- nickanderson.us — per-page head metadata for about. Included AFTER
-     _head.html so it can rely on the stylesheets already being linked. -->
 <meta name="description" content="About Nick Anderson, economics PhD candidate at The New School for Social Research.">
-<link rel="canonical" href="https://www.nickanderson.us/about.html">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Nick Anderson">
-<meta property="og:title" content="About — Nick Anderson">
-<meta property="og:description" content="About Nick Anderson, economics PhD candidate at The New School for Social Research.">
-<meta property="og:url" content="https://www.nickanderson.us/about.html">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About — Nick Anderson">
-<meta name="twitter:description" content="About Nick Anderson, economics PhD candidate at The New School for Social Research.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -71,12 +64,181 @@
       .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
 
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
 
 
 
@@ -86,76 +248,98 @@
 <body>
 
 
-<!-- nickanderson.us — before_body include (referenced from _site.yml).
-     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/.
+<div class="container-fluid main-container">
 
-     With `theme: null` R Markdown emits no wrapper element at all, so this file
-     owns the top of the body: the skip link, the site header and nav, and the
-     opening main element. _after_body.html closes it.
 
-     The nav is plain HTML — no Bootstrap, no jQuery, no JS required to work.
-     A ~250-byte script in _after_body.html marks the current page; without it
-     the nav is still fully functional, just unhighlighted. -->
 
-<a class="ark-skip-link" href="#ark-main">Skip to content</a>
 
-<header class="na-header">
-  <div class="na-header-inner">
-    <a class="na-brand" href="index.html">
-      Nick&nbsp;Anderson
-      <span class="na-brand-sub">Economics &middot; The New School for Social Research</span>
-    </a>
-    <nav aria-label="Main">
-      <ul class="na-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="tnse.html">TNSE</a></li>
-        <li><a href="aitools.html">AI Tools</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="data.html">Data</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nick Anderson</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="economichistory.html">Economic History</a>
+</li>
+<li>
+  <a href="tnse.html">TNSE</a>
+</li>
+<li>
+  <a href="aitools.html">AI Tools</a>
+</li>
+<li>
+  <a href="projects.html">Projects</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
       </ul>
-    </nav>
-  </div>
-</header>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andenick">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
 
-<main id="ark-main" class="ark-main">
+<div id="header">
 
 
 
+<h1 class="title toc-ignore">About</h1>
+
+</div>
 
 
-<div id="about" class="section level1">
-<h1>About</h1>
 <p>Hi everyone.</p>
 <p>I am Nick Anderson, a PhD candidate in Economics at The New School
 for Social Research. This is a website where I host my projects and
 anything else I want to share publicly.</p>
-<p>My dissertation, <a href="https://volcker.org">Volcker</a>, tests
-twelve traditions of banking theory against one another on a single
-harmonised panel of US banking data, under the chairmanship of Paulo dos
-Santos. Alongside it I work on public finance — Treasury duration and
-tax-revenue cyclicality — and on the institutional history of economics
-at The New School. Most of what I do involves retrieving primary sources
-that are not otherwise available in machine-readable form, and
-publishing them with their provenance intact.</p>
 <p>Best wishes,</p>
 <p>Nick</p>
 <hr />
 <p><a href="mailto:nickawebbox@gmail.com">nickawebbox@gmail.com</a> · <a
-href="https://github.com/andenick">github.com/andenick</a> · <a
-href="contact.html">Contact</a></p>
-</div>
+href="https://github.com/andenick">github.com/andenick</a></p>
 
 <!-- nickanderson.us — after_body include (referenced from _site.yml).
      Underscore-prefixed so render_site() does not copy it into docs/.
-     Closes the main element opened in _before_body.html, then emits the mandated
-     dual-anchor ecosystem footer and loads the site's three small scripts.
-     toggle.js, ark-track.js, styles.css, shared/ and assets/ ARE copied to
-     docs/ by render_site() and served. -->
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
 
-</main>
+<!-- Usage beacon config.
+     `endpoint` points at our own first-party usage endpoint
+     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
+     so cross-origin sendBeacon is used; the endpoint returns a wildcard CORS
+     header + handles the OPTIONS preflight. First-party, no third party, no
+     cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 <!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
      Injected via this shared after_body include so a re-render preserves it. -->
@@ -169,39 +353,36 @@ href="contact.html">Contact</a></p>
   <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
 </footer>
 
+
+
+</div>
+
 <script>
-  // Mark the current page in the nav. Progressive enhancement only: with JS
-  // off the nav still works, it just carries no highlight.
-  (function () {
-    var here = location.pathname.split("/").pop() || "index.html";
-    var link = document.querySelector('.na-nav a[href="' + here + '"]');
-    if (link) link.setAttribute("aria-current", "page");
-  })();
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
 </script>
 
-<!-- Usage beacon config.
-     `endpoint` points at our own first-party usage endpoint
-     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
-     so the beacon is cross-origin; ark-track.js v2.0.1 detects that and uses a
-     keepalive fetch with credentials:"omit" (wildcard-CORS compatible) instead
-     of sendBeacon. First-party, no third party, no cookies, DNT-aware. -->
-<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
-<script src="ark-track.js" defer></script>
-<script src="toggle.js" defer></script>
+<!-- tabsets -->
 
-<!-- Responsive tables: stamps data-label on every <td> so arcanum.css can
-     reflow wide tables into labelled cards below 680px. Vendored from the kit.
-     The kit enhancer matches `.ark-prose table, .prose table, table[data-arktable],
-     table.ark-table`; R Markdown emits BARE tables, so tag them first. This
-     inline script runs at parse time, before the deferred enhancer. -->
 <script>
-  (function () {
-    var t = document.querySelectorAll("main table"), i;
-    for (i = 0; i < t.length; i++) { t[i].className += " ark-table"; }
-  })();
-</script>
-<script src="shared/ark-table.js" defer></script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
 
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
 
 <!-- code folding -->
 

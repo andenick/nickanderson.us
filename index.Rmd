@@ -1,187 +1,65 @@
 ---
+title: "Nick Anderson"
 pagetitle: "Nick Anderson — Economics Research"
+theme: null
 output:
   html_document:
     includes:
       in_header: ["_head.html", "_meta_index.html"]
-      before_body: _before_body.html
       after_body: _after_body.html
 ---
 
-# Nick Anderson
+Welcome to my research hosting site. I am an economics PhD candidate at The New School for Social Research.
 
-<p class="home-lede">
-I am an economics PhD candidate at The New School for Social Research. I work on
-public finance, banking and financial history, and the empirical methods that
-make long-run economic data usable — which mostly means going and getting the
-sources myself.
-</p>
-
-```{r gantt, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-# ---------------------------------------------------------------------------
-# THE COVERAGE GANTT — build-time rendering.
-#
-# Reads the SAME committed file the browser reads (data/coverage.json, distilled
-# from the FreeNIC warehouse coverage matrix by tools/build_coverage_json.py) and
-# emits a complete, readable static list. assets/gantt.js then replaces that list
-# with the animated inline-SVG timeline.
-#
-# This is why the page degrades correctly: with JavaScript disabled, or if the
-# JSON fails to load, the list below IS the content — same families, same spans,
-# same row counts, no placeholder.
-# ---------------------------------------------------------------------------
-cov <- jsonlite::fromJSON("data/coverage.json", simplifyVector = FALSE)
-
-esc <- function(x) {
-  x <- gsub("&", "&amp;", x, fixed = TRUE)
-  x <- gsub("<", "&lt;",  x, fixed = TRUE)
-  gsub(">", "&gt;", x, fixed = TRUE)
-}
-# NB: format="d" returns NA above .Machine$integer.max, and the headline figure
-# (4,965,894,572) is well past it. Format as a fixed-point double instead.
-commas <- function(n) formatC(as.numeric(n), format = "f", digits = 0, big.mark = ",")
-
-rows <- vapply(cov$families, function(d) {
-  sprintf(
-    '<li><span class="gf-name">%s</span><span class="gf-span">%s&ndash;%s</span><span class="gf-rows">%s rows</span></li>',
-    esc(d$name), d$start, d$end, commas(d$rows)
-  )
-}, character(1))
-
-atemporal_rows <- sum(vapply(cov$atemporal, function(d) d$rows, numeric(1)))
-atemporal_names <- paste(vapply(cov$atemporal, function(d) esc(d$name), character(1)),
-                         collapse = ", ")
-
-# NOTE: every line below must start flush-left. Pandoc treats a 4-space-indented
-# line inside a raw HTML block as a code block, which would render the markup as
-# visible source instead of as HTML.
-cat(sprintf(
-'<div class="gantt-wrap">
-<div class="gantt-head">
-<h2 class="gantt-title">Sources</h2>
-<span class="gantt-span">%s &ndash; %s</span>
+<div class="ark-triad" role="navigation" aria-label="My code, data, and outputs">
+  <a class="ark-triad-item" href="https://files.heterodata.org"><span class="ark-triad-k">My data</span><span class="ark-triad-v">files.heterodata.org</span></a>
+  <a class="ark-triad-item" href="https://github.com/andenick"><span class="ark-triad-k">My code</span><span class="ark-triad-v">github.com/andenick</span></a>
+  <a class="ark-triad-item" href="https://heterodata.org"><span class="ark-triad-k">My results</span><span class="ark-triad-v">heterodata.org</span></a>
 </div>
-<div id="coverage-gantt">
-<ul class="gantt-fallback">
-%s
-</ul>
-<p class="gantt-atemporal">
-Plus %d reference and cross-sectional families with no time axis
-(%s) &mdash; %s further rows.
-</p>
-</div>
-<p class="gantt-total">%s <span class="gantt-total-unit">rows of banking and public-finance data, assembled</span></p>
-<p class="gantt-note">
-Every bar is a source family I went and retrieved, drawn across the years it
-actually covers. Counts are exact and come from the
-<a href="https://freenic.org">FreeNIC</a> warehouse coverage matrix; the
-%d families shown sum to the figure above. Hover a bar for its provider,
-exact span and provenance tier.
-</p>
-<div class="gantt-links">
-<a href="research.html">The work</a>
-<a href="data.html">The data</a>
-<a href="aitools.html">The method</a>
-</div>
-</div>
-',
-  cov$span_min, cov$span_max,
-  paste(rows, collapse = "\n"),
-  length(cov$atemporal), atemporal_names, commas(atemporal_rows),
-  commas(cov$total_rows),
-  cov$family_count
-))
-```
 
-<script src="assets/gantt.js" defer></script>
+# **Welcome, here are some projects of mine**
 
-## Code, data, and outputs
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">My sites</h2>
 
-<section class="ark-triad" data-ark-triad aria-label="My code, data, and outputs">
-  <a class="ark-triad-btn ark-triad-data" data-cdf="data" href="https://files.heterodata.org" aria-label="My data — files.heterodata.org">
-    <span class="ark-triad-icon" aria-hidden="true">&#8595;</span>
-    <span class="ark-triad-text">
-      <span class="ark-triad-label">My data</span>
-      <span class="ark-triad-sub" data-cdf-sub="data">files.heterodata.org</span>
-    </span>
-  </a>
-  <a class="ark-triad-btn ark-triad-code" data-cdf="code" href="https://github.com/andenick" aria-label="My code — github.com/andenick">
-    <span class="ark-triad-icon" aria-hidden="true">&#8595;</span>
-    <span class="ark-triad-text">
-      <span class="ark-triad-label">My code</span>
-      <span class="ark-triad-sub" data-cdf-sub="code">github.com/andenick</span>
-    </span>
-  </a>
-  <a class="ark-triad-btn ark-triad-outputs ark-triad-secondary" data-cdf="outputs" href="https://heterodata.org" aria-label="My results — heterodata.org">
-    <span class="ark-triad-icon" aria-hidden="true">&#8594;</span>
-    <span class="ark-triad-text">
-      <span class="ark-triad-label">My results</span>
-      <span class="ark-triad-sub" data-cdf-sub="outputs">heterodata.org</span>
-    </span>
-  </a>
-</section>
+- **[Gerhard](https://gerhard.heterodata.org)** — the history and present of American public finance: taxation, spending, and debt over time.
+- **[Shaikh Data](https://shaikh.heterodata.org)** — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
+- **[Lewis](https://lewis.heterodata.org)** — international economics: balance-of-payments and cross-border value transfers across the world's economies.
+- **[Leontief](https://leontief.heterodata.org)** — U.S. input–output accounts; compute and inspect the Leontief inverse across sectors.
+- **[Vlad](https://vlad.heterodata.org)** — the official statistics of the Soviet Union and Imperial Russia.
+- **[Myrdal](https://myrdal.heterodata.org)** — population as a cause of economic outcomes: the long-run demographic transition.
+- **[Race](https://race.heterodata.org)** — race, stratification, and economic disparities in the United States.
+- **[Gordon](https://gordon.heterodata.org)** — U.S. employment and inflation on BLS, BEA, and Federal Reserve primary data.
+- **[Erwin](https://erwin.heterodata.org)** — military spending as an endogenous feature of capitalism.
+- **[FreeNIC](https://freenic.org)** — bank-level U.S. financial-data explorer: failures, FRED series, and active institutions; bulk data free.
+- **[Foodberg](https://foodberg.org)** — global food and commodity price explorer.
+- **[HMDA Explore](https://hmdaexplore.com)** — a dashboard over Home Mortgage Disclosure Act data on U.S. mortgage lending.
+- **[Methodex](https://methodex.fyi)** — a public-domain economic-statistics methodology layer.
+- **[JJ Muni](https://jjmuni.com)** — Westchester County sidewalk-coverage web map, tract by tract.
+- **[NYC Visualizer](https://nycvisualizer.com)** — live New York City transit map and sidewalk accessibility.
 
-## Projects
+Data downloads across all of these are gathered at [files.heterodata.org](https://files.heterodata.org), and every site is indexed on the hub: [heterodata.org](https://heterodata.org).
 
-::: {.na-cards}
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">On this site</h2>
 
-::: {.na-card}
 ### [Research](research.html)
 
-My empirical work on public finance and data: Treasury duration, tax-revenue
-cyclicality, and the long-run balance of payments. Both papers are downloadable.
-:::
+My empirical work on public finance and economic history — three papers, with the full original figures on the [Economic History](economichistory.html) page.
 
-::: {.na-card}
-### [Heterodata](https://heterodata.org)
+### [Economic History](economichistory.html)
 
-The research-data platform gathering my interactive data sites and their downloads.
-:::
+The original figures and full treatment of the research papers.
 
-::: {.na-card}
 ### [Economics at the New School](tnse.html)
 
-A three-part institutional and intellectual history of The New School's economics
-department. A 121-page draft of Part 1 is available on request.
-:::
+A three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available on request.
 
-::: {.na-card}
 ### [AI Tools](aitools.html)
 
-The open-source research tooling I built for AI-assisted empirical economics,
-with links to the GitHub repositories.
-:::
+The open-source research tooling I built for AI-assisted empirical economics, with links to the GitHub repositories.
 
-::: {.na-card}
-### [HMDA Explore](https://hmdaexplore.com)
+### [Projects](projects.html) · [Data](data.html) · [About](about.html)
 
-An interactive explorer over Home Mortgage Disclosure Act data. The actively
-developed web version is at [hmdaexplore.com](https://hmdaexplore.com); the
-earlier [R-Shiny draft](https://andenick.shinyapps.io/HMDAExplore/) is slower to
-start.
-:::
-
-:::
-
-The platform hosts **Gerhard** (US public finance,
-[gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data**
-([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar
-Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis**
-(international economics, [lewis.heterodata.org](https://lewis.heterodata.org)),
-**Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)),
-**Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)),
-and **StarCruiser** (US employment and inflation,
-[starcruiser.heterodata.org](https://starcruiser.heterodata.org)), plus affiliated
-standalone sites: [freenic.org](https://freenic.org) (banking data),
-[volcker.org](https://volcker.org) (my dissertation),
-[foodberg.org](https://foodberg.org) (food prices),
-[hmdaexplore.com](https://hmdaexplore.com) (mortgage lending),
-[methodex.fyi](https://methodex.fyi) (statistical methodology),
-[nycvisualizer.com](https://nycvisualizer.com) (New York City transit and
-sidewalk accessibility), and [jjmuni.com](https://jjmuni.com) (municipal
-pedestrian infrastructure). Data downloads across the ecosystem are gathered at
-[files.heterodata.org](https://files.heterodata.org) and indexed on the hub's
-[data page](https://heterodata.org/data).
+Code repositories, datasets and sources, and who I am.
 
 ---
 

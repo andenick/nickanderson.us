@@ -1,65 +1,48 @@
 ---
+title: "AI Tools"
 pagetitle: "AI Tools — Nick Anderson"
 output:
   html_document:
     toc: true
+    toc_float: true
+    collapsed: false
     number_sections: false
-    toc_depth: 2
+    toc_depth: 1
     includes:
       in_header: ["_head.html", "_meta_aitools.html"]
-      before_body: _before_body.html
       after_body: _after_body.html
 ---
 
 # AI Tools
 
-Open-source research infrastructure for AI-assisted empirical economics. Each
-tool below has its own repository on GitHub; the descriptions are high-level
-overviews — click through to a repository for the working code.
+Open-source research infrastructure for AI-assisted empirical economics. Each tool below has its own repository on GitHub; the descriptions are high-level overviews — click through to a repository for the working code.
 
-## Hybrid Direct Agent Processing (HDARP)
+# Hybrid Direct Agent Processing (HDARP)
 
-Accurate extraction of text, tables, equations, and figure descriptions from
-archival and scanned documents using vision-language (multimodal LLM)
-architectures. The protocol combines direct agent vision with a
-retry-and-recovery workflow so that difficult pages are extracted rather than
-skipped.
+Accurate extraction of text, tables, equations, and figure descriptions from archival and scanned documents using vision-language (multimodal LLM) architectures. The protocol combines direct agent vision with a retry-and-recovery workflow so that difficult pages are extracted rather than skipped.
 
 [Source on GitHub →](https://github.com/andenick/hdarp)
 
-## Anu Framework (ANU)
+# Anu Framework (ANU)
 
-Reproducible economic data construction: a staged pipeline that carries a data
-series from source research through validated replication packages,
-documentation, and publication. The framework powers the Heterodata data sites,
-where each constructed series ships with its full provenance trail.
+Reproducible economic data construction: a staged pipeline that carries a data series from source research through validated replication packages, documentation, and publication. The framework powers the Heterodata data sites, where each constructed series ships with its full provenance trail.
 
 [Source on GitHub →](https://github.com/andenick/anu-framework)
 
-## Anu Architecture
+# Anu Architecture
 
-The standardized project and pipeline layout underlying the framework. Staged
-scripts (load, process, validate, manual adjust, analyze, output) encode the
-dependency graph in the file system; registries are the single source of truth;
-provenance records make every value traceable. Anyone reading the directory can
-reconstruct how the data was built.
+The standardized project and pipeline layout underlying the framework. Staged scripts (load, process, validate, manual adjust, analyze, output) encode the dependency graph in the file system; registries are the single source of truth; provenance records make every value traceable. Anyone reading the directory can reconstruct how the data was built.
 
 [Source on GitHub →](https://github.com/andenick/anu-architecture)
 
-## Arcanum Workspace
+# Arcanum Workspace
 
-The Claude Code-based research workspace and tooling that orchestrates all of
-the above. It collects the skill templates, workspace standards, and supporting
-infrastructure used across my research projects.
+The Claude Code-based research workspace and tooling that orchestrates all of the above. It collects the skill templates, workspace standards, and supporting infrastructure used across my research projects.
 
 [Source on GitHub →](https://github.com/andenick/arcanum-workspace)
 
-## Why Open-Source
+# Why Open-Source
 
-Empirical economics done with AI assistance can produce work that other
-researchers cannot reproduce, audit, or extend. The tools above are an attempt
-to do AI-augmented research without sacrificing the standards the discipline
-expects. They are open-source because the underlying research questions are, and
-the infrastructure required to ask them properly should be too.
+Empirical economics done with AI assistance can produce work that other researchers cannot reproduce, audit, or extend. The tools above are an attempt to do AI-augmented research without sacrificing the standards the discipline expects. They are open-source because the underlying research questions are, and the infrastructure required to ask them properly should be too.
 
 [Full source on GitHub →](https://github.com/andenick/arcanum-workspace)

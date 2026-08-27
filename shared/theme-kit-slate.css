@@ -1,5 +1,0 @@
-/* Arcanum Site Kit v1.2 — theme: nickanderson (nickanderson (author))
-   Link AFTER arcanum.css. The ONLY visual override a site needs.
-   --ark-on-accent: white (accent #475569 is dark enough). */
-:root{--ark-accent:#475569;--ark-accent-soft:#1d232c;--ark-on-accent:#ffffff;}
-@media (prefers-color-scheme: light){:root{--ark-accent:#475569;--ark-accent-soft:#e2e4e7;--ark-on-accent:#ffffff;}}

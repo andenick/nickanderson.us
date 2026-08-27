@@ -1,11 +1,18 @@
 <!-- nickanderson.us — after_body include (referenced from _site.yml).
      Underscore-prefixed so render_site() does not copy it into docs/.
-     Closes the main element opened in _before_body.html, then emits the mandated
-     dual-anchor ecosystem footer and loads the site's three small scripts.
-     toggle.js, ark-track.js, styles.css, shared/ and assets/ ARE copied to
-     docs/ by render_site() and served. -->
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
 
-</main>
+<!-- Usage beacon config.
+     `endpoint` points at our own first-party usage endpoint
+     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
+     so cross-origin sendBeacon is used; the endpoint returns a wildcard CORS
+     header + handles the OPTIONS preflight. First-party, no third party, no
+     cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 <!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
      Injected via this shared after_body include so a re-render preserves it. -->
@@ -18,36 +25,3 @@
   <span class="site-footer-sep" aria-hidden="true">&middot;</span>
   <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
 </footer>
-
-<script>
-  // Mark the current page in the nav. Progressive enhancement only: with JS
-  // off the nav still works, it just carries no highlight.
-  (function () {
-    var here = location.pathname.split("/").pop() || "index.html";
-    var link = document.querySelector('.na-nav a[href="' + here + '"]');
-    if (link) link.setAttribute("aria-current", "page");
-  })();
-</script>
-
-<!-- Usage beacon config.
-     `endpoint` points at our own first-party usage endpoint
-     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
-     so the beacon is cross-origin; ark-track.js v2.0.1 detects that and uses a
-     keepalive fetch with credentials:"omit" (wildcard-CORS compatible) instead
-     of sendBeacon. First-party, no third party, no cookies, DNT-aware. -->
-<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
-<script src="ark-track.js" defer></script>
-<script src="toggle.js" defer></script>
-
-<!-- Responsive tables: stamps data-label on every <td> so arcanum.css can
-     reflow wide tables into labelled cards below 680px. Vendored from the kit.
-     The kit enhancer matches `.ark-prose table, .prose table, table[data-arktable],
-     table.ark-table`; R Markdown emits BARE tables, so tag them first. This
-     inline script runs at parse time, before the deferred enhancer. -->
-<script>
-  (function () {
-    var t = document.querySelectorAll("main table"), i;
-    for (i = 0; i < t.length; i++) { t[i].className += " ark-table"; }
-  })();
-</script>
-<script src="shared/ark-table.js" defer></script>

@@ -1,3 +1,0 @@
-VENDORED_FROM=arcanum-site-kit/v1 @ 2026-07-25T02:44:29Z
-Source: arcanum-site-kit/v1/ (maintainer's private kit tree)
-NOTE: revendor.ps1 CANNOT reach this tree (it is scoped to deploy/). See shared/README.md.

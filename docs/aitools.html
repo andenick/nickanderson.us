@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xml:lang="en">
+<html>
 
 <head>
 
@@ -8,35 +8,44 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
 <title>AI Tools — Nick Anderson</title>
 
 <script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 <!-- nickanderson.us — in_header include (referenced from _site.yml).
-     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/
-     (it is read by pandoc at render time only).
-
-     Per-page <meta name="description">, canonical, Open Graph and Twitter tags
-     live in the per-page _meta_<page>.html includes, which are listed AFTER
-     this file in each page's YAML. -->
+     No-FOUC: apply the saved theme before first paint. Underscore-prefixed so
+     rmarkdown::render_site() does NOT copy it into docs/ (it is read by pandoc
+     at render time only). -->
 
 <!-- Favicon (D4 identity): self-contained inline SVG monogram, no external asset. -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23640000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
 
-<!-- Stylesheets, in cascade order:
-       1. shared/arcanum.css  — the Arcanum Site Kit design system (vendored)
-       2. styles.css          — this site's accent identity + layout + typography
-       3. assets/gantt.css    — the landing-page Coverage Gantt component
-     All served from this repo. No CDN, no webfont, no external request. -->
-<link rel="stylesheet" href="shared/arcanum.css">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="assets/gantt.css">
-
 <script>
-  // No-FOUC: apply the saved theme before first paint.
   (function () {
     try {
       var t = localStorage.getItem("ark-theme");
@@ -46,20 +55,7 @@
     } catch (e) { /* ignore; system preference applies via CSS @media */ }
   })();
 </script>
-<!-- nickanderson.us — per-page head metadata for aitools. Included AFTER
-     _head.html so it can rely on the stylesheets already being linked. -->
 <meta name="description" content="Open-source research tooling by Nick Anderson for AI-assisted empirical economics: HDARP, the Anu Framework, and the Arcanum Workspace.">
-<link rel="canonical" href="https://www.nickanderson.us/aitools.html">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Nick Anderson">
-<meta property="og:title" content="AI Tools — Nick Anderson">
-<meta property="og:description" content="Open-source research tooling by Nick Anderson for AI-assisted empirical economics: HDARP, the Anu Framework, and the Arcanum Workspace.">
-<meta property="og:url" content="https://www.nickanderson.us/aitools.html">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AI Tools — Nick Anderson">
-<meta name="twitter:description" content="Open-source research tooling by Nick Anderson for AI-assisted empirical economics: HDARP, the Anu Framework, and the Arcanum Workspace.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -71,13 +67,245 @@
       .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
 
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
 
 
 
+<link rel="stylesheet" href="styles.css" type="text/css" />
 
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
 
 
 
@@ -86,63 +314,82 @@
 <body>
 
 
-<!-- nickanderson.us — before_body include (referenced from _site.yml).
-     Underscore-prefixed so rmarkdown::render_site() does NOT copy it into docs/.
-
-     With `theme: null` R Markdown emits no wrapper element at all, so this file
-     owns the top of the body: the skip link, the site header and nav, and the
-     opening main element. _after_body.html closes it.
-
-     The nav is plain HTML — no Bootstrap, no jQuery, no JS required to work.
-     A ~250-byte script in _after_body.html marks the current page; without it
-     the nav is still fully functional, just unhighlighted. -->
-
-<a class="ark-skip-link" href="#ark-main">Skip to content</a>
-
-<header class="na-header">
-  <div class="na-header-inner">
-    <a class="na-brand" href="index.html">
-      Nick&nbsp;Anderson
-      <span class="na-brand-sub">Economics &middot; The New School for Social Research</span>
-    </a>
-    <nav aria-label="Main">
-      <ul class="na-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="tnse.html">TNSE</a></li>
-        <li><a href="aitools.html">AI Tools</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="data.html">Data</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="ark-main" class="ark-main">
+<div class="container-fluid main-container">
 
 
-
-
-<div id="TOC">
-<ul>
-<li><a href="#ai-tools" id="toc-ai-tools">AI Tools</a>
-<ul>
-<li><a href="#hybrid-direct-agent-processing-hdarp"
-id="toc-hybrid-direct-agent-processing-hdarp">Hybrid Direct Agent
-Processing (HDARP)</a></li>
-<li><a href="#anu-framework-anu" id="toc-anu-framework-anu">Anu
-Framework (ANU)</a></li>
-<li><a href="#anu-architecture" id="toc-anu-architecture">Anu
-Architecture</a></li>
-<li><a href="#arcanum-workspace" id="toc-arcanum-workspace">Arcanum
-Workspace</a></li>
-<li><a href="#why-open-source" id="toc-why-open-source">Why
-Open-Source</a></li>
-</ul></li>
-</ul>
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
 </div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Nick Anderson</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="economichistory.html">Economic History</a>
+</li>
+<li>
+  <a href="tnse.html">TNSE</a>
+</li>
+<li>
+  <a href="aitools.html">AI Tools</a>
+</li>
+<li>
+  <a href="projects.html">Projects</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andenick">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">AI Tools</h1>
+
+</div>
+
 
 <div id="ai-tools" class="section level1">
 <h1>AI Tools</h1>
@@ -150,8 +397,9 @@ Open-Source</a></li>
 economics. Each tool below has its own repository on GitHub; the
 descriptions are high-level overviews — click through to a repository
 for the working code.</p>
-<div id="hybrid-direct-agent-processing-hdarp" class="section level2">
-<h2>Hybrid Direct Agent Processing (HDARP)</h2>
+</div>
+<div id="hybrid-direct-agent-processing-hdarp" class="section level1">
+<h1>Hybrid Direct Agent Processing (HDARP)</h1>
 <p>Accurate extraction of text, tables, equations, and figure
 descriptions from archival and scanned documents using vision-language
 (multimodal LLM) architectures. The protocol combines direct agent
@@ -160,8 +408,8 @@ extracted rather than skipped.</p>
 <p><a href="https://github.com/andenick/hdarp">Source on GitHub
 →</a></p>
 </div>
-<div id="anu-framework-anu" class="section level2">
-<h2>Anu Framework (ANU)</h2>
+<div id="anu-framework-anu" class="section level1">
+<h1>Anu Framework (ANU)</h1>
 <p>Reproducible economic data construction: a staged pipeline that
 carries a data series from source research through validated replication
 packages, documentation, and publication. The framework powers the
@@ -170,8 +418,8 @@ provenance trail.</p>
 <p><a href="https://github.com/andenick/anu-framework">Source on GitHub
 →</a></p>
 </div>
-<div id="anu-architecture" class="section level2">
-<h2>Anu Architecture</h2>
+<div id="anu-architecture" class="section level1">
+<h1>Anu Architecture</h1>
 <p>The standardized project and pipeline layout underlying the
 framework. Staged scripts (load, process, validate, manual adjust,
 analyze, output) encode the dependency graph in the file system;
@@ -181,8 +429,8 @@ data was built.</p>
 <p><a href="https://github.com/andenick/anu-architecture">Source on
 GitHub →</a></p>
 </div>
-<div id="arcanum-workspace" class="section level2">
-<h2>Arcanum Workspace</h2>
+<div id="arcanum-workspace" class="section level1">
+<h1>Arcanum Workspace</h1>
 <p>The Claude Code-based research workspace and tooling that
 orchestrates all of the above. It collects the skill templates,
 workspace standards, and supporting infrastructure used across my
@@ -190,8 +438,8 @@ research projects.</p>
 <p><a href="https://github.com/andenick/arcanum-workspace">Source on
 GitHub →</a></p>
 </div>
-<div id="why-open-source" class="section level2">
-<h2>Why Open-Source</h2>
+<div id="why-open-source" class="section level1">
+<h1>Why Open-Source</h1>
 <p>Empirical economics done with AI assistance can produce work that
 other researchers cannot reproduce, audit, or extend. The tools above
 are an attempt to do AI-augmented research without sacrificing the
@@ -201,16 +449,22 @@ ask them properly should be too.</p>
 <p><a href="https://github.com/andenick/arcanum-workspace">Full source
 on GitHub →</a></p>
 </div>
-</div>
 
 <!-- nickanderson.us — after_body include (referenced from _site.yml).
      Underscore-prefixed so render_site() does not copy it into docs/.
-     Closes the main element opened in _before_body.html, then emits the mandated
-     dual-anchor ecosystem footer and loads the site's three small scripts.
-     toggle.js, ark-track.js, styles.css, shared/ and assets/ ARE copied to
-     docs/ by render_site() and served. -->
+     Loads the vendored (offline, no-CDN) theme toggle and the 1-pageview
+     usage beacon. toggle.js, ark-track.js and styles.css ARE copied to docs/
+     by render_site() and served. -->
 
-</main>
+<!-- Usage beacon config.
+     `endpoint` points at our own first-party usage endpoint
+     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
+     so cross-origin sendBeacon is used; the endpoint returns a wildcard CORS
+     header + handles the OPTIONS preflight. First-party, no third party, no
+     cookies, DNT-aware. -->
+<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
+<script src="ark-track.js" defer></script>
+<script src="toggle.js" defer></script>
 
 <!-- Ecosystem footer / hub CTA on every page (dual-anchor reciprocity, D9).
      Injected via this shared after_body include so a re-render preserves it. -->
@@ -224,42 +478,70 @@ on GitHub →</a></p>
   <span><a href="aitools.html">Research tooling &amp; provenance</a></span>
 </footer>
 
+
+</div>
+</div>
+
+</div>
+
 <script>
-  // Mark the current page in the nav. Progressive enhancement only: with JS
-  // off the nav still works, it just carries no highlight.
-  (function () {
-    var here = location.pathname.split("/").pop() || "index.html";
-    var link = document.querySelector('.na-nav a[href="' + here + '"]');
-    if (link) link.setAttribute("aria-current", "page");
-  })();
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
 </script>
 
-<!-- Usage beacon config.
-     `endpoint` points at our own first-party usage endpoint
-     (https://heterodata.org/__track). GitHub Pages is pure-static (no backend),
-     so the beacon is cross-origin; ark-track.js v2.0.1 detects that and uses a
-     keepalive fetch with credentials:"omit" (wildcard-CORS compatible) instead
-     of sendBeacon. First-party, no third party, no cookies, DNT-aware. -->
-<script>window.ARK_TRACK = { site: "nickanderson", endpoint: "https://heterodata.org/__track" };</script>
-<script src="ark-track.js" defer></script>
-<script src="toggle.js" defer></script>
+<!-- tabsets -->
 
-<!-- Responsive tables: stamps data-label on every <td> so arcanum.css can
-     reflow wide tables into labelled cards below 680px. Vendored from the kit.
-     The kit enhancer matches `.ark-prose table, .prose table, table[data-arktable],
-     table.ark-table`; R Markdown emits BARE tables, so tag them first. This
-     inline script runs at parse time, before the deferred enhancer. -->
 <script>
-  (function () {
-    var t = document.querySelectorAll("main table"), i;
-    for (i = 0; i < t.length; i++) { t[i].className += " ark-table"; }
-  })();
-</script>
-<script src="shared/ark-table.js" defer></script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
 
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 
 </body>

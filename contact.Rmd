@@ -1,23 +1,15 @@
 ---
+title: "Contact"
 pagetitle: "Contact — Nick Anderson"
 output:
   html_document:
     includes:
       in_header: ["_head.html", "_meta_contact.html"]
-      before_body: _before_body.html
       after_body: _after_body.html
 ---
 
 # Contact
 
-Email: [nickawebbox@gmail.com](mailto:nickawebbox@gmail.com)
+[nickawebbox@gmail.com](mailto:nickawebbox@gmail.com)
 
-Code: [github.com/andenick](https://github.com/andenick)
-
-Data: [files.heterodata.org](https://files.heterodata.org)
-
-Research hub: [heterodata.org](https://heterodata.org)
-
-For the 121-page draft of Part 1 of *Economics at The New School*, or for any of
-the underlying datasets that are not yet mirrored publicly, email me and I will
-send a link.
+[github.com/andenick](https://github.com/andenick)

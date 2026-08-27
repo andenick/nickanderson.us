@@ -1,52 +1,41 @@
 name: "Nick Anderson"
+navbar:
+  title: "Nick Anderson"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Research"
+      href: research.html
+    - text: "Economic History"
+      href: economichistory.html
+    - text: "TNSE"
+      href: tnse.html
+    - text: "AI Tools"
+      href: aitools.html
+    - text: "Projects"
+      href: projects.html
+    - text: "Data"
+      href: data.html
+    - text: "About"
+      href: about.html
+    - text: "Contact"
+      href: contact.html
+  right:
+    - icon: fa-github
+      text: "GitHub"
+      href: https://github.com/andenick
+
 output_dir: "docs"
 
-# ── Files and directories NOT copied into docs/ ───────────────────────────────
-# render_site() already skips anything beginning with "_" or "." (so _head.html,
-# _before_body.html, _after_body.html, _meta_*.html and _legacy-theme/ are all
-# excluded automatically). These are the non-underscore build inputs that must
-# also stay out of the served output.
-#
-#   economichistory_files/  was served but referenced by nothing (defect N7).
-#   economichistory_cache/  and research_cache/ are knitr caches — build inputs.
-#   data-cache/             cached derived inputs for research.Rmd.
-#   tools/, R/              build scripts.
-exclude:
-  - "economichistory_files"
-  - "economichistory_cache"
-  - "research_cache"
-  - "data-cache"
-  - "tools"
-  - "R"
-  - "*.Rproj"
-  - ".Rproj.user"
-  - "README.md"
-  - "SITE_NOTES.md"
-
-# ── Shared chrome for every page ──────────────────────────────────────────────
-# theme: null removes Bootstrap 3, jQuery, jQuery UI and tocify entirely
-# (~520 KB of vendor assets). The site now supplies its own header, nav, layout,
-# table styling and table-of-contents CSS via styles.css on top of the vendored
-# Arcanum Site Kit (shared/arcanum.css).
-#
-#   _head.html         stylesheets + favicon + pre-paint theme (no FOUC)
-#   _before_body.html  skip link, header, nav, and the opening <main>
-#   _after_body.html   closes <main>, dual-anchor footer, the three small scripts
-#
-# NOTE: `toc_float` is incompatible with `theme: null` (it hard-requires
-# Bootstrap). Pages that want a table of contents use plain `toc: true`, which
-# emits a bare <div id="TOC"> that styles.css turns into a sticky sidebar with
-# zero JavaScript. Per-page YAML is merged on top of this by render_site().
+# Shared chrome for every page (de-duplicated from the old per-page inline
+# <style> blocks). styles.css carries the light/dark CSS variables; _head.html
+# applies the saved theme before paint (no FOUC); _after_body.html loads the
+# vendored theme toggle + usage beacon. Per-page YAML (toc settings, etc.) is
+# merged on top of this by render_site().
 output:
   html_document:
-    theme: null
-    highlight: null
+    css: styles.css
     mathjax: null
-    self_contained: false
-    # Sets <html lang="en"> on every page (defect N6). Applied here rather than
-    # per-page so a new page cannot forget it.
-    pandoc_args: ["--metadata", "lang=en"]
     includes:
       in_header: _head.html
-      before_body: _before_body.html
       after_body: _after_body.html
