@@ -5,6 +5,7 @@
 research_cache/
 *_cache/
 *_files/
+!docs/economichistory_files/
 docs/superpowers/
 
 # Editor/backup artifacts — never render or commit these

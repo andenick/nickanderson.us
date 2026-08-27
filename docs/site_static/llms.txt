@@ -1,0 +1,38 @@
+# Nick Anderson
+
+> https://www.nickanderson.us/
+
+Personal site of Nick Anderson, a PhD candidate in Economics at The New School
+for Social Research. Empirical work on public finance and economic history,
+and the construction of long-run economic data. This site is the author anchor
+of the Heterodata research-data ecosystem.
+
+## Pages
+
+- Home: https://www.nickanderson.us/ — index of projects and sites
+- Research: https://www.nickanderson.us/research.html — three papers: Duration and Public Finance (2001-2023), Tax Revenue Cyclicality (1800-2020), and the US-Germany balance of payments
+- Economic History: https://www.nickanderson.us/economichistory.html — the original figures and full treatment of the research papers
+- Economics at The New School: https://www.nickanderson.us/tnse.html — institutional history and the Anwar Shaikh Papers
+- AI Tools: https://www.nickanderson.us/aitools.html — open-source research tooling
+- Projects: https://www.nickanderson.us/projects.html — sites and repositories
+- Data: https://www.nickanderson.us/data.html — datasets, mirrors, and downloads
+- About: https://www.nickanderson.us/about.html
+- Contact: https://www.nickanderson.us/contact.html
+
+## Data
+
+- Download hub: https://files.heterodata.org
+
+## Code
+
+- All repositories: https://github.com/andenick
+- This site: https://github.com/andenick/nickanderson.us
+
+## Outputs
+
+- Research hub: https://heterodata.org
+
+## Notes for agents
+
+- License: site content (c) Nick Anderson. Code in the linked repositories
+  carries its own license, generally MIT.
