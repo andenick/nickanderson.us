@@ -1,5 +1,41 @@
 /* =============================================================================
-   Arcanum Site Kit (ASK) — arcanum.css — v1.3
+   Arcanum Site Kit (ASK) — arcanum.css — v1.4
+   v1.4 (2026-07-31): kit-debt pass. THREE changes, no token changes.
+     (a) .ark-fineprint / .ark-explore-controls adopted upstream, byte-identical
+         to the marked block erwin and myrdal each carried site-locally. Both
+         site-local copies become deletable once this propagates.
+     (b) .ark-lede / .ark-note rescoped from descendant-only to standalone, so
+         the same class used outside .ark-hero / .ark-section-head stops
+         rendering unstyled. Scoped appearance is unchanged by construction.
+     (c) .ark-gallery-grid narrow-viewport overflow fixed (min-width:0 on grid
+         items); measured at 390px, 104px of horizontal body scroll.
+     ✅ PROPAGATED 2026-08-04 to all 26 vendored copies (deploy/ + sites_source/ +
+     PublicRepos/), after the /carson-visual regression pass that gated it.
+     VERDICT: PASS — 0 regressions in 51 tested page×width combinations across
+     erwin, myrdal, heterodata, gordon and lewis at 1440/834/390 in BOTH themes.
+     The candidate CSS was applied by intercepting the arcanum.css request so it
+     kept its cascade position (site-local theme.css/site.css still load after and
+     still win) — appending it instead would have produced false regressions.
+     Findings, screenshots and the negative-control run:
+     Council/Carson/Technical/reviews/kit_v14_regression_20260804/.
+     What the pass actually established, per change:
+       (a) no-op where it lands — erwin's and myrdal's site-local blocks are
+           byte-identical and load AFTER the kit, so they still win. Their local
+           copies are now deletable (gordon keeps its own .ark-fineprint, which
+           differs deliberately and still overrides).
+       (b) the ONLY rendering change is the standalone case, which was previously
+           unstyled: 10 pages on erwin/myrdal. Scoped usage (heterodata,
+           nickanderson) measured ZERO change, as constructed. No site-local bare
+           .ark-lede/.ark-note rule exists anywhere that could newly win on
+           source order — that was the real regression vector and it is empty.
+           Contrast after dimming: 7.71 dark / >4.5 light, WCAG AA clear.
+       (c) independently reproduced: stripping gordon's site-local override with
+           the OLD kit brings the 104px overflow back at 390px; with v1.4 it does
+           not. The kit rule genuinely substitutes, so gordon's local override is
+           now deletable too. lewis's gallery never overflowed either way.
+     ⚠ Vendored files are on disk only. The 14 live sites still SERVE v1.3 until
+     their containers are rebuilt — see Technical/reports/queue_entries_T2.md.
+     nickanderson.us was UNTESTED (DNS SERVFAIL from the workstation), not passed.
    v1.3 (2026-06-12): header-density breakpoint (≤1100px) so 9-10-item navs
    don't wrap the theme toggle onto a second row; no token changes.
    v1.2 (Heterodata rebrand)
@@ -183,12 +219,56 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
   flex-wrap: wrap;
 }
 .ark-section-head h2 { margin: 0; font-size: var(--ark-text-lg); }
-.ark-section-head .ark-note { margin: 0; font-size: var(--ark-text-sm); color: var(--ark-fg-dim); }
 
 /* Hero / landing intro */
 .ark-hero { padding: var(--ark-space-6) 0 var(--ark-space-5); }
 .ark-hero h1 { font-size: var(--ark-text-3xl); margin: 0 0 .6rem; line-height: 1.1; }
-.ark-hero .ark-lede { margin: 0; max-width: 62ch; color: var(--ark-fg-dim); font-size: var(--ark-text-md); }
+
+/* v1.4 — .ark-lede and .ark-note are STANDALONE utilities.
+   Until v1.4 each existed only as a descendant selector (`.ark-hero .ark-lede`,
+   `.ark-section-head .ark-note`), so the same class used anywhere else on a page
+   rendered completely unstyled. erwin, myrdal, heterodata and nickanderson all
+   use them outside those two containers. The declarations below are the SAME
+   values that were inside the scoped rules, lifted out; the container rules that
+   follow keep only what is genuinely container-specific (margin reset), so a
+   lede inside a hero and a note inside a section head render exactly as before.
+   Nothing about the scoped appearance changes — the standalone case stops being
+   a no-op. */
+.ark-lede { max-width: 62ch; color: var(--ark-fg-dim); font-size: var(--ark-text-md); }
+.ark-note { font-size: var(--ark-text-sm); color: var(--ark-fg-dim); }
+.ark-hero .ark-lede { margin: 0; }
+.ark-section-head .ark-note { margin: 0; }
+
+/* v1.4 — .ark-fineprint / .ark-explore-controls, adopted upstream.
+   Byte-adopted from the marked block that erwin and myrdal each carried in their
+   site-local theme.css (both copies byte-identical, both marked "delete when the
+   kit gains them"). Every value derives from an --ark-* token, so both themes
+   follow the toggle automatically (D10: no hardcoded light-mode colours). */
+.ark-fineprint {
+  font-size: var(--ark-text-sm);
+  color: var(--ark-fg-dim);
+  max-width: 78ch;
+}
+.ark-explore-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ark-space-2);
+  margin: var(--ark-space-4) 0;
+}
+.ark-explore-controls label {
+  font-size: var(--ark-text-sm);
+  color: var(--ark-fg-dim);
+}
+.ark-explore-controls select {
+  background: var(--ark-bg-soft);
+  color: var(--ark-fg);
+  border: 1px solid var(--ark-line);
+  border-radius: var(--ark-radius);
+  padding: .4rem .6rem;
+  font: inherit;
+  max-width: 100%;
+}
 
 /* Prose measure for readability */
 .ark-prose { max-width: 72ch; font-size: var(--ark-text-md); line-height: 1.75; }
@@ -416,7 +496,7 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 /* v1.3 FIX: scope the outline-chip style to plain links only. The previous
    `.ark-download a` selector (0,1,1) beat `.ark-btn` (0,1,0) and repainted the
    ArkDownloads.buttons() chips' text in the accent color ON the accent fill —
-   invisible labels in production (gerhard, lewis). */
+   invisible labels in production. */
 .ark-download a:not(.ark-btn) {
   display: inline-block; font-size: .76rem; font-family: var(--ark-mono);
   border: 1px solid var(--ark-line); border-radius: var(--ark-radius-sm);
@@ -604,7 +684,7 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 .ark-footer strong { color: var(--ark-fg); }
 .ark-footer .ark-sep { color: var(--ark-line); user-select: none; }
 .ark-footer .ark-foot-badges { display: inline-flex; flex-wrap: wrap; gap: .4rem; }
-/* Educational disclaimer (EDUCATIONAL_DISCLAIMER_STANDARD.md) — site-wide footer placement. */
+/* Educational disclaimer — site-wide footer placement. */
 .ark-footer-disclaimer {
   max-width: var(--ark-maxw); margin: 0 auto;
   padding: var(--ark-space-4) 1.25rem 0;
@@ -672,7 +752,7 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 }
 
 /* ── §17 ArkChart — the single chart entry point (ark-chart.js) ───────────────
-   DNA Universal Graph Contract: one chart per row (full width), title left +
+   Universal Graph Contract: one chart per row (full width), title left +
    controls (transform + Download CSV) pinned top-right, plot, then downloads row. */
 .ark-chart-wrap { display: block; width: 100%; margin: 0 0 var(--ark-space-5, 24px); }
 .ark-chart-head {
@@ -683,7 +763,14 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 .ark-chart-controls { display: flex; align-items: center; gap: var(--ark-space-2, 8px); margin-left: auto; }
 .ark-chart-csv { white-space: nowrap; }
 .ark-chart-transform { padding: 2px 8px; }
-.ark-chart { width: 100%; min-height: 320px; }
+/* NOTE: `.ark-chart` itself is declared ONCE, in §9 (PLOTLY CHART CONTAINER) — it owns
+   width/min-height/border/background/padding/flex. A second `.ark-chart` block used to
+   live here with `min-height:320px`; being later in the file it silently won the cascade
+   and shrank every kit chart estate-wide by 120px. ark-plotly.js renders autosize
+   (responsive:true, no layout.height) into this box with a fixed b:44 bottom margin and a
+   responsiveTitle() that raises margin.t to 52-70px, so the plot needs the full 440px of
+   vertical room or the x-axis title clips. Do NOT re-declare `.ark-chart` here; if a
+   surface genuinely needs a shorter chart, add a MODIFIER (e.g. `.ark-chart--compact`). */
 .ark-chart-downloads { margin-top: var(--ark-space-2, 8px); }
 /* never two charts sharing a row */
 .ark-chart-row, .ark-charts { display: block; }
@@ -693,7 +780,7 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 }
 
 /* ── §18 ArkTable — responsive narrative tables (ark-table.js) ────────────────
-   DNA TABLE_RENDERING_STANDARD: at narrow widths a narrative table reflows to
+   Table-rendering rule: at narrow widths a narrative table reflows to
    label-stacked cards (each cell shows its column header via data-label) instead
    of a horizontally-scrolling mystery. Wide data grids belong in the Explorer. */
 .ark-table-wrap { width: 100%; overflow-x: auto; }
@@ -745,8 +832,21 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
   /* responsive: 1 column on phones, 2 on wide screens — but each card is a full,
      standalone chart (the per-CARD chart is never split into side-by-side plots). */
   grid-template-columns: 1fr;
+  /* v1.1: cards size to their own content. Without this a media-less deep-link card
+     stretches to the height of the tall figure card beside it and reads as a broken
+     image slot. Chart cards keep their own min-height, so they are unaffected. */
+  align-items: start;
 }
 @media (min-width: 900px) { .ark-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* v1.4 — narrow-viewport overflow fix (measured at 390px on gordon, 2026-07-30:
+   the grid was 104px wider than its 304px track, and the page body scrolled
+   sideways). A grid ITEM defaults to min-width:auto, so a Plotly chart's
+   intrinsic width pushes the 1fr track open however narrow the viewport gets.
+   min-width:0 on the items lets the track win. Gordon carries a byte-equivalent
+   site-local override in its own site.css, kept until this ships so the two can
+   be compared; delete it there once this is propagated. */
+.ark-gallery-grid > * { min-width: 0; }
+.ark-gallery-chart { min-width: 0; max-width: 100%; }
 .ark-gallery-card {
   margin: 0; display: flex; flex-direction: column;
   border: 1px solid var(--ark-line); border-radius: var(--ark-radius, 10px);
@@ -765,8 +865,27 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 .ark-gallery-card-link:hover { text-decoration: underline; }
 .ark-gallery-pending { color: var(--ark-fg-dim); font-style: italic; padding: var(--ark-space-5, 24px) 0; }
 
+/* v1.1 (additive) — two more card kinds for sites whose figures are NOT served
+   from a /api/chart registry: a static-figure card and a deep-link card.
+   `image` cards show the figure itself; deep-link cards deliberately carry no
+   media (a live map/dashboard is linked, never re-embedded inside a card). */
+.ark-gallery-card-kicker {
+  margin: 0 0 var(--ark-space-1, 4px); font-size: var(--ark-text-xs, .78rem);
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ark-fg-dim); font-weight: 600;
+}
+.ark-gallery-card-media {
+  width: 100%; background: var(--ark-bg, #fff); border-radius: var(--ark-radius-sm, 6px);
+  overflow: hidden; border: 1px solid var(--ark-line);
+}
+.ark-gallery-img-link { display: block; }
+.ark-gallery-img { display: block; width: 100%; height: auto; max-width: 100%; }
+/* A media-less deep-link card should not read as a broken image card: it gets a
+   little more breathing room so title + caption + link fill it evenly. */
+.ark-gallery-card--link { padding: var(--ark-space-4, 16px); }
+.ark-gallery-card--link .ark-gallery-card-caption { margin-top: var(--ark-space-2, 8px); }
+
 /* ── §20 ArkTriad — the Research Triad (hero action row) + compact footer form ─
-   CODE_DATA_FIRST_STANDARD.md §B1.1/§B1.2. Data + Code = PRIMARY (accent fill,
+   The Code & Data First layout. Data + Code = PRIMARY (accent fill,
    --ark-on-accent ink — text is NEVER accent-on-accent, the v1.2 contrast lesson);
    Outputs = SECONDARY (outline, fills on hover). Stacked full-width < 768px; one
    equal-width row ≥ 768px. AA in both themes; visible focus rings. Filled by
@@ -830,7 +949,7 @@ code, kbd, samp, pre { font-family: var(--ark-mono); }
 .ark-triad-compact .ark-triad-sub { font-size: .72rem; }
 
 /* ── §21 ArkActionFooter — the footer v2 useful-buttons bar ────────────────────
-   CODE_DATA_FIRST_STANDARD.md §B1.2. A compact triad + "Website source" + "Cite
+   The Code & Data First layout. A compact triad + "Website source" + "Cite
    this site", ABOVE the existing dual-anchor colophon (which is preserved exactly
    — heterodata.org hub + nickanderson.us author). One footer per page. */
 .ark-action-footer .ark-action-bar {
