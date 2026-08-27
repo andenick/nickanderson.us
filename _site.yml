@@ -20,6 +20,10 @@ navbar:
       href: about.html
     - text: "Contact"
       href: contact.html
+  right:
+    - icon: fa-github
+      text: "GitHub"
+      href: https://github.com/andenick
 
 output_dir: "docs"
 
