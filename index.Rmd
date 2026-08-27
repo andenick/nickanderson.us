@@ -11,12 +11,6 @@ output:
 
 Welcome to my research hosting site. I am an economics PhD candidate at The New School for Social Research.
 
-<div class="ark-triad" role="navigation" aria-label="My code, data, and outputs">
-  <a class="ark-triad-item" href="https://files.heterodata.org"><span class="ark-triad-k">My data</span><span class="ark-triad-v">files.heterodata.org</span></a>
-  <a class="ark-triad-item" href="https://github.com/andenick"><span class="ark-triad-k">My code</span><span class="ark-triad-v">github.com/andenick</span></a>
-  <a class="ark-triad-item" href="https://heterodata.org"><span class="ark-triad-k">My results</span><span class="ark-triad-v">heterodata.org</span></a>
-</div>
-
 # **Welcome, here are some projects of mine**
 
 <h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">Economics at The New School</h2>
