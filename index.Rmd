@@ -19,15 +19,35 @@ Welcome to my research hosting site. I am an economics PhD candidate at The New 
 
 # **Welcome, here are some projects of mine**
 
-<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">Projects</h2>
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">My sites</h2>
+
+- **[Gerhard](https://gerhard.heterodata.org)** — the history and present of American public finance: taxation, spending, and debt over time.
+- **[Shaikh Data](https://shaikh.heterodata.org)** — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
+- **[Lewis](https://lewis.heterodata.org)** — international economics: balance-of-payments and cross-border value transfers across the world's economies.
+- **[Leontief](https://leontief.heterodata.org)** — U.S. input–output accounts; compute and inspect the Leontief inverse across sectors.
+- **[Vlad](https://vlad.heterodata.org)** — the official statistics of the Soviet Union and Imperial Russia.
+- **[Myrdal](https://myrdal.heterodata.org)** — population as a cause of economic outcomes: the long-run demographic transition.
+- **[Race](https://race.heterodata.org)** — race, stratification, and economic disparities in the United States.
+- **[Gordon](https://gordon.heterodata.org)** — U.S. employment and inflation on BLS, BEA, and Federal Reserve primary data.
+- **[Erwin](https://erwin.heterodata.org)** — military spending as an endogenous feature of capitalism.
+- **[FreeNIC](https://freenic.org)** — bank-level U.S. financial-data explorer: failures, FRED series, and active institutions; bulk data free.
+- **[Foodberg](https://foodberg.org)** — global food and commodity price explorer.
+- **[HMDA Explore](https://hmdaexplore.com)** — a dashboard over Home Mortgage Disclosure Act data on U.S. mortgage lending.
+- **[Methodex](https://methodex.fyi)** — a public-domain economic-statistics methodology layer.
+- **[JJ Muni](https://jjmuni.com)** — Westchester County sidewalk-coverage web map, tract by tract.
+- **[NYC Visualizer](https://nycvisualizer.com)** — live New York City transit map and sidewalk accessibility.
+
+Data downloads across all of these are gathered at [files.heterodata.org](https://files.heterodata.org), and every site is indexed on the hub: [heterodata.org](https://heterodata.org).
+
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">On this site</h2>
 
 ### [Research](research.html)
 
-My empirical work on public finance and data.
+My empirical work on public finance and economic history — three papers, with the full original figures on the [Economic History](economichistory.html) page.
 
-### [Heterodata](https://heterodata.org)
+### [Economic History](economichistory.html)
 
-The research-data platform: a hub of interactive data sites including **Gerhard** (US public finance, [gerhard.heterodata.org](https://gerhard.heterodata.org)), **Shaikh Data** ([shaikh.heterodata.org](https://shaikh.heterodata.org) — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*), **Lewis** (international economics, [lewis.heterodata.org](https://lewis.heterodata.org)), **Leonid** (Soviet statistics, [leonid.heterodata.org](https://leonid.heterodata.org)), **Leontief** (US input–output, [leontief.heterodata.org](https://leontief.heterodata.org)), and **StarCruiser** (US employment and inflation, [starcruiser.heterodata.org](https://starcruiser.heterodata.org)), plus affiliated standalone sites: [freenic.org](https://freenic.org) (banking data), [foodberg.org](https://foodberg.org) (food prices), [hmdaexplore.com](https://hmdaexplore.com) (mortgage lending), [methodex.fyi](https://methodex.fyi) (statistical methodology), and [jjmuni.com](https://jjmuni.com) (municipal pedestrian infrastructure). Data downloads across the ecosystem are gathered at [files.heterodata.org](https://files.heterodata.org) and indexed on the hub's [data page](https://heterodata.org/data).
+The original figures and full treatment of the research papers.
 
 ### [Economics at the New School](tnse.html)
 
@@ -37,12 +57,9 @@ A three-part institutional and intellectual history of The New School's economic
 
 The open-source research tooling I built for AI-assisted empirical economics, with links to the GitHub repositories.
 
-### HMDA Explore
+### [Projects](projects.html) · [Data](data.html) · [About](about.html)
 
-An interactive explorer over Home Mortgage Disclosure Act data, in two versions side by side:
-
-- [andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/) — the earlier interactive draft (R-Shiny; slower to start).
-- [hmdaexplore.com](https://hmdaexplore.com) — the actively developed web version.
+Code repositories, datasets and sources, and who I am.
 
 ---
 

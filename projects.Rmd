@@ -95,7 +95,7 @@ A full-stack web application (React + FastAPI) for exploring historical food com
 
 *A History of Economic Statistics*
 
-- **Site:** [methodex.fyi](https://methodex.fyi) — interactive explorer, plus an MCP API at [mcp.methodex.fyi](https://mcp.methodex.fyi) for AI agents.
+- **Site:** [methodex.fyi](https://methodex.fyi) — interactive statistical-methodology explorer.
 - **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
 
 The construction-and-revision history of economic statistics — for any series, at any date, see how it was built and which governing manual was in force, with citations back to that manual.
@@ -128,13 +128,6 @@ An interactive dashboard for exploring **Home Mortgage Disclosure Act data, 2019
 
 A public website hosting resources for heterodox and classical political economy related to Anwar Shaikh's empirical contributions.
 
-# Volcker
-
-*Banking and Financial-History Analysis*
-
-- **Repo:** [github.com/andenick/arcanum-workspace](https://github.com/andenick/arcanum-workspace) — code and data.
-
-A ten-dimension taxonomy of roughly 7,000 U.S. bank failures (1865–2026) and the bank-panel datasets behind it. It also hosts [MyRFailingBanks](https://github.com/andenick/MyRFailingBanks), an R package replicating the Correia, Luck, and Verner (2025) "Failing Banks" QJE paper (158K observations, 489 failures, 0.965 AUC).
 
 # arcanum-workspace
 
