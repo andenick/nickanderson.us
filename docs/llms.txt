@@ -10,8 +10,7 @@ of the Heterodata research-data ecosystem.
 ## Pages
 
 - Home: https://www.nickanderson.us/ — index of projects and sites
-- Research: https://www.nickanderson.us/research.html — three papers: Duration and Public Finance (2001-2023), Tax Revenue Cyclicality (1800-2020), and the US-Germany balance of payments
-- Economic History: https://www.nickanderson.us/economichistory.html — the original figures and full treatment of the research papers
+- Research: https://www.nickanderson.us/research.html — three papers in full with their original figures: Duration and Public Finance (2001-2023), Tax Revenue Cyclicality (1800-2020), and the US-Germany balance of payments
 - Economics at The New School: https://www.nickanderson.us/tnse.html — institutional history and the Anwar Shaikh Papers
 - AI Tools: https://www.nickanderson.us/aitools.html — open-source research tooling
 - Projects: https://www.nickanderson.us/projects.html — sites and repositories

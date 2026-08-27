@@ -218,3 +218,19 @@ table, .table { color: var(--fg); }
    10. MISC — preserved from the old research.Rmd inline block
    --------------------------------------------------------------------------- */
 #getting-started img { margin-right: 10px; margin-left: 5px; }
+
+/* 12. NAVBAR COLLAPSE AT TABLET (added 2026-08-27, NC3)
+   Bootstrap 3 collapses only below 768px; with 9 nav items + GitHub the
+   navbar wraps to ~200px at tablet widths while body padding stays 65px,
+   occluding content. Collapse to the hamburger from 991px down. */
+@media (max-width: 991px) {
+  .navbar-toggle { display: block !important; }
+  .navbar-collapse.collapse { display: none !important; }
+  .navbar-collapse.collapse.in { display: block !important; }
+  .navbar-header { float: none; }
+  body { padding-top: 70px; }
+}
+
+/* 13. LONG-URL WRAPPING (NC3) — raw autolinked URIs in the restored Economic
+   History content are unbreakable and overflow narrow viewports. */
+a.uri, .main-container a[href^="http"] { overflow-wrap: anywhere; word-break: break-word; }

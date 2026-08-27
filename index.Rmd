@@ -19,7 +19,35 @@ Welcome to my research hosting site. I am an economics PhD candidate at The New 
 
 # **Welcome, here are some projects of mine**
 
-<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">My sites</h2>
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">Economics at The New School</h2>
+
+### [Economics at the New School](tnse.html)
+
+A three-part institutional and intellectual history of The New School's
+economics department — who taught there, what they argued, and how the
+department changed American economics. A 121-page draft of Part 1 is available
+on request.
+
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">My work on this site</h2>
+
+### [Research](research.html)
+
+My empirical work on public finance and economic history — three papers, each
+summarized with its full original treatment and figures on the same page.
+
+### [AI Tools](aitools.html)
+
+The open-source research tooling I built for AI-assisted empirical economics, with links to the GitHub repositories.
+
+### [Projects](projects.html) · [Data](data.html) · [About](about.html) · [Contact](contact.html)
+
+Code repositories, datasets and sources, who I am, and how to reach me.
+
+<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">The Heterodata suite</h2>
+
+The Heterodata suite is built **agent-first**: an AI-driven research workflow
+designs, constructs, and documents every site, and every number on them traces
+to a documented source.
 
 - **[Gerhard](https://gerhard.heterodata.org)** — the history and present of American public finance: taxation, spending, and debt over time.
 - **[Shaikh Data](https://shaikh.heterodata.org)** — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
@@ -38,28 +66,6 @@ Welcome to my research hosting site. I am an economics PhD candidate at The New 
 - **[NYC Visualizer](https://nycvisualizer.com)** — live New York City transit map and sidewalk accessibility.
 
 Data downloads across all of these are gathered at [files.heterodata.org](https://files.heterodata.org), and every site is indexed on the hub: [heterodata.org](https://heterodata.org).
-
-<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">On this site</h2>
-
-### [Research](research.html)
-
-My empirical work on public finance and economic history — three papers, with the full original figures on the [Economic History](economichistory.html) page.
-
-### [Economic History](economichistory.html)
-
-The original figures and full treatment of the research papers.
-
-### [Economics at the New School](tnse.html)
-
-A three-part institutional and intellectual history of The New School's economics department. A 121-page draft of Part 1 is available on request.
-
-### [AI Tools](aitools.html)
-
-The open-source research tooling I built for AI-assisted empirical economics, with links to the GitHub repositories.
-
-### [Projects](projects.html) · [Data](data.html) · [About](about.html)
-
-Code repositories, datasets and sources, and who I am.
 
 ---
 

@@ -65,3 +65,17 @@
   if (document.readyState !== "loading") init();
   else document.addEventListener("DOMContentLoaded", init);
 })();
+
+/* NC3 2026-08-27: keep body padding in step with the fixed navbar's real
+   height (wrap edge cases, zoom, font swaps). Runs on load + resize. */
+(function () {
+  function syncPad() {
+    var nav = document.querySelector('.navbar-fixed-top');
+    if (!nav) return;
+    var h = Math.ceil(nav.getBoundingClientRect().height);
+    if (h > 0) document.body.style.paddingTop = h + 'px';
+  }
+  window.addEventListener('load', syncPad);
+  window.addEventListener('resize', syncPad);
+  if (document.readyState !== 'loading') syncPad();
+})();

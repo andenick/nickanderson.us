@@ -6,8 +6,6 @@ navbar:
       href: index.html
     - text: "Research"
       href: research.html
-    - text: "Economic History"
-      href: economichistory.html
     - text: "TNSE"
       href: tnse.html
     - text: "AI Tools"
