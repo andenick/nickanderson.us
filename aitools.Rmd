@@ -39,10 +39,8 @@ The standardized project and pipeline layout underlying the framework. Staged sc
 
 The Claude Code-based research workspace and tooling that orchestrates all of the above. It collects the skill templates, workspace standards, and supporting infrastructure used across my research projects.
 
-[Source on GitHub →](https://github.com/andenick/arcanum-workspace)
 
 # Why Open-Source
 
 Empirical economics done with AI assistance can produce work that other researchers cannot reproduce, audit, or extend. The tools above are an attempt to do AI-augmented research without sacrificing the standards the discipline expects. They are open-source because the underlying research questions are, and the infrastructure required to ask them properly should be too.
 
-[Full source on GitHub →](https://github.com/andenick/arcanum-workspace)
