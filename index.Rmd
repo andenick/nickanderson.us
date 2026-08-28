@@ -9,8 +9,6 @@ output:
       after_body: _after_body.html
 ---
 
-I am an economics PhD candidate at The New School for Social Research.
-
 <h1 style="text-align: center; font-weight: bold;">Welcome, here are some projects of mine</h1>
 
 <h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">Economics at The New School</h2>
