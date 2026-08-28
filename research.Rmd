@@ -451,7 +451,7 @@ FRED GDP Dataset. Federal Reserve Bank of St. Louis, March 8, 2023.
 </p>
 <p>
 Securities Industry and Financial Markets Association (SIFMA). “US
-Treasury Securities Statistics.” SIFMA website, <a href="https://www.sifma.org/resources/research/us-treasury-securities-statistics/" class="uri">https://www.sifma.org/resources/research/us-treasury-securities-statistics/</a>.
+Treasury Securities Statistics.” SIFMA website, <a href="https://www.sifma.org/research/statistics/us-treasury-securities-statistics" class="uri">https://www.sifma.org/research/statistics/us-treasury-securities-statistics</a>.
 Accessed May 20, 2023.
 </p>
 <p>
