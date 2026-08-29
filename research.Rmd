@@ -877,8 +877,7 @@ For the purposes of this paper, I am going to combine the Capital and
 Financial Accounts for convenience. In the cases of both Germany and the
 United States, the Newly segregated Capital Account is of negligible
 size when compared to the Financial and Current Accounts and is almost
-always near 0% of Gross Domestic Product. This relationship is evident
-in Figure 1 below.
+always near 0% of Gross Domestic Product.
 </p>
 
 

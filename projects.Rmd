@@ -130,6 +130,6 @@ A public website hosting resources for heterodox and classical political economy
 
 *AI-First Research Workspace*
 
-- **Site:** [aitools.html](aitools.html) — overview of the AI tools built here.
+- **Overview:** [the AI Tools page on this site](aitools.html).
 
 The home of the [AI tools](aitools.html) used across all of my research projects. Skill templates, workspace standards, and supporting infrastructure for AI-assisted empirical research.
