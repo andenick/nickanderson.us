@@ -58,21 +58,9 @@
   /* navbar stays maroon; --fig-card-bg stays white on purpose */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    color-scheme: dark;
-    --bg:        #0e1116;
-    --bg-soft:   #161b22;
-    --fg:        #e7edf3;
-    --fg-dim:    #9aa7b4;
-    --line:      #2a313b;
-    --link:      #e6a8a8;
-    --link-hover:#f3cccc;
-    --card-bg:   #161b22;
-    --code-bg:   #1b2027;
-    --shadow:    0 6px 22px -12px rgba(0, 0, 0, .55);
-  }
-}
+/* Light is the DEFAULT theme (user decision 2026-08-28): no prefers-color-scheme
+   auto-switching. Dark applies only via explicit [data-theme="dark"] (visitor toggle,
+   persisted in localStorage). */
 
 /* -----------------------------------------------------------------------------
    3. PAGE

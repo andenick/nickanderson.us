@@ -44,6 +44,21 @@ CHECK = """() => {
   });
   const vw = document.documentElement.clientWidth;
   if (document.documentElement.scrollWidth > vw + 1) out.fails.push('horizontal overflow');
+  /* NV4 2026-08-28: text anomalies - nothing visible above the navbar (outside it),
+     and no markup/YAML/template signatures rendering as content. */
+  const inNav = el => { while (el) { if (el.classList && el.classList.contains('navbar')) return true; el = el.parentElement; } return false; };
+  const sig = /^-{3,}|^(title|description|layout|output):|^<[a-z]|^class=|^href=|\]\(|^\{/;
+  const w2 = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  let n2;
+  while ((n2 = w2.nextNode())) {
+    const t2 = n2.textContent.trim();
+    if (!t2 || inNav(n2)) continue;
+    const r2 = document.createRange(); r2.selectNodeContents(n2);
+    const rr2 = r2.getBoundingClientRect();
+    if (rr2.height <= 0 || rr2.width <= 0) continue;
+    if (rr2.top < navB - 2) out.fails.push('text above navbar: ' + t2.slice(0, 40));
+    if (sig.test(t2)) out.fails.push('markup-signature text: ' + t2.slice(0, 40));
+  }
   return out;
 }"""
 fails = 0

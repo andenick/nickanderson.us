@@ -722,14 +722,7 @@ the correlation disappeared in the 1960’s and 1970’s, Social Insurance
 and Retirement Taxes have not been entirely procyclical or
 countercyclical.
 </p>
-<p>
-The correlation of Social Insurance and Retirement Taxes with Nominal
-GDP and the Unemployment Rate tell a different story. When initially
-created, these Payroll taxes grew in a cyclical manner. However, since
-the correlation disappeared in the 1960’s and 1970’s, Social Insurance
-and Retirement Taxes have not been entirely procyclical or
-countercyclical.
-</p>
+
 <p>
 <img src="economichistory_files/figure-html/unnamed-chunk-9-1.png" width="672"></img>
 </p>
@@ -887,9 +880,7 @@ size when compared to the Financial and Current Accounts and is almost
 always near 0% of Gross Domestic Product. This relationship is evident
 in Figure 1 below.
 </p>
-<p>
-Last compiled: 2025-01-21
-</p>
+
 
 </div>
 

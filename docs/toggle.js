@@ -18,7 +18,7 @@
   function effective() {
     var t = document.documentElement.getAttribute("data-theme");
     if (t === "dark" || t === "light") return t;
-    return systemPrefersDark() ? "dark" : "light";
+    return "light"; /* light is the site default; no system-preference fallback */
   }
 
   var btn;

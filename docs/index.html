@@ -49,13 +49,10 @@
       if (t === "dark" || t === "light") {
         document.documentElement.setAttribute("data-theme", t);
       }
-    } catch (e) { /* ignore; system preference applies via CSS @media */ }
+    } catch (e) { /* ignore; light default applies with no saved choice */ }
   })();
 </script>
----
-title: "Nick Anderson"
-description: "Nick Anderson's research hosting site — empirical work on public finance and economic history, and the Heterodata ecosystem of interactive data sites."
----
+<meta name="description" content="Nick Anderson's research hosting site — empirical work on public finance and economic history, and the Heterodata ecosystem of interactive data sites.">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -318,11 +315,8 @@ $(document).ready(function () {
 <h1 style="text-align: center; font-weight: bold;">
 Welcome, here are some projects of mine
 </h1>
-<h2 style="text-align: center; border-bottom: 1px solid; padding-bottom: 0.35rem; opacity: 0.9;">
-Economics at The New School
-</h2>
 <div id="economics-at-the-new-school" class="section level3">
-<h3><a href="tnse.html">Economics at the New School</a></h3>
+<h3><a href="tnse.html">Economics at The New School</a></h3>
 <p>A three-part institutional and intellectual history of The New
 School’s economics department — who taught there, what they argued, and
 how the department changed American economics. A 121-page draft of Part
