@@ -21,11 +21,11 @@ I am moving data hosting off Google Drive and onto self-hosted mirrors at **file
 ### *Duration and Public Finance in the United States, 2001–2023*
 - **Self-hosted mirror:** [files.heterodata.org/duration-public-finance/](https://files.heterodata.org/duration-public-finance/)- [Google Drive (legacy)](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
 - [Read the paper →](research.html#duration-and-public-finance)
-- Interactive tool: [gerhard.heterodata.org](https://gerhard.heterodata.org)
+- Interactive tool: *temporarily offline (server migration)*
 
 ### Tax Revenue Cyclicality
 - **Self-hosted mirror:** [files.heterodata.org/tax-revenue-cyclicality/](https://files.heterodata.org/tax-revenue-cyclicality/)- [Google Drive (legacy)](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
-- Interactive tool: [gerhard.heterodata.org](https://gerhard.heterodata.org)
+- Interactive tool: *temporarily offline (server migration)*
 
 ---
 
@@ -44,7 +44,7 @@ The HMDA Explore dashboard at [hmdaexplore.com](https://hmdaexplore.com) is the 
 
 For programmatic access to bank regulatory data spanning 1863 to the present:
 
-- **FreeNIC** — [github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC) — billions of rows of U.S. bank regulatory data spanning 1863 to the present, with query tooling. Draft public explorer: [freenic.org](https://freenic.org).
+- **FreeNIC** — [github.com/andenick/FreeNIC](https://github.com/andenick/FreeNIC) — billions of rows of U.S. bank regulatory data spanning 1863 to the present, with query tooling. Draft public explorer: *temporarily offline (server migration)*.
 
 ---
 
@@ -52,7 +52,7 @@ For programmatic access to bank regulatory data spanning 1863 to the present:
 
 The replicated and extended data series behind the Anwar Shaikh *Capitalism* (2016) replication and the Shaikh & Tonak national-accounts work are published, with per-series provenance and downloads, at:
 
-- [shaikh.heterodata.org](https://shaikh.heterodata.org) — the *Capitalism* replication and extended national-accounts datasets.
+- *Interactive explorer temporarily offline (server migration); data mirror and code links above/below.* — the *Capitalism* replication and extended national-accounts datasets.
 
 ---
 
@@ -60,7 +60,7 @@ The replicated and extended data series behind the Anwar Shaikh *Capitalism* (20
 
 International-accounts data — balance of payments, flow of funds, and cross-border value transfers across more than 250 countries — is explorable at:
 
-- [lewis.heterodata.org](https://lewis.heterodata.org)
+- *Interactive explorer temporarily offline (server migration); data mirror and code links above/below.*
 
 ---
 
@@ -76,7 +76,7 @@ Bank-panel data on U.S. bank failures and balance sheets, 1865–2026:
 
 The U.S. BEA Input-Output accounts and the Leontief inverse across sectors, 1997–2024:
 
-- [leontief.heterodata.org](https://leontief.heterodata.org)
+- *Interactive explorer temporarily offline (server migration); data mirror and code links above/below.*
 
 ---
 

@@ -61,7 +61,7 @@ the total amounts of duration risk outstanding in the U.S. Treasury Market.
 ### Interactive companion
 
 A broader interactive treatment of U.S. taxation, spending, deficits, debt, and
-the Treasury market is at [gerhard.heterodata.org](https://gerhard.heterodata.org).
+the Treasury market is available in an interactive companion (*temporarily offline — server migration*).
 
 ## Full treatment — the original page
 
@@ -492,7 +492,7 @@ countercyclical fiscal policy?
 ### Interactive companions
 
 A broader interactive treatment of U.S. taxation, spending, deficits, debt, and
-the Treasury market is at [gerhard.heterodata.org](https://gerhard.heterodata.org).
+the Treasury market is available in an interactive companion (*temporarily offline — server migration*).
 
 ## Full treatment — the original page
 
@@ -797,8 +797,8 @@ Federal Reserve Bank of St. Louis; <a href="https://fred.stlouisfed.org/series/
 Sources: [Data](data.html)
 
 **Replication:** the long-run balance-of-payments data is available on the
-[Data](data.html) page and explorable at
-[lewis.heterodata.org](https://lewis.heterodata.org); a self-hosted data
+[Data](data.html) page and explorable via an interactive explorer
+(*temporarily offline — server migration*); a self-hosted data
 download mirror is available at
 [files.heterodata.org](https://files.heterodata.org/).
 
@@ -818,7 +818,7 @@ domestic economies of the subject countries.
 
 This written treatment is still in progress. The full long-run
 balance-of-payments data — for the United States, Germany, and 256 other
-countries — is explorable now at [Lewis](https://lewis.heterodata.org).
+countries — is explorable now via an interactive explorer (*temporarily offline — server migration*).
 
 ## Full treatment — the original page
 

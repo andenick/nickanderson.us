@@ -37,25 +37,32 @@ Code repositories, datasets and sources, who I am, and how to reach me.
 
 The Heterodata suite is built **agent-first**: an AI-driven research workflow
 designs, constructs, and documents every site, and every number on them traces
-to a documented source.
+to a documented source. The interactive demos are self-hosted; I am migrating
+the server right now, so some are temporarily offline. The **source code for
+every project is on GitHub** and linked below, so the work is always viewable.
 
-- **[Gerhard](https://gerhard.heterodata.org)** — the history and present of American public finance: taxation, spending, and debt over time.
-- **[Shaikh Data](https://shaikh.heterodata.org)** — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
-- **[Lewis](https://lewis.heterodata.org)** — international economics: balance-of-payments and cross-border value transfers across the world's economies.
-- **[Leontief](https://leontief.heterodata.org)** — U.S. input–output accounts; compute and inspect the Leontief inverse across sectors.
-- **[Vlad](https://vlad.heterodata.org)** — the official statistics of the Soviet Union and Imperial Russia.
-- **[Myrdal](https://myrdal.heterodata.org)** — population as a cause of economic outcomes: the long-run demographic transition.
-- **[Race](https://race.heterodata.org)** — race, stratification, and economic disparities in the United States.
-- **[Gordon](https://gordon.heterodata.org)** — U.S. employment and inflation on BLS, BEA, and Federal Reserve primary data.
-- **[Erwin](https://erwin.heterodata.org)** — military spending as an endogenous feature of capitalism.
-- **[FreeNIC](https://freenic.org)** — bank-level U.S. financial-data explorer: failures, FRED series, and active institutions; bulk data free.
+**Live demos**
+
 - **[Foodberg](https://foodberg.org)** — global food and commodity price explorer.
 - **[HMDA Explore](https://hmdaexplore.com)** — a dashboard over Home Mortgage Disclosure Act data on U.S. mortgage lending.
-- **[Methodex](https://methodex.fyi)** — a public-domain economic-statistics methodology layer.
 - **[JJ Muni](https://jjmuni.com)** — Westchester County sidewalk-coverage web map, tract by tract.
 - **[NYC Visualizer](https://nycvisualizer.com)** — live New York City transit map and sidewalk accessibility.
+- **Gerhard** *(demo temporarily offline)* — the history and present of American public finance: taxation, spending, and debt over time.
+- **Shaikh Data** *(demo temporarily offline)* — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
+- **Lewis** *(demo temporarily offline)* — international economics: balance-of-payments and cross-border value transfers across the world's economies.
+- **Leontief** *(demo temporarily offline)* — U.S. input–output accounts; compute and inspect the Leontief inverse across sectors.
+- **Vlad** *(demo temporarily offline)* — the official statistics of the Soviet Union and Imperial Russia.
+- **Myrdal** *(demo temporarily offline)* — population as a cause of economic outcomes: the long-run demographic transition.
+- **Race** *(demo temporarily offline)* — race, stratification, and economic disparities in the United States.
+- **Gordon** *(demo temporarily offline)* — U.S. employment and inflation on BLS, BEA, and Federal Reserve primary data.
+- **Erwin** *(demo temporarily offline)* — military spending as an endogenous feature of capitalism.
+- **FreeNIC** *(demo temporarily offline)* — bank-level U.S. financial-data explorer: failures, FRED series, and active institutions; bulk data free.
+- **Methodex** *(demo temporarily offline)* — a public-domain economic-statistics methodology layer.
 
-Data downloads across all of these are gathered at [files.heterodata.org](https://files.heterodata.org), and every site is indexed on the hub: [heterodata.org](https://heterodata.org).
+**Source code (GitHub)** — every project's code, always available:
+[Gerhard](https://github.com/andenick/gerhard) · [Shaikh Data](https://github.com/andenick/shaikh-capitalism-data) · [Lewis](https://github.com/andenick/lewis) · [Leontief](https://github.com/andenick/leontief) · [Vlad](https://github.com/andenick/vlad-web) · [Myrdal](https://github.com/andenick/myrdal-web) · [Race](https://github.com/andenick/race-web) · [Gordon](https://github.com/andenick/gordon-web) · [Erwin](https://github.com/andenick/erwin-web) · [FreeNIC](https://github.com/andenick/FreeNIC) · [Foodberg](https://github.com/andenick/Foodberg) · [HMDA Explore](https://github.com/andenick/hmda-analysis) · [Methodex](https://github.com/andenick/methodex-web) · [JJ Muni](https://github.com/andenick/westchester) · [NYC Visualizer](https://github.com/andenick/nycvisualizer).
+
+The hub at [heterodata.org](https://heterodata.org) and the data downloads at [files.heterodata.org](https://files.heterodata.org) are live.
 
 ---
 
