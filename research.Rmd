@@ -61,7 +61,7 @@ the total amounts of duration risk outstanding in the U.S. Treasury Market.
 ### Interactive companion
 
 A broader interactive treatment of U.S. taxation, spending, deficits, debt, and
-the Treasury market is available in an interactive companion (*temporarily offline — server migration*).
+the Treasury market is available in an interactive companion (*temporarily offline — server migration*; [code on GitHub](https://github.com/andenick/gerhard)).
 
 ## Full treatment — the original page
 
@@ -492,7 +492,7 @@ countercyclical fiscal policy?
 ### Interactive companions
 
 A broader interactive treatment of U.S. taxation, spending, deficits, debt, and
-the Treasury market is available in an interactive companion (*temporarily offline — server migration*).
+the Treasury market is available in an interactive companion (*temporarily offline — server migration*; [code on GitHub](https://github.com/andenick/gerhard)).
 
 ## Full treatment — the original page
 
@@ -798,7 +798,7 @@ Sources: [Data](data.html)
 
 **Replication:** the long-run balance-of-payments data is available on the
 [Data](data.html) page and explorable via an interactive explorer
-(*temporarily offline — server migration*); a self-hosted data
+(*temporarily offline — server migration*; [code on GitHub](https://github.com/andenick/lewis)); a self-hosted data
 download mirror is *temporarily offline — server migration*; see the
 [Data](data.html) page for mirrors.
 
@@ -818,7 +818,7 @@ domestic economies of the subject countries.
 
 This written treatment is still in progress. The full long-run
 balance-of-payments data — for the United States, Germany, and 256 other
-countries — is explorable now via an interactive explorer (*temporarily offline — server migration*).
+countries — is explorable now via an interactive explorer (*temporarily offline — server migration*; [code on GitHub](https://github.com/andenick/lewis)).
 
 ## Full treatment — the original page
 

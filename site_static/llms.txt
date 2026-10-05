@@ -20,7 +20,7 @@ of the Heterodata research-data ecosystem.
 
 ## Data
 
-- Download hub: https://files.heterodata.org
+- Download hub: https://files.heterodata.org (temporarily offline - server migration)
 
 ## Code
 
@@ -29,7 +29,7 @@ of the Heterodata research-data ecosystem.
 
 ## Outputs
 
-- Research hub: https://heterodata.org
+- Research hub: https://heterodata.org (temporarily offline - server migration)
 
 ## Notes for agents
 

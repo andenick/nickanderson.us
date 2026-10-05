@@ -21,11 +21,11 @@ I am moving data hosting off Google Drive and onto self-hosted mirrors at **file
 ### *Duration and Public Finance in the United States, 2001–2023*
 - **Self-hosted mirror:** *temporarily offline (server migration)* · [Google Drive (legacy)](https://drive.google.com/drive/folders/1WYw1BDLebc86p4GOkAUdjdTOUOvrPhm5?usp=sharing)
 - [Read the paper →](research.html#duration-and-public-finance)
-- Interactive tool: *temporarily offline (server migration)*
+- Interactive tool: *temporarily offline (server migration)* · [code on GitHub](https://github.com/andenick/gerhard)
 
 ### Tax Revenue Cyclicality
 - **Self-hosted mirror:** *temporarily offline (server migration)* · [Google Drive (legacy)](https://drive.google.com/drive/folders/1LZOTT-_jnL9rwczvfLr8AFgGP3hQKDaV?usp=sharing)
-- Interactive tool: *temporarily offline (server migration)*
+- Interactive tool: *temporarily offline (server migration)* · [code on GitHub](https://github.com/andenick/gerhard)
 
 ---
 
@@ -52,7 +52,7 @@ For programmatic access to bank regulatory data spanning 1863 to the present:
 
 The replicated and extended data series behind the Anwar Shaikh *Capitalism* (2016) replication and the Shaikh & Tonak national-accounts work are published, with per-series provenance and downloads, at:
 
-- *Interactive explorer temporarily offline (server migration); data mirror and code links above/below.* — the *Capitalism* replication and extended national-accounts datasets.
+- *Interactive explorer temporarily offline (server migration)* — [code on GitHub](https://github.com/andenick/shaikh-capitalism-data) — the *Capitalism* replication and extended national-accounts datasets.
 
 ---
 
@@ -60,7 +60,7 @@ The replicated and extended data series behind the Anwar Shaikh *Capitalism* (20
 
 International-accounts data — balance of payments, flow of funds, and cross-border value transfers across more than 250 countries — is explorable at:
 
-- *Interactive explorer temporarily offline (server migration); data mirror and code links above/below.*
+- *Interactive explorer temporarily offline (server migration)* — [code on GitHub](https://github.com/andenick/lewis)
 
 ---
 
@@ -76,7 +76,7 @@ Bank-panel data on U.S. bank failures and balance sheets, 1865–2026:
 
 The U.S. BEA Input-Output accounts and the Leontief inverse across sectors, 1997–2024:
 
-- *Interactive explorer temporarily offline (server migration); data mirror and code links above/below.*
+- *Interactive explorer temporarily offline (server migration)* — [code on GitHub](https://github.com/andenick/leontief)
 
 ---
 

@@ -47,17 +47,17 @@ every project is on GitHub** and linked below, so the work is always viewable.
 - **HMDA Explore** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/hmda-analysis))* — a dashboard over Home Mortgage Disclosure Act data on U.S. mortgage lending.
 - **JJ Muni** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/westchester))* — Westchester County sidewalk-coverage web map, tract by tract.
 - **NYC Visualizer** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/nycvisualizer))* — live New York City transit map and sidewalk accessibility.
-- **Gerhard** *(demo temporarily offline)* — the history and present of American public finance: taxation, spending, and debt over time.
-- **Shaikh Data** *(demo temporarily offline)* — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
-- **Lewis** *(demo temporarily offline)* — international economics: balance-of-payments and cross-border value transfers across the world's economies.
-- **Leontief** *(demo temporarily offline)* — U.S. input–output accounts; compute and inspect the Leontief inverse across sectors.
-- **Vlad** *(demo temporarily offline)* — the official statistics of the Soviet Union and Imperial Russia.
-- **Myrdal** *(demo temporarily offline)* — population as a cause of economic outcomes: the long-run demographic transition.
-- **Race** *(demo temporarily offline)* — race, stratification, and economic disparities in the United States.
-- **Gordon** *(demo temporarily offline)* — U.S. employment and inflation on BLS, BEA, and Federal Reserve primary data.
-- **Erwin** *(demo temporarily offline)* — military spending as an endogenous feature of capitalism.
-- **FreeNIC** *(demo temporarily offline)* — bank-level U.S. financial-data explorer: failures, FRED series, and active institutions; bulk data free.
-- **Methodex** *(demo temporarily offline)* — a public-domain economic-statistics methodology layer.
+- **Gerhard** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/gerhard))* — the history and present of American public finance: taxation, spending, and debt over time.
+- **Shaikh Data** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/shaikh-capitalism-data))* — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
+- **Lewis** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/lewis))* — international economics: balance-of-payments and cross-border value transfers across the world's economies.
+- **Leontief** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/leontief))* — U.S. input–output accounts; compute and inspect the Leontief inverse across sectors.
+- **Vlad** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/vlad-web))* — the official statistics of the Soviet Union and Imperial Russia.
+- **Myrdal** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/myrdal-web))* — population as a cause of economic outcomes: the long-run demographic transition.
+- **Race** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/race-web))* — race, stratification, and economic disparities in the United States.
+- **Gordon** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/gordon-web))* — U.S. employment and inflation on BLS, BEA, and Federal Reserve primary data.
+- **Erwin** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/erwin-web))* — military spending as an endogenous feature of capitalism.
+- **FreeNIC** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/FreeNIC))* — bank-level U.S. financial-data explorer: failures, FRED series, and active institutions; bulk data free.
+- **Methodex** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/methodex-web))* — a public-domain economic-statistics methodology layer.
 
 **Source code (GitHub)** — every project's code, always available:
 [Gerhard](https://github.com/andenick/gerhard) · [Shaikh Data](https://github.com/andenick/shaikh-capitalism-data) · [Lewis](https://github.com/andenick/lewis) · [Leontief](https://github.com/andenick/leontief) · [Vlad](https://github.com/andenick/vlad-web) · [Myrdal](https://github.com/andenick/myrdal-web) · [Race](https://github.com/andenick/race-web) · [Gordon](https://github.com/andenick/gordon-web) · [Erwin](https://github.com/andenick/erwin-web) · [FreeNIC](https://github.com/andenick/FreeNIC) · [Foodberg](https://github.com/andenick/Foodberg) · [HMDA Explore](https://github.com/andenick/hmda-analysis) · [Methodex](https://github.com/andenick/methodex-web) · [JJ Muni](https://github.com/andenick/westchester) · [NYC Visualizer](https://github.com/andenick/nycvisualizer).
