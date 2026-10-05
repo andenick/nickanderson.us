@@ -38,15 +38,15 @@ Code repositories, datasets and sources, who I am, and how to reach me.
 The Heterodata suite is built **agent-first**: an AI-driven research workflow
 designs, constructs, and documents every site, and every number on them traces
 to a documented source. The interactive demos are self-hosted; I am migrating
-the server right now, so some are temporarily offline. The **source code for
+the server right now, so they are all temporarily offline. The **source code for
 every project is on GitHub** and linked below, so the work is always viewable.
 
-**Live demos**
+**Interactive demos**
 
-- **[Foodberg](https://foodberg.org)** — global food and commodity price explorer.
-- **[HMDA Explore](https://hmdaexplore.com)** — a dashboard over Home Mortgage Disclosure Act data on U.S. mortgage lending.
-- **[JJ Muni](https://jjmuni.com)** — Westchester County sidewalk-coverage web map, tract by tract.
-- **[NYC Visualizer](https://nycvisualizer.com)** — live New York City transit map and sidewalk accessibility.
+- **Foodberg** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/Foodberg))* — global food and commodity price explorer.
+- **HMDA Explore** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/hmda-analysis))* — a dashboard over Home Mortgage Disclosure Act data on U.S. mortgage lending.
+- **JJ Muni** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/westchester))* — Westchester County sidewalk-coverage web map, tract by tract.
+- **NYC Visualizer** *(demo temporarily offline — [code on GitHub](https://github.com/andenick/nycvisualizer))* — live New York City transit map and sidewalk accessibility.
 - **Gerhard** *(demo temporarily offline)* — the history and present of American public finance: taxation, spending, and debt over time.
 - **Shaikh Data** *(demo temporarily offline)* — replications of Anwar Shaikh's *Capitalism* and *Measuring the Wealth of Nations*, with interactive charts, downloads, and full provenance.
 - **Lewis** *(demo temporarily offline)* — international economics: balance-of-payments and cross-border value transfers across the world's economies.
@@ -62,7 +62,7 @@ every project is on GitHub** and linked below, so the work is always viewable.
 **Source code (GitHub)** — every project's code, always available:
 [Gerhard](https://github.com/andenick/gerhard) · [Shaikh Data](https://github.com/andenick/shaikh-capitalism-data) · [Lewis](https://github.com/andenick/lewis) · [Leontief](https://github.com/andenick/leontief) · [Vlad](https://github.com/andenick/vlad-web) · [Myrdal](https://github.com/andenick/myrdal-web) · [Race](https://github.com/andenick/race-web) · [Gordon](https://github.com/andenick/gordon-web) · [Erwin](https://github.com/andenick/erwin-web) · [FreeNIC](https://github.com/andenick/FreeNIC) · [Foodberg](https://github.com/andenick/Foodberg) · [HMDA Explore](https://github.com/andenick/hmda-analysis) · [Methodex](https://github.com/andenick/methodex-web) · [JJ Muni](https://github.com/andenick/westchester) · [NYC Visualizer](https://github.com/andenick/nycvisualizer).
 
-The hub at [heterodata.org](https://heterodata.org) and the data downloads at [files.heterodata.org](https://files.heterodata.org) are live.
+The hub (heterodata.org) and the data downloads (files.heterodata.org) are temporarily offline during the migration.
 
 ---
 

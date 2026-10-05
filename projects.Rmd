@@ -15,7 +15,7 @@ output:
 
 # Projects
 
-Public code repositories and data tools. Most of the interactive tools below are also gathered at my research hub, [heterodata.org](https://heterodata.org). For source material on related research, see the [Research](research.html) and [TNSE](tnse.html) pages.
+Public code repositories and data tools. Most of the interactive tools below are also gathered at my research hub, heterodata.org *(temporarily offline — server migration)*. For source material on related research, see the [Research](research.html) and [TNSE](tnse.html) pages.
 
 Each project lists its **website** and its **GitHub repository** side by side — the site is the interactive explorer; the repo holds the code and data.
 
@@ -23,7 +23,7 @@ Each project lists its **website** and its **GitHub repository** side by side �
 
 *Research-Data Hub*
 
-- **Site:** [heterodata.org](https://heterodata.org) — the hub linking all of the data sites.
+- **Site:** *temporarily offline (server migration)* — the hub linking all of the data sites.
 
 The research-data platform that gathers the interactive data sites — Gerhard, Shaikh Data, Lewis, Vlad, and Leontief — alongside the affiliated standalone sites (freenic.org, foodberg.org, methodex.fyi).
 
@@ -85,7 +85,7 @@ A public Python and R package plus a server providing programmatic access to **1
 
 *Historical Food Price Explorer*
 
-- **Site:** [foodberg.org](https://foodberg.org) — interactive explorer.
+- **Site:** *temporarily offline (server migration)* — interactive explorer.
 - **Repo:** [github.com/andenick/Foodberg](https://github.com/andenick/Foodberg) — code and data.
 
 A full-stack web application (React + FastAPI) for exploring historical food commodity prices across FAO, USDA WASDE, BLS, FRED, and World Bank data. 169,000+ records from 5 sources.
@@ -103,7 +103,7 @@ The construction-and-revision history of economic statistics — for any series,
 
 *Home Mortgage Disclosure Act Dashboard*
 
-- **Site (web version):** [hmdaexplore.com](https://hmdaexplore.com) — the actively developed web version.
+- **Site (web version):** *temporarily offline (server migration)* — the actively developed web version.
 - **Site (Shiny draft):** [andenick.shinyapps.io/HMDAExplore](https://andenick.shinyapps.io/HMDAExplore/) — the earlier interactive draft; slower to start.
 - **Repo:** [github.com/andenick/hmda-analysis](https://github.com/andenick/hmda-analysis) — processing code and analysis.
 

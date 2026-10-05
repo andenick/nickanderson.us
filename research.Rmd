@@ -28,8 +28,8 @@ The data behind each paper is linked from the [Data](data.html) page.
 Sources: [Data](data.html)
 
 **Replication:** data and processing scripts are available on the
-[Data](data.html) page; a self-hosted data download mirror is available at
-[files.heterodata.org](https://files.heterodata.org/duration-public-finance/).
+[Data](data.html) page; a self-hosted data download mirror is *temporarily offline — server migration*;
+the [Data](data.html) page’s Google Drive mirror carries the same files.
 
 ### Introduction
 
@@ -476,8 +476,8 @@ Business, vol. 46, no. 4, 1973, pp. 589–92. JSTOR, <a href="http://www.jstor
 Sources: [Data](data.html)
 
 **Replication:** source data is available on the [Data](data.html) page; a
-self-hosted data download mirror is available at
-[files.heterodata.org](https://files.heterodata.org/tax-revenue-cyclicality/).
+self-hosted data download mirror is *temporarily offline — server migration*;
+the [Data](data.html) page’s Google Drive mirror carries the same files.
 
 ### Abstract
 
@@ -799,8 +799,8 @@ Sources: [Data](data.html)
 **Replication:** the long-run balance-of-payments data is available on the
 [Data](data.html) page and explorable via an interactive explorer
 (*temporarily offline — server migration*); a self-hosted data
-download mirror is available at
-[files.heterodata.org](https://files.heterodata.org/).
+download mirror is *temporarily offline — server migration*; see the
+[Data](data.html) page for mirrors.
 
 ### Introduction
 
